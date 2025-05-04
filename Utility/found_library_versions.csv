@@ -1,0 +1,14 @@
+bump_id,prev_version,selected_tag,status
+BBC27,2.9.10.3,jackson-databind-2.9.10.3,success
+BBC33,2.10.5.1,jackson-databind-2.10.5.1,success
+BBC41,4.11.0,v4.11.0,success
+BBC54,2.10.5.1,jackson-databind-2.10.5.1,success
+BBC56,2.10.5.1,jackson-databind-2.10.5.1,success
+BBC79,2.10.5.1,jackson-databind-2.10.5.1,success
+BBC83,2.10.5.1,jackson-databind-2.10.5.1,success
+BBC97,4.11.0,v4.11.0,success
+BBC101,3.2.0,plexus-io-3.2.0,success
+BBC106,2.9.10.5,jackson-databind-2.9.10.5,success
+BBC146,2.9.10.3,jackson-databind-2.9.10.3,success
+BBC147,2.10.5.1,jackson-databind-2.10.5.1,success
+BBC148,4.11.0,v4.11.0,success
