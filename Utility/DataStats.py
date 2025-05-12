@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load CSV
-df = pd.read_csv('Library_with_GitHub.csv')
+df = pd.read_csv('BUMP_with_GitHub.csv')
 
 # Step 1: Remove rows where githubURL is NaN, empty, or "No GitHub Repo Found"
 df_clean = df.dropna(subset=['githubURL'])
