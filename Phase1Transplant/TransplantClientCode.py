@@ -5,8 +5,8 @@ from pathlib import Path
 LLM_NAME = "GPT4o"
 PROMPT_VERSION = "promptv1"
 
-OUTPUT_ROOT = Path("/Volumes/Rachna-HD/Generated_output") / LLM_NAME
-PROJECT_ROOT = Path("/Volumes/Rachna-HD/ExecutableProjects")
+OUTPUT_ROOT = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/Generated_output_with_client") / LLM_NAME
+PROJECT_ROOT = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ExecutableProjects_Client")
 
 # === POM FILE TEMPLATE ===
 POM_TEMPLATE = """<project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -45,7 +45,7 @@ POM_TEMPLATE = """<project xmlns="http://maven.apache.org/POM/4.0.0"
 
 # === UTILITIES ===
 def get_clean_class_name(txt_file: Path) -> str:
-    return txt_file.stem  # e.g., BBC48U1Test
+    return txt_file.stem.replace("_prompt", "")
 
 def create_java_project_if_needed(bump_id: str, version: str) -> Path:
     project_name = f"{bump_id}_{version}"
@@ -66,12 +66,10 @@ def transplant_file_to_project(project_dir: Path, class_name: str, java_code: st
     java_code = re.sub(r'^package\s+[\w.]+;\s*', '', java_code.strip(), flags=re.MULTILINE)
     java_code = f"{package_decl}\n\n{java_code}"
 
-    # Target path for .java file
     package_dir = project_dir / "src" / "test" / "java" / Path(package_path.replace(".", "/"))
     package_dir.mkdir(parents=True, exist_ok=True)
     java_file_path = package_dir / f"{class_name}.java"
 
-    # Overwrite existing .java file
     if java_file_path.exists():
         java_file_path.unlink()
         print(f"Replacing existing: {java_file_path.name}")
@@ -95,16 +93,22 @@ def process_bump(bump_id: str):
 
     print(f"\nProcessing BUMP: {bump_id}")
 
-    # Create Java projects for next and prev
     project_next = create_java_project_if_needed(bump_id, "next")
     project_prev = create_java_project_if_needed(bump_id, "prev")
 
     for txt_file in txt_files:
         class_name = get_clean_class_name(txt_file)
         with open(txt_file, "r", encoding="utf-8") as f:
-            java_code = f.read()
+            full_text = f.read()
 
-        # Transplant to both next and prev
+        # Extract strictly the first ```java ... ``` block
+        code_blocks = re.findall(r"```(?:java)?\s*([\s\S]*?)\s*```", full_text)
+        if not code_blocks:
+            print(f"⚠️  Skipping {txt_file.name}: no valid code block found.")
+            continue
+
+        java_code = code_blocks[0].strip()
+
         transplant_file_to_project(project_next, class_name, java_code, LLM_NAME, PROMPT_VERSION)
         transplant_file_to_project(project_prev, class_name, java_code, LLM_NAME, PROMPT_VERSION)
 
@@ -113,11 +117,12 @@ if __name__ == "__main__":
     bump_folders = sorted([p.name for p in OUTPUT_ROOT.iterdir() if p.is_dir()])
     print(f"\nFound {len(bump_folders)} BUMP instance(s) under {OUTPUT_ROOT}\n")
 
-    test_bump_id = "BBC02"
+    test_bump_id = "BBC22"
     process_bump(test_bump_id)
     print("\nSINGLE BUMP TEST COMPLETED.")
 
+    # Uncomment to run for all:
     # for bump_id in bump_folders:
     #     process_bump(bump_id)
 
-    # print("\nALL TRANSPLANTS COMPLETED.")
+    print("\nALL TRANSPLANTS COMPLETED.")
