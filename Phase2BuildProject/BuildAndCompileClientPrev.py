@@ -5,6 +5,9 @@ from collections import defaultdict
 import re
 
 # Constants
+
+# Meant to install dependencies (Phase 1) then use maven compile to find and exclude uncompiled classes. 
+# (Currently it does not exclude it actually and the tests fail when maven test phase is executed.)
 PROJECT_ROOT = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ExecutableProjects_Client")
 RESULT_DIR = PROJECT_ROOT.parent / "ResultClientExecution"
 RESULT_DIR.mkdir(exist_ok=True)
@@ -39,7 +42,7 @@ def run_install_phase():
             continue
 
         summary["total_projects"] += 1
-        print(f"📦 Running install: {bump_id}_prev")
+        print(f" Running install: {bump_id}_prev")
 
         retcode, output = run_command(["mvn", "clean", "install", "-Dmaven.test.skip=true"], cwd=proj_path)
 
@@ -63,7 +66,7 @@ def run_install_phase():
     with open(INSTALL_RESULTS_PATH, "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)
 
-    print(f"\n✅ Install summary saved to: {INSTALL_RESULTS_PATH}")
+    print(f"\n Install summary saved to: {INSTALL_RESULTS_PATH}")
     return summary
 
 # STEP 2: TEST COMPILE
@@ -113,7 +116,7 @@ def run_test_compile_phase(install_summary):
     with open(TEST_COMPILE_RESULTS_PATH, "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)
 
-    print(f"\n✅ Test-compile summary saved to: {TEST_COMPILE_RESULTS_PATH}")
+    print(f"\n Test-compile summary saved to: {TEST_COMPILE_RESULTS_PATH}")
     return summary
 
 # STEP 3: TEST EXECUTION
@@ -128,7 +131,7 @@ def run_test_execution_phase(install_summary, test_compile_summary):
             continue
 
         proj_path = PROJECT_ROOT / project.split("_prev")[0] / project
-        print(f"🧪 Running tests: {project}")
+        print(f" Running tests: {project}")
         retcode, output = run_command(["mvn", "test"], cwd=proj_path)
 
         total_run = total_failures = total_errors = total_skipped = 0
@@ -161,7 +164,7 @@ def run_test_execution_phase(install_summary, test_compile_summary):
     with open(TEST_EXECUTION_RESULTS_PATH, "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)
 
-    print(f"\n✅ Test execution summary saved to: {TEST_EXECUTION_RESULTS_PATH}")
+    print(f"\n Test execution summary saved to: {TEST_EXECUTION_RESULTS_PATH}")
     return summary
 
 # === MAIN ===

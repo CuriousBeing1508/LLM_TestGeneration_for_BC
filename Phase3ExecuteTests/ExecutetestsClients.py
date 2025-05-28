@@ -63,7 +63,7 @@ def run_install_phase():
     with open(INSTALL_RESULTS_PATH, "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)
 
-    print(f"\n✅ Install summary saved to: {INSTALL_RESULTS_PATH}")
+    print(f"\n Install summary saved to: {INSTALL_RESULTS_PATH}")
     return summary
 
 # STEP 2: TEST COMPILE
@@ -113,7 +113,7 @@ def run_test_compile_phase(install_summary):
     with open(TEST_COMPILE_RESULTS_PATH, "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)
 
-    print(f"\n✅ Test-compile summary saved to: {TEST_COMPILE_RESULTS_PATH}")
+    print(f"\n Test-compile summary saved to: {TEST_COMPILE_RESULTS_PATH}")
     return summary
 
 # STEP 3: TEST EXECUTION
@@ -124,67 +124,48 @@ def run_test_execution_phase(install_summary, test_compile_summary):
         if install_data["status"] != "success":
             continue
 
-        compile_info = test_compile_summary.get(project, {})
-        compiled_classes = compile_info.get("compiled_test_classes", [])
-        skipped_count = compile_info.get("skipped_count", 0)
-
-        if not compiled_classes:
+        if project not in test_compile_summary or test_compile_summary[project]["compiled_count"] == 0:
             continue
 
         proj_path = PROJECT_ROOT / project.split("_prev")[0] / project
+        print(f"🧪 Running tests: {project}")
+        retcode, output = run_command(["mvn", "test"], cwd=proj_path)
+
+        total_run = total_failures = total_errors = total_skipped = 0
+        for line in output.splitlines():
+            match = re.search(r"Tests run: (\d+), Failures: (\d+), Errors: (\d+), Skipped: (\d+)", line)
+            if match:
+                total_run += int(match.group(1))
+                total_failures += int(match.group(2))
+                total_errors += int(match.group(3))
+                total_skipped += int(match.group(4))
+
+        total_passed = total_run - total_failures - total_errors
+
+        # Save test-run log regardless
         project_log_dir = RESULT_DIR / project
         project_log_dir.mkdir(parents=True, exist_ok=True)
-
-        total_tests_run = total_passed = total_failed = total_skipped = 0
-        executed_test_classes = 0
-        test_log_lines = []
-
-        for rel_path_str in compiled_classes:
-            fqcn = Path(rel_path_str).with_suffix("").as_posix().replace("/", ".")
-
-            print(f"🧪 Running test class: {fqcn} in {project}")
-            retcode, output = run_command(["mvn", f"-Dtest={fqcn}", "-DfailIfNoTests=false", "surefire:test"], cwd=proj_path)
-
-            test_log_lines.append(f"\n===== {fqcn} =====\n{output}")
-
-            class_tests_run = class_failures = class_errors = class_skipped = 0
-
-            for line in output.splitlines():
-                match = re.search(r"Tests run: (\d+), Failures: (\d+), Errors: (\d+), Skipped: (\d+)", line)
-                if match:
-                    class_tests_run += int(match.group(1))
-                    class_failures += int(match.group(2))
-                    class_errors += int(match.group(3))
-                    class_skipped += int(match.group(4))
-
-            if class_tests_run > 0:
-                executed_test_classes += 1
-                total_tests_run += class_tests_run
-                total_failed += class_failures + class_errors
-                total_skipped += class_skipped
-
-        total_passed = total_tests_run - total_failed - total_skipped
-
-        summary[project] = {
-            "compiled_test_classes": len(compiled_classes),
-            "executed_test_classes": executed_test_classes,
-            "skipped_test_classes": skipped_count,
-            "tests_executed": total_tests_run,
-            "tests_passed": total_passed,
-            "tests_failed": total_failed,
-            "tests_skipped": total_skipped,
-            "overall_test_execution_result": "pass" if total_failed == 0 else "fail"
-        }
-
-        # Save combined log for this project
         with open(project_log_dir / "test_run.log", "w", encoding="utf-8") as f:
-            f.write("\n".join(test_log_lines))
+            f.write(output)
+
+        # Add to report only if tests were executed
+        if total_run > 0:
+            summary[project] = {
+                "compiled_test_classes": test_compile_summary[project]["compiled_count"],
+                "skipped_test_classes": test_compile_summary[project]["skipped_count"],
+                "tests_executed": total_run,
+                "tests_passed": total_passed,
+                "tests_failed": total_failures + total_errors,
+                "tests_skipped": total_skipped,
+                "overall_test_execution_result": "pass" if (total_failures + total_errors) == 0 else "fail"
+            }
 
     with open(TEST_EXECUTION_RESULTS_PATH, "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)
 
-    print(f"\n✅ Test execution summary saved to: {TEST_EXECUTION_RESULTS_PATH}")
+    print(f"\n Test execution summary saved to: {TEST_EXECUTION_RESULTS_PATH}")
     return summary
+
 
 # === MAIN ===
 if __name__ == "__main__":
