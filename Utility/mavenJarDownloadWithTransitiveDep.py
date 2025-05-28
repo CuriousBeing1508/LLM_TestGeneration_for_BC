@@ -1,9 +1,13 @@
 import subprocess
 import pandas as pd
 from pathlib import Path
+# Path for PoC
+# CSV_PATH = "/Users/rachnaraj/Documents/Research/Poc/Dataset/FinalBUMP_Instances.csv"
+# ROOT_DIR = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/downloaded_jars")
 
-CSV_PATH = "/Users/rachnaraj/Documents/Research/Poc/Dataset/FinalBUMP_Instances.csv"
-ROOT_DIR = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/downloaded_jars")
+# Path Experiment 1
+CSV_PATH = "/Volumes/Rachna-HD/FinalBUMP_Instances.csv"
+ROOT_DIR = Path("/Volumes/Rachna-HD/Dataset/downloaded_jars")
 
 def create_temp_pom(group_id, artifact_id, version, pom_path):
     pom_template = f"""<project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -74,7 +78,7 @@ def main():
 
         process_bump_instance(group_id, artifact_id, version, custom_id)
 
-    print("\n✅ All downloads completed.")
+    print("\n All downloads completed.")
 
 if __name__ == "__main__":
     main()

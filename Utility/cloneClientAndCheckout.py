@@ -11,7 +11,12 @@ GITHUB_PAT = os.environ.get('GITHUB_PAT')
 assert GITHUB_PAT, "GitHub token not found in environment variable GITHUB_PAT"
 
 FAILED_LOG_PATH = "failed_clones.txt"
-CLIENTS_DIR = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ClonedRepo/Clients")
+# Poc Path
+# CLIENTS_DIR = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ClonedRepo/Clients")
+
+#Experiment 1 Path
+CLIENTS_DIR = Path("/Volumes/Rachna-HD/Dataset/ClonedRepo/Clients")
+csv_path = Path("/Volumes/Rachna-HD/FinalBUMP_Instances.csv")
 
 def extract_repo_url_and_pr_number(pr_url):
     """From a PR URL, extract repo URL and PR number"""
@@ -79,7 +84,7 @@ def extract_pom_file(clone_dir, custom_id_dir, custom_id):
     print(f"{custom_id}: No pom.xml found")
 
 def main():
-    csv_path = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/FinalBUMP_Instances.csv")
+   
     df = pd.read_csv(csv_path)
 
     with open(FAILED_LOG_PATH, "w") as fail_log_file:

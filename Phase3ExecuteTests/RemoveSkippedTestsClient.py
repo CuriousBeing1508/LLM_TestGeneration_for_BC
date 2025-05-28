@@ -3,7 +3,7 @@ from pathlib import Path
 import shutil
 import os
 #  This step is very important to ecexute before executing maven tests. 
-# Paths
+# Paths for poc
 PROJECT_ROOT = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ExecutableProjects_Client")
 SKIP_LOG_JSON = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ResultClientExecution/step2_test_compile_results_prev.json")
 SKIPPED_DIR = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ResultClientExecution/skipped_classes")

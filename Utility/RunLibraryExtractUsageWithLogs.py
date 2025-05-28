@@ -5,16 +5,25 @@ import sys
 import time
 
 # === CONFIG ===
+# Use java 21 for this, Java 23 is not compatible with Byte-buddy: Dated May 23, 20225
 
+# POC Path
+# SCRIPT_DIR = Path(__file__).resolve().parent
+# csv_path = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/FinalBUMP_Instances.csv")
+# jar_path = SCRIPT_DIR / "Extract-library-usage-from-bytecode.jar"
+# library_root = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/downloaded_jars")
+# analysis_root = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/StaticAnalysisClient")
+# log_dir = Path("/Users/rachnaraj/Documents/Research/Poc/logs")
+# log_dir.mkdir(parents=True, exist_ok=True)
 
+# Experiment 1 Path
 SCRIPT_DIR = Path(__file__).resolve().parent
-csv_path = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/FinalBUMP_Instances.csv")
+csv_path = Path("/Volumes/Rachna-HD/FinalBUMP_Instances.csv")
 jar_path = SCRIPT_DIR / "Extract-library-usage-from-bytecode.jar"
-library_root = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/downloaded_jars")
-analysis_root = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/StaticAnalysisClient")
-log_dir = Path("/Users/rachnaraj/Documents/Research/Poc/logs")
+library_root = Path("/Volumes/Rachna-HD/Dataset/downloaded_jars")
+analysis_root = Path("/Volumes/Rachna-HD/Dataset/StaticAnalysisClient")
+log_dir = Path("/Volumes/Rachna-HD/logs")
 log_dir.mkdir(parents=True, exist_ok=True)
-
 
 def log_and_run(cmd, bump_id=None):
     log_path = log_dir / f"{bump_id}_library_usage.log"
