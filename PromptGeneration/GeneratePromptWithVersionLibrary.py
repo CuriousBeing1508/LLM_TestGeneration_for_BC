@@ -2,10 +2,22 @@ import json
 from pathlib import Path
 
 # === CONFIG ===
-ROOT_DIR = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/StaticAnalysisClient")
-OUTPUT_ROOT = ROOT_DIR.parent / "GeneratedPromptsWithVersionLibrary"
-USAGE_SUBPATH = "LibraryUsageReport"
-USAGE_FILENAME = "library_usage.json"
+# Poc Path
+# ROOT_DIR = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/StaticAnalysis")
+# OUTPUT_ROOT = ROOT_DIR.parent / "GeneratedPromptsWithVersionLibrary"
+# # This is the folder inside the root directory where baseline (library usage) is stored.
+# USAGE_SUBPATH = "LibraryUsageReport" 
+# # this is the name of the json file where baseline library usage data is stored..
+# USAGE_FILENAME = "library_usage.json"
+
+# Experiment 1 path
+ROOT_DIR = Path("/Volumes/Rachna-HD/Dataset/StaticAnalysis")
+OUTPUT_ROOT = Path( "/Volumes/Rachna-HD/Dataset/GeneratedPromptsWithVersionLibrary")
+# This is the folder inside the root directory where baseline (library usage) is stored.
+USAGE_SUBPATH = "LibraryUsageReport" 
+# this is the name of the json file where baseline library usage data is stored..
+USAGE_FILENAME = "*.json"
+
 
 def generate_prompt_from_usage_block(block, class_name):
     # Filter only method calls
@@ -58,24 +70,26 @@ def process_bump_instance(bump_dir):
     usage_file = bump_dir / USAGE_SUBPATH / USAGE_FILENAME
 
     if not usage_file.exists():
-        print(f"❌ Skipping {bump_dir.name} — '{USAGE_FILENAME}' not found in LibraryUsageReport")
+        print(f" Skipping {bump_dir.name} — '{USAGE_FILENAME}' not found in LibraryUsageReport")
         return
+    else:
+        output_dir = OUTPUT_ROOT / bump_dir.name
+        output_dir.mkdir(parents=True, exist_ok=True)
 
     print(f"🔍 Reading usage file: {usage_file.name} from {bump_dir.name}")
 
     try:
         with open(usage_file, "r", encoding="utf-8") as f:
             usage_blocks = json.load(f)
+            
     except Exception as e:
-        print(f"❌ Failed to read {usage_file.name}: {e}")
+        print(f" Failed to read {usage_file.name}: {e}")
         return
 
     if not isinstance(usage_blocks, list):
         usage_blocks = [usage_blocks]
-
-    output_dir = OUTPUT_ROOT / bump_dir.name
-    output_dir.mkdir(parents=True, exist_ok=True)
-
+        
+    
     for idx, usage_block in enumerate(usage_blocks):
         class_name = f"{bump_dir.name}U{idx}Test"
         output_path = output_dir / f"{class_name}_prompt.txt"
@@ -84,17 +98,17 @@ def process_bump_instance(bump_dir):
         if prompt:
             with open(output_path, "w", encoding="utf-8") as out_f:
                 out_f.write(prompt)
-            print(f"✅ Saved: {output_path.name}")
+            print(f" Saved: {output_path.name}")
         else:
-            print(f"⚠️  Skipping block {idx} — No method_call usage in {usage_file.name}")
+            print(f" Skipping block {idx} — No method_call usage in {usage_file.name}")
 
 def main():
     for bump_dir in ROOT_DIR.iterdir():
         if bump_dir.is_dir() and bump_dir.name.startswith("BBC"):
-            print(f"\n📦 Processing {bump_dir.name}")
+            print(f"\n Processing {bump_dir.name}")
             process_bump_instance(bump_dir)
 
-    print("\n✅ All prompts generated.")
+    print("\n All prompts generated.")
 
 if __name__ == "__main__":
     main()

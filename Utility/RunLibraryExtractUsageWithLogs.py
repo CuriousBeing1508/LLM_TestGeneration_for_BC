@@ -21,7 +21,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 csv_path = Path("/Volumes/Rachna-HD/FinalBUMP_Instances.csv")
 jar_path = SCRIPT_DIR / "Extract-library-usage-from-bytecode.jar"
 library_root = Path("/Volumes/Rachna-HD/Dataset/downloaded_jars")
-analysis_root = Path("/Volumes/Rachna-HD/Dataset/StaticAnalysisClient")
+analysis_root = Path("/Volumes/Rachna-HD/Dataset/StaticAnalysis")
 log_dir = Path("/Volumes/Rachna-HD/logs")
 log_dir.mkdir(parents=True, exist_ok=True)
 
