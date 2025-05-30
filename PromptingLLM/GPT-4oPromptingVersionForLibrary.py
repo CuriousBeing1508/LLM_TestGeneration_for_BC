@@ -12,9 +12,15 @@ if not api_key:
 
 client = OpenAI(api_key=api_key)
 
-# === PATHS ===
-PROMPT_DIR = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/GeneratedPromptsWithVersionLibrary")
-OUTPUT_ROOT = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/Generated_Output_Library") / "GPT4o"
+# === POC PATHS ===
+# PROMPT_DIR = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/GeneratedPromptsWithVersionLibrary")
+# OUTPUT_ROOT = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/Generated_Output_Library") / "GPT4o"
+# OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
+# LOG_FILE = OUTPUT_ROOT / "generation_log.txt"
+
+#Experiment 1 path
+PROMPT_DIR = Path("/Volumes/Rachna-HD/Dataset/GeneratedPromptLibrary")
+OUTPUT_ROOT = Path("/Volumes/Rachna-HD/Dataset/LLMOutputLibrary") / "GPT4o"
 OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
 LOG_FILE = OUTPUT_ROOT / "generation_log.txt"
 
