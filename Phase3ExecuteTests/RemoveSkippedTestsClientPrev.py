@@ -4,9 +4,14 @@ import shutil
 import os
 #  This step is very important to ecexute before executing maven tests. 
 # Paths for poc
-PROJECT_ROOT = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ExecutableProjects_Client")
-SKIP_LOG_JSON = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ResultClientExecution/step2_test_compile_results_prev.json")
-SKIPPED_DIR = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ResultClientExecution/skipped_classes")
+# PROJECT_ROOT = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ExecutableProjects_Client")
+# SKIP_LOG_JSON = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ResultClientExecution/step2_test_compile_results_prev.json")
+# SKIPPED_DIR = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ResultClientExecution/skipped_classes")
+
+# Path Exp 1
+PROJECT_ROOT = Path("/Volumes/Rachna-HD/Dataset/Exp1/ExecutableProjects_Client")
+SKIP_LOG_JSON = Path("/Volumes/Rachna-HD/Dataset/Exp1/ResultClientExecution/step2_test_compile_results_prev.json")
+SKIPPED_DIR = Path("/Volumes/Rachna-HD/Dataset/Exp1/ResultClientExecution/skipped_classes")
 
 # Ensure output directory exists
 SKIPPED_DIR.mkdir(parents=True, exist_ok=True)

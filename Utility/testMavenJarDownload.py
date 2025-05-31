@@ -1,13 +1,10 @@
 import subprocess
 import pandas as pd
 from pathlib import Path
-# Path for PoC
+
+# === CONFIG ===
 CSV_PATH = "/Users/rachnaraj/Documents/Research/Poc/Dataset/FinalBUMP_Instances.csv"
 ROOT_DIR = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/downloaded_jars_1")
-
-# Path Experiment 1
-# CSV_PATH = "/Volumes/Rachna-HD/FinalBUMP_Instances.csv"
-# ROOT_DIR = Path("/Volumes/Rachna-HD/Dataset/downloaded_jars")
 
 def create_temp_pom(group_id, artifact_id, version, pom_path):
     pom_template = f"""<project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -30,25 +27,28 @@ def create_temp_pom(group_id, artifact_id, version, pom_path):
     pom_path.write_text(pom_template)
 
 def run_maven_copy_deps(pom_dir, output_dir):
-    cmd = [
-        "mvn",
-        "org.apache.maven.plugins:maven-dependency-plugin:3.6.0:copy-dependencies",
-        f"-DoutputDirectory={output_dir}",
-        "-DincludeScope=runtime",
-        "-DexcludeOptional=false",  # include optional dependencies
-        "-B",                       # batch mode (no interactive prompts)
-    ]
-    subprocess.run(cmd, cwd=pom_dir, check=True)
-
+    for scope in ["compile", "runtime"]:
+        cmd = [
+            "mvn",
+            "org.apache.maven.plugins:maven-dependency-plugin:3.6.0:copy-dependencies",
+            f"-DoutputDirectory={output_dir}",
+            f"-DincludeScope={scope}",
+            "-DexcludeOptional=false",  # include optional dependencies
+            "-B",                        # batch mode
+        ]
+        print(f"[INFO] Running Maven for scope: {scope}")
+        subprocess.run(cmd, cwd=pom_dir, check=True)
 
 def process_bump_instance(group_id, artifact_id, version, custom_id):
     print(f"[INFO] Processing: {custom_id} ➜ {group_id}:{artifact_id}:{version}")
     output_dir = ROOT_DIR / custom_id
-    if any(output_dir.glob("*.jar")):
-        print(f"[SKIP] Already has JARs: {output_dir}")
-        return
 
-    output_dir.mkdir(parents=True, exist_ok=True)
+    # Always clean old jars to force redownload
+    if output_dir.exists():
+        for f in output_dir.glob("*.jar"):
+            f.unlink()
+    else:
+        output_dir.mkdir(parents=True)
 
     # Create a temp folder for the POM
     temp_pom_dir = output_dir / "__temp"

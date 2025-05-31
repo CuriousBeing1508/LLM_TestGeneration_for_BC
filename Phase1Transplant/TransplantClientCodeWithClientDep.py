@@ -47,7 +47,6 @@ POM_TEMPLATE = """<project xmlns="http://maven.apache.org/POM/4.0.0"
 </project>
 """
 
-
 # === UTILITIES ===
 
 def extract_properties(bump_id: str) -> str:
@@ -72,14 +71,14 @@ def extract_properties(bump_id: str) -> str:
         return props_block
 
     except ET.ParseError:
-        print(f" Failed to parse properties in pom.xml for {bump_id}")
+        print(f"⚠️ Failed to parse properties in pom.xml for {bump_id}")
         return ""
 
 def extract_additional_dependencies(bump_id: str) -> str:
     source_pom = CLIENT_ROOT / bump_id / "pom.xml"
     print(source_pom)
     if not source_pom.exists():
-        print(f" No source pom.xml found for {bump_id}")
+        print(f"⚠️ No source pom.xml found for {bump_id}")
         return ""
 
     try:
@@ -96,14 +95,14 @@ def extract_additional_dependencies(bump_id: str) -> str:
             extra_deps.append("        " + block.strip().replace("\n", "\n        ") + "\n")
 
         if extra_deps:
-            print(f" Found {len(extra_deps)} extra dependencies for {bump_id}")
+            print(f"✅ Found {len(extra_deps)} extra dependencies for {bump_id}")
         else:
-            print(f" No extra dependencies found in {bump_id}")
+            print(f"ℹ️ No extra dependencies found in {bump_id}")
 
         return "".join(extra_deps)
 
     except Exception as e:
-        print(f" Failed to read dependencies from pom.xml for {bump_id}: {e}")
+        print(f"❌ Failed to read dependencies from pom.xml for {bump_id}: {e}")
         return ""
 
 def get_clean_class_name(txt_file: Path) -> str:
@@ -117,7 +116,7 @@ def create_java_project_if_needed(bump_id: str, version: str, properties_block: 
         project_dir.mkdir(parents=True, exist_ok=True)
         pom_path = project_dir / "pom.xml"
 
-        # Pass all format variables, not just project_name
+        # ✅ Pass all format variables, not just project_name
         formatted_pom = POM_TEMPLATE.format(
             project_name=project_name,
             properties_block=properties_block,

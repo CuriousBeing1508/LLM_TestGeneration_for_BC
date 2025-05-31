@@ -16,14 +16,14 @@ import re
 
 
 # Exp 1 path
-PROJECT_ROOT = Path("/Volumes/Rachna-HD/Dataset/Exp1/ExecutableProjects_ClientPrev")
-RESULT_DIR = PROJECT_ROOT.parent / "ResultClientExecutionPrev"
+PROJECT_ROOT = Path("/Volumes/Rachna-HD/Dataset/Exp1/ExecutableProjects_Client")
+RESULT_DIR = PROJECT_ROOT.parent / "ResultClientExecutionNext"
 RESULT_DIR.mkdir(exist_ok=True)
 
 
-INSTALL_RESULTS_PATH = RESULT_DIR / "step1_install_results_prev.json"
-TEST_COMPILE_RESULTS_PATH = RESULT_DIR / "step2_test_compile_results_prev.json"
-TEST_EXECUTION_RESULTS_PATH = RESULT_DIR / "step3_test_execution_results_prev.json"
+INSTALL_RESULTS_PATH = RESULT_DIR / "step1_install_results_next.json"
+TEST_COMPILE_RESULTS_PATH = RESULT_DIR / "step2_test_compile_results_next.json"
+TEST_EXECUTION_RESULTS_PATH = RESULT_DIR / "step3_test_execution_results_next.json"
 
 def run_command(command, cwd):
     try:
@@ -46,12 +46,12 @@ def run_install_phase():
             continue
 
         bump_id = bump_dir.name
-        proj_path = bump_dir / f"{bump_id}_prev"
+        proj_path = bump_dir / f"{bump_id}_next"
         if not proj_path.exists():
             continue
 
         summary["total_projects"] += 1
-        print(f" Running install: {bump_id}_prev")
+        print(f" Running install: {bump_id}_next")
 
         retcode, output = run_command(["mvn", "clean", "install", "-Dmaven.test.skip=true"], cwd=proj_path)
 
@@ -62,12 +62,12 @@ def run_install_phase():
             summary["install_failure_count"] += 1
 
         # Save install log
-        project_log_dir = RESULT_DIR / f"{bump_id}_prev"
+        project_log_dir = RESULT_DIR / f"{bump_id}_next"
         project_log_dir.mkdir(parents=True, exist_ok=True)
         with open(project_log_dir / "install.log", "w", encoding="utf-8") as log_file:
             log_file.write(output)
 
-        summary["project_install_status"][f"{bump_id}_prev"] = {
+        summary["project_install_status"][f"{bump_id}_next"] = {
             "status": status,
             "log_snippet": output[:1000]
         }
@@ -86,7 +86,7 @@ def run_test_compile_phase(install_summary):
         if data["status"] != "success":
             continue
 
-        proj_path = PROJECT_ROOT / project.split("_prev")[0] / project
+        proj_path = PROJECT_ROOT / project.split("_next")[0] / project
         src_dir = proj_path / "src" / "test" / "java"
         if not proj_path.exists() or not src_dir.exists():
             continue
@@ -139,7 +139,7 @@ def run_test_execution_phase(install_summary, test_compile_summary):
         if project not in test_compile_summary or test_compile_summary[project]["compiled_count"] == 0:
             continue
 
-        proj_path = PROJECT_ROOT / project.split("_prev")[0] / project
+        proj_path = PROJECT_ROOT / project.split("_next")[0] / project
         print(f" Running tests: {project}")
         retcode, output = run_command(["mvn", "test"], cwd=proj_path)
 
