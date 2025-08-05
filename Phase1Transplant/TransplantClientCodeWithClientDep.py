@@ -6,10 +6,14 @@ import xml.etree.ElementTree as ET
 LLM_NAME = "GPT4o"
 PROMPT_VERSION = "promptv1"
 
-OUTPUT_ROOT = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/Generated_output_with_client") / LLM_NAME
-PROJECT_ROOT = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ExecutableProjects_Client")
-CLIENT_ROOT = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ClonedRepo/clients")
+# OUTPUT_ROOT = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/Generated_output_with_client") / LLM_NAME
+# PROJECT_ROOT = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ExecutableProjects_Client")
+# CLIENT_ROOT = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ClonedRepo/clients")
 
+# Exp 1 path
+OUTPUT_ROOT = Path("/Volumes/Rachna-HD/Dataset/LLMOutputClient") / LLM_NAME
+PROJECT_ROOT = Path("/Volumes/Rachna-HD/Dataset/Exp1/ExecutableProjects_Client")
+CLIENT_ROOT = Path("/Volumes/Rachna-HD/Dataset/ClonedRepo/Clients")
 # === POM FILE TEMPLATE ===
 POM_TEMPLATE = """<project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

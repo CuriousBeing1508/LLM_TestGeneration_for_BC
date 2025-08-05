@@ -5,7 +5,7 @@ from pathlib import Path
 ROOT_DIR = Path("/Volumes/Rachna-HD/Dataset/StaticAnalysis")
 OUTPUT_ROOT = Path("/Volumes/Rachna-HD/Dataset/GeneratedPromptLibrary")
 USAGE_SUBPATH = "LibraryUsageReport" 
-USAGE_FILENAME_PATTERN = "*.json"
+USAGE_FILENAME_PATTERN = "library_usage.json"
 
 def generate_prompt_from_usage_block(block, class_name, package_prefix, library_version):
     library_usages = block.get("libraryUsages", [])
@@ -47,8 +47,7 @@ def process_bump_instance(bump_dir):
         print(f" Skipping {bump_dir.name} — No JSON files found in {USAGE_SUBPATH}")
         return
 
-    output_dir = OUTPUT_ROOT / bump_dir.name
-    output_dir.mkdir(parents=True, exist_ok=True)
+    prompts_written = 0  # Track if we wrote any prompts
 
     for usage_file in usage_files:
         print(f" Reading {usage_file.name} from {bump_dir.name}")
@@ -63,7 +62,6 @@ def process_bump_instance(bump_dir):
             usage_blocks = [usage_blocks]
 
         for idx, usage_block in enumerate(usage_blocks):
-            # Extract package and version info from first usage
             library_usages = usage_block.get("libraryUsages", [])
             if not library_usages:
                 print(f" Skipping block {idx} — No method_call usage")
@@ -74,17 +72,27 @@ def process_bump_instance(bump_dir):
             package_prefix = ".".join(parts[:-2]) if len(parts) >= 3 else "UnknownPackage"
             library_version = usage_block.get("libraryVersion", "UnknownVersion")
 
-            file_stem = usage_file.stem
-            class_name = f"{file_stem}U{idx}Test"
-            output_path = output_dir / f"{class_name}_prompt.txt"
-
+            file_name = bump_dir.name
+            class_name = f"{file_name}U{idx}Test"
             prompt = generate_prompt_from_usage_block(usage_block, class_name, package_prefix, library_version)
+
             if prompt:
+                # Create output_dir only when needed
+                if prompts_written == 0:
+                    output_dir = OUTPUT_ROOT / bump_dir.name
+                    output_dir.mkdir(parents=True, exist_ok=True)
+
+                output_path = output_dir / f"{class_name}_prompt.txt"
                 with open(output_path, "w", encoding="utf-8") as out_f:
                     out_f.write(prompt)
                 print(f" Saved: {output_path.name}")
+                prompts_written += 1
             else:
                 print(f" Skipping block {idx} — No usable method calls")
+
+    if prompts_written == 0:
+        print(f" No prompts written for {bump_dir.name}, no output folder created.")
+
 
 def main():
     for bump_dir in ROOT_DIR.iterdir():

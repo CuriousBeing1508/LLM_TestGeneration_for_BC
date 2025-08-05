@@ -5,7 +5,17 @@ from collections import defaultdict
 import re
 
 # Constants
-PROJECT_ROOT = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ExecutableProjects_Baseline")
+# PROJECT_ROOT = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ExecutableProjects_Baseline")
+# RESULT_DIR = PROJECT_ROOT.parent / "ResultBaselineExecution"
+# RESULT_DIR.mkdir(exist_ok=True)
+
+# INSTALL_RESULTS_PATH = RESULT_DIR / "step1_install_results_prev.json"
+# TEST_COMPILE_RESULTS_PATH = RESULT_DIR / "step2_test_compile_results_prev.json"
+# TEST_EXECUTION_RESULTS_PATH = RESULT_DIR / "step3_test_execution_results_prev.json"
+
+# Experiment 1 path
+
+PROJECT_ROOT = Path("/Volumes/Rachna-HD/Dataset/Exp1/ExecutableProjects_baseline")
 RESULT_DIR = PROJECT_ROOT.parent / "ResultBaselineExecution"
 RESULT_DIR.mkdir(exist_ok=True)
 

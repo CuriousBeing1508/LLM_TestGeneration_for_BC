@@ -55,7 +55,7 @@ for _, row in df.iterrows():
         continue
 
     usage_json_path = usage_json_files[0]
-    output_json_path = analysis_root / bump_id / "LibraryUsageReport" / f"{dep_artifact}_library_usage.json"
+    output_json_path = analysis_root / bump_id / "LibraryUsageReport" / f"library_usage.json"
     library_folder = library_root / bump_id
 
     if not library_folder.exists():

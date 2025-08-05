@@ -5,14 +5,19 @@ from collections import defaultdict
 import re
 
 # Constants
+
+# Meant to install dependencies (Phase 1) then use maven compile to find and exclude uncompiled classes. 
+# (Currently it does not exclude it actually and the tests fail when maven test phase is executed.)
+
 # Poc Path
 # PROJECT_ROOT = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ExecutableProjects_Client")
 # RESULT_DIR = PROJECT_ROOT.parent / "ResultClientExecution"
 # RESULT_DIR.mkdir(exist_ok=True)
 
+
 # Exp 1 path
-PROJECT_ROOT = Path("/Volumes/Rachna-HD/Dataset/Exp1/ExecutableProjects_Client")
-RESULT_DIR = PROJECT_ROOT.parent / "ResultClientExecutionPrev"
+PROJECT_ROOT = Path("/Volumes/Rachna-HD/Dataset/Exp1/ExecutableProjects_baseline")
+RESULT_DIR = PROJECT_ROOT.parent / "ResultBaselineExecution"
 RESULT_DIR.mkdir(exist_ok=True)
 
 INSTALL_RESULTS_PATH = RESULT_DIR / "step1_install_results_prev.json"
@@ -40,12 +45,12 @@ def run_install_phase():
             continue
 
         bump_id = bump_dir.name
-        proj_path = bump_dir / f"{bump_id}_prev"
+        proj_path = bump_dir / f"{bump_id}_next"
         if not proj_path.exists():
             continue
 
         summary["total_projects"] += 1
-        print(f"📦 Running install: {bump_id}_prev")
+        print(f" Running install: {bump_id}_next")
 
         retcode, output = run_command(["mvn", "clean", "install", "-Dmaven.test.skip=true"], cwd=proj_path)
 
@@ -56,12 +61,12 @@ def run_install_phase():
             summary["install_failure_count"] += 1
 
         # Save install log
-        project_log_dir = RESULT_DIR / f"{bump_id}_prev"
+        project_log_dir = RESULT_DIR / f"{bump_id}_next"
         project_log_dir.mkdir(parents=True, exist_ok=True)
         with open(project_log_dir / "install.log", "w", encoding="utf-8") as log_file:
             log_file.write(output)
 
-        summary["project_install_status"][f"{bump_id}_prev"] = {
+        summary["project_install_status"][f"{bump_id}_next"] = {
             "status": status,
             "log_snippet": output[:1000]
         }
@@ -80,7 +85,7 @@ def run_test_compile_phase(install_summary):
         if data["status"] != "success":
             continue
 
-        proj_path = PROJECT_ROOT / project.split("_prev")[0] / project
+        proj_path = PROJECT_ROOT / project.split("_next")[0] / project
         src_dir = proj_path / "src" / "test" / "java"
         if not proj_path.exists() or not src_dir.exists():
             continue
@@ -133,8 +138,8 @@ def run_test_execution_phase(install_summary, test_compile_summary):
         if project not in test_compile_summary or test_compile_summary[project]["compiled_count"] == 0:
             continue
 
-        proj_path = PROJECT_ROOT / project.split("_prev")[0] / project
-        print(f"🧪 Running tests: {project}")
+        proj_path = PROJECT_ROOT / project.split("_next")[0] / project
+        print(f" Running tests: {project}")
         retcode, output = run_command(["mvn", "test"], cwd=proj_path)
 
         total_run = total_failures = total_errors = total_skipped = 0
@@ -148,30 +153,27 @@ def run_test_execution_phase(install_summary, test_compile_summary):
 
         total_passed = total_run - total_failures - total_errors
 
-        # Save test-run log regardless
+        summary[project] = {
+            "compiled_test_classes": test_compile_summary[project]["compiled_count"],
+            "skipped_test_classes": test_compile_summary[project]["skipped_count"],
+            "tests_executed": total_run,
+            "tests_passed": total_passed,
+            "tests_failed": total_failures + total_errors,
+            "tests_skipped": total_skipped,
+            "overall_test_execution_result": "pass" if (total_failures + total_errors) == 0 else "fail"
+        }
+
+        # Save test-run log
         project_log_dir = RESULT_DIR / project
         project_log_dir.mkdir(parents=True, exist_ok=True)
         with open(project_log_dir / "test_run.log", "w", encoding="utf-8") as f:
             f.write(output)
-
-        # Add to report only if tests were executed
-        if total_run > 0:
-            summary[project] = {
-                "compiled_test_classes": test_compile_summary[project]["compiled_count"],
-                "skipped_test_classes": test_compile_summary[project]["skipped_count"],
-                "tests_executed": total_run,
-                "tests_passed": total_passed,
-                "tests_failed": total_failures + total_errors,
-                "tests_skipped": total_skipped,
-                "overall_test_execution_result": "pass" if (total_failures + total_errors) == 0 else "fail"
-            }
 
     with open(TEST_EXECUTION_RESULTS_PATH, "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)
 
     print(f"\n Test execution summary saved to: {TEST_EXECUTION_RESULTS_PATH}")
     return summary
-
 
 # === MAIN ===
 if __name__ == "__main__":

@@ -7,9 +7,11 @@ import xml.etree.ElementTree as ET
 # === CONFIGURATION ===
 LLM_NAME = "GPT4o"
 PROMPT_VERSION = "promptv1"
-
-OUTPUT_ROOT = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/Generated_Output_Library") / LLM_NAME
-PROJECT_ROOT = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ExecutableProjects_Baseline")
+# where the LLM generated output are stored. TODO : rename it as LLMOutputBaseline..
+OUTPUT_ROOT = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/LLMOutputLibrary") / LLM_NAME
+# Where the executable project will be stored
+PROJECT_ROOT = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ExecutableProjects_baseline")
+# We are managing dependencies based on client pom...
 CLIENT_PROJECTS_ROOT = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ClonedRepo/clients")
 METADATA_CSV = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/FinalBUMP_Instances.csv")
 
@@ -22,6 +24,7 @@ POM_TEMPLATE = """<project xmlns="http://maven.apache.org/POM/4.0.0"
     <groupId>com.generated</groupId>
     <artifactId>{project_name}</artifactId>
     <version>1.0-SNAPSHOT</version>
+    {properties_block}
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -35,6 +38,8 @@ POM_TEMPLATE = """<project xmlns="http://maven.apache.org/POM/4.0.0"
             <version>4.5.1</version>
             <scope>test</scope>
         </dependency>
+
+        {extra_deps}
     </dependencies>
     <build>
         <plugins>
@@ -185,12 +190,12 @@ def process_bump_with_library_injection(custom_id: str, group_id: str, artifact_
 
     client_pom = CLIENT_PROJECTS_ROOT / custom_id / "pom.xml"
     if not client_pom.exists():
-        print(f"❌ Client pom.xml not found for {custom_id}")
+        print(f" Client pom.xml not found for {custom_id}")
         return
 
     extra_deps = extract_library_dependencies(client_pom, group_id)
     if not extra_deps:
-        print(f"⚠️ No matching dependencies found for groupId '{group_id}' in client {custom_id}")
+        print(f" No matching dependencies found for groupId '{group_id}' in client {custom_id}")
         return
 
     for version in ["next", "prev"]:
@@ -208,4 +213,4 @@ if __name__ == "__main__":
     for custom_id, group_id, artifact_id in metadata_entries:
         process_bump_with_library_injection(custom_id, group_id, artifact_id)
 
-    print("\n✅ ALL TRANSPLANTS AND DEPENDENCY INJECTIONS COMPLETED.")
+    print("\n ALL TRANSPLANTS AND DEPENDENCY INJECTIONS COMPLETED.")

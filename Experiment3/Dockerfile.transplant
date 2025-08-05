@@ -1,0 +1,11 @@
+# Dockerfile.transplant
+
+ARG BASE_IMAGE
+ARG TEST_CLASSES
+
+FROM ${BASE_IMAGE}
+
+WORKDIR /project
+COPY . /project
+
+RUN mvn test -Dtest="${TEST_CLASSES}" || true

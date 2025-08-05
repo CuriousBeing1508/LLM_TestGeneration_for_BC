@@ -5,9 +5,9 @@ from datetime import datetime
 import re
 
 # === CONFIGURATION ===
-PROJECT_ROOT = Path("/Volumes/Rachna-HD/Dataset/Exp1/ExecutableProjects_Client")
+PROJECT_ROOT = Path("/Volumes/Rachna-HD/Dataset/Exp1/ExecutableProjects_baseline")
 CSV_PATH = Path("/Volumes/Rachna-HD/FinalBUMP_Instances.csv")
-LOG_FILE = PROJECT_ROOT.parent / "dependency_update_client_nextlog.txt"
+LOG_FILE = PROJECT_ROOT.parent / "dependency_update_baseline_nextlog.txt"
 
 # === Logging helper ===
 def log(message: str):
@@ -68,7 +68,7 @@ def update_dependencies_from_csv(csv_path: Path):
                     resolved_old_version = resolve_property(ver_text, root, ns)
 
                     if resolved_old_version == new_version:
-                        log(f" Already up-to-date: {group_id}:{artifact_id} = {resolved_old_version} in {custom_id}_next")
+                        log(f"ℹ️ Already up-to-date: {group_id}:{artifact_id} = {resolved_old_version} in {custom_id}_next")
                         break
 
                     # Replace the version tag value

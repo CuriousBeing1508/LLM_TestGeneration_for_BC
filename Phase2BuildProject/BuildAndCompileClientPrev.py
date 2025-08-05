@@ -16,7 +16,7 @@ import re
 
 
 # Exp 1 path
-PROJECT_ROOT = Path("/Volumes/Rachna-HD/Dataset/Exp1/ExecutableProjects_ClientPrev")
+PROJECT_ROOT = Path("/Volumes/Rachna-HD/Dataset/Exp1/ExecutableProjects_Client")
 RESULT_DIR = PROJECT_ROOT.parent / "ResultClientExecutionPrev"
 RESULT_DIR.mkdir(exist_ok=True)
 

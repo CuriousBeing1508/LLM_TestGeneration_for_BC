@@ -9,7 +9,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent.parent.parent
 INPUT_DIR = SCRIPT_DIR.parent / "bump" / "data" / "benchmark"
 
 print(INPUT_DIR)
-OUTPUT_CSV = "bump_instances_dataset_TEST_FAILURE.csv"
+OUTPUT_CSV = "bump_instances_dataset_TEST_FAILURE_lib.csv"
 
 # Define CSV columns
 CSV_FIELDS = [

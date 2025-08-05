@@ -5,13 +5,13 @@ import os
 #  This step is very important to ecexute before executing maven tests. 
 # Paths for poc
 # PROJECT_ROOT = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ExecutableProjects_Client")
-# SKIP_LOG_JSON = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ResultClientExecution/step2_test_compile_results_prev.json")
+# SKIP_LOG_JSON = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ResultClientExecution/step2_test_compile_results_next.json")
 # SKIPPED_DIR = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ResultClientExecution/skipped_classes")
 
 # Path Exp 1
 PROJECT_ROOT = Path("/Volumes/Rachna-HD/Dataset/Exp1/ExecutableProjects_Client")
-SKIP_LOG_JSON = Path("/Volumes/Rachna-HD/Dataset/Exp1/ResultClientExecutionPrev/step2_test_compile_results_prev.json")
-SKIPPED_DIR = Path("/Volumes/Rachna-HD/Dataset/Exp1/ResultClientExecution/skipped_classes")
+SKIP_LOG_JSON = Path("/Volumes/Rachna-HD/Dataset/Exp1/ResultClientExecutionNext/step2_test_compile_results_next.json")
+SKIPPED_DIR = Path("/Volumes/Rachna-HD/Dataset/Exp1/ResultClientExecutionNext/skipped_classes")
 
 # Ensure output directory exists
 SKIPPED_DIR.mkdir(parents=True, exist_ok=True)
@@ -23,7 +23,7 @@ with open(SKIP_LOG_JSON, "r", encoding="utf-8") as f:
 moved = []
 
 for bump_id, details in skipped_data.items():
-    project_name = bump_id.replace("_prev", "")
+    project_name = bump_id.replace("_next", "")
     base_project_dir = PROJECT_ROOT / project_name / bump_id
     java_src_dir = base_project_dir / "src/test/java"
 
