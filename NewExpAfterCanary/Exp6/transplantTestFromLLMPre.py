@@ -6,7 +6,7 @@ import subprocess
 from pathlib import Path
 from collections import Counter
 from common import parse_package_summary, classify_compilation_error, LOG_CANARY_DIR
-# Extension of v3
+# Extension of transplantCanaryv6 to try to transplant the actual test to the script to run.
 
 # This is the best performing script, also improved the sanity failure cases by increasing the timeout time. 
 # === CONFIG ===
