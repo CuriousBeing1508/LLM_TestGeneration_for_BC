@@ -11,8 +11,8 @@ from common import parse_package_summary, classify_compilation_error, LOG_CANARY
 # === CONFIG ===
 CSV_PATH = "/Volumes/Rachna-HD/updated_FinalBUMP_Instances_with_TestRunner.csv"
 SUMMARY_PATH = "/Volumes/Rachna-HD/package_structure_summary.txt"
-TRANSPLANT_OUTPUT = Path("/Volumes/Rachna-HD/Exp6Results/transplant_results_final_execv2.json")
-CSV_SUMMARY_OUTPUT = Path("/Volumes/Rachna-HD/Exp6Results/transplant_results_final_exec_summaryv2.csv")
+TRANSPLANT_OUTPUT = Path("/Volumes/Rachna-HD/Exp6Results/transplant_results_final_pre.json")
+CSV_SUMMARY_OUTPUT = Path("/Volumes/Rachna-HD/Exp6Results/transplant_results_final_pre_summaryv2.csv")
 ABC_ROOT = Path("/Volumes/Rachna-HD/GeneratedOutputClientsExp6/GPT4o")
 
 pkg_info = parse_package_summary(SUMMARY_PATH)

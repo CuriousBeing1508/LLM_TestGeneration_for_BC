@@ -3,17 +3,47 @@ import json
 import subprocess
 from pathlib import Path
 
-LOG_DIR = Path("/Volumes/Rachna-HD/Experiment3Results/logs")
+LOG_DIR = Path("/Volumes/Rachna-HD/Exp7Results/logs")
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-LOG_EXEC_DIR = Path("/Volumes/Rachna-HD/Experiment6Results/logs/executionPhase")
+LOG_EXEC_DIR = Path("/Volumes/Rachna-HD/Exp7Results/logs/executionPhase")
 LOG_EXEC_DIR.mkdir(parents=True, exist_ok=True)
 
-LOG_BREAKING_DIR = Path("/Volumes/Rachna-HD/Experiment6Results/logs/breakingPhase")
+LOG_BREAKING_DIR = Path("/Volumes/Rachna-HD/Exp7Results/logs/breakingPhase")
 LOG_BREAKING_DIR.mkdir(parents=True, exist_ok=True)
 
-LOG_CANARY_DIR = Path("/Volumes/Rachna-HD/CanaryResults/logs")
+LOG_CANARY_DIR = Path("/Volumes/Rachna-HD/Exp7Results/CanaryResults/logs")
 LOG_CANARY_DIR.mkdir(parents=True, exist_ok=True)
+
+
+
+# For Batch execution pre
+LOG_DIR_BATCH = Path("/Volumes/Rachna-HD/Exp7BatchResults/pre/logs")
+LOG_DIR.mkdir(parents=True, exist_ok=True)
+
+LOG_EXEC_DIR_BATCH = Path("/Volumes/Rachna-HD/Exp7BatchResults/logs/executionPhase")
+LOG_EXEC_DIR.mkdir(parents=True, exist_ok=True)
+
+LOG_BREAKING_DIR_BATCH = Path("/Volumes/Rachna-HD/Exp7BatchResults/logs/breakingPhase")
+LOG_BREAKING_DIR.mkdir(parents=True, exist_ok=True)
+
+LOG_CANARY_DIR_BATCH = Path("/Volumes/Rachna-HD/Exp7BatchResults/CanaryResults/logs")
+LOG_CANARY_DIR.mkdir(parents=True, exist_ok=True)
+
+
+# For Batch execution breaking
+LOG_DIR_BATCH_BRE = Path("/Volumes/Rachna-HD/Exp7BatchResults/bre/logs")
+LOG_DIR.mkdir(parents=True, exist_ok=True)
+
+LOG_EXEC_DIR_BATCH = Path("/Volumes/Rachna-HD/Exp7BatchResults/logs/executionPhase")
+LOG_EXEC_DIR.mkdir(parents=True, exist_ok=True)
+
+LOG_BREAKING_DIR_BATCH = Path("/Volumes/Rachna-HD/Exp7BatchResults/logs/breakingPhase")
+LOG_BREAKING_DIR.mkdir(parents=True, exist_ok=True)
+
+LOG_CANARY_DIR_BATCH_BRE = Path("/Volumes/Rachna-HD/Exp7BatchResults/CanaryResults/logs")
+LOG_CANARY_DIR.mkdir(parents=True, exist_ok=True)
+
 
 class DockerRunError(Exception):
     def __init__(self, message, log_path):

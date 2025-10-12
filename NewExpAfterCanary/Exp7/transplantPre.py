@@ -5,15 +5,15 @@ import re
 import shutil
 import subprocess
 from pathlib import Path
-from collections import Counter
-from common import parse_package_summary, classify_compilation_error, LOG_BREAKING_DIR, clean_llm_code
-# Here since the success of pre was a countable number, I did not excluded them from execution in breaking. That is a TODO for exp 7.
+from collections import Counter, defaultdict
+from common import parse_package_summary, classify_compilation_error, LOG_CANARY_DIR, clean_llm_code
+# This is experiment when I pass the whole class as context. It took more than 18 hrs to get all prompts.I am also generating tests for type references as well. 
 # === CONFIG ===
 CSV_PATH = "/Volumes/Rachna-HD/updated_FinalBUMP_Instances_with_TestRunner.csv"
 SUMMARY_PATH = "/Volumes/Rachna-HD/package_structure_summary.txt"
-TRANSPLANT_OUTPUT = Path("/Volumes/Rachna-HD/Exp6Results/transplant_results_final_execv2.json")
-CSV_SUMMARY_OUTPUT = Path("/Volumes/Rachna-HD/Exp6Results/transplant_results_final_exec_summaryv2.csv")
-ABC_ROOT = Path("/Volumes/Rachna-HD/GeneratedOutputClientsExp6/GPT4o")
+TRANSPLANT_OUTPUT = Path("/Volumes/Rachna-HD/Exp7Results/transplant_results_final_pre.json")
+CSV_SUMMARY_OUTPUT = Path("/Volumes/Rachna-HD/Exp7Results/transplant_results_final_pre_summary.csv")
+ABC_ROOT = Path("/Volumes/Rachna-HD/GeneratedOutputClientsExp7/GPT4o")
 
 pkg_info = parse_package_summary(SUMMARY_PATH)
 results = {}
@@ -22,6 +22,14 @@ success_count = 0
 failure_count = 0
 failure_categories = Counter()
 csv_rows = []
+
+# NEW: Per-bump stats
+per_bump_success = Counter()
+per_bump_failure = Counter()
+per_bump_instances = defaultdict(dict)  # bump_id -> {custom_id: {"result": "pass"/"fail"}}
+
+# NEW: Track instances that should be carried forward (i.e. had at least one success)
+carry_forward_instances = set()
 
 
 def _extract_error_fields(err_info):
@@ -61,11 +69,12 @@ def _sanitize_class_name(name: str) -> str:
     return base
 
 
-def _to_java_filename(txt_name: str) -> tuple[str, str]:
-    """
+"""
     BBC10U1Test_prompt.txt  -> (BBC10U1Test.java, BBC10U1Test)
     anyname.txt             -> (anyname.java, anyname)
     """
+def _to_java_filename(txt_name: str) -> tuple[str, str]:
+
     base = txt_name
     if base.endswith("_prompt.txt"):
         base = base[:-len("_prompt.txt")]
@@ -104,15 +113,16 @@ def _extract_llm_java_block(text: str) -> str:
     return "\n".join(buf).strip()
 
 
-# -------- Package + class rename logic (same behavior as your original intent) --------
-def _rewrite_package_and_class(code_text: str, package_decl: str, class_name: str) -> str:
-    """
+# -------- Package + class rename logic  --------
+"""
     - Replace existing 'package ...;' with 'package <package_decl>;' OR inject it at the top if missing.
     - Rename the first 'public class <X>' to 'public class <class_name>'.
     """
+def _rewrite_package_and_class(code_text: str, package_decl: str, class_name: str) -> str:
+ 
     code = code_text.lstrip("\ufeff").replace("\r\n", "\n").replace("\r", "\n")
 
-    # Replace or inject package line
+ # Replace or inject package line
     if re.search(r"^\s*package\s+[\w\.]+;\s*$", code, flags=re.MULTILINE):
         code = re.sub(
             r"^\s*package\s+[\w\.]+;\s*$",
@@ -124,14 +134,18 @@ def _rewrite_package_and_class(code_text: str, package_decl: str, class_name: st
     else:
         code = f"package {package_decl};\n\n{code}"
 
-    # Ensure first public class name matches the file's base name
+# Ensure first public class name matches the file's base name
+
+
     code = re.sub(r"(public\s+class\s+)([A-Za-z_]\w*)", r"\1" + class_name, code, count=1)
 
     return code
 
 
-def prepare_llm_tests(custom_id: str, package_decl: str) -> tuple[str, int]:
-    """
+ 
+
+
+"""
     - Read all *.txt under ABC_ROOT/custom_id (recursively)
     - Extract ONLY code between ```java and ```
     - Clean with clean_llm_code
@@ -140,11 +154,14 @@ def prepare_llm_tests(custom_id: str, package_decl: str) -> tuple[str, int]:
     - Write under /tmp/llm_exec/<custom_id>/LLMTest/<package as dirs>/File.java
     Returns (tmp_root_path, number_of_java_files)
     """
+
+def prepare_llm_tests(custom_id: str, package_decl: str) -> tuple[str, int]:
+
     src_dir = ABC_ROOT / custom_id
     tmp_root = Path(f"/tmp/llm_exec/{custom_id}")
     shutil.rmtree(tmp_root, ignore_errors=True)
 
-    # map package (e.g., "org.example.tests") to directory path
+# map package (e.g., "org.example.tests") to directory path
     pkg_path = Path(*package_decl.split(".")) if package_decl else Path(".")
     dest_dir = tmp_root / "LLMTest" / pkg_path
     dest_dir.mkdir(parents=True, exist_ok=True)
@@ -177,10 +194,10 @@ def prepare_llm_tests(custom_id: str, package_decl: str) -> tuple[str, int]:
 
 
 def run_canary_in_container(image_tag: str, custom_id: str, test_root: str, prepared_tmp_root: str):
-    log_path = LOG_BREAKING_DIR / f"{custom_id}_canary_exec.log"
+    log_path = LOG_CANARY_DIR / f"{custom_id}_canary_exec.log"
     log_path.parent.mkdir(parents=True, exist_ok=True)
 
-    # Mount our prepared LLM tests under <test_root>/LLMTest
+# Mount our prepared LLM tests under <test_root>/LLMTest
     container_mount = f"{test_root}/LLMTest"
     cmd = [
         "docker", "run", "--rm", "--platform", "linux/amd64",
@@ -212,6 +229,7 @@ def main():
         for row in reader:
             custom_id = row["custom_id"].strip()
             commit = row["breakingCommit"].strip()
+            bump_id = row.get("bump_id", commit)  # NEW: assume bump_id column or fallback to commit
             if not commit:
                 continue
 
@@ -219,13 +237,15 @@ def main():
                 print("[SKIP] No files under {}/{}; skipping.".format(ABC_ROOT, custom_id))
                 continue
 
-            # Get real test_root and real package from summary
-            test_root, real_package = pkg_info.get((custom_id, "breaking"), (None, None))
+ # Get real test_root and real package from summary
+            test_root, real_package = pkg_info.get((custom_id, "pre"), (None, None))
             if not test_root or not real_package:
                 err_category = "missing_test_root_or_package"
-                err_reason = "No test_root/package found for (custom_id, 'breaking') in package summary"
+                err_reason = "No test_root/package found for (custom_id, 'pre') in package summary"
                 failure_count += 1
                 failure_categories[err_category] += 1
+                per_bump_failure[bump_id] += 1
+                per_bump_instances[bump_id][custom_id] = {"result": "fail"}
                 csv_rows.append({
                     "custom_id": custom_id,
                     "result": "fail",
@@ -236,12 +256,14 @@ def main():
                 results[custom_id] = {"status": err_category}
                 continue
 
-            image_tag = f"ghcr.io/chains-project/breaking-updates:{commit}-breaking"
+            image_tag = f"ghcr.io/chains-project/breaking-updates:{commit}-pre"
 
             if not validate_image_runs(image_tag):
                 print(f"[SKIP] Docker image {image_tag} fails sanity check. Skipping {custom_id}.")
                 failure_count += 1
                 failure_categories["invalid_docker_image"] += 1
+                per_bump_failure[bump_id] += 1
+                per_bump_instances[bump_id][custom_id] = {"result": "fail"}
                 csv_rows.append({
                     "custom_id": custom_id,
                     "result": "fail",
@@ -252,16 +274,16 @@ def main():
                 results[custom_id] = {"status": "invalid_docker_image"}
                 continue
 
-            # Use the REAL project test package (not LLMTest.<id>)
+# Use the REAL project test package (not LLMTest.<id>)
             package_decl = real_package
-
             prepared_tmp_root, nfiles = prepare_llm_tests(custom_id, package_decl)
             print(f"[INFO] Prepared {nfiles} test file(s) for {custom_id}")
-            print(f"[DEBUG] {custom_id}: mounting {prepared_tmp_root}/LLMTest -> {test_root}/LLMTest (package={package_decl})")
 
             if nfiles == 0:
                 failure_count += 1
                 failure_categories["no_llm_tests_found"] += 1
+                per_bump_failure[bump_id] += 1
+                per_bump_instances[bump_id][custom_id] = {"result": "fail"}
                 csv_rows.append({
                     "custom_id": custom_id,
                     "result": "fail",
@@ -280,6 +302,9 @@ def main():
                 print(f"[INFO] Canary test passed for {custom_id}")
                 results[custom_id] = {"canary_status": "success"}
                 success_count += 1
+                per_bump_success[bump_id] += 1
+                per_bump_instances[bump_id][custom_id] = {"result": "pass"}
+                carry_forward_instances.add(custom_id)  # NEW: mark for next script
                 csv_rows.append({
                     "custom_id": custom_id,
                     "result": "pass",
@@ -298,6 +323,8 @@ def main():
                 }
                 failure_count += 1
                 failure_categories[category] += 1
+                per_bump_failure[bump_id] += 1
+                per_bump_instances[bump_id][custom_id] = {"result": "fail"}
                 csv_rows.append({
                     "custom_id": custom_id,
                     "result": "fail",
@@ -307,7 +334,11 @@ def main():
                 })
 
     TRANSPLANT_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    TRANSPLANT_OUTPUT.write_text(json.dumps(results, indent=2), encoding="utf-8")
+    TRANSPLANT_OUTPUT.write_text(json.dumps({
+        "results": results,
+        "per_bump_instances": per_bump_instances,
+        "carry_forward_instances": list(carry_forward_instances)  # NEW: store passing ones
+    }, indent=2), encoding="utf-8")
     print(f"[INFO] Canary execution complete. Results saved to {TRANSPLANT_OUTPUT}")
 
     CSV_SUMMARY_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
@@ -324,6 +355,12 @@ def main():
         print("[SUMMARY] Failure category breakdown:")
         for cat, cnt in failure_categories.most_common():
             print(f"  - {cat}: {cnt}")
+
+    # NEW: Print per-bump stats
+    print(f"[SUMMARY] Per-bump results:")
+    for bump, inst in per_bump_instances.items():
+        print(f"  - Bump {bump}: {per_bump_success[bump]} passed, {per_bump_failure[bump]} failed (total {len(inst)})")
+
     print(f"[INFO]  CSV summary saved to {CSV_SUMMARY_OUTPUT}")
 
 

@@ -15,6 +15,9 @@ LOG_BREAKING_DIR.mkdir(parents=True, exist_ok=True)
 LOG_CANARY_DIR = Path("/Volumes/Rachna-HD/CanaryResults/logs")
 LOG_CANARY_DIR.mkdir(parents=True, exist_ok=True)
 
+
+LOG_CANARY_V2_DIR = Path("/Volumes/Rachna-HD/CanaryResults/logsv2")
+LOG_CANARY_V2_DIR.mkdir(parents=True, exist_ok=True)
 class DockerRunError(Exception):
     def __init__(self, message, log_path):
         super().__init__(message)
