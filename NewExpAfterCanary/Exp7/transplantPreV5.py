@@ -13,12 +13,13 @@ from common import parse_package_summary, classify_compilation_error, LOG_CANARY
 # good_tests/ dir → accumulates only the tests that passed (preserving package path).
 # carry_forward_tests JSON → clearly lists passed vs failed per custom_id.
 # Next stage (breaking) just mounts good_tests/ for each custom_id.
+# This script also counts the number of tests in each file for each custom id. that is the only extension from v3.
 
 # === CONFIG ===
 CSV_PATH = "/Volumes/Rachna-HD/updated_FinalBUMP_Instances_with_TestRunner.csv"
 SUMMARY_PATH = "/Volumes/Rachna-HD/package_structure_summary.txt"
-TRANSPLANT_OUTPUT = Path("/Volumes/Rachna-HD/Exp7BatchResults/transplant_results_final_pre.json")
-CSV_SUMMARY_OUTPUT = Path("/Volumes/Rachna-HD/Exp7BatchResults/transplant_results_final_pre_summary.csv")
+TRANSPLANT_OUTPUT = Path("/Volumes/Rachna-HD/Exp7BatchResults/pre/transplant_results_final_pre.json")
+CSV_SUMMARY_OUTPUT = Path("/Volumes/Rachna-HD/Exp7BatchResults/pre/transplant_results_final_pre_summary.csv")
 ABC_ROOT = Path("/Volumes/Rachna-HD/GeneratedOutputClientsExp7Batch/GPT4o")
 MODEL_NAME = ABC_ROOT.name  # e.g., "GPT4o"
 
@@ -38,6 +39,9 @@ per_bump_instances = defaultdict(dict)  # bump_id -> {custom_id: {"result": "pas
 # Carry forward info
 carry_forward_instances = set()
 carry_forward_tests = defaultdict(lambda: {"passed": [], "failed": []})
+
+# Test count tracker
+test_counts = defaultdict(lambda: {"generated": 0, "executed": 0})
 
 
 def _extract_error_fields(err_info):
@@ -130,6 +134,14 @@ def _rewrite_package_and_class(code_text: str, package_decl: str, class_name: st
     return code
 
 
+def _count_test_methods(java_path: Path) -> int:
+    """Count @Test annotations in a given Java file."""
+    if not java_path.exists():
+        return 0
+    text = java_path.read_text(encoding="utf-8", errors="ignore")
+    return len(re.findall(r'@Test\b', text))
+
+
 def prepare_staging_tests(custom_id: str, package_decl: str) -> tuple[str, list[str]]:
     """
     Prepare all candidate tests into a staging dir.
@@ -155,8 +167,13 @@ def prepare_staging_tests(custom_id: str, package_decl: str) -> tuple[str, list[
             if not cleaned:
                 continue
             final_code = _rewrite_package_and_class(cleaned, package_decl, class_base)
-            (dest_dir / java_filename).write_text(final_code, encoding="utf-8")
+            out_file = dest_dir / java_filename
+            out_file.write_text(final_code, encoding="utf-8")
             java_files.append(java_filename)
+
+            # Count generated tests
+            test_counts[custom_id]["generated"] += _count_test_methods(out_file)
+
         except Exception as e:
             print(f"[WARN] Failed to convert {p}: {e}")
             continue
@@ -216,12 +233,39 @@ def run_test_in_isolation(image_tag: str, custom_id: str, test_root: str, stagin
 
 
 def main():
-    global success_count, failure_count
+    global success_count, failure_count, results, carry_forward_instances, carry_forward_tests, test_counts
+
+    # === BATCH CONFIG ===
+    START_ID = 65
+    END_ID = 90
+
+    # Load existing JSON if it exists
+    if TRANSPLANT_OUTPUT.exists():
+        try:
+            existing = json.loads(TRANSPLANT_OUTPUT.read_text(encoding="utf-8"))
+            results = existing.get("results", {})
+            carry_forward_instances = set(existing.get("carry_forward_instances", []))
+            carry_forward_tests = defaultdict(lambda: {"passed": [], "failed": []},
+                                              existing.get("carry_forward_tests", {}))
+            test_counts = defaultdict(lambda: {"generated": 0, "executed": 0},
+                                      existing.get("test_counts", {}))
+            print(f"[INFO] Loaded existing results with {len(results)} custom_ids")
+        except Exception as e:
+            print(f"[WARN] Failed to load existing JSON: {e}")
 
     with open(CSV_PATH) as f:
         reader = csv.DictReader(f)
         for row in reader:
             custom_id = row["custom_id"].strip()
+
+            # Extract numeric suffix from IDs like "BBC11"
+            match = re.search(r"(\d+)$", custom_id)
+            if not match:
+                continue
+            cid_num = int(match.group(1))
+            if cid_num < START_ID or cid_num > END_ID:
+                continue
+
             commit = row["breakingCommit"].strip()
             bump_id = row.get("bump_id", commit)
             if not commit:
@@ -237,7 +281,6 @@ def main():
                 continue
 
             image_tag = f"ghcr.io/chains-project/breaking-updates:{commit}-pre"
-
             staging_root, java_files = prepare_staging_tests(custom_id, real_package)
             print(f"[INFO] Prepared {len(java_files)} candidate test file(s) for {custom_id}")
             if not java_files:
@@ -251,21 +294,24 @@ def main():
                 success, err_info, log_path = run_test_in_isolation(
                     image_tag, custom_id, test_root, staging_root, java_file
                 )
+                staged_file = None
+                for root, _, files in os.walk(staging_root):
+                    if java_file in files:
+                        staged_file = Path(root) / java_file
+                        break
+
                 if success:
                     print(f"[INFO] Canary test PASSED for {custom_id}/{java_file}")
                     success_count += 1
                     per_test_status["passed"].append(java_file)
                     carry_forward_tests[custom_id]["passed"].append(java_file)
 
-                    # copy into good_tests (preserve package path)
-                    for root, _, files in os.walk(staging_root):
-                        if java_file in files:
-                            src_path = Path(root) / java_file
-                            rel_path = Path(root).relative_to(Path(staging_root) / "LLMTest")
-                            dest_path = good_tests_dir / rel_path
-                            dest_path.mkdir(parents=True, exist_ok=True)
-                            shutil.copy(src_path, dest_path / java_file)
-                            break
+                    if staged_file:
+                        test_counts[custom_id]["executed"] += _count_test_methods(staged_file)
+                        rel_path = staged_file.relative_to(Path(staging_root) / "LLMTest")
+                        dest_path = good_tests_dir / rel_path
+                        dest_path.mkdir(parents=True, exist_ok=True)
+                        shutil.copy(staged_file, dest_path / java_file)
                 else:
                     print(f"[ERROR] Canary test FAILED for {custom_id}/{java_file}")
                     failure_count += 1
@@ -275,16 +321,31 @@ def main():
             if per_test_status["passed"]:
                 carry_forward_instances.add(custom_id)
 
-            results[custom_id] = {"tests": per_test_status}
+            # Update results incrementally (appending, not replacing everything)
+            results[custom_id] = {
+                "tests": per_test_status,
+                "test_counts": test_counts[custom_id]
+            }
 
-    TRANSPLANT_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    TRANSPLANT_OUTPUT.write_text(json.dumps({
-        "results": results,
-        "carry_forward_instances": list(carry_forward_instances),
-        "carry_forward_tests": carry_forward_tests
-    }, indent=2), encoding="utf-8")
+            # Save merged state back to JSON
+            TRANSPLANT_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+            TRANSPLANT_OUTPUT.write_text(json.dumps({
+                "results": results,
+                "carry_forward_instances": list(carry_forward_instances),
+                "carry_forward_tests": carry_forward_tests,
+                "test_counts": test_counts
+            }, indent=2), encoding="utf-8")
 
+            print(f"[INFO] Appended results for {custom_id}")
+
+    # Print summary
+    total_generated = sum(v["generated"] for v in test_counts.values())
+    total_executed = sum(v["executed"] for v in test_counts.values())
     print(f"[SUMMARY] Successes: {success_count}, Failures: {failure_count}")
+    print(f"[SUMMARY] Generated tests: {total_generated}, Executed tests: {total_executed}")
+    for cid, counts in test_counts.items():
+        print(f"  {cid}: generated={counts['generated']} executed={counts['executed']}")
+
 
 
 if __name__ == "__main__":

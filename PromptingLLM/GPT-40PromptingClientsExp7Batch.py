@@ -7,8 +7,8 @@ from pathlib import Path
 
 # === CONFIGURATION ===
 # Set the start and end bump indices here (1-based, inclusive, CSV order)
-START_IDX = 1   # e.g. 1 = first row in CSV
-END_IDX = 10    # e.g. 10 = up to 10th row in CSV, set None for all rows
+START_IDX = 11   # e.g. 1 = first row in CSV
+END_IDX = None    # e.g. 10 = up to 10th row in CSV, set None for all rows
 
 CSV_PATH = Path("/Volumes/Rachna-HD/updated_FinalBUMP_Instances_with_TestRunner.csv")
 
