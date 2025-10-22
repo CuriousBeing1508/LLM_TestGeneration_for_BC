@@ -18,20 +18,34 @@ CSV_PATH = "/Volumes/Rachna-HD/updated_FinalBUMP_Instances_with_TestRunner.csv"
 SUMMARY_PATH = "/Volumes/Rachna-HD/package_structure_summary.txt"
 PRE_RESULTS_PATH = "/Volumes/Rachna-HD/Exp7BatchResults/pre/transplant_results_final_pre.json"
 BREAKING_OUTPUT = Path("/Volumes/Rachna-HD/Exp7BatchResults/breaking/transplant_results_final_breaking.json")
-CSV_SUMMARY_OUTPUT = Path("/Volumes/Rachna-HD/Exp7BatchResults/breaking/transplant_results_final_breaking_summary.csv")
 ABC_ROOT = Path("/Volumes/Rachna-HD/GeneratedOutputClientsExp7Batch/GPT4o")
 MODEL_NAME = ABC_ROOT.name  # e.g., "GPT4o"
 
 pkg_info = parse_package_summary(SUMMARY_PATH)
-
 results = {}
+
 success_count = 0
 failure_count = 0
 failure_categories = Counter()
-csv_rows = []
 
+# Carry forward info (loaded from pre)
 carry_forward_instances = set()
 carry_forward_tests = defaultdict(lambda: {"passed": [], "failed": []})
+
+
+def _extract_error_fields(err_info):
+    if err_info is None:
+        return ("unknown", "")
+    if isinstance(err_info, dict):
+        category = str(err_info.get("category", "unknown"))
+        reason = str(err_info.get("reason", err_info.get("message", "")))
+        if not reason:
+            try:
+                reason = json.dumps(err_info, ensure_ascii=False)
+            except Exception:
+                reason = str(err_info)
+        return (category, reason)
+    return ("unknown", str(err_info))
 
 
 def _abc_has_any_file(custom_id: str) -> bool:
@@ -178,17 +192,41 @@ def run_test_in_isolation(image_tag: str, custom_id: str, test_root: str,
 
 
 def main():
-    global success_count, failure_count
+    global success_count, failure_count, results, carry_forward_instances, carry_forward_tests
+
+    # === BATCH CONFIG ===
+    START_ID = 106
+    END_ID = 190
 
     # Load pre results
     pre_data = json.loads(Path(PRE_RESULTS_PATH).read_text(encoding="utf-8"))
     carry_forward_tests.update(pre_data.get("carry_forward_tests", {}))
     carry_forward_instances.update(pre_data.get("carry_forward_instances", []))
 
+    # Load existing JSON if resuming
+    if BREAKING_OUTPUT.exists():
+        try:
+            existing = json.loads(BREAKING_OUTPUT.read_text(encoding="utf-8"))
+            results = existing.get("results", {})
+            success_count = existing.get("summary", {}).get("total_pass", 0)
+            failure_count = existing.get("summary", {}).get("total_fail", 0)
+            print(f"[INFO] Loaded existing breaking results with {len(results)} custom_ids")
+        except Exception as e:
+            print(f"[WARN] Failed to load existing JSON: {e}")
+
     with open(CSV_PATH) as f:
         reader = csv.DictReader(f)
         for row in reader:
             custom_id = row["custom_id"].strip()
+
+            # numeric range filter
+            match = re.search(r"(\d+)$", custom_id)
+            if not match:
+                continue
+            cid_num = int(match.group(1))
+            if cid_num < START_ID or cid_num > END_ID:
+                continue
+
             commit = row["breakingCommit"].strip()
             if not commit:
                 continue
@@ -232,7 +270,9 @@ def main():
                 "summary": {
                     "total_pass": success_count,
                     "total_fail": failure_count
-                }
+                },
+                "carry_forward_instances": list(carry_forward_instances),
+                "carry_forward_tests": carry_forward_tests
             }, indent=2), encoding="utf-8")
 
             print(f"[INFO] Saved partial results after {custom_id}")

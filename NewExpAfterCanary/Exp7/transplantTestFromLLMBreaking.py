@@ -11,8 +11,8 @@ from common import parse_package_summary, classify_compilation_error, LOG_DIR_BA
 CSV_PATH = "/Volumes/Rachna-HD/updated_FinalBUMP_Instances_with_TestRunner.csv"
 SUMMARY_PATH = "/Volumes/Rachna-HD/package_structure_summary.txt"
 PRE_RESULTS_PATH = "/Volumes/Rachna-HD/Exp7BatchResults/transplant_results_final_pre.json"
-BREAKING_OUTPUT = Path("/Volumes/Rachna-HD/Exp7BatchResults/transplant_results_final_breaking.json")
-CSV_SUMMARY_OUTPUT = Path("/Volumes/Rachna-HD/Exp7BatchResults/transplant_results_final_breaking_summary.csv")
+BREAKING_OUTPUT = Path("/Volumes/Rachna-HD/Exp7BatchResults/breaking/transplant_results_final_breaking.json")
+CSV_SUMMARY_OUTPUT = Path("/Volumes/Rachna-HD/Exp7BatchResults/breaking/transplant_results_final_breaking_summary.csv")
 ABC_ROOT = Path("/Volumes/Rachna-HD/GeneratedOutputClientsExp7Batch/GPT4o")
 MODEL_NAME = ABC_ROOT.name  # e.g., GPT4o
 
