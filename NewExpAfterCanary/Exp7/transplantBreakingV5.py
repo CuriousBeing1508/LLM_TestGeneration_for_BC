@@ -428,8 +428,8 @@ def run_test_in_isolation(image_tag: str, custom_id: str, test_root: str,
 def main():
     global success_count, failure_count, results, carry_forward_instances, carry_forward_tests
 
-    START_ID = 106
-    END_ID = 190
+    START_ID = 1
+    END_ID = 106
 
     print(f"\n{'='*80}")
     print(f"Breaking Stage - LLM Test Execution")
