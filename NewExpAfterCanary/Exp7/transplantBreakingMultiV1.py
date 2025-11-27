@@ -15,7 +15,7 @@ from common import (
 # === CONFIG ===
 CSV_PATH = "/Volumes/Rachna-HD/updated_FinalBUMP_Instances_with_TestRunner.csv"
 PRE_RESULTS_PATH = "/Volumes/Rachna-HD/Exp7BatchResults/pre/transplant_results_final_pre.json"
-BREAKING_OUTPUT = Path("/Volumes/Rachna-HD/Exp7BatchResults/breaking/transplant_results_final_breaking_multimodule.json")
+BREAKING_OUTPUT = Path("/Volumes/Rachna-HD/Exp7BatchResults/breaking/transplant_results_final_breaking_multimodule_v2.json")
 MULTI_MODULE_LIST = Path("/Volumes/Rachna-HD/multi_module_instances.json")
 ABC_ROOT = Path("/Volumes/Rachna-HD/GeneratedOutputClientsExp7Batch/GPT4o")
 
@@ -156,10 +156,10 @@ def _infer_project_root(custom_id: str) -> str:
 
 
 def run_test_in_isolation(image_tag: str, custom_id: str, java_file: str,
-                          first_module: str, first_module_package: str):
+                          last_module: str, last_module_package: str):
     """
     Run a single LLM test in the breaking Docker image.
-    Transplants test to first module and lets Docker run normally.
+    Transplants test to LAST module and uses maven.test.failure.ignore=true.
     """
     
     # Find source file
@@ -195,34 +195,36 @@ def run_test_in_isolation(image_tag: str, custom_id: str, java_file: str,
     _, class_base = _to_java_filename(txt_path.name)
     test_class = java_file.replace(".java", "")
     
-    # Use first module's package for our test
-    llm_package = f"{first_module_package}.LLMTest"
-    final_code = _rewrite_package_and_class(cleaned, llm_package, class_base)
-    fqn = f"{llm_package}.{test_class}"
+    # Use last module's package for our test
+    final_code = _rewrite_package_and_class(cleaned, last_module_package, class_base)
+    fqn = f"{last_module_package}.{test_class}"
     
     # Infer project root
     project_root = _infer_project_root(custom_id)
     
-    # Transplant to first module
-    transplant_test_root = f"{project_root}/{first_module}/src/test/java"
-    pkg_path = Path(*llm_package.split("."))
+    # Transplant to LAST module
+    transplant_test_root = f"{project_root}/{last_module}/src/test/java"
+    pkg_path = Path(*last_module_package.split("."))
     
     # Create package structure in scratch
     out_file = scratch_dir / pkg_path / java_file
     out_file.parent.mkdir(parents=True, exist_ok=True)
     out_file.write_text(final_code, encoding="utf-8")
     
-    print(f"  [TRANSPLANT] {first_module} → {llm_package}")
+    print(f"  [TRANSPLANT] {last_module} → {last_module_package}")
 
     # Setup logging
-    log_path = LOG_DIR_BATCH_BRE / f"{custom_id}_{java_file}_breaking_exec_multi.log"
+    log_path = LOG_DIR_BATCH_BRE / f"{custom_id}_{java_file}_breaking_exec_multi_v3.log"
     log_path.parent.mkdir(parents=True, exist_ok=True)
 
-    # === SIMPLE: Just mount and let Docker run ===
+    # === V2 STRATEGY: Override Docker CMD with Maven command ===
+    # === V2 STRATEGY: Override Docker CMD with Maven command ===
     cmd = [
         "docker", "run", "--rm", "--platform", "linux/amd64",
         "-v", f"{scratch_dir}:{transplant_test_root}:ro",
         image_tag,
+        "sh", "-c",
+        f"cd {project_root} && mvn clean test -Dmaven.test.failure.ignore=true -DfailIfNoTests=false -Dtest={test_class}"
     ]
 
     log_lines = [
@@ -232,9 +234,8 @@ def run_test_in_isolation(image_tag: str, custom_id: str, java_file: str,
         f"Configuration:",
         f"  Test Class: {test_class}",
         f"  FQN: {fqn}",
-        f"  First Module: {first_module}",
-        f"  First Module Package: {first_module_package}",
-        f"  LLM Package: {llm_package}",
+        f"  Last Module: {last_module}",
+        f"  Last Module Package: {last_module_package}",
         f"{'='*80}",
         f"Paths:",
         f"  Project Root: {project_root}",
@@ -243,7 +244,8 @@ def run_test_in_isolation(image_tag: str, custom_id: str, java_file: str,
         f"  Test File: {transplant_test_root}/{pkg_path}/{java_file}",
         f"{'='*80}",
         f"Docker: {image_tag}",
-        f"Strategy: Let Docker run default command (Maven reactor build with tests)",
+        f"Strategy: V2 - Maven reactor with maven.test.failure.ignore=true",
+        f"Command: mvn clean test -Dmaven.test.failure.ignore=true -DfailIfNoTests=false -Dtest={test_class}",
         f"{'='*80}",
         f"",
     ]
@@ -291,9 +293,8 @@ def run_test_in_isolation(image_tag: str, custom_id: str, java_file: str,
             log_lines.append("=== TEST NOT FOUND IN OUTPUT ===")
             log_lines.append("[ERROR] Test did not execute or was not found")
             log_lines.append("")
-            log_lines.append("=== LAST 200 LINES OF OUTPUT ===")
-            all_lines = combined.split("\n")
-            log_lines.extend(all_lines[-200:])
+            log_lines.append("=== FULL OUTPUT (for debugging) ===")
+            log_lines.extend(combined.split("\n"))
         
         log_lines.append("")
         log_lines.append(f"=== EXIT CODE: {proc.returncode} ===")
@@ -409,7 +410,7 @@ def main():
     global success_count, failure_count, results, carry_forward_instances, carry_forward_tests, multi_module_info, csv_data
 
     print(f"\n{'='*80}")
-    print(f"BREAKING STAGE - Multi-Module Projects")
+    print(f"BREAKING STAGE - Multi-Module Projects (V2)")
     print(f"{'='*80}\n")
     
     multi_module_info = _load_multi_module_info()
@@ -451,10 +452,10 @@ def main():
             skipped_count += 1
             continue
 
-        first_module = multi_module_info[custom_id]["first_module"]
-        first_module_pkg = multi_module_info[custom_id]["first_module_package"]
+        last_module = multi_module_info[custom_id]["last_module"]
+        last_module_pkg = multi_module_info[custom_id]["last_module_package"]
         
-        print(f"\n{custom_id} | {first_module} | {commit[:8]}")
+        print(f"\n{custom_id} | {last_module} | {commit[:8]}")
 
         if custom_id not in carry_forward_instances or not _abc_has_any_file(custom_id):
             skipped_count += 1
@@ -472,7 +473,7 @@ def main():
             print(f"  → {java_file}...", end=" ", flush=True)
             
             success, err_info, log_path = run_test_in_isolation(
-                image_tag, custom_id, java_file, first_module, first_module_pkg
+                image_tag, custom_id, java_file, last_module, last_module_pkg
             )
             
             if success:
@@ -487,8 +488,8 @@ def main():
 
         results[custom_id] = {
             "tests": per_test_status,
-            "first_module": first_module,
-            "first_module_package": first_module_pkg
+            "last_module": last_module,
+            "last_module_package": last_module_pkg
         }
         processed_count += 1
 
@@ -509,8 +510,7 @@ def main():
     print(f"Processed: {processed_count}, Pass: {success_count}, Fail: {failure_count}")
     print(f"{'='*80}\n")
 
-
-    # === CLEANUP, just adding for better manageability, although mac os automatically removed at reboot. ===
+    # === CLEANUP ===
     if SCRATCH_BASE.exists():
         print(f"[CLEANUP] Removing scratch directory: {SCRATCH_BASE}")
         shutil.rmtree(SCRATCH_BASE)
