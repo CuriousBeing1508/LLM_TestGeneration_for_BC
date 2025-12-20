@@ -14,15 +14,15 @@ from common import (
 )
 
 # === CONFIG ===
-CSV_PATH = "/Volumes/Rachna-HD/updated_FinalBUMP_Instances_with_TestRunner.csv"
-SUMMARY_PATH = "/Volumes/Rachna-HD/package_structure_summary.txt"
-PRE_RESULTS_PATH = "/Volumes/Rachna-HD/Exp3BatchResults/pre/transplant_results_final_pre.json"
-BREAKING_OUTPUT = Path("/Volumes/Rachna-HD/Exp3BatchResults/breaking/transplant_results_final_breaking.json")
-ABC_ROOT = Path("/Volumes/Rachna-HD/GeneratedOutputClientsExp3/GPT4o")
+CSV_PATH = "/Volumes/RachnaPSSD/updated_FinalBUMP_Instances_with_TestRunner.csv"
+SUMMARY_PATH = "/Volumes/RachnaPSSD/package_structure_summary.txt"
+PRE_RESULTS_PATH = "/Volumes/RachnaPSSD/Exp3BatchResults/pre/transplant_results_final_pre.json"
+BREAKING_OUTPUT = Path("/Volumes/RachnaPSSD/Exp3BatchResults/breaking/transplant_results_final_breaking.json")
+ABC_ROOT = Path("/Volumes/RachnaPSSD/GeneratedOutputClientsExp3/GPT4o")
 MODEL_NAME = ABC_ROOT.name  # e.g., "GPT4o"
 
-SCRATCH_BASE = Path("/Volumes/Rachna-HD/Exp3BatchResults/breaking/scratch")
-REPORTS_BASE = Path("/Volumes/Rachna-HD/Exp3BatchResults/breaking/reports")
+SCRATCH_BASE = Path("/Volumes/RachnaPSSD/Exp3BatchResults/breaking/scratch")
+REPORTS_BASE = Path("/Volumes/RachnaPSSD/Exp3BatchResults/breaking/reports")
 
 pkg_info = parse_package_summary(SUMMARY_PATH)
 results = {}
@@ -428,8 +428,8 @@ def run_test_in_isolation(image_tag: str, custom_id: str, test_root: str,
 def main():
     global success_count, failure_count, results, carry_forward_instances, carry_forward_tests
 
-    START_ID = 1
-    END_ID = 106
+    START_ID = 106
+    END_ID = 190
 
     print(f"\n{'='*80}")
     print(f"Breaking Stage - LLM Test Execution")
