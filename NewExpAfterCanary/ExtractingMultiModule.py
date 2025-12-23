@@ -237,7 +237,7 @@ def generate_multi_module_json():
     OUTPUT_JSON.write_text(json.dumps(multi_module_data, indent=2), encoding="utf-8")
     
     print(f"\n{'='*80}")
-    print(f"✓ COMPLETE")
+    print(f" COMPLETE")
     print(f"{'='*80}")
     print(f"Total instances in CSV: {total_instances}")
     print(f"Multi-module instances: {multi_module_count}")
