@@ -16,11 +16,11 @@ from common import parse_package_summary, classify_compilation_error, LOG_DIR_BA
 # This script also counts the number of tests in each file for each custom id. that is the only extension from v3.
 
 # === CONFIG ===
-CSV_PATH = "/Volumes/RachnaPSSD/updated_FinalBUMP_Instances_with_TestRunner.csv"
-SUMMARY_PATH = "/Volumes/RachnaPSSD/package_structure_summary.txt"
-TRANSPLANT_OUTPUT = Path("/Volumes/RachnaPSSD/Exp6BatchResults/pre/transplant_results_final_pre.json")
-CSV_SUMMARY_OUTPUT = Path("/Volumes/RachnaPSSD/Exp6BatchResults/pre/transplant_results_final_pre_summary.csv")
-ABC_ROOT = Path("/Volumes/RachnaPSSD/GeneratedOutputClientsExp6/GPT4o")
+CSV_PATH = "/Volumes/Rachna-HD/updated_FinalBUMP_Instances_with_TestRunner.csv"
+SUMMARY_PATH = "/Volumes/Rachna-HD/package_structure_summary.txt"
+TRANSPLANT_OUTPUT = Path("/Volumes/Rachna-HD/Exp6BatchResults/pre/transplant_results_final_pre.json")
+CSV_SUMMARY_OUTPUT = Path("/Volumes/Rachna-HD/Exp6BatchResults/pre/transplant_results_final_pre_summary.csv")
+ABC_ROOT = Path("/Volumes/Rachna-HD/GeneratedOutputClientsExp6Batch/GPT4o")
 MODEL_NAME = ABC_ROOT.name  # e.g., "GPT4o"
 
 pkg_info = parse_package_summary(SUMMARY_PATH)
@@ -236,7 +236,7 @@ def main():
     global success_count, failure_count, results, carry_forward_instances, carry_forward_tests, test_counts
 
     # === BATCH CONFIG ===
-    START_ID = 65
+    START_ID = 74
     END_ID = 190
 
     # Load existing JSON if it exists
