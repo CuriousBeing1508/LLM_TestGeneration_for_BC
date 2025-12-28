@@ -1,9 +1,9 @@
 import json
 from pathlib import Path
-
+# RQ1: How many instance detects BC?
 # === CONFIG ===
-BREAKING_RESULTS_PATH = Path("/Volumes/RachnaPSSD/Exp3BatchResults/breaking/transplant_results_final_breaking.json")
-OUTPUT_STATS_PATH = Path("/Volumes/RachnaPSSD/Exp3BatchResults/breaking/exp3breResultsStats.json")
+BREAKING_RESULTS_PATH = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/breaking/transplant_results_final_breaking_hybrid.json")
+OUTPUT_STATS_PATH = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/breaking/exp3breRQ1.2Stats.json")
 
 def main():
     if not BREAKING_RESULTS_PATH.exists():
