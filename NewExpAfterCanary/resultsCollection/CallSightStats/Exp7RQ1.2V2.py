@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Stacktrace analysis with CSV output.
+Stacktrace analysis with CSV output - FIXED VERSION
 """
 
 import json
@@ -42,7 +42,15 @@ def extract_metadata_from_prompt(prompt_text: str) -> dict:
         if 'OSS Library:' in line:
             parts = line.split('OSS Library:')
             if len(parts) > 1:
-                metadata['library'] = parts[1].strip()
+                lib = parts[1].strip()
+                # Extract package prefix (e.g., "com.fasterxml.jackson" from "com.fasterxml.jackson.databind")
+                # This helps catch related packages like jackson-annotations
+                lib_parts = lib.split('.')
+                if len(lib_parts) >= 3:
+                    # Use first 3 parts as base package (e.g., com.fasterxml.jackson)
+                    metadata['library'] = '.'.join(lib_parts[:3])
+                else:
+                    metadata['library'] = lib
         
         # Focal method: grab method name before (
         elif 'Focal method signature:' in line:
@@ -132,7 +140,15 @@ def load_metadata_for_tests(carry_forward_instances, carry_forward_tests, prompt
 
 
 def analyze_execution_log(log_path: str, library_package: str, focal_class: str, focal_method: str) -> dict:
-    """Simple stacktrace analysis."""
+    """
+    Improved stacktrace analysis.
+    
+    Changes:
+    - Better library package matching (catches related packages)
+    - Context-aware focal method detection (must be in focal class)
+    - Distinguishes client code from test framework code
+    - Detects failure type (class loading vs runtime vs API incompatibility)
+    """
     if not Path(log_path).exists():
         return {
             'library_called': None,
@@ -142,10 +158,25 @@ def analyze_execution_log(log_path: str, library_package: str, focal_class: str,
             'focal_class_called': None,
             'focal_method_called': None,
             'error_message': None,
-            'stacktrace_depth': 0
+            'stacktrace_depth': 0,
+            'failure_type': None
         }
     
-    log_text = Path(log_path).read_text(encoding='utf-8', errors='ignore')
+    try:
+        log_text = Path(log_path).read_text(encoding='utf-8', errors='ignore')
+    except Exception as e:
+        print(f"[ERROR] Failed to read {log_path}: {e}")
+        return {
+            'library_called': None,
+            'library_methods': [],
+            'client_code_called': None,
+            'client_methods': [],
+            'focal_class_called': None,
+            'focal_method_called': None,
+            'error_message': f"Failed to read log: {e}",
+            'stacktrace_depth': 0,
+            'failure_type': 'read_error'
+        }
     
     # Extract stacktrace
     stack_lines = []
@@ -162,7 +193,7 @@ def analyze_execution_log(log_path: str, library_package: str, focal_class: str,
             error_message = stripped[:200]
             break
     
-    # Analyze stacktrace
+    # Initialize result
     result = {
         'library_called': False,
         'library_methods': [],
@@ -171,41 +202,66 @@ def analyze_execution_log(log_path: str, library_package: str, focal_class: str,
         'focal_class_called': False,
         'focal_method_called': False,
         'error_message': error_message,
-        'stacktrace_depth': len(stack_lines)
+        'stacktrace_depth': len(stack_lines),
+        'failure_type': None
     }
     
+    # Detect failure type
+    if error_message:
+        if any(err in error_message for err in ['ClassNotFoundException', 'NoClassDefFoundError']):
+            result['failure_type'] = 'class_loading'
+        elif any(err in error_message for err in ['NoSuchMethodError', 'NoSuchFieldError']):
+            result['failure_type'] = 'api_incompatibility'
+        elif any(err in error_message for err in ['AbstractMethodError', 'IncompatibleClassChangeError']):
+            result['failure_type'] = 'binary_incompatibility'
+        else:
+            result['failure_type'] = 'runtime_exception'
+    
+    # Analyze stacktrace
     for line in stack_lines:
-        # Check for library
-        if library_package and library_package in line:
-            result['library_called'] = True
-            match = re.search(r'at\s+([\w\.]+)\.([\w<>]+)\(', line)
-            if match:
-                method = f"{match.group(1)}.{match.group(2)}()"
-                if method not in result['library_methods']:
-                    result['library_methods'].append(method)
+        # Extract class and method
+        match = re.search(r'at\s+([\w\.$]+)\.([\w<>]+)\(', line)
+        if not match:
+            continue
         
-        # Check for focal class OR test class
-        # The test class won't match focal_class, so also check for client code patterns
-        match = re.search(r'at\s+([\w\.]+)\.([\w<>]+)\(', line)
-        if match:
-            full_class = match.group(1)
-            method_name = match.group(2)
+        full_class = match.group(1)
+        method_name = match.group(2)
+        
+        # Check for library code
+        # Using startswith to catch related packages (e.g., com.fasterxml.jackson.* catches both databind and annotation)
+        if library_package and full_class.startswith(library_package):
+            result['library_called'] = True
+            method = f"{full_class}.{method_name}()"
+            if method not in result['library_methods']:
+                result['library_methods'].append(method)
+        
+        # Check for client code (not library, not test framework, not JDK)
+        is_library = library_package and full_class.startswith(library_package)
+        is_test_framework = any(fw in full_class for fw in [
+            'org.testng', 
+            'junit', 
+            'org.junit',
+            'surefire', 
+            'java.lang.reflect',
+            'jdk.internal.reflect',
+            'sun.reflect'
+        ])
+        is_jdk = full_class.startswith('java.') or full_class.startswith('javax.')
+        
+        if not is_library and not is_test_framework and not is_jdk:
+            result['client_code_called'] = True
+            full_method = f"{full_class}.{method_name}()"
+            if full_method not in result['client_methods']:
+                result['client_methods'].append(full_method)
             
-            # Check if this is the focal class (client's production code)
+            # Check if this is specifically the focal class
             if focal_class and focal_class in full_class:
                 result['focal_class_called'] = True
-                result['client_code_called'] = True
-                full_method = f"{full_class}.{method_name}()"
-                if full_method not in result['client_methods']:
-                    result['client_methods'].append(full_method)
-            
-            # Check if focal method was called
-            # Just check if focal method name is ANYWHERE in the method name
-            if focal_method and focal_method.lower() in method_name.lower():
-                result['focal_method_called'] = True
-                # Also mark as client code called if not already
-                if not result['client_code_called']:
-                    result['client_code_called'] = True
+                
+                # Check if this is the focal method
+                # Now using exact match (case-insensitive) instead of substring
+                if focal_method and focal_method.lower() == method_name.lower():
+                    result['focal_method_called'] = True
     
     return result
 
@@ -227,6 +283,13 @@ def analyze_all_v2_logs(metadata_db, breaking_data, log_dir):
                 break
         
         if not log_file:
+            # Try without suffix
+            candidate = log_dir / f"{instance_id}_{test_file}_breaking.log"
+            if candidate.exists():
+                log_file = candidate
+        
+        if not log_file:
+            print(f"[WARN] No log file for {instance_id}/{test_file}")
             continue
         
         # Analyze log
@@ -266,6 +329,7 @@ def analyze_all_v2_logs(metadata_db, breaking_data, log_dir):
             'client_methods': '; '.join(execution['client_methods'][:3]),
             'focal_class_called': execution['focal_class_called'],
             'focal_method_called': execution['focal_method_called'],
+            'failure_type': execution['failure_type'],
             'error_message': execution['error_message'],
             'stacktrace_depth': execution['stacktrace_depth']
         }
@@ -286,7 +350,8 @@ def save_to_csv(results, output_path):
         'v1_passed', 'v2_passed', 'v2_failed', 'bc_detected',
         'library_called', 'library_methods_count', 'library_methods',
         'client_code_called', 'client_methods_count', 'client_methods',
-        'focal_class_called', 'focal_method_called', 'error_message', 'stacktrace_depth'
+        'focal_class_called', 'focal_method_called', 
+        'failure_type', 'error_message', 'stacktrace_depth'
     ]
     
     with open(output_path, 'w', newline='', encoding='utf-8') as f:
@@ -309,10 +374,20 @@ def generate_instance_summary(results, output_path):
         total_tests = len(tests)
         bc_detected = sum(1 for t in tests if t['bc_detected'])
         
-        lib_called = sum(1 for t in tests if t['bc_detected'] and t['library_called'])
-        client_called = sum(1 for t in tests if t['bc_detected'] and t['client_code_called'])
-        focal_method_called = sum(1 for t in tests if t['bc_detected'] and t['focal_method_called'])
-        both_called = sum(1 for t in tests if t['bc_detected'] and t['library_called'] and t['client_code_called'])
+        if bc_detected > 0:
+            lib_called = sum(1 for t in tests if t['bc_detected'] and t['library_called'])
+            client_called = sum(1 for t in tests if t['bc_detected'] and t['client_code_called'])
+            focal_class_called = sum(1 for t in tests if t['bc_detected'] and t['focal_class_called'])
+            focal_method_called = sum(1 for t in tests if t['bc_detected'] and t['focal_method_called'])
+            both_called = sum(1 for t in tests if t['bc_detected'] and t['library_called'] and t['client_code_called'])
+            
+            # Count failure types
+            class_loading = sum(1 for t in tests if t['bc_detected'] and t['failure_type'] == 'class_loading')
+            api_incompat = sum(1 for t in tests if t['bc_detected'] and t['failure_type'] == 'api_incompatibility')
+            runtime_exc = sum(1 for t in tests if t['bc_detected'] and t['failure_type'] == 'runtime_exception')
+        else:
+            lib_called = client_called = focal_class_called = focal_method_called = both_called = 0
+            class_loading = api_incompat = runtime_exc = 0
         
         library = tests[0]['library'] if tests else ''
         
@@ -326,16 +401,25 @@ def generate_instance_summary(results, output_path):
             'library_called_pct': f"{lib_called/bc_detected*100:.1f}%" if bc_detected else '0%',
             'client_code_called_count': client_called,
             'client_code_called_pct': f"{client_called/bc_detected*100:.1f}%" if bc_detected else '0%',
+            'focal_class_called_count': focal_class_called,
+            'focal_class_called_pct': f"{focal_class_called/bc_detected*100:.1f}%" if bc_detected else '0%',
             'focal_method_called_count': focal_method_called,
             'focal_method_called_pct': f"{focal_method_called/bc_detected*100:.1f}%" if bc_detected else '0%',
             'both_called_count': both_called,
-            'both_called_pct': f"{both_called/bc_detected*100:.1f}%" if bc_detected else '0%'
+            'both_called_pct': f"{both_called/bc_detected*100:.1f}%" if bc_detected else '0%',
+            'class_loading_failures': class_loading,
+            'api_incompatibility_failures': api_incompat,
+            'runtime_exception_failures': runtime_exc
         })
     
     columns = [
         'instance_id', 'library', 'total_tests', 'bc_detected_count', 'bc_detected_pct',
-        'library_called_count', 'library_called_pct', 'client_code_called_count', 'client_code_called_pct',
-        'focal_method_called_count', 'focal_method_called_pct', 'both_called_count', 'both_called_pct'
+        'library_called_count', 'library_called_pct', 
+        'client_code_called_count', 'client_code_called_pct',
+        'focal_class_called_count', 'focal_class_called_pct',
+        'focal_method_called_count', 'focal_method_called_pct', 
+        'both_called_count', 'both_called_pct',
+        'class_loading_failures', 'api_incompatibility_failures', 'runtime_exception_failures'
     ]
     
     with open(output_path, 'w', newline='', encoding='utf-8') as f:
@@ -358,8 +442,15 @@ def print_summary_stats(results):
     
     lib_called = sum(1 for r in bc_detected if r['library_called'])
     client_called = sum(1 for r in bc_detected if r['client_code_called'])
+    focal_class_called = sum(1 for r in bc_detected if r['focal_class_called'])
     focal_method_called = sum(1 for r in bc_detected if r['focal_method_called'])
     both = sum(1 for r in bc_detected if r['library_called'] and r['client_code_called'])
+    
+    # Failure type breakdown
+    class_loading = sum(1 for r in bc_detected if r['failure_type'] == 'class_loading')
+    api_incompat = sum(1 for r in bc_detected if r['failure_type'] == 'api_incompatibility')
+    binary_incompat = sum(1 for r in bc_detected if r['failure_type'] == 'binary_incompatibility')
+    runtime_exc = sum(1 for r in bc_detected if r['failure_type'] == 'runtime_exception')
     
     print(f"""
 {'='*80}
@@ -372,8 +463,15 @@ BC Detections (v2 fail):  {total_bc} ({total_bc/total*100:.1f}%)
 AMONG BC DETECTIONS:
 Library called:           {lib_called:4d} / {total_bc} ({lib_called/total_bc*100:.1f}%)
 Client code called:       {client_called:4d} / {total_bc} ({client_called/total_bc*100:.1f}%)
+Focal class called:       {focal_class_called:4d} / {total_bc} ({focal_class_called/total_bc*100:.1f}%)
 Focal method called:      {focal_method_called:4d} / {total_bc} ({focal_method_called/total_bc*100:.1f}%)
 Both lib + client:        {both:4d} / {total_bc} ({both/total_bc*100:.1f}%)
+
+FAILURE TYPE BREAKDOWN:
+Class loading failures:   {class_loading:4d} / {total_bc} ({class_loading/total_bc*100:.1f}%)
+API incompatibilities:    {api_incompat:4d} / {total_bc} ({api_incompat/total_bc*100:.1f}%)
+Binary incompatibilities: {binary_incompat:4d} / {total_bc} ({binary_incompat/total_bc*100:.1f}%)
+Runtime exceptions:       {runtime_exc:4d} / {total_bc} ({runtime_exc/total_bc*100:.1f}%)
 
 {'='*80}
 """)
@@ -381,12 +479,33 @@ Both lib + client:        {both:4d} / {total_bc} ({both/total_bc*100:.1f}%)
 
 def main():
     print("="*80)
-    print("STACKTRACE ANALYSIS - CSV OUTPUT")
+    print("STACKTRACE ANALYSIS - CSV OUTPUT (FIXED VERSION)")
     print("="*80)
     
+    # Validate paths exist
+    if not PRE_RESULTS.exists():
+        print(f"\n[ERROR] Pre-results file not found: {PRE_RESULTS}")
+        return
+    
+    if not BREAKING_RESULTS.exists():
+        print(f"\n[ERROR] Breaking results file not found: {BREAKING_RESULTS}")
+        return
+    
+    if not PROMPT_ROOT.exists():
+        print(f"\n[ERROR] Prompt root directory not found: {PROMPT_ROOT}")
+        return
+    
+    if not LOG_DIR.exists():
+        print(f"\n[ERROR] Log directory not found: {LOG_DIR}")
+        return
+    
     print("\n[1/5] Loading results...")
-    pre_data = json.loads(PRE_RESULTS.read_text(encoding='utf-8'))
-    breaking_data = json.loads(BREAKING_RESULTS.read_text(encoding='utf-8'))
+    try:
+        pre_data = json.loads(PRE_RESULTS.read_text(encoding='utf-8'))
+        breaking_data = json.loads(BREAKING_RESULTS.read_text(encoding='utf-8'))
+    except Exception as e:
+        print(f"\n[ERROR] Failed to load JSON files: {e}")
+        return
     
     carry_forward_instances = pre_data['carry_forward_instances']
     carry_forward_tests = pre_data['carry_forward_tests']
@@ -407,6 +526,10 @@ def main():
     print("\n[3/5] Analyzing v2 execution logs...")
     results = analyze_all_v2_logs(metadata_db, breaking_data, LOG_DIR)
     print(f"  Analyzed {len(results)} test executions")
+    
+    if len(results) == 0:
+        print("\n[ERROR] No results generated! Check LOG_DIR path.")
+        return
     
     print("\n[4/5] Saving results...")
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
