@@ -3,8 +3,8 @@ import json
 import subprocess
 from pathlib import Path
 
-LOG_DIR = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/logs")
-LOG_DIR.mkdir(parents=True, exist_ok=True)
+# LOG_DIR = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/logs")
+# LOG_DIR.mkdir(parents=True, exist_ok=True)
 
 # LOG_EXEC_DIR = Path("/Volumes/RachnaPSSD/Exp6BatchResults/logs/executionPhase")
 # LOG_EXEC_DIR.mkdir(parents=True, exist_ok=True)
@@ -18,10 +18,12 @@ LOG_DIR.mkdir(parents=True, exist_ok=True)
 
 
 # For Batch execution pre
-LOG_DIR_BATCH = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/pre/logs")
-LOG_DIR_BATCH.mkdir(parents=True, exist_ok=True)
+# LOG_DIR_BATCH = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/pre/logs")
+# LOG_DIR_BATCH.mkdir(parents=True, exist_ok=True)
 
 
+
+# For PSSD
 # LOG_DIR_BATCH_BRE = Path("/Volumes/RachnaPSSD/Exp6BatchResults/logs/breakingPhase")
 # LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
 
@@ -30,11 +32,13 @@ LOG_DIR_BATCH.mkdir(parents=True, exist_ok=True)
 
 
 # For Batch execution breaking
-LOG_DIR_BATCH_BRE = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/bre/logs")
-LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
+# LOG_DIR_BATCH_BRE = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/bre/logs")
+# LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
 
-LOG_EXEC_DIR_BATCH = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/logs/executionPhase")
-LOG_EXEC_DIR_BATCH.mkdir(parents=True, exist_ok=True)
+# LOG_EXEC_DIR_BATCH = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/logs/executionPhase")
+# LOG_EXEC_DIR_BATCH.mkdir(parents=True, exist_ok=True)
+
+
 
 # LOG_BREAKING_DIR_BATCH = Path("/Volumes/RachnaPSSD/Exp6BatchResults/logs/breakingPhase")
 # LOG_BREAKING_DIR.mkdir(parents=True, exist_ok=True)
@@ -43,10 +47,40 @@ LOG_EXEC_DIR_BATCH.mkdir(parents=True, exist_ok=True)
 # LOG_CANARY_DIR.mkdir(parents=True, exist_ok=True)
 
 
-class DockerRunError(Exception):
-    def __init__(self, message, log_path):
-        super().__init__(message)
-        self.log_path = log_path
+# ==============================================================
+
+
+# Logs for Qwen Exp:
+
+# # For pre execution
+# LOG_DIR_BATCH = Path("/Volumes/RachnaPSSD/Qwen480bResults/Exp3BatchResults/pre/logs")
+# LOG_DIR_BATCH.mkdir(parents=True, exist_ok=True)
+
+
+# # For Batch execution breaking
+# LOG_DIR_BATCH_BRE = Path("/Volumes/RachnaPSSD/Qwen480bResults/Exp3BatchResults/bre/logs")
+# LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
+
+
+
+# Logs for Qwen Exp:
+
+# For pre execution
+LOG_DIR_BATCH = Path("/Volumes/RachnaPSSD/GPTResults/Exp3BatchResults/pre/logs")
+LOG_DIR_BATCH.mkdir(parents=True, exist_ok=True)
+
+
+# For Batch execution breaking
+LOG_DIR_BATCH_BRE = Path("/Volumes/RachnaPSSD/GPTResults/Exp3BatchResults/bre/logs")
+LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
+
+
+
+# LOG_EXEC_DIR_BATCH.mkdir(parents=True, exist_ok=True)
+# class DockerRunError(Exception):
+#     def __init__(self, message, log_path):
+#         super().__init__(message)
+#         self.log_path = log_path
 
 
 class MavenTestError(Exception):

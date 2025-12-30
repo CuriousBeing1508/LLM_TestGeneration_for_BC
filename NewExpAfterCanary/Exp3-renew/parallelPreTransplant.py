@@ -21,12 +21,22 @@ def safe_print(*args, **kwargs):
     with print_lock:
         print(*args, **kwargs)
 
-# === CONFIG ===
-CSV_PATH = "/Volumes/RachnaPSSD/updated_FinalBUMP_Instances_with_TestRunner.csv"
-SUMMARY_PATH = "/Volumes/RachnaPSSD/package_structure_summary.txt"
-TRANSPLANT_OUTPUT = Path("/Volumes/RachnaPSSD/Exp3BatchResults/pre/transplant_results_final_pre.json")
-CSV_SUMMARY_OUTPUT = Path("/Volumes/RachnaPSSD/Exp3BatchResults/pre/transplant_results_final_pre_summary.csv")
-ABC_ROOT = Path("/Volumes/RachnaPSSD/GeneratedOutputClientsExp3/GPT4o")
+# === CONFIG Qwen===
+
+# CSV_PATH = "/Volumes/RachnaPSSD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+# SUMMARY_PATH = "/Volumes/RachnaPSSD/ConfigFiles/package_structure_summary.txt"
+# TRANSPLANT_OUTPUT = Path("/Volumes/RachnaPSSD/Qwen480bResults/Exp3BatchResults/pre/transplant_results_final_pre.json")
+# CSV_SUMMARY_OUTPUT = Path("/Volumes/RachnaPSSD/Qwen480bResults/Exp3BatchResults/pre/transplant_results_final_pre_summary.csv")
+# ABC_ROOT = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp3LLMOutput/Qwen_480b_cloud")
+# MODEL_NAME = ABC_ROOT.name  # e.g., "Qwen_480b_cloud"
+
+# === CONFIG GPT 4o===
+
+CSV_PATH = "/Volumes/RachnaPSSD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+SUMMARY_PATH = "/Volumes/RachnaPSSD/ConfigFiles/package_structure_summary.txt"
+TRANSPLANT_OUTPUT = Path("/Volumes/RachnaPSSD/GPTResults/Exp3BatchResults/pre/transplant_results_final_pre.json")
+CSV_SUMMARY_OUTPUT = Path("/Volumes/RachnaPSSD/GPTResults/Exp3BatchResults/pre/transplant_results_final_pre_summary.csv")
+ABC_ROOT = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp3LLMOutput/GPT4o")
 MODEL_NAME = ABC_ROOT.name  # e.g., "GPT4o"
 
 pkg_info = parse_package_summary(SUMMARY_PATH)
@@ -263,8 +273,12 @@ def run_test_in_isolation(image_tag: str, custom_id: str, test_root: str, stagin
     log_lines = [f"[INFO] Running isolated test {java_file} for {custom_id} using {image_tag}"]
     log_lines.append(f"FQN: {fqn}")
     log_lines.append(f"Command: {maven_cmd}")
+    log_lines.append("")
     
     failure_type = None
+    compilation_passed = False
+    test_execution_passed = False
+    
     try:
         proc = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
         stdout = proc.stdout
@@ -275,48 +289,49 @@ def run_test_in_isolation(image_tag: str, custom_id: str, test_root: str, stagin
         log_lines.append(stdout)
         log_lines.append("=== STDERR ===")
         log_lines.append(stderr)
+        log_lines.append("")
         
-        # Check for compilation failure first
-        has_compilation_error = (
-            "COMPILATION ERROR" in combined or 
-            "error:" in combined.lower() and "javac" in combined or
-            "cannot find symbol" in combined or
-            "package" in combined and "does not exist" in combined
-        )
-        
-        # Parse results similar to breaking script
-        success = False
-        if f"Running {fqn}" in combined or f"Running {test_class}" in combined:
-            # Test executed - check results
-            pattern = rf"Running.*?{test_class}.*?Tests run:\s*(\d+).*?Failures:\s*(\d+).*?Errors:\s*(\d+)"
-            match = re.search(pattern, combined, flags=re.DOTALL | re.IGNORECASE)
-            
-            if match:
-                tests_run = int(match.group(1))
-                failures = int(match.group(2))
-                errors = int(match.group(3))
-                
-                log_lines.append(f"[RESULTS] Tests: {tests_run}, Failures: {failures}, Errors: {errors}")
-                
-                if tests_run > 0:
-                    success = (failures == 0 and errors == 0)
-                    if not success:
-                        failure_type = "test_failure"
-                        log_lines.append("[FAILURE TYPE] Test failure")
-                else:
-                    log_lines.append(f"[?] WARNING - 0 tests ran")
-                    failure_type = "no_tests_ran"
+        # Phase 1: Check if compilation passed (javac succeeded)
+        # The command uses && so if javac fails, maven won't run
+        if "mvn surefire:test" in combined or "T E S T S" in combined:
+            compilation_passed = True
+            log_lines.append("[PHASE 1] ✓ Compilation passed")
         else:
-            # Test did not execute - determine why
-            if has_compilation_error:
-                failure_type = "compilation_failure"
-                log_lines.append("[FAILURE TYPE] Compilation failure")
+            compilation_passed = False
+            failure_type = "compilation_failure"
+            log_lines.append("[PHASE 1] ✗ Compilation failed")
+        
+        # Phase 2: Check if tests executed and passed (only if compilation passed)
+        success = False
+        if compilation_passed:
+            if f"Running {fqn}" in combined or f"Running {test_class}" in combined:
+                pattern = rf"Running.*?{test_class}.*?Tests run:\s*(\d+).*?Failures:\s*(\d+).*?Errors:\s*(\d+)"
+                match = re.search(pattern, combined, flags=re.DOTALL | re.IGNORECASE)
+                
+                if match:
+                    tests_run = int(match.group(1))
+                    failures = int(match.group(2))
+                    errors = int(match.group(3))
+                    
+                    log_lines.append(f"[PHASE 2] Tests run: {tests_run}, Failures: {failures}, Errors: {errors}")
+                    
+                    if tests_run > 0:
+                        test_execution_passed = True
+                        success = (failures == 0 and errors == 0)
+                        if success:
+                            log_lines.append("[PHASE 2] ✓ Tests passed")
+                        else:
+                            failure_type = "test_failure"
+                            log_lines.append("[PHASE 2] ✗ Tests failed")
+                    else:
+                        failure_type = "no_tests_ran"
+                        log_lines.append("[PHASE 2] ✗ No tests ran")
+                else:
+                    failure_type = "test_execution_error"
+                    log_lines.append("[PHASE 2] ✗ Could not parse test results")
             else:
-                # Fallback to BUILD SUCCESS check
-                success = proc.returncode == 0 and "BUILD SUCCESS" in stdout
-                if not success:
-                    failure_type = "execution_failure"
-                    log_lines.append("[FAILURE TYPE] Execution failure (test did not run)")
+                failure_type = "test_did_not_execute"
+                log_lines.append("[PHASE 2] ✗ Test did not execute")
             
     except subprocess.TimeoutExpired:
         log_lines.append("[ERROR] Timeout (600s)")
@@ -408,8 +423,6 @@ def main():
                 continue
 
             per_test_status = {"passed": [], "failed": []}
-            good_tests_dir = Path(f"/tmp/llm_exec/{custom_id}/{MODEL_NAME}/LLMTest")
-            good_tests_dir.mkdir(parents=True, exist_ok=True)
             
             # Track failure types for this instance
             compilation_failures = []
@@ -450,12 +463,9 @@ def main():
                                 per_test_status["passed"].append(java_file)
                                 carry_forward_tests[custom_id]["passed"].append(java_file)
                                 
+                                # Count executed tests
                                 if staged_file:
                                     test_counts[custom_id]["executed"] += _count_test_methods(staged_file)
-                                    rel_path = staged_file.relative_to(Path(staging_root) / "LLMTest")
-                                    dest_path = good_tests_dir / rel_path
-                                    dest_path.parent.mkdir(parents=True, exist_ok=True)
-                                    shutil.copy(staged_file, dest_path / java_file)
                             else:
                                 cat = err_info.get("category", "?") if err_info else "?"
                                 safe_print(f"  → {java_file}... ✗ ({failure_type or cat})")
