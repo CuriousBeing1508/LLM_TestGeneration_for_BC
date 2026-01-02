@@ -50,16 +50,16 @@ from pathlib import Path
 # ==============================================================
 
 
-# Logs for Qwen Exp:
+# Logs for GPT4o Exp:
 
 # # For pre execution
-# LOG_DIR_BATCH = Path("/Volumes/RachnaPSSD/Qwen480bResults/Exp3BatchResults/pre/logs")
-# LOG_DIR_BATCH.mkdir(parents=True, exist_ok=True)
+LOG_DIR_BATCH = Path("/Volumes/RachnaPSSD/Qwen480bResults/Exp3BatchResults/pre/logs")
+LOG_DIR_BATCH.mkdir(parents=True, exist_ok=True)
 
 
-# # For Batch execution breaking
-# LOG_DIR_BATCH_BRE = Path("/Volumes/RachnaPSSD/Qwen480bResults/Exp3BatchResults/bre/logs")
-# LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
+# For Batch execution breaking
+LOG_DIR_BATCH_BRE = Path("/Volumes/RachnaPSSD/Qwen480bResults/Exp3BatchResults/bre/logs")
+LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
 
 
 
