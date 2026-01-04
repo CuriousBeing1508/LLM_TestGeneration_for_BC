@@ -13,11 +13,11 @@ import sys
 # log_dir.mkdir(parents=True, exist_ok=True)
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-csv_path = Path("/Volumes/Rachna-HD/FinalBUMP_Instances.csv")
+csv_path = Path("/Volumes/RachnaPSSD/ConfigFiles/BUMP_with_NoLibraryGitHubURL.csv")
 jar_path =  SCRIPT_DIR /"my_spoon_wrapper-1.0-shaded.jar"
-clients_base_folder = Path("/Volumes/Rachna-HD/Dataset/ClonedRepo/Clients")
-analysis_root = Path("/Volumes/Rachna-HD/Dataset/StaticAnalysisClient")
-log_dir = Path("/Volumes/Rachna-HD/logs")
+clients_base_folder = Path("/Volumes/RachnaPSSD/Dataset/ClonedRepo/Clients")
+analysis_root = Path("/Volumes/RachnaPSSD/Dataset/StaticAnalysis")
+log_dir = Path("/Volumes/RachnaPSSD/Dataset/logsStaticAna")
 log_dir.mkdir(parents=True, exist_ok=True)
 
 def log_and_run(cmd, cwd=None, bump_id=None):
@@ -60,7 +60,7 @@ for _, row in df.iterrows():
     dep_artifact = row['dependencyArtifactID']
     import_prefix = row['ActualImportBase']
     breaking_commit = row['breakingCommit']
-    github_url = row['clientGithubURL']
+    github_url = row['url']
     
     client_repo_path = clients_base_folder / client_folder_name
     repo_url = github_url.split("/pull/")[0] + ".git"

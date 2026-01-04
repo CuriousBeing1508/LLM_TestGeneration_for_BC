@@ -102,44 +102,6 @@ def status_for_row(custom_id: str, commit: str) -> tuple[str, str]:
     return "used", "ok"
 
 
-# def main():
-#     # Read input CSV
-#     with open(CSV_PATH_IN, newline="") as f:
-#         reader = csv.DictReader(f)
-#         rows = list(reader)
-#         in_fields = reader.fieldnames or []
-
-#     # Prepare output header (append 'status' if not already present)
-#     out_fields = list(in_fields)
-#     if "status" not in out_fields:
-#         out_fields.append("status")
-
-#     # Process and annotate status
-#     counts = Counter()
-#     updated_rows = []
-#     for row in rows:
-#         custom_id = (row.get("custom_id") or "").strip()
-#         commit    = (row.get("breakingCommit") or "").strip()
-
-#         st = status_for_row(custom_id, commit)
-#         row["status"] = st
-#         updated_rows.append(row)
-#         counts[st] += 1
-
-#         print(f"{custom_id or '(no id)'} -> {st}")
-
-#     # Write output CSV
-#     Path(CSV_PATH_OUT).parent.mkdir(parents=True, exist_ok=True)
-#     with open(CSV_PATH_OUT, "w", newline="") as f:
-#         writer = csv.DictWriter(f, fieldnames=out_fields)
-#         writer.writeheader()
-#         writer.writerows(updated_rows)
-
-#     print("\nSummary:")
-#     print(f"  used:    {counts.get('used', 0)}")
-#     print(f"  skipped: {counts.get('skipped', 0)}")
-#     print(f"✅ Wrote: {CSV_PATH_OUT}")
-
 
 
 def main():
@@ -199,16 +161,16 @@ def main():
 
     # Print summary
     print("\n".join(lines))
-    print(f"✅ Wrote CSV: {CSV_PATH_OUT}")
+    print(f" Wrote CSV: {CSV_PATH_OUT}")
 
     # Write summary to log file
     try:
         with open(LOG_PATH, "w") as lf:
             lf.write("\n".join(lines) + "\n")
             lf.write(f"CSV_OUT: {CSV_PATH_OUT}\n")
-        print(f"📝 Wrote log: {LOG_PATH}")
+        print(f"Wrote log: {LOG_PATH}")
     except Exception as e:
-        print(f"⚠️ Failed to write log {LOG_PATH}: {e}")
+        print(f" Failed to write log {LOG_PATH}: {e}")
 
 
 if __name__ == "__main__":

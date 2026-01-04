@@ -4,11 +4,16 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 import sys
 # recursive in all poms..
-# ====== CONFIG (edit these two paths only) ======
-CSV_PATH_IN  = "/Volumes/Rachna-HD/updated_FinalBUMP_Instances.csv"       # existing CSV, includes custom_id, breakingCommit
-CSV_PATH_OUT = "/Volumes/Rachna-HD/updated_FinalBUMP_Instances_with_TestRunner.csv"  # new CSV to write
+# ====== CONFIG ======
+# CSV_PATH_IN  = "/Volumes/Rachna-HD/updated_FinalBUMP_Instances.csv"       
+# CSV_PATH_OUT = "/Volumes/Rachna-HD/updated_FinalBUMP_Instances_with_TestRunner.csv" 
 # ===============================================
 
+
+
+# ====== CONFIG ======
+CSV_PATH_IN  = "/Volumes/RachnaPSSD/configFiles/BUMP_with_NoLibraryGitHubURL.csv"       # existing CSV, includes custom_id, breakingCommit
+CSV_PATH_OUT = "/Volumes/RachnaPSSD/configFiles/BUMP_with_NoLibraryGitHubURL_with_TestRunner.csv"  # new CSV to write
 LOG_PATH = Path(CSV_PATH_OUT).with_suffix(".log")
 
 # ----- Docker helpers (override entrypoint so container doesn't "run") -----

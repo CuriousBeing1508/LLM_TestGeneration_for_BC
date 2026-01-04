@@ -15,7 +15,7 @@ REPORT_FILE = Path("/Volumes/RachnaPSSD/SanityReport/Exp3_GenPrompt_report.txt")
 # Format: {folder_name: folder_path}
 OUTPUT_FOLDERS = {
     "GPT4o_Exp3": Path("/Volumes/RachnaPSSD/FilteredDataset/Exp3LLMOutput/GPT4o"),
-    "Claude_Exp3": Path("/Volumes/RachnaPSSD/FilteredDataset/Exp3LLMOutput/Claude"),
+    "Qwen_Exp3": Path("/Volumes/RachnaPSSD/FilteredDataset/Exp3LLMOutput/Qwen_480b_cloud"),
     # Add more output folders as needed
 }
 

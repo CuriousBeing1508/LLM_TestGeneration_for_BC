@@ -7,6 +7,11 @@ from pathlib import Path
 import shutil
 import re
 
+from dotenv import load_dotenv  # Add this import
+# This is useful script.
+# Load environment variables from .env file
+load_dotenv()  # Add this line before accessing the variable
+
 GITHUB_PAT = os.environ.get('GITHUB_PAT')
 assert GITHUB_PAT, "GitHub token not found in environment variable GITHUB_PAT"
 
@@ -15,8 +20,8 @@ FAILED_LOG_PATH = "failed_clones.txt"
 # CLIENTS_DIR = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ClonedRepo/Clients")
 
 #Experiment 1 Path
-CLIENTS_DIR = Path("/Volumes/Rachna-HD/Dataset/ClonedRepo/Clients")
-csv_path = Path("/Volumes/Rachna-HD/FinalBUMP_Instances.csv")
+CLIENTS_DIR = Path("/Volumes/RachnaPSSD/Dataset/ClonedRepo/Clients")
+csv_path = Path("/Volumes/RachnaPSSD/ConfigFiles/BUMP_with_NoLibraryGitHubURL.csv")
 
 def extract_repo_url_and_pr_number(pr_url):
     """From a PR URL, extract repo URL and PR number"""
@@ -90,7 +95,7 @@ def main():
     with open(FAILED_LOG_PATH, "w") as fail_log_file:
         for _, row in tqdm(df.iterrows(), total=len(df), desc="Processing Clients"):
             custom_id = str(row["custom_id"]).strip()
-            pr_url = str(row["clientGithubURL"]).strip()
+            pr_url = str(row["url"]).strip()
             commit_hash = str(row["breakingCommit"]).strip()
 
             if not pr_url or not commit_hash:

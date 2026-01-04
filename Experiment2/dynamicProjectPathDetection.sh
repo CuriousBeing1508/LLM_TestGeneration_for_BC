@@ -1,9 +1,9 @@
 #!/bin/bash
 
-CSV="/Volumes/Rachna-HD/FinalBUMP_Instances.csv"
-OUTPUT="/Volumes/Rachna-HD/package_structure_summary.txt"
+CSV="/Volumes/RachnaPSSD/ConfigFiles/BUMP_with_NoLibraryGitHubURL.csv"
+OUTPUT="/Volumes/RachnaPSSD/ConfigFiles/package_structure_summary.txt"
 
-echo "Extracting base Java test package for all Docker images..." > "$OUTPUT"
+echo "Extracting base Java test package for all Docker images..." >> "$OUTPUT"
 
 # Read CSV skipping header
 tail -n +2 "$CSV" | while IFS=',' read -r custom_id clientURL clientProject clientOrg breakingCommit _; do
