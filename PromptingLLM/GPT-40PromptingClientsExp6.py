@@ -7,10 +7,10 @@ from pathlib import Path
 
 # === CONFIGURATION ===
 # Set the start and end bump indices here (1-based, inclusive, CSV order)
-START_IDX = 11   # e.g. 1 = first row in CSV
-END_IDX = None    # e.g. 10 = up to 10th row in CSV, set None for all rows
+START_IDX = 28   # e.g. 1 = first row in CSV
+END_IDX = 28   # e.g. 10 = up to 10th row in CSV, set None for all rows
 
-CSV_PATH = Path("/Volumes/REALISE/updated_FinalBUMP_Instances_with_TestRunner.csv")
+CSV_PATH = Path("/Volumes/RachnaPSSD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv")
 
 # === LOAD ENV & INITIALIZE OPENAI CLIENT ===
 load_dotenv()
@@ -21,8 +21,8 @@ if not api_key:
 client = OpenAI(api_key=api_key)
 
 # === PATHS ===
-PROMPT_DIR = Path("/Volumes/REALISE/GeneratedPromptsExp6")
-OUTPUT_ROOT = Path("/Volumes/REALISE/GeneratedOutputClientsExp6Batch") / "GPT4o"
+PROMPT_DIR = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp6Prompts")
+OUTPUT_ROOT = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp6LLMOutput") / "GPT4o"
 OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
 LOG_FILE = OUTPUT_ROOT / "generation_log.txt"
 

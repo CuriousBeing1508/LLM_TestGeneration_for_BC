@@ -31,7 +31,7 @@ EMAIL_PASSWORD = ""  # App password for Gmail (not your regular password)
 SMTP_SERVER = ""
 SMTP_PORT = 587
 
-CSV_PATH = Path("/Volumes/RachnaPSSD/updated_FinalBUMP_Instances_with_TestRunner.csv")
+CSV_PATH = Path("/Volumes/RachnaPSSD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv")
 
 # === LOAD ENV ===
 load_dotenv()
@@ -41,7 +41,10 @@ load_dotenv()
 API_KEYS = [
     os.getenv("OLLAMA_API_KEY"),      # Primary key
     os.getenv("OLLAMA_API_KEY_2"),    # Backup key 1
-    os.getenv("OLLAMA_API_KEY_3"),    # Backup key 2
+    os.getenv("OLLAMA_API_KEY_3"),
+    os.getenv("OLLAMA_API_KEY_4"),
+    
+        # Backup key 2
     # Add more keys as needed
 ]
 
