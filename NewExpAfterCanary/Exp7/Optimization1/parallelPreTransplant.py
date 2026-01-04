@@ -21,22 +21,12 @@ def safe_print(*args, **kwargs):
     with print_lock:
         print(*args, **kwargs)
 
-# === CONFIG Qwen===
-
-# CSV_PATH = "/Volumes/RachnaPSSD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-# SUMMARY_PATH = "/Volumes/RachnaPSSD/ConfigFiles/package_structure_summary.txt"
-# TRANSPLANT_OUTPUT = Path("/Volumes/RachnaPSSD/Qwen480bResults/Exp3BatchResults/pre/transplant_results_final_pre.json")
-# CSV_SUMMARY_OUTPUT = Path("/Volumes/RachnaPSSD/Qwen480bResults/Exp3BatchResults/pre/transplant_results_final_pre_summary.csv")
-# ABC_ROOT = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp3LLMOutput/Qwen_480b_cloud")
-# MODEL_NAME = ABC_ROOT.name  # e.g., "Qwen_480b_cloud"
-
-# === CONFIG GPT 4o===
-
-CSV_PATH = "/Volumes/RachnaPSSD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-SUMMARY_PATH = "/Volumes/RachnaPSSD/ConfigFiles/package_structure_summary.txt"
-TRANSPLANT_OUTPUT = Path("/Volumes/RachnaPSSD/GPTResults/Exp6BatchResults/pre/transplant_results_final_pre.json")
-CSV_SUMMARY_OUTPUT = Path("/Volumes/RachnaPSSD/GPTResults/Exp6BatchResults/pre/transplant_results_final_pre_summary.csv")
-ABC_ROOT = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp6LLMOutput/GPT4o")
+# === CONFIG ===
+CSV_PATH = "/Volumes/RachnaPSSD/updated_FinalBUMP_Instances_with_TestRunner.csv"
+SUMMARY_PATH = "/Volumes/RachnaPSSD/package_structure_summary.txt"
+TRANSPLANT_OUTPUT = Path("/Volumes/RachnaPSSD/Exp3BatchResults/pre/transplant_results_final_pre.json")
+CSV_SUMMARY_OUTPUT = Path("/Volumes/RachnaPSSD/Exp3BatchResults/pre/transplant_results_final_pre_summary.csv")
+ABC_ROOT = Path("/Volumes/RachnaPSSD/GeneratedOutputClientsExp3/GPT4o")
 MODEL_NAME = ABC_ROOT.name  # e.g., "GPT4o"
 
 pkg_info = parse_package_summary(SUMMARY_PATH)
@@ -56,8 +46,9 @@ per_bump_instances = defaultdict(dict)  # bump_id -> {custom_id: {"result": "pas
 carry_forward_instances = set()
 carry_forward_tests = defaultdict(lambda: {"passed": [], "failed": []})
 
-# Test count tracker
-test_counts = defaultdict(lambda: {"generated": 0, "executed": 0})
+# File and test count tracker - FIXED
+file_counts = defaultdict(lambda: {"files_generated": 0, "files_executed": 0})
+test_counts = defaultdict(lambda: {"tests_in_generated_files": 0, "tests_in_executed_files": 0})
 
 
 def _extract_error_fields(err_info):
@@ -187,9 +178,10 @@ def prepare_staging_tests(custom_id: str, package_decl: str) -> tuple[str, list[
             out_file.write_text(final_code, encoding="utf-8")
             java_files.append(java_filename)
 
-            # Count generated tests (thread-safe)
+            # Count BOTH files and tests - thread-safe
             with results_lock:
-                test_counts[custom_id]["generated"] += _count_test_methods(out_file)
+                file_counts[custom_id]["files_generated"] += 1
+                test_counts[custom_id]["tests_in_generated_files"] += _count_test_methods(out_file)
 
         except Exception as e:
             safe_print(f"[WARN] Failed to convert {p}: {e}")
@@ -203,7 +195,7 @@ def run_test_in_isolation(image_tag: str, custom_id: str, test_root: str, stagin
     """
     Run a single test in isolation by mounting only that test file.
     quiet: If True, suppress console output (logs still written to file)
-    Returns: (success, err_info, log_path, failure_type)
+    Returns: (success, err_info, log_path, failure_type, test_method_count)
     """
     def log(msg):
         if not quiet:
@@ -226,11 +218,14 @@ def run_test_in_isolation(image_tag: str, custom_id: str, test_root: str, stagin
             shutil.copy(src_path, dest_path / java_file)
             found = src_path
             break
+    
+    test_method_count = _count_test_methods(found) if found else 0
+    
     if not found:
         log(f"[WARN] Could not find staged file {java_file} for {custom_id}")
-        return False, None, "", "no_source"
+        return False, None, "", "no_source", 0
 
-    log_path = LOG_DIR_BATCH / f"{custom_id}_{java_file}_Exp6.log"
+    log_path = LOG_DIR_BATCH / f"{custom_id}_{java_file}_Exp3.log"
     log_path.parent.mkdir(parents=True, exist_ok=True)
 
     container_mount = f"{test_root}/LLMTest"
@@ -273,12 +268,9 @@ def run_test_in_isolation(image_tag: str, custom_id: str, test_root: str, stagin
     log_lines = [f"[INFO] Running isolated test {java_file} for {custom_id} using {image_tag}"]
     log_lines.append(f"FQN: {fqn}")
     log_lines.append(f"Command: {maven_cmd}")
-    log_lines.append("")
+    log_lines.append(f"Test methods in file: {test_method_count}")
     
     failure_type = None
-    compilation_passed = False
-    test_execution_passed = False
-    
     try:
         proc = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
         stdout = proc.stdout
@@ -289,49 +281,48 @@ def run_test_in_isolation(image_tag: str, custom_id: str, test_root: str, stagin
         log_lines.append(stdout)
         log_lines.append("=== STDERR ===")
         log_lines.append(stderr)
-        log_lines.append("")
         
-        # Phase 1: Check if compilation passed (javac succeeded)
-        # The command uses && so if javac fails, maven won't run
-        if "mvn surefire:test" in combined or "T E S T S" in combined:
-            compilation_passed = True
-            log_lines.append("[PHASE 1] ✓ Compilation passed")
-        else:
-            compilation_passed = False
-            failure_type = "compilation_failure"
-            log_lines.append("[PHASE 1] ✗ Compilation failed")
+        # Check for compilation failure first
+        has_compilation_error = (
+            "COMPILATION ERROR" in combined or 
+            "error:" in combined.lower() and "javac" in combined or
+            "cannot find symbol" in combined or
+            "package" in combined and "does not exist" in combined
+        )
         
-        # Phase 2: Check if tests executed and passed (only if compilation passed)
+        # Parse results similar to breaking script
         success = False
-        if compilation_passed:
-            if f"Running {fqn}" in combined or f"Running {test_class}" in combined:
-                pattern = rf"Running.*?{test_class}.*?Tests run:\s*(\d+).*?Failures:\s*(\d+).*?Errors:\s*(\d+)"
-                match = re.search(pattern, combined, flags=re.DOTALL | re.IGNORECASE)
+        if f"Running {fqn}" in combined or f"Running {test_class}" in combined:
+            # Test executed - check results
+            pattern = rf"Running.*?{test_class}.*?Tests run:\s*(\d+).*?Failures:\s*(\d+).*?Errors:\s*(\d+)"
+            match = re.search(pattern, combined, flags=re.DOTALL | re.IGNORECASE)
+            
+            if match:
+                tests_run = int(match.group(1))
+                failures = int(match.group(2))
+                errors = int(match.group(3))
                 
-                if match:
-                    tests_run = int(match.group(1))
-                    failures = int(match.group(2))
-                    errors = int(match.group(3))
-                    
-                    log_lines.append(f"[PHASE 2] Tests run: {tests_run}, Failures: {failures}, Errors: {errors}")
-                    
-                    if tests_run > 0:
-                        test_execution_passed = True
-                        success = (failures == 0 and errors == 0)
-                        if success:
-                            log_lines.append("[PHASE 2] ✓ Tests passed")
-                        else:
-                            failure_type = "test_failure"
-                            log_lines.append("[PHASE 2] ✗ Tests failed")
-                    else:
-                        failure_type = "no_tests_ran"
-                        log_lines.append("[PHASE 2] ✗ No tests ran")
+                log_lines.append(f"[RESULTS] Tests: {tests_run}, Failures: {failures}, Errors: {errors}")
+                
+                if tests_run > 0:
+                    success = (failures == 0 and errors == 0)
+                    if not success:
+                        failure_type = "test_failure"
+                        log_lines.append("[FAILURE TYPE] Test failure")
                 else:
-                    failure_type = "test_execution_error"
-                    log_lines.append("[PHASE 2] ✗ Could not parse test results")
+                    log_lines.append(f"[?] WARNING - 0 tests ran")
+                    failure_type = "no_tests_ran"
+        else:
+            # Test did not execute - determine why
+            if has_compilation_error:
+                failure_type = "compilation_failure"
+                log_lines.append("[FAILURE TYPE] Compilation failure")
             else:
-                failure_type = "test_did_not_execute"
-                log_lines.append("[PHASE 2] ✗ Test did not execute")
+                # Fallback to BUILD SUCCESS check
+                success = proc.returncode == 0 and "BUILD SUCCESS" in stdout
+                if not success:
+                    failure_type = "execution_failure"
+                    log_lines.append("[FAILURE TYPE] Execution failure (test did not run)")
             
     except subprocess.TimeoutExpired:
         log_lines.append("[ERROR] Timeout (600s)")
@@ -345,22 +336,22 @@ def run_test_in_isolation(image_tag: str, custom_id: str, test_root: str, stagin
     log_text = "\n".join(log_lines)
     log_path.write_text(log_text, encoding="utf-8")
     err_info = classify_compilation_error(log_text) if not success else None
-    return success, err_info, str(log_path), failure_type
+    return success, err_info, str(log_path), failure_type, test_method_count
 
 
 def process_single_test(args):
     """Wrapper function to process a single test (runs in parallel)."""
     (image_tag, custom_id, test_root, staging_root, java_file, package_decl) = args
     
-    success, err_info, log_path, failure_type = run_test_in_isolation(
+    success, err_info, log_path, failure_type, test_count = run_test_in_isolation(
         image_tag, custom_id, test_root, staging_root, java_file, package_decl, quiet=True
     )
     
-    return (custom_id, java_file, success, err_info, log_path, failure_type)
+    return (custom_id, java_file, success, err_info, log_path, failure_type, test_count)
 
 
 def main():
-    global success_count, failure_count, results, carry_forward_instances, carry_forward_tests, test_counts
+    global success_count, failure_count, results, carry_forward_instances, carry_forward_tests, file_counts, test_counts
 
     # === BATCH CONFIG ===
     START_ID = 1
@@ -381,7 +372,9 @@ def main():
             carry_forward_instances = set(existing.get("carry_forward_instances", []))
             carry_forward_tests = defaultdict(lambda: {"passed": [], "failed": []},
                                               existing.get("carry_forward_tests", {}))
-            test_counts = defaultdict(lambda: {"generated": 0, "executed": 0},
+            file_counts = defaultdict(lambda: {"files_generated": 0, "files_executed": 0},
+                                      existing.get("file_counts", {}))
+            test_counts = defaultdict(lambda: {"tests_in_generated_files": 0, "tests_in_executed_files": 0},
                                       existing.get("test_counts", {}))
             safe_print(f"[INFO] Loaded existing results with {len(results)} custom_ids\n")
         except Exception as e:
@@ -423,6 +416,8 @@ def main():
                 continue
 
             per_test_status = {"passed": [], "failed": []}
+            good_tests_dir = Path(f"/tmp/llm_exec/{custom_id}/{MODEL_NAME}/LLMTest")
+            good_tests_dir.mkdir(parents=True, exist_ok=True)
             
             # Track failure types for this instance
             compilation_failures = []
@@ -446,9 +441,9 @@ def main():
                     java_file = task[4]  # Extract java_file from task args
                     
                     try:
-                        cid, jf, success, err_info, log_path, failure_type = future.result()
+                        cid, jf, success, err_info, log_path, failure_type, test_method_count = future.result()
                         
-                        # Find staged file for test counting
+                        # Find staged file for copying
                         staged_file = None
                         for root, _, files in os.walk(staging_root):
                             if java_file in files:
@@ -458,17 +453,23 @@ def main():
                         # Thread-safe updates
                         with results_lock:
                             if success:
-                                safe_print(f"  → {java_file}... ✓")
+                                safe_print(f"  → {java_file}... ✓ ({test_method_count} tests)")
                                 success_count += 1
                                 per_test_status["passed"].append(java_file)
                                 carry_forward_tests[custom_id]["passed"].append(java_file)
                                 
-                                # Count executed tests
+                                # Count file as executed
+                                file_counts[custom_id]["files_executed"] += 1
+                                test_counts[custom_id]["tests_in_executed_files"] += test_method_count
+                                
                                 if staged_file:
-                                    test_counts[custom_id]["executed"] += _count_test_methods(staged_file)
+                                    rel_path = staged_file.relative_to(Path(staging_root) / "LLMTest")
+                                    dest_path = good_tests_dir / rel_path
+                                    dest_path.parent.mkdir(parents=True, exist_ok=True)
+                                    shutil.copy(staged_file, dest_path / java_file)
                             else:
                                 cat = err_info.get("category", "?") if err_info else "?"
-                                safe_print(f"  → {java_file}... ✗ ({failure_type or cat})")
+                                safe_print(f"  → {java_file}... ✗ ({failure_type or cat}, {test_method_count} tests)")
                                 failure_count += 1
                                 
                                 # Categorize failure
@@ -476,7 +477,8 @@ def main():
                                     "file": java_file,
                                     "failure_type": failure_type,
                                     "error_category": cat,
-                                    "error_info": err_info
+                                    "error_info": err_info,
+                                    "test_method_count": test_method_count
                                 }
                                 
                                 if failure_type == "compilation_failure":
@@ -498,7 +500,8 @@ def main():
                                 "file": java_file,
                                 "failure_type": "exception",
                                 "error_category": "exception",
-                                "error_info": {"message": str(exc)}
+                                "error_info": {"message": str(exc)},
+                                "test_method_count": 0
                             }
                             other_failures.append(failure_entry)
                             
@@ -511,6 +514,7 @@ def main():
             # Update results incrementally
             results[custom_id] = {
                 "tests": per_test_status,
+                "file_counts": file_counts[custom_id],
                 "test_counts": test_counts[custom_id],
                 "failure_breakdown": {
                     "compilation_failures": compilation_failures,
@@ -518,8 +522,8 @@ def main():
                     "other_failures": other_failures
                 },
                 "summary": {
-                    "total_passed": len(per_test_status["passed"]),
-                    "total_failed": len(per_test_status["failed"]),
+                    "total_files_passed": len(per_test_status["passed"]),
+                    "total_files_failed": len(per_test_status["failed"]),
                     "compilation_failure_count": len(compilation_failures),
                     "test_failure_count": len(test_failures),
                     "other_failure_count": len(other_failures)
@@ -538,10 +542,11 @@ def main():
                 "results": results,
                 "carry_forward_instances": list(carry_forward_instances),
                 "carry_forward_tests": carry_forward_tests,
+                "file_counts": file_counts,
                 "test_counts": test_counts,
                 "global_summary": {
-                    "total_success": success_count,
-                    "total_failure": failure_count,
+                    "total_files_success": success_count,
+                    "total_files_failure": failure_count,
                     "compilation_failures": total_compilation_failures,
                     "test_failures": total_test_failures,
                     "other_failures": total_other_failures
@@ -551,8 +556,10 @@ def main():
             safe_print(f"[INFO] Saved results for {custom_id}")
 
     # Print summary
-    total_generated = sum(v["generated"] for v in test_counts.values())
-    total_executed = sum(v["executed"] for v in test_counts.values())
+    total_files_generated = sum(v["files_generated"] for v in file_counts.values())
+    total_files_executed = sum(v["files_executed"] for v in file_counts.values())
+    total_tests_generated = sum(v["tests_in_generated_files"] for v in test_counts.values())
+    total_tests_executed = sum(v["tests_in_executed_files"] for v in test_counts.values())
     
     # Calculate failure breakdown
     total_compilation_failures = sum(len(r.get("failure_breakdown", {}).get("compilation_failures", [])) for r in results.values())
@@ -561,18 +568,32 @@ def main():
     
     safe_print(f"\n{'='*80}")
     safe_print(f"✓ COMPLETE")
-    safe_print(f"Successes: {success_count}, Failures: {failure_count}")
+    safe_print(f"")
+    safe_print(f"FILE COUNTS:")
+    safe_print(f"  Files Generated: {total_files_generated}")
+    safe_print(f"  Files Executed Successfully: {total_files_executed}")
+    safe_print(f"  Files Failed: {success_count + failure_count - total_files_executed}")
+    safe_print(f"")
+    safe_print(f"TEST METHOD COUNTS:")
+    safe_print(f"  @Test methods in generated files: {total_tests_generated}")
+    safe_print(f"  @Test methods in executed files: {total_tests_executed}")
+    safe_print(f"")
+    safe_print(f"EXECUTION RESULTS:")
+    safe_print(f"  Successful file executions: {success_count}")
+    safe_print(f"  Failed file executions: {failure_count}")
     safe_print(f"")
     safe_print(f"Failure Breakdown:")
     safe_print(f"  - Compilation failures: {total_compilation_failures}")
     safe_print(f"  - Test failures: {total_test_failures}")
     safe_print(f"  - Other failures: {total_other_failures}")
-    safe_print(f"")
-    safe_print(f"Generated tests: {total_generated}, Executed tests: {total_executed}")
     safe_print(f"{'='*80}\n")
     
-    for cid, counts in test_counts.items():
-        safe_print(f"  {cid}: generated={counts['generated']} executed={counts['executed']}")
+    safe_print(f"\nPer-instance breakdown:")
+    for cid in sorted(file_counts.keys()):
+        fc = file_counts[cid]
+        tc = test_counts[cid]
+        safe_print(f"  {cid}: {fc['files_generated']} files ({tc['tests_in_generated_files']} tests) → "
+                  f"{fc['files_executed']} executed ({tc['tests_in_executed_files']} tests)")
 
 
 if __name__ == "__main__":
