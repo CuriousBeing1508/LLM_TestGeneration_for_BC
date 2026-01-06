@@ -127,13 +127,13 @@ def print_report(folder_name: str, results: dict, bump_ids: list):
         actual = info['actual']
         
         if actual == 0 and expected > 0:
-            status = "❌ MISSING ALL"
+            status = " MISSING ALL"
         elif actual < expected:
-            status = f"⚠️  INCOMPLETE ({actual}/{expected})"
+            status = f"  INCOMPLETE ({actual}/{expected})"
         elif actual > expected:
-            status = f"⚠️  EXTRA FILES ({actual}/{expected})"
+            status = f" EXTRA FILES ({actual}/{expected})"
         else:
-            status = "✅ COMPLETE"
+            status = " COMPLETE"
         
         print(f"{bump_id:<30} {expected:<12} {actual:<12} {status}")
     
@@ -207,13 +207,13 @@ def print_cross_folder_summary(all_results: dict, bump_ids: list):
             actual = info['actual']
             
             if actual == expected and expected > 0:
-                status = f"✅ {actual}/{expected}"
+                status = f" {actual}/{expected}"
             elif actual == 0 and expected > 0:
-                status = f"❌ 0/{expected}"
+                status = f" 0/{expected}"
             elif actual < expected:
-                status = f"⚠️  {actual}/{expected}"
+                status = f"  {actual}/{expected}"
             elif actual > expected:
-                status = f"⚠️+ {actual}/{expected}"
+                status = f"+ {actual}/{expected}"
             else:
                 status = f"-- {actual}/{expected}"
             
@@ -249,15 +249,15 @@ def print_missing_instances_report(all_results: dict, bump_ids: list):
         print(f"{'─'*80}")
         
         if completely_missing:
-            print(f"\n❌ INSTANCES WITH ALL FILES MISSING ({len(completely_missing)}):")
+            print(f"\n INSTANCES WITH ALL FILES MISSING ({len(completely_missing)}):")
             for i, bump_id in enumerate(completely_missing, 1):
                 expected = results['by_instance'][bump_id]['expected']
                 print(f"   {i:3d}. {bump_id} (0/{expected} files)")
         else:
-            print(f"\n✅ No instances with all files missing")
+            print(f"\n No instances with all files missing")
         
         if partially_missing:
-            print(f"\n⚠️  INSTANCES WITH PARTIAL FILES ({len(partially_missing)}):")
+            print(f"\n  INSTANCES WITH PARTIAL FILES ({len(partially_missing)}):")
             for i, (bump_id, actual, expected) in enumerate(partially_missing, 1):
                 print(f"   {i:3d}. {bump_id} ({actual}/{expected} files)")
                 # Show which specific files are missing
@@ -268,11 +268,11 @@ def print_missing_instances_report(all_results: dict, bump_ids: list):
                     if len(results['missing'][bump_id]) > 5:
                         print(f"          ... and {len(results['missing'][bump_id]) - 5} more")
         else:
-            print(f"\n✅ No instances with partial files missing")
+            print(f"\n No instances with partial files missing")
         
         # Summary stats
         complete_instances = len(bump_ids) - len(completely_missing) - len(partially_missing)
-        print(f"\n📊 SUMMARY:")
+        print(f"\n SUMMARY:")
         print(f"   Complete instances: {complete_instances}/{len(bump_ids)}")
         print(f"   Partially missing:  {len(partially_missing)}/{len(bump_ids)}")
         print(f"   Completely missing: {len(completely_missing)}/{len(bump_ids)}")
@@ -321,11 +321,11 @@ def print_overall_statistics(all_results: dict, bump_ids: list):
             missing_in_all.append((bump_id, expected_count))
     
     if missing_in_all:
-        print(f"\n⚠️  Found {len(missing_in_all)} instances missing in ALL folders:")
+        print(f"\n  Found {len(missing_in_all)} instances missing in ALL folders:")
         for i, (bump_id, expected) in enumerate(missing_in_all, 1):
             print(f"   {i:3d}. {bump_id} ({expected} files expected)")
     else:
-        print(f"\n✅ No instances are missing in ALL folders")
+        print(f"\n No instances are missing in ALL folders")
 
 # === MAIN ===
 if __name__ == "__main__":
@@ -348,14 +348,14 @@ if __name__ == "__main__":
     # Show all folders being analyzed
     print("Output folders:")
     for folder_name, folder_path in OUTPUT_FOLDERS.items():
-        exists = "✅" if folder_path.exists() else "❌"
+        exists = "YES" if folder_path.exists() else "NO"
         print(f"  {exists} {folder_name}: {folder_path}")
     
     # Analyze each output folder
     all_results = {}
     for folder_name, output_folder in OUTPUT_FOLDERS.items():
         if not output_folder.exists():
-            print(f"\n⚠️  Warning: Output folder does not exist: {output_folder}")
+            print(f"\n Warning: Output folder does not exist: {output_folder}")
             continue
         
         results = analyze_output_folder(output_folder, PROMPT_DIR, bump_ids)

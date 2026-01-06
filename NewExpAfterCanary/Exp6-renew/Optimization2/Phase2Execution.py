@@ -42,11 +42,11 @@ def safe_print(*args, **kwargs):
 
 
 # === CONFIGURATION Qwen3===
-CSV_PATH = "/Volumes/Rachna-HD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-SUMMARY_PATH = "/Volumes/Rachna-HD/ConfigFiles/package_structure_summary.txt"
-COMPILE_OUTPUT = Path("/Volumes/Rachna-HD/Qwen480Results/Exp6BatchResults/pre/compile_results_pre.json")
-EXECUTE_OUTPUT = Path("/Volumes/Rachna-HD/Qwen480Results/Exp6BatchResults/pre/execute_results_pre.json")
-ABC_ROOT = Path("/Volumes/Rachna-HD/FilteredDataset/Exp6LLMOutput/Qwen3_480b_cloud")
+CSV_PATH = "/Volumes/RachnaPSSD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+SUMMARY_PATH = "/Volumes/RachnaPSSD/ConfigFiles/package_structure_summary.txt"
+COMPILE_OUTPUT = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp6BatchResults/pre/compile_results_pre.json")
+EXECUTE_OUTPUT = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp6BatchResults/pre/execute_results_pre.json")
+ABC_ROOT = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp6LLMOutput/Qwen3_480b_cloud")
 MODEL_NAME = ABC_ROOT.name
 
 

@@ -9,9 +9,9 @@ from collections import defaultdict
 
 
 # === CONFIG Qwen3===
-COMPILE_INPUT = Path("/Volumes/Rachna-HD/Qwen480Results/Exp6BatchResults/pre/compile_results_pre.json")
-EXECUTE_INPUT = Path("/Volumes/Rachna-HD/Qwen480Results/Exp6BatchResults/pre/execute_results_pre.json")
-FINAL_OUTPUT = Path("/Volumes/Rachna-HD/Qwen480Results/Exp6BatchResults/pre/transplant_results_final_pre.json")
+COMPILE_INPUT = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp6BatchResults/pre/compile_results_pre.json")
+EXECUTE_INPUT = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp6BatchResults/pre/execute_results_pre.json")
+FINAL_OUTPUT = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp6BatchResults/pre/transplant_results_final_pre.json")
 
 def main():
     print(f"\n{'='*80}")
