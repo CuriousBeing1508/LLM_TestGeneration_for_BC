@@ -31,13 +31,21 @@ def safe_print(*args, **kwargs):
     with print_lock:
         print(*args, **kwargs)
 
-# === CONFIGURATION ===
+# # === CONFIGURATION GPT4o===
 CSV_PATH = "/Volumes/Rachna-HD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
 SUMMARY_PATH = "/Volumes/Rachna-HD/ConfigFiles/package_structure_summary.txt"
 COMPILE_INPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResultsOp2/pre/compile_results_pre.json")
 EXECUTE_OUTPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResultsOp2/pre/execute_results_pre.json")
 ABC_ROOT = Path("/Volumes/Rachna-HD/FilteredDataset/Exp7LLMOutput/GPT4o")
 MODEL_NAME = ABC_ROOT.name
+
+# === CONFIGURATION Qwen3===
+# CSV_PATH = "/Volumes/RachnaPSSD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+# SUMMARY_PATH = "/Volumes/RachnaPSSD/ConfigFiles/package_structure_summary.txt"
+# COMPILE_INPUT = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp6BatchResults/pre/compile_results_pre.json")
+# EXECUTE_OUTPUT = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp6BatchResults/pre/execute_results_pre.json")
+# ABC_ROOT = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp6LLMOutput/Qwen3_480b_cloud")
+# MODEL_NAME = ABC_ROOT.name
 
 # Parse package info
 pkg_info = parse_package_summary(SUMMARY_PATH)
@@ -53,6 +61,10 @@ carry_forward_tests = defaultdict(lambda: {"passed": [], "failed": []})
 
 # Track processed instances for resume capability
 processed_instances = set()
+
+# File counts from compilation (loaded, not modified)
+file_counts = defaultdict(lambda: {"files_generated": 0, "files_compiled": 0})
+test_counts = defaultdict(lambda: {"tests_in_generated_files": 0, "tests_in_compiled_files": 0})
 
 
 def _sanitize_class_name(name: str) -> str:
@@ -174,15 +186,29 @@ def save_results_incrementally():
     with results_lock:
         EXECUTE_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
         
+        # Calculate totals from file_counts (preserved from compilation)
+        total_files_generated = sum(v["files_generated"] for v in file_counts.values())
+        total_files_compiled = sum(v["files_compiled"] for v in file_counts.values())
+        total_tests_generated = sum(v["tests_in_generated_files"] for v in test_counts.values())
+        total_tests_compiled = sum(v["tests_in_compiled_files"] for v in test_counts.values())
+        
         output_data = {
             "execution_results": execution_results,
             "carry_forward_instances": list(carry_forward_instances),
             "carry_forward_tests": dict(carry_forward_tests),
             "processed_instances": list(processed_instances),
+            "file_counts": dict(file_counts),
+            "test_counts": dict(test_counts),
             "summary": {
+                "total_files_generated": total_files_generated,
+                "total_files_compiled": total_files_compiled,
                 "total_files_executed": exec_success_count + exec_failure_count,
                 "total_passed_on_pre": exec_success_count,
-                "total_failed_on_pre": exec_failure_count
+                "total_failed_on_pre": exec_failure_count,
+                "compilation_success_rate": f"{(total_files_compiled / total_files_generated * 100) if total_files_generated > 0 else 0:.2f}%",
+                "execution_success_rate": f"{(exec_success_count / (exec_success_count + exec_failure_count) * 100) if (exec_success_count + exec_failure_count) > 0 else 0:.2f}%",
+                "total_tests_in_generated_files": total_tests_generated,
+                "total_tests_in_compiled_files": total_tests_compiled
             }
         }
         
@@ -359,18 +385,18 @@ def execute_compiled_test(image_tag: str, custom_id: str, test_root: str,
                         success = (failures == 0 and errors == 0)
                         if not success:
                             failure_type = "test_failure"
-                            log_lines.append("[RESULT]  Test FAILED on PRE")
-                            safe_print("[RESULT]  Test FAILED on PRE")
+                            log_lines.append("[RESULT] ✗ Test FAILED on PRE")
+                            safe_print("[RESULT] ✗ Test FAILED on PRE")
                         else:
-                            log_lines.append("[RESULT]  Test PASSED on PRE")
-                            safe_print("[RESULT]  Test PASSED on PRE")
+                            log_lines.append("[RESULT] ✓ Test PASSED on PRE")
+                            safe_print("[RESULT] ✓ Test PASSED on PRE")
                     else:
-                        log_lines.append("[RESULT]  No tests ran")
-                        safe_print("[RESULT]  No tests ran")
+                        log_lines.append("[RESULT] ✗ No tests ran")
+                        safe_print("[RESULT] ✗ No tests ran")
                         failure_type = "no_tests_ran"
                 else:
-                    log_lines.append("[RESULT]  Could not parse test results")
-                    safe_print("[RESULT]  Could not parse test results")
+                    log_lines.append("[RESULT] ✗ Could not parse test results")
+                    safe_print("[RESULT] ✗ Could not parse test results")
                     failure_type = "parse_error"
             else:
                 if "BUILD SUCCESS" in stdout and proc.returncode == 0:
@@ -379,30 +405,30 @@ def execute_compiled_test(image_tag: str, custom_id: str, test_root: str,
                     safe_print("[RESULT] ✓ Test PASSED (BUILD SUCCESS)")
                 else:
                     failure_type = "execution_failure"
-                    log_lines.append("[RESULT]  Test did not execute")
-                    safe_print("[RESULT]  Test did not execute")
+                    log_lines.append("[RESULT] ✗ Test did not execute")
+                    safe_print("[RESULT] ✗ Test did not execute")
                     
         except subprocess.TimeoutExpired:
             # === NEW: Force kill container on timeout ===
-            log_lines.append("[ERROR]  Timeout (600s) - Force killing container")
-            safe_print("[ERROR]  Timeout (600s) - Force killing container")
+            log_lines.append("[ERROR] ✗ Timeout (600s) - Force killing container")
+            safe_print("[ERROR] ✗ Timeout (600s) - Force killing container")
             try:
                 subprocess.run(["docker", "kill", container_name], capture_output=True, timeout=10)
                 subprocess.run(["docker", "rm", "-f", container_name], capture_output=True, timeout=10)
-                log_lines.append(f"[CLEANUP]  Killed and removed container: {container_name}")
+                log_lines.append(f"[CLEANUP] ✓ Killed and removed container: {container_name}")
             except Exception as cleanup_err:
-                log_lines.append(f"[CLEANUP]  Failed to cleanup container: {cleanup_err}")
+                log_lines.append(f"[CLEANUP] ✗ Failed to cleanup container: {cleanup_err}")
             failure_type = "timeout"
             success = False
         except Exception as e:
-            log_lines.append(f"[EXCEPTION]  {e}")
-            safe_print(f"[EXCEPTION]  {e}")
+            log_lines.append(f"[EXCEPTION] ✗ {e}")
+            safe_print(f"[EXCEPTION] ✗ {e}")
             # === NEW: Cleanup on exception ===
             try:
                 subprocess.run(["docker", "rm", "-f", container_name], capture_output=True, timeout=10)
-                log_lines.append(f"[CLEANUP]  Removed container after exception: {container_name}")
+                log_lines.append(f"[CLEANUP] ✓ Removed container after exception: {container_name}")
             except Exception as cleanup_err:
-                log_lines.append(f"[CLEANUP]  Failed to cleanup container: {cleanup_err}")
+                log_lines.append(f"[CLEANUP] ✗ Failed to cleanup container: {cleanup_err}")
             failure_type = "exception"
             success = False
         
@@ -471,10 +497,29 @@ def main():
     compile_data = json.loads(COMPILE_INPUT.read_text(encoding="utf-8"))
     compilation_results = compile_data.get("compilation_results", {})
     compile_summary = compile_data.get("summary", {})
+    
+    # === CRITICAL: Load file_counts and test_counts from compilation ===
+    compile_file_counts = compile_data.get("file_counts", {})
+    compile_test_counts = compile_data.get("test_counts", {})
+    
+    # These are the GROUND TRUTH counts from compilation phase
+    file_counts.update(defaultdict(lambda: {"files_generated": 0, "files_compiled": 0},
+                                   compile_file_counts))
+    test_counts.update(defaultdict(lambda: {"tests_in_generated_files": 0, "tests_in_compiled_files": 0},
+                                   compile_test_counts))
+
+    # Calculate totals from loaded data
+    total_files_generated = sum(v["files_generated"] for v in file_counts.values())
+    total_files_compiled = sum(v["files_compiled"] for v in file_counts.values())
+    total_tests_generated = sum(v["tests_in_generated_files"] for v in test_counts.values())
+    total_tests_compiled = sum(v["tests_in_compiled_files"] for v in test_counts.values())
 
     safe_print(f"[INFO] Loaded compilation results:")
-    safe_print(f"  Total files compiled: {compile_summary.get('total_files_compiled', 0)}")
-    safe_print(f"  Total files failed: {compile_summary.get('total_files_failed_compilation', 0)}")
+    safe_print(f"  Total files generated: {total_files_generated}")
+    safe_print(f"  Total files compiled: {total_files_compiled}")
+    safe_print(f"  Total files failed compilation: {total_files_generated - total_files_compiled}")
+    safe_print(f"  Total @Test methods in generated files: {total_tests_generated}")
+    safe_print(f"  Total @Test methods in compiled files: {total_tests_compiled}")
     safe_print(f"\n")
 
     # === LOAD EXISTING EXECUTION RESULTS FOR RESUME ===
@@ -487,7 +532,7 @@ def main():
                                                    existing.get("carry_forward_tests", {})))
             processed_instances.update(set(existing.get("processed_instances", [])))
             
-            # Recalculate global counts from loaded data
+            # Recalculate execution counts
             for instance_result in execution_results.values():
                 exec_success_count += len(instance_result.get("passed", []))
                 exec_failure_count += len(instance_result.get("failed", []))
@@ -586,12 +631,12 @@ def main():
 
                             with results_lock:
                                 if success:
-                                    safe_print(f"  → {java_file}...  PASSED on PRE")
+                                    safe_print(f"  → {java_file}... ✓ PASSED on PRE")
                                     exec_success_count += 1
                                     passed_tests.append(java_file)
                                     carry_forward_tests[custom_id]["passed"].append(java_file)
                                 else:
-                                    safe_print(f"  → {java_file}...  FAILED ({failure_type})")
+                                    safe_print(f"  → {java_file}... ✗ FAILED ({failure_type})")
                                     exec_failure_count += 1
                                     failed_tests.append(java_file)
                                     carry_forward_tests[custom_id]["failed"].append(java_file)
@@ -609,7 +654,7 @@ def main():
 
                         except Exception as exc:
                             with results_lock:
-                                safe_print(f"  → {java_file}...  EXCEPTION: {exc}")
+                                safe_print(f"  → {java_file}... ✗ EXCEPTION: {exc}")
                                 exec_failure_count += 1
                                 failed_tests.append(java_file)
                                 carry_forward_tests[custom_id]["failed"].append(java_file)
@@ -683,11 +728,21 @@ def main():
     safe_print(f"  Total processed: {len(processed_instances)}")
     safe_print(f"  With passing tests: {len(carry_forward_instances)}")
     safe_print(f"")
+    safe_print(f"FILE STATISTICS (FROM COMPILATION PHASE):")
+    safe_print(f"  Files Generated: {total_files_generated}")
+    safe_print(f"  Files Compiled: {total_files_compiled}")
+    safe_print(f"  Files Failed Compilation: {total_files_generated - total_files_compiled}")
+    safe_print(f"  Compilation Success Rate: {(total_files_compiled / total_files_generated * 100) if total_files_generated > 0 else 0:.2f}%")
+    safe_print(f"")
     safe_print(f"EXECUTION RESULTS:")
     safe_print(f"  Files Executed: {exec_success_count + exec_failure_count}")
     safe_print(f"  Files PASSED on PRE: {exec_success_count}")
     safe_print(f"  Files FAILED on PRE: {exec_failure_count}")
-    safe_print(f"  Success Rate: {(exec_success_count / (exec_success_count + exec_failure_count) * 100) if (exec_success_count + exec_failure_count) > 0 else 0:.2f}%")
+    safe_print(f"  Execution Success Rate: {(exec_success_count / (exec_success_count + exec_failure_count) * 100) if (exec_success_count + exec_failure_count) > 0 else 0:.2f}%")
+    safe_print(f"")
+    safe_print(f"TEST METHOD STATISTICS:")
+    safe_print(f"  @Test methods in generated files: {total_tests_generated}")
+    safe_print(f"  @Test methods in compiled files: {total_tests_compiled}")
     safe_print(f"")
     safe_print(f"OUTPUT: {EXECUTE_OUTPUT}")
     safe_print(f"{'='*80}\n")
