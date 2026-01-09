@@ -3,9 +3,9 @@ from pathlib import Path
 from collections import defaultdict
 
 # === CONFIG ===
-COMPILE_INPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResultsOp2/pre/compile_results_pre.json")
-EXECUTE_INPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResultsOp2/pre/execute_results_pre.json")
-FINAL_OUTPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResultsOp2/pre/transplant_results_final_pre.json")
+COMPILE_INPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/pre/compile_results_pre.json")
+EXECUTE_INPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/pre/execute_results_pre.json")
+FINAL_OUTPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/pre/transplant_results_final_pre.json")
 
 def main():
     print(f"\n{'='*80}")

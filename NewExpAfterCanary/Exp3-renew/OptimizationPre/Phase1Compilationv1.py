@@ -6,7 +6,8 @@ Description: Phase 1 - Compile all LLM-generated test files for PRE stage
              Features: Incremental saving, resume from where stopped, smart skipping.
              Dynamic worker allocation based on instance size.
              Full console output, skips PMD/CheckStyle checks.
-Author: Optimized version with dynamic workers and resume capability
+             Minimal container cleanup (only stuck containers).
+Author: Fixed version - correct success/failure logic, minimal cleanup
 """
 
 import os
@@ -22,7 +23,7 @@ from common import parse_package_summary, classify_compilation_error, LOG_DIR_BA
 # Threading for parallel execution
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
-
+import time
 # Thread-safe locks
 results_lock = threading.Lock()
 print_lock = threading.Lock()
@@ -51,12 +52,23 @@ def get_optimal_workers(num_tests, max_workers=8):
     else:
         return max_workers  # 5+ tests: use max workers (8)
 
-# === CONFIGURATION ===
+# === CONFIGURATION GPT4o===
 CSV_PATH = "/Volumes/Rachna-HD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
 SUMMARY_PATH = "/Volumes/Rachna-HD/ConfigFiles/package_structure_summary.txt"
-COMPILE_OUTPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResultsOp2/pre/compile_results_pre.json")
-ABC_ROOT = Path("/Volumes/Rachna-HD/FilteredDataset/Exp7LLMOutput/GPT4o")
+COMPILE_OUTPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/pre/compile_results_pre.json")
+ABC_ROOT = Path("/Volumes/Rachna-HD/FilteredDataset/Exp3LLMOutput/GPT4o")
 MODEL_NAME = ABC_ROOT.name
+
+
+# # === CONFIGURATION Qwen===
+# CSV_PATH = "/Volumes/RachnaPSSD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+# SUMMARY_PATH = "/Volumes/RachnaPSSD/ConfigFiles/package_structure_summary.txt"
+# COMPILE_OUTPUT = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp6BatchResults/pre/compile_results_pre.json")
+# ABC_ROOT = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp6LLMOutput/Qwen3_480b_cloud")
+# MODEL_NAME = ABC_ROOT.name
+
+# === TIMEOUT CONFIGURATION ===
+COMPILE_TIMEOUT = 300  # 5 minutes for compilation
 
 # Parse package info from summary file
 pkg_info = parse_package_summary(SUMMARY_PATH)
@@ -72,6 +84,80 @@ test_counts = defaultdict(lambda: {"tests_in_generated_files": 0, "tests_in_comp
 
 # Track processed instances for resume capability
 processed_instances = set()
+
+
+def cleanup_stale_containers():
+    """Remove only truly stuck/exited containers (not running ones)."""
+    try:
+        safe_print(f"\n[CLEANUP] Checking for stuck Docker containers...")
+        
+        # List only exited/dead containers with our naming pattern
+        result = subprocess.run(
+            ["docker", "ps", "-a", "--filter", "name=compile_", "--filter", "status=exited", "--format", "{{.Names}}"],
+            capture_output=True,
+            text=True,
+            timeout=10
+        )
+        
+        container_names = result.stdout.strip().split('\n')
+        container_names = [name for name in container_names if name and name.startswith('compile_')]
+        
+        if container_names:
+            safe_print(f"[CLEANUP] Found {len(container_names)} stuck container(s)")
+            removed_count = 0
+            for name in container_names:
+                try:
+                    subprocess.run(["docker", "rm", "-f", name], capture_output=True, timeout=10)
+                    safe_print(f"[CLEANUP]   ✓ Removed: {name}")
+                    removed_count += 1
+                except Exception as e:
+                    safe_print(f"[CLEANUP]   ✗ Failed to remove {name}: {e}")
+            safe_print(f"[CLEANUP] Successfully removed {removed_count}/{len(container_names)} container(s)")
+        else:
+            safe_print(f"[CLEANUP] No stuck containers found ✓")
+    except Exception as e:
+        safe_print(f"[CLEANUP] Warning: Could not check for stuck containers: {e}")
+
+
+def count_all_generated_files(abc_root: Path, bump_ids: list):
+    """
+    Count ALL .txt files in output folder (matches first script logic).
+    This gives us the TRUE total of generated files.
+    
+    Returns:
+        dict: {custom_id: {"files_generated": count, "file_list": [...]}}
+        int: total count across all instances
+    """
+    all_files = {}
+    total = 0
+    
+    safe_print(f"\n{'='*80}")
+    safe_print(f"COUNTING ALL GENERATED FILES IN: {abc_root}")
+    safe_print(f"{'='*80}")
+    
+    for custom_id in bump_ids:
+        instance_folder = abc_root / custom_id
+        if instance_folder.exists():
+            txt_files = sorted([f.name for f in instance_folder.glob("*.txt")])
+            count = len(txt_files)
+            all_files[custom_id] = {
+                "files_generated": count,
+                "file_list": txt_files
+            }
+            total += count
+            if count > 0:
+                safe_print(f"  {custom_id}: {count} files")
+        else:
+            all_files[custom_id] = {
+                "files_generated": 0,
+                "file_list": []
+            }
+    
+    safe_print(f"{'='*80}")
+    safe_print(f"TOTAL FILES GENERATED: {total}")
+    safe_print(f"{'='*80}\n")
+    
+    return all_files, total
 
 
 def _abc_has_any_file(custom_id: str) -> bool:
@@ -210,7 +296,8 @@ def save_results_incrementally():
 def compile_test_in_docker(image_tag: str, custom_id: str, test_root: str,
                            java_file: str, package_decl: str, txt_path: Path):
     """
-    Compile a single test file in Docker (NO EXECUTION, NO TIMEOUT).
+    Compile a single test file in Docker with timeout.
+    Minimal cleanup - only kill on timeout.
     
     Process:
     1. Read .txt file
@@ -227,6 +314,9 @@ def compile_test_in_docker(image_tag: str, custom_id: str, test_root: str,
     """
     # Create minimal temp directory for THIS test only
     temp_dir = Path(f"/tmp/compile_{custom_id}_{java_file.replace('.java', '')}")
+    
+    # Generate unique container name for tracking
+    container_name = f"compile_{custom_id}_{java_file.replace('.java', '')}_{int(time.time() * 1000)}"
     
     try:
         # Clean if exists from previous run
@@ -289,7 +379,10 @@ def compile_test_in_docker(image_tag: str, custom_id: str, test_root: str,
         # === STEP 8: Run Docker ===
         # Mount LLMTest folder to test_root (hides original tests)
         cmd = [
-            "docker", "run", "--rm", "--platform", "linux/amd64",
+            "docker", "run",
+            "--name", container_name,
+            "--rm",  # Auto-cleanup on normal exit
+            "--platform", "linux/amd64",
             "-v", f"{llm_test_dir}:{test_root}:ro",
             image_tag,
             "sh", "-c", compile_cmd
@@ -298,22 +391,26 @@ def compile_test_in_docker(image_tag: str, custom_id: str, test_root: str,
         # Print header to console
         safe_print(f"\n{'='*80}")
         safe_print(f"PHASE 1: COMPILATION - {java_file} for {custom_id}")
+        safe_print(f"Container: {container_name}")
         safe_print(f"{'='*80}")
         safe_print(f"Image: {image_tag}")
         safe_print(f"Package: {package_decl}")
         safe_print(f"Test methods: {test_method_count}")
         safe_print(f"FQN: {fqn}")
+        safe_print(f"Timeout: {COMPILE_TIMEOUT}s")
         safe_print(f"{'='*80}")
         
         log_lines = [
             "="*80,
             f"PHASE 1: COMPILATION - {java_file} for {custom_id}",
+            f"Container: {container_name}",
             "="*80,
             f"Image: {image_tag}",
             f"Package: {package_decl}",
             f"Test methods: {test_method_count}",
             f"Project root: {project_root}",
             f"Test root: {test_root}",
+            f"Timeout: {COMPILE_TIMEOUT}s",
             "="*80,
             f"Command: {compile_cmd}",
             "="*80,
@@ -324,8 +421,8 @@ def compile_test_in_docker(image_tag: str, custom_id: str, test_root: str,
         err_info = None
         
         try:
-            # NO TIMEOUT - let compilation finish
-            proc = subprocess.run(cmd, capture_output=True, text=True)
+            # Real compilation execution with timeout
+            proc = subprocess.run(cmd, capture_output=True, text=True, timeout=COMPILE_TIMEOUT)
             stdout = proc.stdout
             stderr = proc.stderr
             combined = stdout + "\n" + stderr
@@ -363,6 +460,18 @@ def compile_test_in_docker(image_tag: str, custom_id: str, test_root: str,
                 safe_print(f"[RESULT] ✗ Compilation FAILED (return code: {proc.returncode})")
                 success = False
                 
+        except subprocess.TimeoutExpired:
+            # Kill stuck container on timeout
+            log_lines.append(f"[ERROR] ✗ Timeout after {COMPILE_TIMEOUT}s - Force killing container")
+            safe_print(f"[ERROR] ✗ Timeout after {COMPILE_TIMEOUT}s - Force killing container")
+            try:
+                subprocess.run(["docker", "kill", container_name], capture_output=True, timeout=10)
+                subprocess.run(["docker", "rm", "-f", container_name], capture_output=True, timeout=10)
+                log_lines.append(f"[CLEANUP] ✓ Killed and removed stuck container: {container_name}")
+            except Exception as cleanup_err:
+                log_lines.append(f"[CLEANUP] ✗ Failed to kill container: {cleanup_err}")
+            err_info = {"category": "timeout", "reason": f"Compilation timeout ({COMPILE_TIMEOUT}s)"}
+            success = False
         except Exception as e:
             log_lines.append(f"[EXCEPTION] {e}")
             safe_print(f"[EXCEPTION] {e}")
@@ -379,9 +488,12 @@ def compile_test_in_docker(image_tag: str, custom_id: str, test_root: str,
         return success, err_info, str(log_path), test_method_count
         
     finally:
-        # === CLEANUP: Always remove temp directory ===
+        # Cleanup temp directory only
         if temp_dir.exists():
-            shutil.rmtree(temp_dir)
+            try:
+                shutil.rmtree(temp_dir)
+            except Exception as e:
+                safe_print(f"[WARN] Failed to remove temp dir {temp_dir}: {e}")
 
 
 def process_compilation_task(args):
@@ -405,17 +517,46 @@ def main():
     safe_print(f"\n{'='*80}")
     safe_print(f"PHASE 1: COMPILATION ONLY (PRE Stage) - DYNAMIC WORKERS")
     safe_print(f"Features: Incremental saving, resume capability, full output")
+    safe_print(f"Features: Minimal cleanup (only stuck containers)")
+    safe_print(f"Compile Timeout: {COMPILE_TIMEOUT}s per file")
     safe_print(f"ID Range: {START_ID} to {END_ID}")
     safe_print(f"Memory Safe for 16GB RAM")
     safe_print(f"{'='*80}\n")
+
+    # Cleanup only stuck/exited containers from previous runs
+    cleanup_stale_containers()
+
+    # === STEP 1: COUNT ALL GENERATED FILES (LIKE FIRST SCRIPT) ===
+    # Load ALL bump IDs from CSV first
+    all_bump_ids = []
+    with open(CSV_PATH) as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            custom_id = row["custom_id"].strip()
+            if custom_id:
+                all_bump_ids.append(custom_id)
+    
+    # Count ALL files in the output folder (not just START_ID to END_ID)
+    all_generated_files, total_generated = count_all_generated_files(ABC_ROOT, all_bump_ids)
+    
+    # Initialize file_counts with the ACTUAL generated counts
+    for custom_id, file_info in all_generated_files.items():
+        file_counts[custom_id]["files_generated"] = file_info["files_generated"]
+        # files_compiled will be updated as we process
 
     # === LOAD EXISTING RESULTS FOR RESUME ===
     if COMPILE_OUTPUT.exists():
         try:
             existing = json.loads(COMPILE_OUTPUT.read_text(encoding="utf-8"))
+            # Load compilation results but DON'T overwrite files_generated
             compilation_results.update(existing.get("compilation_results", {}))
-            file_counts.update(defaultdict(lambda: {"files_generated": 0, "files_compiled": 0},
-                                          existing.get("file_counts", {})))
+            
+            # Only update files_compiled from existing results
+            existing_file_counts = existing.get("file_counts", {})
+            for cid, counts in existing_file_counts.items():
+                if cid in file_counts:
+                    file_counts[cid]["files_compiled"] = counts.get("files_compiled", 0)
+            
             test_counts.update(defaultdict(lambda: {"tests_in_generated_files": 0, "tests_in_compiled_files": 0},
                                           existing.get("test_counts", {})))
             processed_instances.update(set(existing.get("processed_instances", [])))
@@ -478,6 +619,16 @@ def main():
                     save_results_incrementally()
                     continue
 
+                # Count @Test methods in generated files (do this ONCE upfront)
+                if test_counts[custom_id]["tests_in_generated_files"] == 0:
+                    for txt_path in txt_files:
+                        try:
+                            raw = txt_path.read_text(encoding="utf-8", errors="ignore")
+                            test_count = len(re.findall(r'@Test\b', raw))
+                            test_counts[custom_id]["tests_in_generated_files"] += test_count
+                        except:
+                            pass
+
                 # === DYNAMIC WORKER ALLOCATION ===
                 workers = get_optimal_workers(num_tests, max_workers=8)
                 safe_print(f"[WORKERS] Allocating {workers} workers for {num_tests} tests")
@@ -487,16 +638,6 @@ def main():
                 for txt_path in txt_files:
                     java_filename, _ = _to_java_filename(txt_path.name)
                     java_files_info.append((java_filename, txt_path))
-                    
-                    # Count for statistics (thread-safe)
-                    with results_lock:
-                        file_counts[custom_id]["files_generated"] += 1
-                        try:
-                            raw = txt_path.read_text(encoding="utf-8", errors="ignore")
-                            test_count = len(re.findall(r'@Test\b', raw))
-                            test_counts[custom_id]["tests_in_generated_files"] += test_count
-                        except:
-                            pass
 
                 compiled_files = []
                 failed_files = {}
@@ -523,22 +664,22 @@ def main():
                             cid, jf, success, err_info, log_path, test_count = future.result()
 
                             with results_lock:
-                                if success:
-                                    safe_print(f"  → {java_file}... ✓ COMPILED ({test_count} tests)")
-                                    compile_success_count += 1
-                                    compiled_files.append(java_file)
-                                    file_counts[custom_id]["files_compiled"] += 1
-                                    test_counts[custom_id]["tests_in_compiled_files"] += test_count
-                                else:
-                                    cat = err_info.get("category", "unknown") if err_info else "unknown"
-                                    safe_print(f"  → {java_file}... ✗ FAILED ({cat})")
+                                # FIXED: Correct logic
+                                if not success:
+                                    safe_print(f"  → {java_file}... ✗ FAILED")
                                     compile_failure_count += 1
                                     failed_files[java_file] = {
-                                        "error_category": cat,
+                                        "error_category": err_info.get("category", "") if err_info else "",
                                         "error_info": err_info,
                                         "test_method_count": test_count,
                                         "log_path": log_path
                                     }
+                                else:
+                                    safe_print(f"  → {java_file}... ✓ COMPILED")
+                                    compile_success_count += 1
+                                    compiled_files.append(java_file)
+                                    file_counts[custom_id]["files_compiled"] += 1
+                                    test_counts[custom_id]["tests_in_compiled_files"] += test_count
 
                         except Exception as exc:
                             with results_lock:
@@ -553,7 +694,7 @@ def main():
 
                 # Store results for this instance
                 compilation_results[custom_id] = {
-                    "workers_used": workers,  # Track how many workers were used
+                    "workers_used": workers,
                     "compiled": compiled_files,
                     "failed": failed_files,
                     "file_counts": file_counts[custom_id],
@@ -572,6 +713,9 @@ def main():
         save_results_incrementally()
         safe_print(f"[SAVED] Progress saved. You can resume by running this script again.")
         safe_print(f"[INFO] Processed {len(processed_instances)} instances before interruption")
+        # Cleanup stuck containers on interrupt
+        safe_print(f"\n[CLEANUP] Cleaning up stuck containers...")
+        cleanup_stale_containers()
         return
 
     finally:
@@ -587,6 +731,10 @@ def main():
                 pass
         if cleaned_count > 0:
             safe_print(f"[CLEANUP] Removed {cleaned_count} temporary directories")
+        
+        # === FINAL CLEANUP: Remove stuck containers ===
+        safe_print(f"[CLEANUP] Final container cleanup...")
+        cleanup_stale_containers()
         safe_print(f"[CLEANUP] Done\n")
 
     # === FINAL SUMMARY ===
@@ -613,7 +761,6 @@ def main():
     safe_print(f"")
     safe_print(f"OUTPUT: {COMPILE_OUTPUT}")
     safe_print(f"{'='*80}\n")
-
 
 if __name__ == "__main__":
     main()
