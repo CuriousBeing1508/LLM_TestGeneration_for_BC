@@ -2,3 +2,9 @@
 .dev
 .DS_Store
 ollamaqwen
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
