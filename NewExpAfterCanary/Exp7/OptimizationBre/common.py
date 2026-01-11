@@ -21,7 +21,7 @@ LOG_DIR_BATCH = Path("/Volumes/Rachna-HD/Qwen480Results/Exp7BatchResults/pre/log
 LOG_DIR_BATCH.mkdir(parents=True, exist_ok=True)
 
 # For Batch execution breaking
-LOG_DIR_BATCH_BRE = Path("/Volumes/Rachna-HD/Qwen480Results/Exp7BatchResults/bre/logs")
+LOG_DIR_BATCH_BRE = Path("/Volumes/Rachna-HD/Qwen480Results/Exp67atchResults/bre/logs")
 LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
 
 class DockerRunError(Exception):

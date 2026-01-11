@@ -3,9 +3,16 @@ from pathlib import Path
 from collections import defaultdict
 
 # === CONFIG ===
-COMPILE_INPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResultsOp2/pre/compile_results_pre.json")
-EXECUTE_INPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResultsOp2/pre/execute_results_pre.json")
-FINAL_OUTPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResultsOp2/pre/transplant_results_final_pre.json")
+# COMPILE_INPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResultsOp2/pre/compile_results_pre.json")
+# EXECUTE_INPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResultsOp2/pre/execute_results_pre.json")
+# FINAL_OUTPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResultsOp2/pre/transplant_results_final_pre.json")
+
+
+# === CONFIG  Qwen===
+COMPILE_INPUT = Path("/Volumes/Rachna-HD/Qwen480Results/Exp7BatchResults/pre/compile_results_pre.json")
+EXECUTE_INPUT = Path("/Volumes/Rachna-HD/Qwen480Results/Exp7BatchResults/pre/execute_results_pre.json")
+FINAL_OUTPUT = Path("/Volumes/Rachna-HD/Qwen480Results/Exp7BatchResults/pre/transplant_results_final_pre.json")
+
 
 def main():
     print(f"\n{'='*80}")
