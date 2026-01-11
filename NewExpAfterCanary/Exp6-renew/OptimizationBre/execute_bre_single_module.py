@@ -37,13 +37,24 @@ def safe_print(*args, **kwargs):
     with print_lock:
         print(*args, **kwargs)
 
-# === CONFIG ===
-CSV_PATH = "/Volumes/Rachna-HD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-SUMMARY_PATH = "/Volumes/Rachna-HD/ConfigFiles/package_structure_summary.txt"
-PRE_RESULTS_PATH = "/Volumes/Rachna-HD/GPTResults/Exp6BatchResults/pre/transplant_results_final_pre.json"
-BREAKING_OUTPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp6BatchResults/bre/transplant_results_breaking_single_module.json")
-MULTI_MODULE_LIST = Path("/Volumes/Rachna-HD/ConfigFiles/multi_module_instances.json")
-ABC_ROOT = Path("/Volumes/Rachna-HD/FilteredDataset/Exp6LLMOutput/GPT4o")
+# # === CONFIG GPT===
+# CSV_PATH = "/Volumes/Rachna-HD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+# SUMMARY_PATH = "/Volumes/Rachna-HD/ConfigFiles/package_structure_summary.txt"
+# PRE_RESULTS_PATH = "/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/pre/transplant_results_final_pre.json"
+# BREAKING_OUTPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/bre/transplant_results_breaking_single_module.json")
+# MULTI_MODULE_LIST = Path("/Volumes/Rachna-HD/ConfigFiles/multi_module_instances.json")
+# ABC_ROOT = Path("/Volumes/Rachna-HD/FilteredDataset/Exp3LLMOutput/GPT4o")
+
+
+
+# === CONFIG Qwen===
+CSV_PATH = "/Volumes/RachnaPSSD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+SUMMARY_PATH = "/Volumes/RachnaPSSD/ConfigFiles/package_structure_summary.txt"
+PRE_RESULTS_PATH = "/Volumes/RachnaPSSD/Qwen480Results/Exp6BatchResults/pre/transplant_results_final_pre.json"
+BREAKING_OUTPUT = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp6BatchResults/bre/transplant_results_breaking_single_module.json")
+MULTI_MODULE_LIST = Path("/Volumes/RachnaPSSD/ConfigFiles/multi_module_instances.json")
+ABC_ROOT = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp6LLMOutput/Qwen3_480b_cloud")
+
 
 pkg_info = parse_package_summary(SUMMARY_PATH)
 results = {}

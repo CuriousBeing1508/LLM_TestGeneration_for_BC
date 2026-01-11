@@ -55,7 +55,7 @@ ABC_ROOT = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp3LLMOutput/Qwen_480b_clo
 
 MODEL_NAME = ABC_ROOT.name
 
-# === CONFIGURATION Qwen3===
+# # === CONFIGURATION Qwen3 Exp6===
 # CSV_PATH = "/Volumes/RachnaPSSD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
 # SUMMARY_PATH = "/Volumes/RachnaPSSD/ConfigFiles/package_structure_summary.txt"
 # COMPILE_INPUT = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp6BatchResults/pre/compile_results_pre.json")
