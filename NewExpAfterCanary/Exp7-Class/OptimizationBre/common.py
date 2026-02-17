@@ -13,16 +13,31 @@ from pathlib import Path
 # LOG_DIR_BATCH_BRE = Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResultsOp2/bre/logs")
 # LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
 
+# # ##########################################################
+# # Qwen execution
+
+# # For pre execution
+# LOG_DIR_BATCH = Path("/Volumes/Rachna-HD/Qwen480Results/Exp7BatchResults/pre/logs")
+# LOG_DIR_BATCH.mkdir(parents=True, exist_ok=True)
+
+# # For Batch execution breaking
+# LOG_DIR_BATCH_BRE = Path("/Volumes/Rachna-HD/Qwen480Results/Exp7BatchResults/bre/logs")
+# LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
+
+
+
 # ##########################################################
-# Qwen execution
+# GPTOSS execution
 
 # For pre execution
-LOG_DIR_BATCH = Path("/Volumes/Rachna-HD/Qwen480Results/Exp7BatchResults/pre/logs")
+LOG_DIR_BATCH = Path("/Volumes/RachnaPSSD/GPTOSSResults/Exp7BatchResults/pre/logs")
 LOG_DIR_BATCH.mkdir(parents=True, exist_ok=True)
 
 # For Batch execution breaking
-LOG_DIR_BATCH_BRE = Path("/Volumes/Rachna-HD/Qwen480Results/Exp7BatchResults/bre/logs")
+LOG_DIR_BATCH_BRE = Path("/Volumes/RachnaPSSD/GPTOSSResults/Exp7BatchResults/bre/logs")
 LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
+
+
 
 class DockerRunError(Exception):
     def __init__(self, message, log_path):

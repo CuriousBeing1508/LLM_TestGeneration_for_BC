@@ -2,8 +2,8 @@ import json
 from pathlib import Path
 
 # === CONFIG ===
-BREAKING_RESULTS_PATH = Path("/Volumes/Rachna-HD/GPTResults/Exp6BatchResults/breaking/transplant_results_final_breaking_hybrid.json")
-OUTPUT_STATS_PATH = Path("/Volumes/Rachna-HD/GPTResults/Exp6BatchResults/breaking/exp7breRQ1.2Stats.json")
+BREAKING_RESULTS_PATH = Path("/Volumes/Rachna-HD/Qwen480Results/Exp7BatchResults/bre/transplant_results_breaking_single_module.json")
+OUTPUT_STATS_PATH = Path("/Volumes/Rachna-HD/Qwen480Results/Exp7BatchResults/bre/exp7breRQ2Stats.json")
 
 def main():
     if not BREAKING_RESULTS_PATH.exists():

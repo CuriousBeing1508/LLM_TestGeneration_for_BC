@@ -14,15 +14,28 @@ from pathlib import Path
 # LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
 
 # ##########################################################
-# Qwen execution
+# # Qwen execution
+
+# # For pre execution
+# LOG_DIR_BATCH = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp6BatchResults/pre/logs")
+# LOG_DIR_BATCH.mkdir(parents=True, exist_ok=True)
+
+# # For Batch execution breaking
+# LOG_DIR_BATCH_BRE = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp6BatchResults/bre/logs")
+# LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
+
+
+
+# GPTOSS execution
 
 # For pre execution
-LOG_DIR_BATCH = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp6BatchResults/pre/logs")
+LOG_DIR_BATCH = Path("/Volumes/RachnaPSSD/GPTOSSResults/Exp6BatchResults/pre/logs")
 LOG_DIR_BATCH.mkdir(parents=True, exist_ok=True)
 
 # For Batch execution breaking
-LOG_DIR_BATCH_BRE = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp6BatchResults/bre/logs")
+LOG_DIR_BATCH_BRE = Path("/Volumes/RachnaPSSD/GPTOSSResults/Exp6BatchResults/bre/logs")
 LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
+
 
 class DockerRunError(Exception):
     def __init__(self, message, log_path):
