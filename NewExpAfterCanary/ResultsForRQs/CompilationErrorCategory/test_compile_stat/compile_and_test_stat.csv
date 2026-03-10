@@ -1,0 +1,10 @@
+model,context_variant,total_instances,instances_not_compiled,tests_in_compiled_min,tests_in_compiled_max,tests_in_compiled_median,status
+GPT4o,Minimal,89,47,1,222,7.0,ok
+GPT4o,Method,89,50,1,359,17,ok
+GPT4o,Class,89,50,1,492,17,ok
+Qwen3-480b,Minimal,89,53,1,291,14.0,ok
+Qwen3-480b,Method,89,52,1,336,25,ok
+Qwen3-480b,Class,89,52,1,662,27,ok
+GPTOSS-120b,Minimal,89,65,1,33,3.5,ok
+GPTOSS-120b,Method,89,69,1,49,10.5,ok
+GPTOSS-120b,Class,89,65,1,57,15.5,ok

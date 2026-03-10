@@ -1,0 +1,10 @@
+model,context_variant,total_instances,instances_not_compiled,status
+GPT4o,Minimal,89,47,ok
+GPT4o,Method,89,50,ok
+GPT4o,Class,89,50,ok
+Qwen3-480b,Minimal,89,53,ok
+Qwen3-480b,Method,89,52,ok
+Qwen3-480b,Class,89,52,ok
+GPTOSS-120b,Minimal,89,65,ok
+GPTOSS-120b,Method,89,69,ok
+GPTOSS-120b,Class,89,65,ok

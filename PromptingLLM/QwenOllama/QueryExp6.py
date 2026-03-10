@@ -219,7 +219,8 @@ def call_qwen_cloud(prompt: str, max_retries=3):
             response = client.chat(
                 model=MODEL_NAME,
                 messages=[{"role": "user", "content": prompt}],
-                stream=False
+                stream=False,
+                options={'temperature': 0}
             )
             return response["message"]["content"], False
 

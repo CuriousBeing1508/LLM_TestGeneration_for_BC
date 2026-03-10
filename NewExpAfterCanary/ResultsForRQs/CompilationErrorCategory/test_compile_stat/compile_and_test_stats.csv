@@ -1,0 +1,10 @@
+model,context_variant,total_instances,inst_compiled,c_min,c_med,c_max,inst_passed,p_min,p_med,p_max,status
+GPT4o,Minimal,89,42,1,7.0,222,38,1,5.0,47,ok
+GPT4o,Method,89,39,1,17,359,35,1,7,86,ok
+GPT4o,Class,89,39,1,17,492,31,1,7,171,ok
+Qwen3-480b,Minimal,89,36,1,14.0,291,32,1,7.0,96,ok
+Qwen3-480b,Method,89,37,1,25,336,34,1,5.5,92,ok
+Qwen3-480b,Class,89,37,1,27,662,34,1,5.5,168,ok
+GPTOSS-120b,Minimal,89,24,1,3.5,33,9,1,3,5,ok
+GPTOSS-120b,Method,89,20,1,10.5,49,17,1,5,14,ok
+GPTOSS-120b,Class,89,24,1,15.5,57,21,1,7,23,ok

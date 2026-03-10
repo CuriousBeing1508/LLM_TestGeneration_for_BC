@@ -240,7 +240,7 @@ def call_cloud_model(prompt: str, max_retries=3):
                 current_index = get_current_key_index()
                 
                 print(f"\n{'='*80}")
-                print(f"⚠️  WEEKLY RATE LIMIT HIT - API KEY {current_index + 1} of {len(API_KEYS)}")
+                print(f" WEEKLY RATE LIMIT HIT - API KEY {current_index + 1} of {len(API_KEYS)}")
                 print(f"Error: {e}")
                 print(f"Current time: {current_time.strftime('%Y-%m-%d %H:%M:%S')}")
                 print(f"{'='*80}\n")
