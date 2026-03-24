@@ -1,38 +1,39 @@
 #!/usr/bin/env python3
 """
-Count tokens in generated prompt .txt files using tiktoken.
+Count tokens in generated prompt .txt files using the Qwen tokenizer.
 Outputs a CSV report with counts per bump_id and per file,
 plus per-bump aggregates and the overall maximum token count.
 """
 
 import csv
 from pathlib import Path
-import tiktoken
+from transformers import AutoTokenizer
 from statistics import mean
 
 # === CONFIG ===
-OUTPUT_ROOT = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp7LLMOutput/GPT4o")
-CSV_REPORT_PATH = OUTPUT_ROOT.parent / "OutputTokenExp7.csv"
+OUTPUT_ROOT = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp7LLMOutput/Qwen3_480b_cloud")
+CSV_REPORT_PATH = OUTPUT_ROOT.parent / "OutputTokenExp7_Qwen.csv"
 
-# Choose encoding for GPT-4o
+# Qwen tokenizer — i am using the one same family from HF.
+QWEN_MODEL_NAME = "Qwen/Qwen3-0.6B" 
+
 def get_encoder():
     try:
-        # GPT-4o uses o200k_base encoding
-        return tiktoken.get_encoding("o200k_base")
-    except Exception:
-        try:
-            return tiktoken.encoding_for_model("gpt-4")
-        except Exception:
-            return tiktoken.get_encoding("cl100k_base")
+        return AutoTokenizer.from_pretrained(QWEN_MODEL_NAME, trust_remote_code=True)
+    except Exception as e:
+        print(f"[ERROR] Could not load tokenizer for {QWEN_MODEL_NAME}: {e}")
+        print(f"[INFO]  Make sure you have: pip install transformers")
+        print(f"[INFO]  You may also need: pip install tiktoken sentencepiece")
+        raise
 
 ENC = get_encoder()
 
 def count_tokens(text: str) -> int:
-    """Count tokens in text using tiktoken."""
+    """Count tokens in text using Qwen tokenizer."""
     if not text:
         return 0
     try:
-        return len(ENC.encode(text, disallowed_special=()))
+        return len(ENC.encode(text))
     except Exception as e:
         print(f"[WARNING] Token encoding error: {e}")
         # Fallback: rough estimate
