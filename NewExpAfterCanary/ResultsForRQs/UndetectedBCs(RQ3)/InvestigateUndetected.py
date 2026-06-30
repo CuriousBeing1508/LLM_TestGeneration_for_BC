@@ -16,6 +16,10 @@ from common import parse_package_summary, clean_llm_code
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from config import PRIMARY_DRIVE
+
 results_lock = threading.Lock()
 print_lock   = threading.Lock()
 
@@ -29,69 +33,69 @@ def safe_print(*args, **kwargs):
 CONFIGS = {
     # Minimal variant
     # ("GPT-4o",      "Minimal"): {
-    #     "abc_root":         Path("/Volumes/Rachna-HD/FilteredDataset/Exp3LLMOutput/GPT4o"),
-    #     "pre_results_path": Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/pre/transplant_results_final_pre.json"),
-    #     "output_dir":       Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/investigate_undetected"),
-    #     "log_dir":          Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/investigate_undetected/logs"),
+    #     "abc_root":         PRIMARY_DRIVE / "FilteredDataset/Exp3LLMOutput/GPT4o",
+    #     "pre_results_path": PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre/transplant_results_final_pre.json",
+    #     "output_dir":       PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/investigate_undetected",
+    #     "log_dir":          PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/investigate_undetected/logs",
     # },
     # ("Qwen-480B",   "Minimal"): {
-    #     "abc_root":         Path("/Volumes/Rachna-HD/FilteredDataset/Exp3LLMOutput/Qwen_480b_cloud"),
-    #     "pre_results_path": Path("/Volumes/Rachna-HD/Qwen480Results/Exp3BatchResults/pre/transplant_results_final_pre.json"),
-    #     "output_dir":       Path("/Volumes/Rachna-HD/Qwen480Results/Exp3BatchResults/investigate_undetected"),
-    #     "log_dir":          Path("/Volumes/Rachna-HD/Qwen480Results/Exp3BatchResults/investigate_undetected/logs"),
+    #     "abc_root":         PRIMARY_DRIVE / "FilteredDataset/Exp3LLMOutput/Qwen_480b_cloud",
+    #     "pre_results_path": PRIMARY_DRIVE / "Qwen480Results/Exp3BatchResults/pre/transplant_results_final_pre.json",
+    #     "output_dir":       PRIMARY_DRIVE / "Qwen480Results/Exp3BatchResults/investigate_undetected",
+    #     "log_dir":          PRIMARY_DRIVE / "Qwen480Results/Exp3BatchResults/investigate_undetected/logs",
     # },
     # ("GPTOSS-120B", "Minimal"): {
-    #     "abc_root":         Path("/Volumes/Rachna-HD/FilteredDataset/Exp3LLMOutput/GPT_OSS_120b"),
-    #     "pre_results_path": Path("/Volumes/Rachna-HD/GPTOSSResults/Exp3BatchResults/pre/transplant_results_final_pre.json"),
-    #     "output_dir":       Path("/Volumes/Rachna-HD/GPTOSSResults/Exp3BatchResults/investigate_undetected"),
-    #     "log_dir":          Path("/Volumes/Rachna-HD/GPTOSSResults/Exp3BatchResults/investigate_undetected/logs"),
+    #     "abc_root":         PRIMARY_DRIVE / "FilteredDataset/Exp3LLMOutput/GPT_OSS_120b",
+    #     "pre_results_path": PRIMARY_DRIVE / "GPTOSSResults/Exp3BatchResults/pre/transplant_results_final_pre.json",
+    #     "output_dir":       PRIMARY_DRIVE / "GPTOSSResults/Exp3BatchResults/investigate_undetected",
+    #     "log_dir":          PRIMARY_DRIVE / "GPTOSSResults/Exp3BatchResults/investigate_undetected/logs",
     # },
 
     # Method variant
     # ("GPT-4o",      "Method"): {
-    #     "abc_root":         Path("/Volumes/Rachna-HD/FilteredDataset/Exp6LLMOutput/GPT4o"),
-    #     "pre_results_path": Path("/Volumes/Rachna-HD/GPTResults/Exp6BatchResults/pre/transplant_results_final_pre.json"),
-    #     "output_dir":       Path("/Volumes/Rachna-HD/GPTResults/Exp6BatchResults/investigate_undetected"),
-    #     "log_dir":          Path("/Volumes/Rachna-HD/GPTResults/Exp6BatchResults/investigate_undetected/logs"),
+    #     "abc_root":         PRIMARY_DRIVE / "FilteredDataset/Exp6LLMOutput/GPT4o",
+    #     "pre_results_path": PRIMARY_DRIVE / "GPTResults/Exp6BatchResults/pre/transplant_results_final_pre.json",
+    #     "output_dir":       PRIMARY_DRIVE / "GPTResults/Exp6BatchResults/investigate_undetected",
+    #     "log_dir":          PRIMARY_DRIVE / "GPTResults/Exp6BatchResults/investigate_undetected/logs",
     # },
     ("Qwen-480B",   "Method"): {
-        "abc_root":         Path("/Volumes/Rachna-HD/FilteredDataset/Exp6LLMOutput/Qwen3_480b_cloud"),
-        "pre_results_path": Path("/Volumes/Rachna-HD/Qwen480Results/Exp6BatchResults/pre/transplant_results_final_pre.json"),
-        "output_dir":       Path("/Volumes/Rachna-HD/Qwen480Results/Exp6BatchResults/investigate_undetected"),
-        "log_dir":          Path("/Volumes/Rachna-HD/Qwen480Results/Exp6BatchResults/investigate_undetected/logs"),
+        "abc_root":         PRIMARY_DRIVE / "FilteredDataset/Exp6LLMOutput/Qwen3_480b_cloud",
+        "pre_results_path": PRIMARY_DRIVE / "Qwen480Results/Exp6BatchResults/pre/transplant_results_final_pre.json",
+        "output_dir":       PRIMARY_DRIVE / "Qwen480Results/Exp6BatchResults/investigate_undetected",
+        "log_dir":          PRIMARY_DRIVE / "Qwen480Results/Exp6BatchResults/investigate_undetected/logs",
     },
     # ("GPTOSS-120B", "Method"): {
-    #     "abc_root":         Path("/Volumes/Rachna-HD/FilteredDataset/Exp6LLMOutput/GPT_OSS_120b"),
-    #     "pre_results_path": Path("/Volumes/Rachna-HD/GPTOSSResults/Exp6BatchResults/pre/transplant_results_final_pre.json"),
-    #     "output_dir":       Path("/Volumes/Rachna-HD/GPTOSSResults/Exp6BatchResults/investigate_undetected"),
-    #     "log_dir":          Path("/Volumes/Rachna-HD/GPTOSSResults/Exp6BatchResults/investigate_undetected/logs"),
+    #     "abc_root":         PRIMARY_DRIVE / "FilteredDataset/Exp6LLMOutput/GPT_OSS_120b",
+    #     "pre_results_path": PRIMARY_DRIVE / "GPTOSSResults/Exp6BatchResults/pre/transplant_results_final_pre.json",
+    #     "output_dir":       PRIMARY_DRIVE / "GPTOSSResults/Exp6BatchResults/investigate_undetected",
+    #     "log_dir":          PRIMARY_DRIVE / "GPTOSSResults/Exp6BatchResults/investigate_undetected/logs",
     # },
 
     # Class variant fixed keys (were wrongly "Minimal" before)
     # ("GPT-4o",      "Class"): {
-    #     "abc_root":         Path("/Volumes/Rachna-HD/FilteredDataset/Exp7LLMOutput/GPT4o"),
-    #     "pre_results_path": Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResultsOp2/pre/transplant_results_final_pre.json"),
-    #     "output_dir":       Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResultsOp2/investigate_undetected"),
-    #     "log_dir":          Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResultsOp2/investigate_undetected/logs"),
+    #     "abc_root":         PRIMARY_DRIVE / "FilteredDataset/Exp7LLMOutput/GPT4o",
+    #     "pre_results_path": PRIMARY_DRIVE / "GPTResults/Exp7BatchResultsOp2/pre/transplant_results_final_pre.json",
+    #     "output_dir":       PRIMARY_DRIVE / "GPTResults/Exp7BatchResultsOp2/investigate_undetected",
+    #     "log_dir":          PRIMARY_DRIVE / "GPTResults/Exp7BatchResultsOp2/investigate_undetected/logs",
     # },
     ("Qwen-480B",   "Class"): {
-        "abc_root":         Path("/Volumes/Rachna-HD/FilteredDataset/Exp7LLMOutput/Qwen3_480b_cloud"),
-        "pre_results_path": Path("/Volumes/Rachna-HD/Qwen480Results/Exp7BatchResults/pre/transplant_results_final_pre.json"),
-        "output_dir":       Path("/Volumes/Rachna-HD/Qwen480Results/Exp7BatchResults/investigate_undetected"),
-        "log_dir":          Path("/Volumes/Rachna-HD/Qwen480Results/Exp7BatchResults/investigate_undetected/logs"),
+        "abc_root":         PRIMARY_DRIVE / "FilteredDataset/Exp7LLMOutput/Qwen3_480b_cloud",
+        "pre_results_path": PRIMARY_DRIVE / "Qwen480Results/Exp7BatchResults/pre/transplant_results_final_pre.json",
+        "output_dir":       PRIMARY_DRIVE / "Qwen480Results/Exp7BatchResults/investigate_undetected",
+        "log_dir":          PRIMARY_DRIVE / "Qwen480Results/Exp7BatchResults/investigate_undetected/logs",
     },
     # ("GPTOSS-120B", "Class"): {
-    #     "abc_root":         Path("/Volumes/Rachna-HD/FilteredDataset/Exp7LLMOutput/GPT_OSS_120b"),
-    #     "pre_results_path": Path("/Volumes/Rachna-HD/GPTOSSResults/Exp7BatchResults/pre/transplant_results_final_pre.json"),
-    #     "output_dir":       Path("/Volumes/Rachna-HD/GPTOSSResults/Exp7BatchResults/investigate_undetected"),
-    #     "log_dir":          Path("/Volumes/Rachna-HD/GPTOSSResults/Exp7BatchResults/investigate_undetected/logs"),
+    #     "abc_root":         PRIMARY_DRIVE / "FilteredDataset/Exp7LLMOutput/GPT_OSS_120b",
+    #     "pre_results_path": PRIMARY_DRIVE / "GPTOSSResults/Exp7BatchResults/pre/transplant_results_final_pre.json",
+    #     "output_dir":       PRIMARY_DRIVE / "GPTOSSResults/Exp7BatchResults/investigate_undetected",
+    #     "log_dir":          PRIMARY_DRIVE / "GPTOSSResults/Exp7BatchResults/investigate_undetected/logs",
     # },
 }
 
-UNDETECTED_CSV    = "/Volumes/Rachna-HD/RQResultsForPaper/RQ3/MissedBC/ManualBrokenAPICodingBumpUndetected.csv"
-SUMMARY_PATH      = "/Volumes/Rachna-HD/ConfigFiles/package_structure_summary.txt"
-CSV_PATH          = "/Volumes/Rachna-HD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-MULTI_MODULE_LIST = Path("/Volumes/Rachna-HD/ConfigFiles/multi_module_instances.json")
+UNDETECTED_CSV    = PRIMARY_DRIVE / "RQResultsForPaper/RQ3/MissedBC/ManualBrokenAPICodingBumpUndetected.csv"
+SUMMARY_PATH      = PRIMARY_DRIVE / "ConfigFiles/package_structure_summary.txt"
+CSV_PATH          = PRIMARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+MULTI_MODULE_LIST = PRIMARY_DRIVE / "ConfigFiles/multi_module_instances.json"
 
 MAX_WORKERS = 4
 TIMEOUT     = 600

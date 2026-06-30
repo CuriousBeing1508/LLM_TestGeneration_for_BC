@@ -4,16 +4,20 @@ import subprocess
 from pathlib import Path
 from collections import Counter
 from common import parse_package_summary  # assumes your existing common.py is importable
+
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from config import PRIMARY_DRIVE
 # the idea is to find which all instances we are actually using because we are not generating tests if the project only uses some of the annotations or variable reference. we are using when an API method of a library is called in the client.
 # ====== CONFIG (edit these paths only) ======
-CSV_PATH_IN  = "/Volumes/Rachna-HD/updated_FinalBUMP_Instances.csv"       # existing CSV, includes custom_id, breakingCommit
-CSV_PATH_OUT = "/Volumes/Rachna-HD/FinalBUMP_Instances_with_TestRunner_Status.csv"  # new CSV to write
+CSV_PATH_IN  = PRIMARY_DRIVE / "updated_FinalBUMP_Instances.csv"       # existing CSV, includes custom_id, breakingCommit
+CSV_PATH_OUT = PRIMARY_DRIVE / "FinalBUMP_Instances_with_TestRunner_Status.csv"  # new CSV to write
 # ===============================================
 
 LOG_PATH = Path(CSV_PATH_OUT).with_suffix(".log")
 
-SUMMARY_PATH = "/Volumes/Rachna-HD/package_structure_summary.txt"  # for test_root lookup
-ABC_ROOT     = Path("/Volumes/Rachna-HD/GeneratedOutputClientsExp3/GPT4o")      # where you check for files
+SUMMARY_PATH = PRIMARY_DRIVE / "package_structure_summary.txt"  # for test_root lookup
+ABC_ROOT     = PRIMARY_DRIVE / "GeneratedOutputClientsExp3/GPT4o"      # where you check for files
 # ===========================================
 
 # Load package info once (used to determine presence of test_root)

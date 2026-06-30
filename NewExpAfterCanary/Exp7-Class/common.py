@@ -3,45 +3,49 @@ import json
 import subprocess
 from pathlib import Path
 
-# LOG_DIR = Path("/Volumes/Rachna-HD/Exp7Results/logs")
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from config import PRIMARY_DRIVE, SECONDARY_DRIVE
+
+# LOG_DIR = PRIMARY_DRIVE / "Exp7Results/logs"
 # LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-# LOG_EXEC_DIR = Path("/Volumes/Rachna-HD/Exp7Results/logs/executionPhase")
+# LOG_EXEC_DIR = PRIMARY_DRIVE / "Exp7Results/logs/executionPhase"
 # LOG_EXEC_DIR.mkdir(parents=True, exist_ok=True)
 
-# LOG_BREAKING_DIR = Path("/Volumes/Rachna-HD/Exp7Results/logs/breakingPhase")
+# LOG_BREAKING_DIR = PRIMARY_DRIVE / "Exp7Results/logs/breakingPhase"
 # LOG_BREAKING_DIR.mkdir(parents=True, exist_ok=True)
 
-# LOG_CANARY_DIR = Path("/Volumes/Rachna-HD/Exp7Results/CanaryResults/logs")
+# LOG_CANARY_DIR = PRIMARY_DRIVE / "Exp7Results/CanaryResults/logs"
 # LOG_CANARY_DIR.mkdir(parents=True, exist_ok=True)
 
 
 
 # # For Batch execution pre
-# LOG_DIR_BATCH = Path("/Volumes/Rachna-HD/Exp7BatchResults/pre/logs")
+# LOG_DIR_BATCH = PRIMARY_DRIVE / "Exp7BatchResults/pre/logs"
 # LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-# LOG_EXEC_DIR_BATCH = Path("/Volumes/Rachna-HD/Exp7BatchResults/logs/executionPhase")
+# LOG_EXEC_DIR_BATCH = PRIMARY_DRIVE / "Exp7BatchResults/logs/executionPhase"
 # LOG_EXEC_DIR.mkdir(parents=True, exist_ok=True)
 
-# LOG_DIR_BATCH_BRE = Path("/Volumes/Rachna-HD/Exp7BatchResults/logs/breakingPhase")
+# LOG_DIR_BATCH_BRE = PRIMARY_DRIVE / "Exp7BatchResults/logs/breakingPhase"
 # LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
 
-# LOG_CANARY_DIR_BATCH = Path("/Volumes/Rachna-HD/Exp7BatchResults/CanaryResults/logs")
+# LOG_CANARY_DIR_BATCH = PRIMARY_DRIVE / "Exp7BatchResults/CanaryResults/logs"
 # LOG_CANARY_DIR.mkdir(parents=True, exist_ok=True)
 
 
 # # For Batch execution breaking
-# LOG_DIR_BATCH_BRE = Path("/Volumes/Rachna-HD/Exp7BatchResults/bre/logs")
+# LOG_DIR_BATCH_BRE = PRIMARY_DRIVE / "Exp7BatchResults/bre/logs"
 # LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-# LOG_EXEC_DIR_BATCH = Path("/Volumes/Rachna-HD/Exp7BatchResults/logs/executionPhase")
+# LOG_EXEC_DIR_BATCH = PRIMARY_DRIVE / "Exp7BatchResults/logs/executionPhase"
 # LOG_EXEC_DIR.mkdir(parents=True, exist_ok=True)
 
-# LOG_BREAKING_DIR_BATCH = Path("/Volumes/Rachna-HD/Exp7BatchResults/logs/breakingPhase")
+# LOG_BREAKING_DIR_BATCH = PRIMARY_DRIVE / "Exp7BatchResults/logs/breakingPhase"
 # LOG_BREAKING_DIR.mkdir(parents=True, exist_ok=True)
 
-# LOG_CANARY_DIR_BATCH_BRE = Path("/Volumes/Rachna-HD/Exp7BatchResults/CanaryResults/logs")
+# LOG_CANARY_DIR_BATCH_BRE = PRIMARY_DRIVE / "Exp7BatchResults/CanaryResults/logs"
 # LOG_CANARY_DIR.mkdir(parents=True, exist_ok=True)
 
 
@@ -50,12 +54,12 @@ from pathlib import Path
 # #########################################################
 
 # For pre execution
-LOG_DIR_BATCH = Path("/Volumes/RachnaPSSD/GPTResults/Exp7BatchResults/pre/logs")
+LOG_DIR_BATCH = SECONDARY_DRIVE / "GPTResults/Exp7BatchResults/pre/logs"
 LOG_DIR_BATCH.mkdir(parents=True, exist_ok=True)
 
 
 # For Batch execution breaking
-LOG_DIR_BATCH_BRE = Path("/Volumes/RachnaPSSD/GPTResults/Exp7BatchResults/bre/logs")
+LOG_DIR_BATCH_BRE = SECONDARY_DRIVE / "GPTResults/Exp7BatchResults/bre/logs"
 LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
 
 

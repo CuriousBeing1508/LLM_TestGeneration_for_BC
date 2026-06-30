@@ -2,8 +2,12 @@ import os
 import shutil
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from config import PRIMARY_DRIVE
+
 # Directory where all repos are cloned
-CLONED_REPO_ROOT = Path("/Volumes/Rachna-HD")
+CLONED_REPO_ROOT = PRIMARY_DRIVE
 
 # Folders to remove
 HEAVY_DIRS = [".git", "target", "node_modules", "build", ".gradle", ".idea"]

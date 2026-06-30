@@ -9,14 +9,18 @@ import csv
 from pathlib import Path
 from collections import Counter
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from config import PRIMARY_DRIVE
+
 # === CONFIG ===
-PRE_RESULTS = Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResults/pre/transplant_results_pre_filteredExp7.json")
-BREAKING_RESULTS = Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResults/breaking/transplant_results_final_breaking_hybrid.json")
+PRE_RESULTS = PRIMARY_DRIVE / "GPTResults/Exp7BatchResults/pre/transplant_results_pre_filteredExp7.json"
+BREAKING_RESULTS = PRIMARY_DRIVE / "GPTResults/Exp7BatchResults/breaking/transplant_results_final_breaking_hybrid.json"
 
-PROMPT_ROOT = Path("/Volumes/Rachna-HD/FilteredDataset/Exp7Prompts")  
+PROMPT_ROOT = PRIMARY_DRIVE / "FilteredDataset/Exp7Prompts"  
 
-LOG_DIR = Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResults/bre/logs")
-OUTPUT_DIR = Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResults/breaking")
+LOG_DIR = PRIMARY_DRIVE / "GPTResults/Exp7BatchResults/bre/logs"
+OUTPUT_DIR = PRIMARY_DRIVE / "GPTResults/Exp7BatchResults/breaking"
 
 # Output file
 FAILURE_TYPES_CSV = OUTPUT_DIR / "failure_types_analysis.csv"

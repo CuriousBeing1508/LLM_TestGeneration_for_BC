@@ -2,9 +2,9 @@
 # import pandas as pd
 
 # # --- Config ---
-# CSV_PATH = "/Volumes/Rachna-HD/RQResults/RQ4_resultsBUMP.csv"
-# FOLDERS_DIR = "/Volumes/Rachna-HD/FilteredDataset/Exp6Prompts"
-# OUTPUT_PATH = "/Volumes/Rachna-HD/ConfigFiles/Candidate_BUMP_Instance_errorTypes.csv"
+# CSV_PATH = PRIMARY_DRIVE / "RQResults/RQ4_resultsBUMP.csv"
+# FOLDERS_DIR = PRIMARY_DRIVE / "FilteredDataset/Exp6Prompts"
+# OUTPUT_PATH = PRIMARY_DRIVE / "ConfigFiles/Candidate_BUMP_Instance_errorTypes.csv"
 # # --------------
 
 # df = pd.read_csv(CSV_PATH)
@@ -22,10 +22,15 @@
 import os
 import pandas as pd
 
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from config import PRIMARY_DRIVE
+
 # --- Config ---
-CSV_PATH = "/Volumes/Rachna-HD/RQResults/RQ4_resultsBUMP.csv"
-FOLDERS_DIR = "/Volumes/Rachna-HD/FilteredDataset/Exp6Prompts"
-OUTPUT_PATH = "/Volumes/Rachna-HD/ConfigFiles/Candidate_BUMP_Instance_errorTypes.csv"
+CSV_PATH = PRIMARY_DRIVE / "RQResults/RQ4_resultsBUMP.csv"
+FOLDERS_DIR = PRIMARY_DRIVE / "FilteredDataset/Exp6Prompts"
+OUTPUT_PATH = PRIMARY_DRIVE / "ConfigFiles/Candidate_BUMP_Instance_errorTypes.csv"
 # --------------
 
 df = pd.read_csv(CSV_PATH)

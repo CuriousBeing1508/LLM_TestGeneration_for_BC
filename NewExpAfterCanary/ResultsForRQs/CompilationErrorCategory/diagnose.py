@@ -4,6 +4,10 @@ from pathlib import Path
 from typing import Dict, List
 from collections import defaultdict
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from config import PRIMARY_DRIVE
+
 def diagnose_unknown_errors(results: List[Dict], output_file: str = "unknown_errors_analysis.txt"):
     """Analyze unknown errors to find patterns"""
     
@@ -79,8 +83,8 @@ def load_results_from_json(json_path: str) -> List[Dict]:
 
 if __name__ == "__main__":
     # Path to your existing JSON results
-    RESULTS_JSON = "/Volumes/Rachna-HD/GPTResults/CompilErrorAnalysisResults/compilation_errors_GPT4o_Class.json"
-    UNKNOWN_ANALYSIS = "/Volumes/Rachna-HD/GPTResults/CompilErrorAnalysisResults/unknown_errors_analysis.txt"
+    RESULTS_JSON = PRIMARY_DRIVE / "GPTResults/CompilErrorAnalysisResults/compilation_errors_GPT4o_Class.json"
+    UNKNOWN_ANALYSIS = PRIMARY_DRIVE / "GPTResults/CompilErrorAnalysisResults/unknown_errors_analysis.txt"
     
     print("Loading results from JSON...")
     results = load_results_from_json(RESULTS_JSON)

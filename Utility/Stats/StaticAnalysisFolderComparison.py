@@ -1,9 +1,13 @@
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from config import PRIMARY_DRIVE
+
 # === Configuration ===
-dir_A = Path("/Volumes/Rachna-HD/Dataset/StaticAnalysis")
-dir_B = Path("/Volumes/Rachna-HD/Dataset/ClonedRepo/Clients")
-output_file = Path("/Volumes/Rachna-HD/Dataset/Cloned_vs_analysed_comparison_report.txt")  # Change if needed
+dir_A = PRIMARY_DRIVE / "Dataset/StaticAnalysis"
+dir_B = PRIMARY_DRIVE / "Dataset/ClonedRepo/Clients"
+output_file = PRIMARY_DRIVE / "Dataset/Cloned_vs_analysed_comparison_report.txt"  # Change if needed
 
 # === Collect first-level folders ===
 folders_A = {f.name for f in dir_A.iterdir() if f.is_dir()}

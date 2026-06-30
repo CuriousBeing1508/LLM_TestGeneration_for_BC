@@ -22,6 +22,10 @@ from common import parse_package_summary, LOG_DIR_BATCH, clean_llm_code
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from config import PRIMARY_DRIVE, SECONDARY_DRIVE
+
 # Thread-safe locks
 results_lock = threading.Lock()
 print_lock = threading.Lock()
@@ -33,34 +37,34 @@ def safe_print(*args, **kwargs):
 
 # # === CONFIGURATION GPT===
 
-CSV_PATH = "/Volumes/Rachna-HD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-SUMMARY_PATH = "/Volumes/Rachna-HD/ConfigFiles/package_structure_summary.txt"
-COMPILE_INPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/pre/compile_results_pre.json")
-EXECUTE_OUTPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/pre/execute_results_pre.json")
-ABC_ROOT = Path("/Volumes/Rachna-HD/FilteredDataset/Exp3LLMOutput/GPT4o")
+CSV_PATH = PRIMARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+SUMMARY_PATH = PRIMARY_DRIVE / "ConfigFiles/package_structure_summary.txt"
+COMPILE_INPUT = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre/compile_results_pre.json"
+EXECUTE_OUTPUT = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre/execute_results_pre.json"
+ABC_ROOT = PRIMARY_DRIVE / "FilteredDataset/Exp3LLMOutput/GPT4o"
 
-# CSV_PATH = "/Volumes/Rachna-HD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-# SUMMARY_PATH = "/Volumes/Rachna-HD/ConfigFiles/package_structure_summary.txt"
-# COMPILE_INPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResultsOp2/pre/compile_results_pre.json")
-# EXECUTE_OUTPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResultsOp2/pre/execute_results_pre.json")
-# ABC_ROOT = Path("/Volumes/Rachna-HD/FilteredDataset/Exp7LLMOutput/GPT4o")
+# CSV_PATH = PRIMARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+# SUMMARY_PATH = PRIMARY_DRIVE / "ConfigFiles/package_structure_summary.txt"
+# COMPILE_INPUT = PRIMARY_DRIVE / "GPTResults/Exp7BatchResultsOp2/pre/compile_results_pre.json"
+# EXECUTE_OUTPUT = PRIMARY_DRIVE / "GPTResults/Exp7BatchResultsOp2/pre/execute_results_pre.json"
+# ABC_ROOT = PRIMARY_DRIVE / "FilteredDataset/Exp7LLMOutput/GPT4o"
 # MODEL_NAME = ABC_ROOT.name
 
 # === CONFIGURATION Qwen3===
-CSV_PATH = "/Volumes/RachnaPSSD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-SUMMARY_PATH = "/Volumes/RachnaPSSD/ConfigFiles/package_structure_summary.txt"
-COMPILE_INPUT = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp3BatchResults/pre/compile_results_pre.json")
-EXECUTE_OUTPUT = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp3BatchResults/pre/execute_results_pre.json")
-ABC_ROOT = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp3LLMOutput/Qwen_480b_cloud")
+CSV_PATH = SECONDARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+SUMMARY_PATH = SECONDARY_DRIVE / "ConfigFiles/package_structure_summary.txt"
+COMPILE_INPUT = SECONDARY_DRIVE / "Qwen480Results/Exp3BatchResults/pre/compile_results_pre.json"
+EXECUTE_OUTPUT = SECONDARY_DRIVE / "Qwen480Results/Exp3BatchResults/pre/execute_results_pre.json"
+ABC_ROOT = SECONDARY_DRIVE / "FilteredDataset/Exp3LLMOutput/Qwen_480b_cloud"
 
 MODEL_NAME = ABC_ROOT.name
 
 # # === CONFIGURATION Qwen3 Exp6===
-# CSV_PATH = "/Volumes/RachnaPSSD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-# SUMMARY_PATH = "/Volumes/RachnaPSSD/ConfigFiles/package_structure_summary.txt"
-# COMPILE_INPUT = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp6BatchResults/pre/compile_results_pre.json")
-# EXECUTE_OUTPUT = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp6BatchResults/pre/execute_results_pre.json")
-# ABC_ROOT = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp6LLMOutput/Qwen3_480b_cloud")
+# CSV_PATH = SECONDARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+# SUMMARY_PATH = SECONDARY_DRIVE / "ConfigFiles/package_structure_summary.txt"
+# COMPILE_INPUT = SECONDARY_DRIVE / "Qwen480Results/Exp6BatchResults/pre/compile_results_pre.json"
+# EXECUTE_OUTPUT = SECONDARY_DRIVE / "Qwen480Results/Exp6BatchResults/pre/execute_results_pre.json"
+# ABC_ROOT = SECONDARY_DRIVE / "FilteredDataset/Exp6LLMOutput/Qwen3_480b_cloud"
 # MODEL_NAME = ABC_ROOT.name
 
 # Parse package info

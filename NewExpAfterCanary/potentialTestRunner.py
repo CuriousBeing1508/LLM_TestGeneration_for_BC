@@ -4,12 +4,16 @@ import subprocess
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from config import PRIMARY_DRIVE
+
 
 # we got 10 instances where the test runner cannot be found by the script, so trying to exectract all dependency with test scope to manually decide on the test runner.
 # ====== CONFIG (adjust the two paths only if yours differ) ======
 #!/usr/bin/env python3
 
-CSV_PATH_IN  = "/Volumes/Rachna-HD/updated_FinalBUMP_Instances_with_TestRunner.csv"
+CSV_PATH_IN  = PRIMARY_DRIVE / "updated_FinalBUMP_Instances_with_TestRunner.csv"
 CSV_PATH_LOG = Path(CSV_PATH_IN).with_suffix(".test-scope-deps.csv")
 
 def docker_exec(image: str, shell_cmd: str, timeout: int = 300):

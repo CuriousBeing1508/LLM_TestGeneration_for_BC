@@ -10,8 +10,12 @@ from pathlib import Path
 import tiktoken
 from statistics import mean
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from config import SECONDARY_DRIVE
+
 # === CONFIG ===
-OUTPUT_ROOT = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp7LLMOutput/GPT4o")
+OUTPUT_ROOT = SECONDARY_DRIVE / "FilteredDataset/Exp7LLMOutput/GPT4o"
 CSV_REPORT_PATH = OUTPUT_ROOT.parent / "OutputTokenExp7.csv"
 
 # Choose encoding for GPT-4o

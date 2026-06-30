@@ -8,6 +8,10 @@ from pathlib import Path
 from collections import Counter, defaultdict
 from common import parse_package_summary, classify_compilation_error, LOG_DIR_BATCH, clean_llm_code
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from config import SECONDARY_DRIVE
+
 # prepare_staging_tests → puts all candidates into /staging.
 # run_test_in_isolation → mounts only one file at a time into docker, runs container default CMD.
 # good_tests/ dir → accumulates only the tests that passed (preserving package path).
@@ -16,11 +20,11 @@ from common import parse_package_summary, classify_compilation_error, LOG_DIR_BA
 # This script also counts the number of tests in each file for each custom id. that is the only extension from v3.
 
 # === CONFIG ===
-CSV_PATH = "/Volumes/RachnaPSSD/updated_FinalBUMP_Instances_with_TestRunner.csv"
-SUMMARY_PATH = "/Volumes/RachnaPSSD/package_structure_summary.txt"
-TRANSPLANT_OUTPUT = Path("/Volumes/RachnaPSSD/Exp3BatchResults/pre/transplant_results_final_pre.json")
-CSV_SUMMARY_OUTPUT = Path("/Volumes/RachnaPSSD/Exp3BatchResults/pre/transplant_results_final_pre_summary.csv")
-ABC_ROOT = Path("/Volumes/RachnaPSSD/GeneratedOutputClientsExp3/GPT4o")
+CSV_PATH = SECONDARY_DRIVE / "updated_FinalBUMP_Instances_with_TestRunner.csv"
+SUMMARY_PATH = SECONDARY_DRIVE / "package_structure_summary.txt"
+TRANSPLANT_OUTPUT = SECONDARY_DRIVE / "Exp3BatchResults/pre/transplant_results_final_pre.json"
+CSV_SUMMARY_OUTPUT = SECONDARY_DRIVE / "Exp3BatchResults/pre/transplant_results_final_pre_summary.csv"
+ABC_ROOT = SECONDARY_DRIVE / "GeneratedOutputClientsExp3/GPT4o"
 MODEL_NAME = ABC_ROOT.name  # e.g., "GPT4o"
 
 pkg_info = parse_package_summary(SUMMARY_PATH)

@@ -1,13 +1,17 @@
 import subprocess
 import pandas as pd
 from pathlib import Path
+
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from config import PRIMARY_DRIVE
 # Path for PoC
 CSV_PATH = "/Users/rachnaraj/Documents/Research/Poc/Dataset/FinalBUMP_Instances.csv"
 ROOT_DIR = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/downloaded_jars_1")
 
 # Path Experiment 1
-# CSV_PATH = "/Volumes/Rachna-HD/FinalBUMP_Instances.csv"
-# ROOT_DIR = Path("/Volumes/Rachna-HD/Dataset/downloaded_jars")
+# CSV_PATH = PRIMARY_DRIVE / "FinalBUMP_Instances.csv"
+# ROOT_DIR = PRIMARY_DRIVE / "Dataset/downloaded_jars"
 
 def create_temp_pom(group_id, artifact_id, version, pom_path):
     pom_template = f"""<project xmlns="http://maven.apache.org/POM/4.0.0"

@@ -43,10 +43,6 @@ Config:
 - OUTPUT_ROOT: where prompts are written (per-bump subfolder, only created if a prompt is written)
 - USAGE_SUBPATH: subfolder under each bump dir that contains *.json usage reports
 
-Behavior:
-- Pulls `test_framework` per bump directly from CSV (verbatim).
-- If a bump_id (custom_id) has no entry in CSV or the field is empty, skip it.
-- Skips creating output folders unless at least one prompt is saved for that bump.
 """
 
 import csv
@@ -54,12 +50,16 @@ import json
 from pathlib import Path
 from typing import Optional
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from config import PRIMARY_DRIVE
+
 # === CONFIG ===
-ROOT_DIR = Path("/Volumes/Rachna-HD/Dataset/StaticAnalysis")
-CSV_PATH_IN = Path("/Volumes/Rachna-HD/updated_FinalBUMP_Instances_with_TestRunner.csv")
+ROOT_DIR = PRIMARY_DRIVE / "Dataset/StaticAnalysis"
+CSV_PATH_IN = PRIMARY_DRIVE / "updated_FinalBUMP_Instances_with_TestRunner.csv"
 OUTPUT_ROOT = ROOT_DIR.parent.parent / "GeneratedPromptsClientsExp7"
 USAGE_SUBPATH = "UsageReport"
-CLONED_REPO_ROOT = Path("/Volumes/Rachna-HD/Dataset/ClonedRepo/Clients")
+CLONED_REPO_ROOT = PRIMARY_DRIVE / "Dataset/ClonedRepo/Clients"
 
 
 # -------------------------

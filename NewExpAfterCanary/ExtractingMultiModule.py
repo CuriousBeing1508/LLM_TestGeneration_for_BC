@@ -4,6 +4,10 @@ import re
 from pathlib import Path
 from collections import defaultdict
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from config import PRIMARY_DRIVE
+
 
 
 ## **Key Changes:**
@@ -25,9 +29,9 @@ from collections import defaultdict
 # 3. Save JSON with all multi-module instances
 
 # === CONFIG ===
-CSV_PATH = "/Volumes/Rachna-HD/updated_FinalBUMP_Instances_with_TestRunner.csv"
-LOG_DIR = Path("/Volumes/Rachna-HD/Exp7BatchResults/bre/logs")
-OUTPUT_JSON = Path("/Volumes/Rachna-HD/multi_module_instances.json")
+CSV_PATH = PRIMARY_DRIVE / "updated_FinalBUMP_Instances_with_TestRunner.csv"
+LOG_DIR = PRIMARY_DRIVE / "Exp7BatchResults/bre/logs"
+OUTPUT_JSON = PRIMARY_DRIVE / "multi_module_instances.json"
 
 def find_log_for_instance(custom_id: str, log_dir: Path) -> Path:
     """

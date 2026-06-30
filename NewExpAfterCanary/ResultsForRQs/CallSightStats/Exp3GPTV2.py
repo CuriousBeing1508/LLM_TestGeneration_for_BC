@@ -28,13 +28,17 @@ import csv
 from pathlib import Path
 from collections import defaultdict
 
-# === CONFIG ===
-PRE_RESULTS = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/pre/transplant_results_final_pre.json")
-BREAKING_RESULTS = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/bre/transplant_results_breaking_single_module.json")
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from config import PRIMARY_DRIVE
 
-PROMPT_ROOT = Path("/Volumes/Rachna-HD/FilteredDataset/Exp3Prompts")
-LOG_DIR = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/bre/logs")
-OUTPUT_DIR = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/bre/RQ3")
+# === CONFIG ===
+PRE_RESULTS = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre/transplant_results_final_pre.json"
+BREAKING_RESULTS = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/bre/transplant_results_breaking_single_module.json"
+
+PROMPT_ROOT = PRIMARY_DRIVE / "FilteredDataset/Exp3Prompts"
+LOG_DIR = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/bre/logs"
+OUTPUT_DIR = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/bre/RQ3"
 
 # Output files
 OUTPUT_CSV = OUTPUT_DIR / "stacktrace_analysis_RQ3.csv"

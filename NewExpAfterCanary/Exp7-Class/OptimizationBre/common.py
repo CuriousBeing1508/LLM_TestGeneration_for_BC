@@ -3,25 +3,29 @@ import json
 import subprocess
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from config import PRIMARY_DRIVE, SECONDARY_DRIVE
+
 # #########################################################
 # GPT Execution
 # For pre execution
-# LOG_DIR_BATCH = Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResultsOp2/pre/logs")
+# LOG_DIR_BATCH = PRIMARY_DRIVE / "GPTResults/Exp7BatchResultsOp2/pre/logs"
 # LOG_DIR_BATCH.mkdir(parents=True, exist_ok=True)
 
 # # For Batch execution breaking
-# LOG_DIR_BATCH_BRE = Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResultsOp2/bre/logs")
+# LOG_DIR_BATCH_BRE = PRIMARY_DRIVE / "GPTResults/Exp7BatchResultsOp2/bre/logs"
 # LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
 
 # # ##########################################################
 # # Qwen execution
 
 # # For pre execution
-# LOG_DIR_BATCH = Path("/Volumes/Rachna-HD/Qwen480Results/Exp7BatchResults/pre/logs")
+# LOG_DIR_BATCH = PRIMARY_DRIVE / "Qwen480Results/Exp7BatchResults/pre/logs"
 # LOG_DIR_BATCH.mkdir(parents=True, exist_ok=True)
 
 # # For Batch execution breaking
-LOG_DIR_BATCH_BRE = Path("/Volumes/Rachna-HD/Qwen480Results/Exp7BatchResults/bre/logs")
+LOG_DIR_BATCH_BRE = PRIMARY_DRIVE / "Qwen480Results/Exp7BatchResults/bre/logs"
 LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
 
 
@@ -30,11 +34,11 @@ LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
 # GPTOSS execution
 
 # # For pre execution
-# LOG_DIR_BATCH = Path("/Volumes/RachnaPSSD/GPTOSSResults/Exp7BatchResults/pre/logs")
+# LOG_DIR_BATCH = SECONDARY_DRIVE / "GPTOSSResults/Exp7BatchResults/pre/logs"
 # LOG_DIR_BATCH.mkdir(parents=True, exist_ok=True)
 
 # # For Batch execution breaking
-# LOG_DIR_BATCH_BRE = Path("/Volumes/RachnaPSSD/GPTOSSResults/Exp7BatchResults/bre/logs")
+# LOG_DIR_BATCH_BRE = SECONDARY_DRIVE / "GPTOSSResults/Exp7BatchResults/bre/logs"
 # LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
 
 

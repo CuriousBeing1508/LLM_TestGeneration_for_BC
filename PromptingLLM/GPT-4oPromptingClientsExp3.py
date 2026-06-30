@@ -5,12 +5,16 @@ from dotenv import load_dotenv
 from openai import OpenAI
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from config import PRIMARY_DRIVE, SECONDARY_DRIVE
+
 # === CONFIGURATION ===
 # Set the start and end bump indices here (1-based, inclusive, CSV order)
 START_IDX = 1   # e.g. 1 = first row in CSV
 END_IDX = None    # e.g. 10 = up to 10th row in CSV, set None for all rows
 
-CSV_PATH = Path("/Volumes/Rachna-HD/updated_FinalBUMP_Instances_with_TestRunner.csv")
+CSV_PATH = PRIMARY_DRIVE / "updated_FinalBUMP_Instances_with_TestRunner.csv"
 
 # === LOAD ENV & INITIALIZE OPENAI CLIENT ===
 load_dotenv()
@@ -21,8 +25,8 @@ if not api_key:
 client = OpenAI(api_key=api_key)
 
 # === PATHS ===
-PROMPT_DIR = Path("/Volumes/RachnaPSSD/GeneratedPromptsClientsExp3")
-OUTPUT_ROOT = Path("/Volumes/RachnaPSSD/GeneratedOutputClientsExp3") / "GPT4o"
+PROMPT_DIR = SECONDARY_DRIVE / "GeneratedPromptsClientsExp3"
+OUTPUT_ROOT = SECONDARY_DRIVE / "GeneratedOutputClientsExp3" / "GPT4o"
 OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
 LOG_FILE = OUTPUT_ROOT / "generation_log.txt"
 

@@ -1,6 +1,11 @@
 import json
 
-JSON_PATH = "/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/pre/compile_results_pre.json"
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from config import PRIMARY_DRIVE
+
+JSON_PATH = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre/compile_results_pre.json"
 
 with open(JSON_PATH, "r") as f:
     data = json.load(f)

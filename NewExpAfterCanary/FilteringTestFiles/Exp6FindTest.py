@@ -3,6 +3,10 @@ import re
 import csv
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from config import PRIMARY_DRIVE
+
 def extract_focal_class(file_path):
     """Extract the Focal class FQN from a txt file."""
     try:
@@ -93,8 +97,8 @@ def scan_all_folders(root_folder, output_csv):
 
 if __name__ == "__main__":
     # Configuration - Change these paths as needed. This script is filtering the test files from the prompt generation phase. Based on that, we need to remove identified files from Output and execution...
-    root_folder = "/Volumes/Rachna-HD/GeneratedPromptsExp6"  # Your main folder containing subfolders with txt files
-    output_csv = "/Volumes/Rachna-HD/Exp6BatchResults/test_files_filter.csv"  # Output CSV file name
+    root_folder = PRIMARY_DRIVE / "GeneratedPromptsExp6"  # Your main folder containing subfolders with txt files
+    output_csv = PRIMARY_DRIVE / "Exp6BatchResults/test_files_filter.csv"  # Output CSV file name
     
     # Check if the root folder exists
     if not os.path.exists(root_folder):

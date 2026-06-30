@@ -14,6 +14,10 @@ from pathlib import Path
 from typing import Dict, List, Set
 import time
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from config import PRIMARY_DRIVE
+
 class LogParser:
     """Parse Maven/Java test logs and extract all error information."""
     
@@ -447,10 +451,10 @@ def main():
     # ============================================================================
     # CONFIGURATION - Set your input/output paths here
     # ============================================================================
-    DEFAULT_INPUT_CSV = "/Volumes/Rachna-HD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"  
-    DEFAULT_OUTPUT_CSV = "/Volumes/Rachna-HD/RQResults/RQ4_results.csv"           
-    DEFAULT_LOG_DIR = "/Volumes/Rachna-HD/RQResults/RQ4/BumpExecutionlogs" 
-    DEFAULT_PARSED_DIR = "/Volumes/Rachna-HD/RQResults/RQ4/parsed_errors"
+    DEFAULT_INPUT_CSV = PRIMARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"  
+    DEFAULT_OUTPUT_CSV = PRIMARY_DRIVE / "RQResults/RQ4_results.csv"           
+    DEFAULT_LOG_DIR = PRIMARY_DRIVE / "RQResults/RQ4/BumpExecutionlogs" 
+    DEFAULT_PARSED_DIR = PRIMARY_DRIVE / "RQResults/RQ4/parsed_errors"
     DEFAULT_TIMEOUT = 600   
     # ============================================================================
     

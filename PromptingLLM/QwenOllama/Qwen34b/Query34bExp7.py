@@ -10,6 +10,11 @@ from dotenv import load_dotenv
 from ollama import Client
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from config import SECONDARY_DRIVE
+        
+
 # === CONFIGURATION ===
 START_IDX = 1    # Start row (1-based index)
 END_IDX = 190    # End row (None = all)
@@ -29,7 +34,7 @@ EMAIL_PASSWORD = ""  # App password for Gmail (not your regular password)
 SMTP_SERVER = ""
 SMTP_PORT = 587
 
-CSV_PATH = Path("/Volumes/RachnaPSSD/updated_FinalBUMP_Instances_with_TestRunner.csv")
+CSV_PATH = SECONDARY_DRIVE / "updated_FinalBUMP_Instances_with_TestRunner.csv"
 
 # === LOAD ENV ===
 load_dotenv()
@@ -53,8 +58,8 @@ if not API_KEYS:
 MODEL_NAME = "qwen3-coder:480b"  # Or whatever the actual model name is on Ollama Cloud
 
 # === PATHS ===
-PROMPT_DIR = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp7Prompts")
-OUTPUT_ROOT = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp7LLMOutput") / "Qwen3_34b_cloud"
+PROMPT_DIR = SECONDARY_DRIVE / "FilteredDataset/Exp7Prompts"
+OUTPUT_ROOT = SECONDARY_DRIVE / "FilteredDataset/Exp7LLMOutput" / "Qwen3_34b_cloud"
 OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
 LOG_FILE = OUTPUT_ROOT / "generation_log.txt"
 PROGRESS_FILE = OUTPUT_ROOT / "progress.json"
@@ -141,7 +146,6 @@ def send_email_notification(subject, message):
         import smtplib
         from email.mime.text import MIMEText
         from email.mime.multipart import MIMEMultipart
-        
         msg = MIMEMultipart()
         msg['From'] = NOTIFICATION_EMAIL
         msg['To'] = NOTIFICATION_EMAIL

@@ -5,8 +5,12 @@ import json
 from pathlib import Path
 import re
 
-OUTPUT_JSON = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/bre/RQ3/stacktrace_analysis_RQ3.json")
-LOG_DIR = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/bre/logs")
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[4]))
+from config import PRIMARY_DRIVE
+
+OUTPUT_JSON = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/bre/RQ3/stacktrace_analysis_RQ3.json"
+LOG_DIR = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/bre/logs"
 
 results = json.loads(OUTPUT_JSON.read_text(encoding='utf-8'))
 

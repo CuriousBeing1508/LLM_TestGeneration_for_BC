@@ -24,6 +24,10 @@ from common import parse_package_summary, classify_compilation_error, LOG_DIR_BA
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
 import time
+
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from config import PRIMARY_DRIVE, SECONDARY_DRIVE
 # Thread-safe locks
 results_lock = threading.Lock()
 print_lock = threading.Lock()
@@ -53,18 +57,18 @@ def get_optimal_workers(num_tests, max_workers=8):
         return max_workers  # 5+ tests: use max workers (8)
 
 # # === CONFIGURATION GPT4o===
-# CSV_PATH = "/Volumes/Rachna-HD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-# SUMMARY_PATH = "/Volumes/Rachna-HD/ConfigFiles/package_structure_summary.txt"
-# COMPILE_OUTPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/pre/compile_results_pre.json")
-# ABC_ROOT = Path("/Volumes/Rachna-HD/FilteredDataset/Exp3LLMOutput/GPT4o")
+# CSV_PATH = PRIMARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+# SUMMARY_PATH = PRIMARY_DRIVE / "ConfigFiles/package_structure_summary.txt"
+# COMPILE_OUTPUT = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre/compile_results_pre.json"
+# ABC_ROOT = PRIMARY_DRIVE / "FilteredDataset/Exp3LLMOutput/GPT4o"
 # MODEL_NAME = ABC_ROOT.name
 
 
 # === CONFIGURATION Qwen===
-CSV_PATH = "/Volumes/RachnaPSSD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-SUMMARY_PATH = "/Volumes/RachnaPSSD/ConfigFiles/package_structure_summary.txt"
-COMPILE_OUTPUT = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp3BatchResults/pre/compile_results_pre.json")
-ABC_ROOT = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp3LLMOutput/Qwen_480b_cloud")
+CSV_PATH = SECONDARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+SUMMARY_PATH = SECONDARY_DRIVE / "ConfigFiles/package_structure_summary.txt"
+COMPILE_OUTPUT = SECONDARY_DRIVE / "Qwen480Results/Exp3BatchResults/pre/compile_results_pre.json"
+ABC_ROOT = SECONDARY_DRIVE / "FilteredDataset/Exp3LLMOutput/Qwen_480b_cloud"
 MODEL_NAME = ABC_ROOT.name
 
 # === TIMEOUT CONFIGURATION ===

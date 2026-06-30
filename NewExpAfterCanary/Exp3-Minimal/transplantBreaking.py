@@ -13,16 +13,20 @@ from common import (
     clean_llm_code,
 )
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from config import SECONDARY_DRIVE
+
 # === CONFIG ===
-CSV_PATH = "/Volumes/RachnaPSSD/updated_FinalBUMP_Instances_with_TestRunner.csv"
-SUMMARY_PATH = "/Volumes/RachnaPSSD/package_structure_summary.txt"
-PRE_RESULTS_PATH = "/Volumes/RachnaPSSD/Exp3BatchResults/pre/transplant_results_final_pre.json"
-BREAKING_OUTPUT = Path("/Volumes/RachnaPSSD/Exp3BatchResults/breaking/transplant_results_final_breaking.json")
-ABC_ROOT = Path("/Volumes/RachnaPSSD/GeneratedOutputClientsExp3/GPT4o")
+CSV_PATH = SECONDARY_DRIVE / "updated_FinalBUMP_Instances_with_TestRunner.csv"
+SUMMARY_PATH = SECONDARY_DRIVE / "package_structure_summary.txt"
+PRE_RESULTS_PATH = SECONDARY_DRIVE / "Exp3BatchResults/pre/transplant_results_final_pre.json"
+BREAKING_OUTPUT = SECONDARY_DRIVE / "Exp3BatchResults/breaking/transplant_results_final_breaking.json"
+ABC_ROOT = SECONDARY_DRIVE / "GeneratedOutputClientsExp3/GPT4o"
 MODEL_NAME = ABC_ROOT.name  # e.g., "GPT4o"
 
-SCRATCH_BASE = Path("/Volumes/RachnaPSSD/Exp3BatchResults/breaking/scratch")
-REPORTS_BASE = Path("/Volumes/RachnaPSSD/Exp3BatchResults/breaking/reports")
+SCRATCH_BASE = SECONDARY_DRIVE / "Exp3BatchResults/breaking/scratch"
+REPORTS_BASE = SECONDARY_DRIVE / "Exp3BatchResults/breaking/reports"
 
 pkg_info = parse_package_summary(SUMMARY_PATH)
 results = {}

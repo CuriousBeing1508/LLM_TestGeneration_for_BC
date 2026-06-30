@@ -4,25 +4,29 @@ from pathlib import Path
 from collections import defaultdict
 from datetime import datetime
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from config import SECONDARY_DRIVE
+
 # === CONFIGURATION ===
-CSV_PATH = Path("/Volumes/RachnaPSSD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv")
-PROMPT_DIR = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp7Prompts")
+CSV_PATH = SECONDARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+PROMPT_DIR = SECONDARY_DRIVE / "FilteredDataset/Exp7Prompts"
 
 # Output report file
-REPORT_FILE = Path("/Volumes/RachnaPSSD/SanityReport/Exp7_GenPrompt_report.txt")
+REPORT_FILE = SECONDARY_DRIVE / "SanityReport/Exp7_GenPrompt_report.txt"
 
 # Define all output folders to check
 # Format: {folder_name: folder_path}
 OUTPUT_FOLDERS = {
-    "GPT4o_Exp7": Path("/Volumes/RachnaPSSD/FilteredDataset/Exp7LLMOutput/GPT4o"),
-    # "Claude_Exp6": Path("/Volumes/RachnaPSSD/FilteredDataset/Exp7LLMOutput/Claude"),
+    "GPT4o_Exp7": SECONDARY_DRIVE / "FilteredDataset/Exp7LLMOutput/GPT4o",
+    # "Claude_Exp6": SECONDARY_DRIVE / "FilteredDataset/Exp7LLMOutput/Claude",
     # Add more output folders as needed
 }
 
 # Alternatively, auto-discover all output folders (uncomment to use)
 # OUTPUT_FOLDERS = {}
-# for exp_root in [Path("/Volumes/RachnaPSSD/FilteredDataset/Exp6LLMOutput"),
-#                  Path("/Volumes/RachnaPSSD/FilteredDataset/Exp7LLMOutput")]:
+# for exp_root in [SECONDARY_DRIVE / "FilteredDataset/Exp6LLMOutput",
+#                  SECONDARY_DRIVE / "FilteredDataset/Exp7LLMOutput"]:
 #     if exp_root.exists():
 #         for model_folder in exp_root.iterdir():
 #             if model_folder.is_dir():

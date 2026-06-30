@@ -3,16 +3,20 @@ import json
 import subprocess
 from pathlib import Path
 
-LOG_DIR = Path("/Volumes/Rachna-HD/Experiment3Results/logs")
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from config import PRIMARY_DRIVE
+
+LOG_DIR = PRIMARY_DRIVE / "Experiment3Results/logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-LOG_EXEC_DIR = Path("/Volumes/Rachna-HD/Experiment3Results/logs/executionPhase")
+LOG_EXEC_DIR = PRIMARY_DRIVE / "Experiment3Results/logs/executionPhase"
 LOG_EXEC_DIR.mkdir(parents=True, exist_ok=True)
 
-LOG_BREAKING_DIR = Path("/Volumes/Rachna-HD/Exp7BatchResults/logs/breakingPhase")
+LOG_BREAKING_DIR = PRIMARY_DRIVE / "Exp7BatchResults/logs/breakingPhase"
 LOG_BREAKING_DIR.mkdir(parents=True, exist_ok=True)
 
-LOG_CANARY_DIR = Path("/Volumes/Rachna-HD/CanaryResults/logs")
+LOG_CANARY_DIR = PRIMARY_DRIVE / "CanaryResults/logs"
 LOG_CANARY_DIR.mkdir(parents=True, exist_ok=True)
 
 class DockerRunError(Exception):

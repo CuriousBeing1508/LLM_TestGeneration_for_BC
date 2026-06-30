@@ -7,12 +7,16 @@ from pathlib import Path
 from collections import Counter, defaultdict
 from xml.etree import ElementTree as ET
 
-# === CONFIG ===
-CSV_PATH = "/Volumes/Rachna-HD/updated_FinalBUMP_Instances.csv"
-SUMMARY_PATH = "/Volumes/Rachna-HD/package_structure_summary.txt"
-LLM_BASE = Path("/Volumes/Rachna-HD/Dataset/LLMOutputClient/GPT4o")
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from config import PRIMARY_DRIVE
 
-OUT_DIR = Path("/Volumes/Rachna-HD/CanaryResultsWithActualTests")
+# === CONFIG ===
+CSV_PATH = PRIMARY_DRIVE / "updated_FinalBUMP_Instances.csv"
+SUMMARY_PATH = PRIMARY_DRIVE / "package_structure_summary.txt"
+LLM_BASE = PRIMARY_DRIVE / "Dataset/LLMOutputClient/GPT4o"
+
+OUT_DIR = PRIMARY_DRIVE / "CanaryResultsWithActualTests"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 RESULT_JSON = OUT_DIR / "transplant_llm_results.json"

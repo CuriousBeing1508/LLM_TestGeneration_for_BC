@@ -28,6 +28,10 @@ from common import (
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from config import PRIMARY_DRIVE
+
 # Thread-safe locks
 results_lock = threading.Lock()
 print_lock = threading.Lock()
@@ -38,12 +42,12 @@ def safe_print(*args, **kwargs):
         print(*args, **kwargs)
 
 # === CONFIG ===
-CSV_PATH = "/Volumes/Rachna-HD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-SUMMARY_PATH = "/Volumes/Rachna-HD/ConfigFiles/package_structure_summary.txt"
-PRE_RESULTS_PATH = "/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/pre/transplant_results_final_pre.json"
-BREAKING_OUTPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/bre/transplant_results_breaking_multi_module.json")
-MULTI_MODULE_LIST = Path("/Volumes/Rachna-HD/ConfigFiles/multi_module_instances.json")
-ABC_ROOT = Path("/Volumes/Rachna-HD/FilteredDataset/Exp3LLMOutput/GPT4o")
+CSV_PATH = PRIMARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+SUMMARY_PATH = PRIMARY_DRIVE / "ConfigFiles/package_structure_summary.txt"
+PRE_RESULTS_PATH = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre/transplant_results_final_pre.json"
+BREAKING_OUTPUT = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/bre/transplant_results_breaking_multi_module.json"
+MULTI_MODULE_LIST = PRIMARY_DRIVE / "ConfigFiles/multi_module_instances.json"
+ABC_ROOT = PRIMARY_DRIVE / "FilteredDataset/Exp3LLMOutput/GPT4o"
 
 results = {}
 
@@ -390,7 +394,7 @@ def run_multi_module_test(image_tag: str, custom_id: str, java_file: str,
                 success = False  # Mark as failure (so it goes to failed list)
                 result_type = "transplant_issue"
                 failure_reason = "Test did not execute despite BUILD SUCCESS"
-                log_lines.append("[⚠] TRANSPLANT ISSUE - BUILD SUCCESS but test did not execute")
+                log_lines.append(" TRANSPLANT ISSUE - BUILD SUCCESS but test did not execute")
                 log_lines.append("[INFO] Not counted as breaking change")
                 
             else:
@@ -398,17 +402,17 @@ def run_multi_module_test(image_tag: str, custom_id: str, java_file: str,
                 success = False
                 result_type = "build_failure_without_test_execution"
                 failure_reason = "BUILD FAILURE - Test could not execute"
-                log_lines.append("[✗] BUILD FAILURE - Test did not execute")
+                log_lines.append(" BUILD FAILURE - Test did not execute")
                 log_lines.append("[INFO] Build failed before test could run")
                 
         except subprocess.TimeoutExpired:
-            log_lines.append("[ERROR] ✗ Timeout (600s) - Force killing container")
+            log_lines.append("[ERROR]  Timeout (600s) - Force killing container")
             try:
                 subprocess.run(["docker", "kill", container_name], capture_output=True, timeout=10)
                 subprocess.run(["docker", "rm", "-f", container_name], capture_output=True, timeout=10)
-                log_lines.append(f"[CLEANUP] ✓ Killed and removed container: {container_name}")
+                log_lines.append(f"[CLEANUP]  Killed and removed container: {container_name}")
             except Exception as cleanup_err:
-                log_lines.append(f"[CLEANUP] ✗ Failed to cleanup container: {cleanup_err}")
+                log_lines.append(f"[CLEANUP]  Failed to cleanup container: {cleanup_err}")
             result_type = "build_failure_without_test_execution"
             failure_reason = "Timeout - execution exceeded 600 seconds"
             success = False
@@ -418,9 +422,9 @@ def run_multi_module_test(image_tag: str, custom_id: str, java_file: str,
             log_lines.append(traceback.format_exc())
             try:
                 subprocess.run(["docker", "rm", "-f", container_name], capture_output=True, timeout=10)
-                log_lines.append(f"[CLEANUP] ✓ Removed container after exception: {container_name}")
+                log_lines.append(f"[CLEANUP]  Removed container after exception: {container_name}")
             except Exception as cleanup_err:
-                log_lines.append(f"[CLEANUP] ✗ Failed to cleanup container: {cleanup_err}")
+                log_lines.append(f"[CLEANUP]  Failed to cleanup container: {cleanup_err}")
             result_type = "build_failure_without_test_execution"
             failure_reason = f"Exception: {str(e)}"
             success = False
@@ -611,7 +615,7 @@ def main():
                             
                             with results_lock:
                                 if success:
-                                    safe_print(f"  → {java_file}... ✓ PASS")
+                                    safe_print(f"  → {java_file}...  PASS")
                                     success_count += 1
                                     per_test_status["passed"].append(java_file)
                                 else:
@@ -624,19 +628,19 @@ def main():
                                     }
                                     
                                     if result_type == "compilation_error":
-                                        safe_print(f"  → {java_file}... ✗ COMPILATION ERROR")
+                                        safe_print(f"  → {java_file}...  COMPILATION ERROR")
                                         compilation_error_count += 1
                                     elif result_type == "test_failure_breaking_change":
-                                        safe_print(f"  → {java_file}... ✗ BREAKING CHANGE")
+                                        safe_print(f"  → {java_file}...  BREAKING CHANGE")
                                         test_failure_count += 1
                                     elif result_type == "transplant_issue":
-                                        safe_print(f"  → {java_file}... ⚠ TRANSPLANT ISSUE")
+                                        safe_print(f"  → {java_file}...  TRANSPLANT ISSUE")
                                         transplant_issue_count += 1
                                     elif result_type == "build_failure_without_test_execution":
-                                        safe_print(f"  → {java_file}... ✗ BUILD FAILURE")
+                                        safe_print(f"  → {java_file}...  BUILD FAILURE")
                                         build_failure_count += 1
                                     else:
-                                        safe_print(f"  → {java_file}... ✗ FAILED")
+                                        safe_print(f"  → {java_file}...  FAILED")
                                     
                                     failure_count += 1
                                     per_test_status["failed"].append(failure_entry)
@@ -644,7 +648,7 @@ def main():
                         except Exception as exc:
                             java_file = task[2]
                             with results_lock:
-                                safe_print(f"  → {java_file}... ✗ EXCEPTION: {exc}")
+                                safe_print(f"  → {java_file}...  EXCEPTION: {exc}")
                                 failure_count += 1
                                 build_failure_count += 1
                                 per_test_status["failed"].append({

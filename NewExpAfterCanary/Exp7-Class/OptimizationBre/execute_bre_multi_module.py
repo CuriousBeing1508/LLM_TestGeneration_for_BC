@@ -28,6 +28,10 @@ from common import (
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from config import PRIMARY_DRIVE
+
 # Thread-safe locks
 results_lock = threading.Lock()
 print_lock = threading.Lock()
@@ -38,28 +42,28 @@ def safe_print(*args, **kwargs):
         print(*args, **kwargs)
 
 # # === CONFIG GPT===
-# CSV_PATH = "/Volumes/Rachna-HD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-# PRE_RESULTS_PATH = "/Volumes/Rachna-HD/GPTResults/Exp7BatchResultsOp2/pre/transplant_results_final_pre.json"
-# BREAKING_OUTPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp7BatchResults/bre/transplant_results_breaking_multi_module.json")
-# MULTI_MODULE_LIST = Path("/Volumes/Rachna-HD/ConfigFiles/multi_module_instances.json")
-# ABC_ROOT = Path("/Volumes/Rachna-HD/FilteredDataset/Exp3LLMOutput/GPT4o")
+# CSV_PATH = PRIMARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+# PRE_RESULTS_PATH = PRIMARY_DRIVE / "GPTResults/Exp7BatchResultsOp2/pre/transplant_results_final_pre.json"
+# BREAKING_OUTPUT = PRIMARY_DRIVE / "GPTResults/Exp7BatchResults/bre/transplant_results_breaking_multi_module.json"
+# MULTI_MODULE_LIST = PRIMARY_DRIVE / "ConfigFiles/multi_module_instances.json"
+# ABC_ROOT = PRIMARY_DRIVE / "FilteredDataset/Exp3LLMOutput/GPT4o"
 
 
 # === CONFIG QWen ===
-CSV_PATH = "/Volumes/Rachna-HD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-PRE_RESULTS_PATH = "/Volumes/Rachna-HD/Qwen480Results/Exp7BatchResults/pre/transplant_results_final_pre.json"
-BREAKING_OUTPUT = Path("/Volumes/Rachna-HD/Qwen480Results/Exp7BatchResults/bre/transplant_results_breaking_multi_module.json")
-MULTI_MODULE_LIST = Path("/Volumes/Rachna-HD/ConfigFiles/multi_module_instances.json")
-ABC_ROOT = Path("/Volumes/Rachna-HD/FilteredDataset/Exp7LLMOutput/Qwen3_480b_cloud")
+CSV_PATH = PRIMARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+PRE_RESULTS_PATH = PRIMARY_DRIVE / "Qwen480Results/Exp7BatchResults/pre/transplant_results_final_pre.json"
+BREAKING_OUTPUT = PRIMARY_DRIVE / "Qwen480Results/Exp7BatchResults/bre/transplant_results_breaking_multi_module.json"
+MULTI_MODULE_LIST = PRIMARY_DRIVE / "ConfigFiles/multi_module_instances.json"
+ABC_ROOT = PRIMARY_DRIVE / "FilteredDataset/Exp7LLMOutput/Qwen3_480b_cloud"
 
 
 
 # === CONFIG GPTOSS ===
-# CSV_PATH = "/Volumes/Rachna-HD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-# PRE_RESULTS_PATH = "/Volumes/Rachna-HD/Qwen480Results/Exp7BatchResults/pre/transplant_results_final_pre.json"
-# BREAKING_OUTPUT = Path("/Volumes/Rachna-HD/Qwen480Results/Exp7BatchResults/bre/transplant_results_breaking_multi_module.json")
-# MULTI_MODULE_LIST = Path("/Volumes/Rachna-HD/ConfigFiles/multi_module_instances.json")
-# ABC_ROOT = Path("/Volumes/Rachna-HD/FilteredDataset/Exp7LLMOutput/Qwen3_480b_cloud")
+# CSV_PATH = PRIMARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+# PRE_RESULTS_PATH = PRIMARY_DRIVE / "Qwen480Results/Exp7BatchResults/pre/transplant_results_final_pre.json"
+# BREAKING_OUTPUT = PRIMARY_DRIVE / "Qwen480Results/Exp7BatchResults/bre/transplant_results_breaking_multi_module.json"
+# MULTI_MODULE_LIST = PRIMARY_DRIVE / "ConfigFiles/multi_module_instances.json"
+# ABC_ROOT = PRIMARY_DRIVE / "FilteredDataset/Exp7LLMOutput/Qwen3_480b_cloud"
 
 results = {}
 

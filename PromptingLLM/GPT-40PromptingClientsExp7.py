@@ -4,6 +4,10 @@ from dotenv import load_dotenv
 from openai import OpenAI
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from config import PRIMARY_DRIVE
+
 # === LOAD ENV & INITIALIZE OPENAI CLIENT ===
 load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
@@ -13,8 +17,8 @@ if not api_key:
 client = OpenAI(api_key=api_key)
 
 # === PATHS ===
-PROMPT_DIR = Path("/Volumes/Rachna-HD/GeneratedPromptsClientsExp7")
-OUTPUT_ROOT = Path("/Volumes/Rachna-HD/GeneratedOutputClientsExp7") / "GPT4o"
+PROMPT_DIR = PRIMARY_DRIVE / "GeneratedPromptsClientsExp7"
+OUTPUT_ROOT = PRIMARY_DRIVE / "GeneratedOutputClientsExp7" / "GPT4o"
 OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
 LOG_FILE = OUTPUT_ROOT / "generation_log.txt"
 

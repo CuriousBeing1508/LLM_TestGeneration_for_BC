@@ -8,6 +8,10 @@ import shutil
 import re
 
 from dotenv import load_dotenv  # Add this import
+
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from config import SECONDARY_DRIVE
 # This is useful script.
 # Load environment variables from .env file
 load_dotenv()  # Add this line before accessing the variable
@@ -20,8 +24,8 @@ FAILED_LOG_PATH = "failed_clones.txt"
 # CLIENTS_DIR = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/ClonedRepo/Clients")
 
 #Experiment 1 Path
-CLIENTS_DIR = Path("/Volumes/RachnaPSSD/Dataset/ClonedRepo/Clients")
-csv_path = Path("/Volumes/RachnaPSSD/ConfigFiles/BUMP_with_NoLibraryGitHubURL.csv")
+CLIENTS_DIR = SECONDARY_DRIVE / "Dataset/ClonedRepo/Clients"
+csv_path = SECONDARY_DRIVE / "ConfigFiles/BUMP_with_NoLibraryGitHubURL.csv"
 
 def extract_repo_url_and_pr_number(pr_url):
     """From a PR URL, extract repo URL and PR number"""

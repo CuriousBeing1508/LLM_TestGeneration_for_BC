@@ -2,16 +2,20 @@ import json
 from pathlib import Path
 from collections import defaultdict
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from config import PRIMARY_DRIVE, SECONDARY_DRIVE
+
 # # === CONFIG GPT ===
-# COMPILE_INPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/pre/compile_results_pre.json")
-# EXECUTE_INPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/pre/execute_results_pre.json")
-# FINAL_OUTPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/pre/transplant_results_final_pre.json")
+# COMPILE_INPUT = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre/compile_results_pre.json"
+# EXECUTE_INPUT = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre/execute_results_pre.json"
+# FINAL_OUTPUT = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre/transplant_results_final_pre.json"
 
 
 # === CONFIG Qwen===
-COMPILE_INPUT = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp3BatchResults/pre/compile_results_pre.json")
-EXECUTE_INPUT = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp3BatchResults/pre/execute_results_pre.json")
-FINAL_OUTPUT = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp3BatchResults/pre/transplant_results_final_pre.json")
+COMPILE_INPUT = SECONDARY_DRIVE / "Qwen480Results/Exp3BatchResults/pre/compile_results_pre.json"
+EXECUTE_INPUT = SECONDARY_DRIVE / "Qwen480Results/Exp3BatchResults/pre/execute_results_pre.json"
+FINAL_OUTPUT = SECONDARY_DRIVE / "Qwen480Results/Exp3BatchResults/pre/transplant_results_final_pre.json"
 
 
 def main():

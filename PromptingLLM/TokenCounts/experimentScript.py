@@ -1,6 +1,10 @@
 import tiktoken
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from config import PRIMARY_DRIVE
+
 def get_encoder():
     try:
         return tiktoken.encoding_for_model("gpt-4o")
@@ -16,7 +20,7 @@ def count_tokens(text: str) -> int:
     return len(ENC.encode(text))
 
 # === CHANGE THIS to point to one of your generated .txt prompts ===
-TEST_FILE = Path("/Volumes/Rachna-HD/GeneratedPromptsClientsExp7/BBC02/BBC02U0Test_prompt.txt")
+TEST_FILE = PRIMARY_DRIVE / "GeneratedPromptsClientsExp7/BBC02/BBC02U0Test_prompt.txt"
 
 if not TEST_FILE.exists():
     print(f"File not found: {TEST_FILE}")

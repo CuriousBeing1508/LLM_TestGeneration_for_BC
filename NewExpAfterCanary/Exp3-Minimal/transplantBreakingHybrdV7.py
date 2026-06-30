@@ -17,6 +17,10 @@ from common import (
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from config import PRIMARY_DRIVE
+
 # Add locks for thread-safe operations
 results_lock = threading.Lock()
 print_lock = threading.Lock()
@@ -28,16 +32,16 @@ def safe_print(*args, **kwargs):
         print(*args, **kwargs)
 
 # === CONFIG ===
-CSV_PATH = "/Volumes/Rachna-HD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-SUMMARY_PATH = "/Volumes/Rachna-HD/ConfigFiles/package_structure_summary.txt"
-PRE_RESULTS_PATH = "/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/pre/transplant_results_pre_filteredExp3.json"
-BREAKING_OUTPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/breaking/transplant_results_final_breaking_hybrid.json")
-MULTI_MODULE_LIST = Path("/Volumes/Rachna-HD/ConfigFiles/multi_module_instances.json")
-ABC_ROOT = Path("/Volumes/Rachna-HD/FilteredDataset/Exp3LLMOutput/GPT4o")
+CSV_PATH = PRIMARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+SUMMARY_PATH = PRIMARY_DRIVE / "ConfigFiles/package_structure_summary.txt"
+PRE_RESULTS_PATH = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre/transplant_results_pre_filteredExp3.json"
+BREAKING_OUTPUT = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/breaking/transplant_results_final_breaking_hybrid.json"
+MULTI_MODULE_LIST = PRIMARY_DRIVE / "ConfigFiles/multi_module_instances.json"
+ABC_ROOT = PRIMARY_DRIVE / "FilteredDataset/Exp3LLMOutput/GPT4o"
 MODEL_NAME = ABC_ROOT.name
 
 SCRATCH_BASE = Path("/tmp/bump_breaking_scratch")
-REPORTS_BASE = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/breaking/reports")
+REPORTS_BASE = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/breaking/reports"
 
 pkg_info = parse_package_summary(SUMMARY_PATH)
 results = {}

@@ -3,6 +3,10 @@ import csv
 import shutil
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from config import PRIMARY_DRIVE
+
 def read_matched_files_from_csv(csv_file):
     """Read the CSV file and extract the list of matched file paths."""
     matched_files = set()
@@ -115,13 +119,13 @@ if __name__ == "__main__":
     # ==================== CONFIGURATION ====================
 
     # Input: CSV file from the previous scan script
-    csv_file = "/Volumes/Rachna-HD/Exp7BatchResults/test_files_filter.csv"
+    csv_file = PRIMARY_DRIVE / "Exp7BatchResults/test_files_filter.csv"
     
     # Source folder (the original folder with all files)
-    source_folder = "/Volumes/Rachna-HD/GeneratedPromptsClientsExp7"
+    source_folder = PRIMARY_DRIVE / "GeneratedPromptsClientsExp7"
 
     # Destination folder (where non-matched files will be copied)
-    destination_folder = "/Volumes/Rachna-HD/FilteredDataset/Exp7Prompts"
+    destination_folder = PRIMARY_DRIVE / "FilteredDataset/Exp7Prompts"
     # =======================================================
     
     print("=" * 80)

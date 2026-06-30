@@ -8,6 +8,10 @@ from pathlib import Path
 from collections import Counter, defaultdict
 from common import parse_package_summary, classify_compilation_error, LOG_CANARY_DIR_BATCH, clean_llm_code
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from config import PRIMARY_DRIVE
+
 # prepare_staging_tests → puts all candidates into /staging.
 # run_test_in_isolation → mounts only one file at a time into docker, runs container default CMD.
 # good_tests/ dir → accumulates only the tests that passed (preserving package path).
@@ -16,11 +20,11 @@ from common import parse_package_summary, classify_compilation_error, LOG_CANARY
 # This script also counts the number of tests in each file for each custom id. that is the only extension from v3.
 
 # === CONFIG ===
-CSV_PATH = "/Volumes/Rachna-HD/updated_FinalBUMP_Instances_with_TestRunner.csv"
-SUMMARY_PATH = "/Volumes/Rachna-HD/package_structure_summary.txt"
-TRANSPLANT_OUTPUT = Path("/Volumes/Rachna-HD/Exp7BatchResults/pre/transplant_results_final_pre.json")
-CSV_SUMMARY_OUTPUT = Path("/Volumes/Rachna-HD/Exp7BatchResults/pre/transplant_results_final_pre_summary.csv")
-ABC_ROOT = Path("/Volumes/Rachna-HD/GeneratedOutputClientsExp7Batch/GPT4o")
+CSV_PATH = PRIMARY_DRIVE / "updated_FinalBUMP_Instances_with_TestRunner.csv"
+SUMMARY_PATH = PRIMARY_DRIVE / "package_structure_summary.txt"
+TRANSPLANT_OUTPUT = PRIMARY_DRIVE / "Exp7BatchResults/pre/transplant_results_final_pre.json"
+CSV_SUMMARY_OUTPUT = PRIMARY_DRIVE / "Exp7BatchResults/pre/transplant_results_final_pre_summary.csv"
+ABC_ROOT = PRIMARY_DRIVE / "GeneratedOutputClientsExp7Batch/GPT4o"
 MODEL_NAME = ABC_ROOT.name  # e.g., "GPT4o"
 
 pkg_info = parse_package_summary(SUMMARY_PATH)

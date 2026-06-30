@@ -1,11 +1,42 @@
+# Secrets / local config
 .env
 .dev
-.DS_Store
-ollamaqwen
-.vscode
 
-# Ignore Python cache files
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.vscode/
+.idea/
+
+# Python cache
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
+*.pyw
+
+# Python packaging / build artifacts
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Misc
+ollamaqwen

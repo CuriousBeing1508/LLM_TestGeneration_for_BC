@@ -1,9 +1,13 @@
 import json
 from pathlib import Path
+
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from config import SECONDARY_DRIVE
 # RQ1: How many instance detects BC?
 # === CONFIG ===
-BREAKING_RESULTS_PATH = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp6BatchResults/bre/transplant_results_breaking_single_module.json")
-OUTPUT_STATS_PATH = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp6BatchResults/bre/exp6breRQ2Stats.json")
+BREAKING_RESULTS_PATH = SECONDARY_DRIVE / "Qwen480Results/Exp6BatchResults/bre/transplant_results_breaking_single_module.json"
+OUTPUT_STATS_PATH = SECONDARY_DRIVE / "Qwen480Results/Exp6BatchResults/bre/exp6breRQ2Stats.json"
 
 def main():
     if not BREAKING_RESULTS_PATH.exists():

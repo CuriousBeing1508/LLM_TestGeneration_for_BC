@@ -3,6 +3,10 @@ import csv
 from pathlib import Path
 from collections import defaultdict
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from config import PRIMARY_DRIVE
+
 def load_json(json_path):
     """Load JSON file"""
     with open(json_path, 'r') as f:
@@ -81,9 +85,9 @@ def save_json(data, output_path):
 
 def main():
     # File paths - update these to your actual file paths
-    json_path = '/Volumes/Rachna-HD/GPTResults/Exp6BatchResults/pre/transplant_results_final_pre.json'
-    csv_path = '/Volumes/Rachna-HD/GPTResults/Exp6BatchResults/test_files_filter.csv'
-    output_path = '/Volumes/Rachna-HD/GPTResults/Exp6BatchResults/pre/transplant_results_pre_filteredExp6.json'
+    json_path = PRIMARY_DRIVE / "GPTResults/Exp6BatchResults/pre/transplant_results_final_pre.json"
+    csv_path = PRIMARY_DRIVE / "GPTResults/Exp6BatchResults/test_files_filter.csv"
+    output_path = PRIMARY_DRIVE / "GPTResults/Exp6BatchResults/pre/transplant_results_pre_filteredExp6.json"
     
     # Load data
     print("Loading JSON file...")

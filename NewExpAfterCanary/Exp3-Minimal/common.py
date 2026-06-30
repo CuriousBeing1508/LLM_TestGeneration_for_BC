@@ -3,47 +3,51 @@ import json
 import subprocess
 from pathlib import Path
 
-# LOG_DIR = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/logs")
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from config import PRIMARY_DRIVE, SECONDARY_DRIVE
+
+# LOG_DIR = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/logs"
 # LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-# LOG_EXEC_DIR = Path("/Volumes/RachnaPSSD/Exp6BatchResults/logs/executionPhase")
+# LOG_EXEC_DIR = SECONDARY_DRIVE / "Exp6BatchResults/logs/executionPhase"
 # LOG_EXEC_DIR.mkdir(parents=True, exist_ok=True)
 
-# LOG_BREAKING_DIR = Path("/Volumes/RachnaPSSD/Exp6BatchResults/logs/breakingPhase")
+# LOG_BREAKING_DIR = SECONDARY_DRIVE / "Exp6BatchResults/logs/breakingPhase"
 # LOG_BREAKING_DIR.mkdir(parents=True, exist_ok=True)
 
-# LOG_CANARY_DIR = Path("/Volumes/RachnaPSSD/Exp6BatchResults/CanaryResults/logs")
+# LOG_CANARY_DIR = SECONDARY_DRIVE / "Exp6BatchResults/CanaryResults/logs"
 # LOG_CANARY_DIR.mkdir(parents=True, exist_ok=True)
 
 
 
 # For Batch execution pre
-# LOG_DIR_BATCH = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/pre/logs")
+# LOG_DIR_BATCH = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre/logs"
 # LOG_DIR_BATCH.mkdir(parents=True, exist_ok=True)
 
 
 
 # For PSSD
-# LOG_DIR_BATCH_BRE = Path("/Volumes/RachnaPSSD/Exp6BatchResults/logs/breakingPhase")
+# LOG_DIR_BATCH_BRE = SECONDARY_DRIVE / "Exp6BatchResults/logs/breakingPhase"
 # LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
 
-# LOG_CANARY_DIR_BATCH = Path("/Volumes/RachnaPSSD/Exp6BatchResults/CanaryResults/logs")
+# LOG_CANARY_DIR_BATCH = SECONDARY_DRIVE / "Exp6BatchResults/CanaryResults/logs"
 # LOG_CANARY_DIR.mkdir(parents=True, exist_ok=True)
 
 
 # For Batch execution breaking
-# LOG_DIR_BATCH_BRE = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/bre/logs")
+# LOG_DIR_BATCH_BRE = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/bre/logs"
 # LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
 
-# LOG_EXEC_DIR_BATCH = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/logs/executionPhase")
+# LOG_EXEC_DIR_BATCH = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/logs/executionPhase"
 # LOG_EXEC_DIR_BATCH.mkdir(parents=True, exist_ok=True)
 
 
 
-# LOG_BREAKING_DIR_BATCH = Path("/Volumes/RachnaPSSD/Exp6BatchResults/logs/breakingPhase")
+# LOG_BREAKING_DIR_BATCH = SECONDARY_DRIVE / "Exp6BatchResults/logs/breakingPhase"
 # LOG_BREAKING_DIR.mkdir(parents=True, exist_ok=True)
 
-# LOG_CANARY_DIR_BATCH_BRE = Path("/Volumes/RachnaPSSD/Exp6BatchResults/CanaryResults/logs")
+# LOG_CANARY_DIR_BATCH_BRE = SECONDARY_DRIVE / "Exp6BatchResults/CanaryResults/logs"
 # LOG_CANARY_DIR.mkdir(parents=True, exist_ok=True)
 
 
@@ -53,12 +57,12 @@ from pathlib import Path
 # Logs for GPT4o Exp:
 
 # # For pre execution
-LOG_DIR_BATCH = Path("/Volumes/RachnaPSSD/Qwen480bResults/Exp3BatchResults/pre/logs")
+LOG_DIR_BATCH = SECONDARY_DRIVE / "Qwen480bResults/Exp3BatchResults/pre/logs"
 LOG_DIR_BATCH.mkdir(parents=True, exist_ok=True)
 
 
 # For Batch execution breaking
-LOG_DIR_BATCH_BRE = Path("/Volumes/RachnaPSSD/Qwen480bResults/Exp3BatchResults/bre/logs")
+LOG_DIR_BATCH_BRE = SECONDARY_DRIVE / "Qwen480bResults/Exp3BatchResults/bre/logs"
 LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
 
 
@@ -66,12 +70,12 @@ LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
 # Logs for Qwen Exp:
 
 # For pre execution
-LOG_DIR_BATCH = Path("/Volumes/RachnaPSSD/GPTResults/Exp3BatchResults/pre/logs")
+LOG_DIR_BATCH = SECONDARY_DRIVE / "GPTResults/Exp3BatchResults/pre/logs"
 LOG_DIR_BATCH.mkdir(parents=True, exist_ok=True)
 
 
 # For Batch execution breaking
-LOG_DIR_BATCH_BRE = Path("/Volumes/RachnaPSSD/GPTResults/Exp3BatchResults/bre/logs")
+LOG_DIR_BATCH_BRE = SECONDARY_DRIVE / "GPTResults/Exp3BatchResults/bre/logs"
 LOG_DIR_BATCH_BRE.mkdir(parents=True, exist_ok=True)
 
 

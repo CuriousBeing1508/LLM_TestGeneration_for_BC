@@ -6,6 +6,10 @@ from typing import Dict, List, Tuple, Optional
 from collections import defaultdict
 import os
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from config import PRIMARY_DRIVE
+
 class CompilationErrorCategorizer:
     """Categorizes compilation errors from Java test generation"""
     
@@ -732,10 +736,10 @@ def print_summary(summary: Dict):
 
 # Main execution
 if __name__ == "__main__":
-    LOGS_DIR = "/Volumes/Rachna-HD/GPTResults/Exp6BatchResults/pre/logs"
-    COMPILATION_JSON = "/Volumes/Rachna-HD/GPTResults/Exp6BatchResults/pre/compile_results_pre.json"
-    OUTPUT_CSV = "/Volumes/Rachna-HD/GPTResults/CompilErrorAnalysisResults/compilation_errors_GPT4o_Method.csv"
-    OUTPUT_JSON = "/Volumes/Rachna-HD/GPTResults/CompilErrorAnalysisResults/compilation_errors_GPT4o_Method.json"
+    LOGS_DIR = PRIMARY_DRIVE / "GPTResults/Exp6BatchResults/pre/logs"
+    COMPILATION_JSON = PRIMARY_DRIVE / "GPTResults/Exp6BatchResults/pre/compile_results_pre.json"
+    OUTPUT_CSV = PRIMARY_DRIVE / "GPTResults/CompilErrorAnalysisResults/compilation_errors_GPT4o_Method.csv"
+    OUTPUT_JSON = PRIMARY_DRIVE / "GPTResults/CompilErrorAnalysisResults/compilation_errors_GPT4o_Method.json"
     
     results, summary = process_all_logs(
         logs_dir=LOGS_DIR,

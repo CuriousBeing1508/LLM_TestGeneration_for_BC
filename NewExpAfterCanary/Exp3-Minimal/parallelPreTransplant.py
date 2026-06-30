@@ -12,6 +12,10 @@ from common import parse_package_summary, classify_compilation_error, LOG_DIR_BA
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from config import SECONDARY_DRIVE
+
 # Thread-safe locks
 results_lock = threading.Lock()
 print_lock = threading.Lock()
@@ -23,20 +27,20 @@ def safe_print(*args, **kwargs):
 
 # === CONFIG Qwen===
 
-# CSV_PATH = "/Volumes/RachnaPSSD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-# SUMMARY_PATH = "/Volumes/RachnaPSSD/ConfigFiles/package_structure_summary.txt"
-# TRANSPLANT_OUTPUT = Path("/Volumes/RachnaPSSD/Qwen480bResults/Exp3BatchResults/pre/transplant_results_final_pre.json")
-# CSV_SUMMARY_OUTPUT = Path("/Volumes/RachnaPSSD/Qwen480bResults/Exp3BatchResults/pre/transplant_results_final_pre_summary.csv")
-# ABC_ROOT = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp3LLMOutput/Qwen_480b_cloud")
+# CSV_PATH = SECONDARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+# SUMMARY_PATH = SECONDARY_DRIVE / "ConfigFiles/package_structure_summary.txt"
+# TRANSPLANT_OUTPUT = SECONDARY_DRIVE / "Qwen480bResults/Exp3BatchResults/pre/transplant_results_final_pre.json"
+# CSV_SUMMARY_OUTPUT = SECONDARY_DRIVE / "Qwen480bResults/Exp3BatchResults/pre/transplant_results_final_pre_summary.csv"
+# ABC_ROOT = SECONDARY_DRIVE / "FilteredDataset/Exp3LLMOutput/Qwen_480b_cloud"
 # MODEL_NAME = ABC_ROOT.name  # e.g., "Qwen_480b_cloud"
 
 # === CONFIG GPT 4o===
 
-CSV_PATH = "/Volumes/RachnaPSSD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-SUMMARY_PATH = "/Volumes/RachnaPSSD/ConfigFiles/package_structure_summary.txt"
-TRANSPLANT_OUTPUT = Path("/Volumes/RachnaPSSD/GPTResults/Exp3BatchResults/pre/transplant_results_final_pre.json")
-CSV_SUMMARY_OUTPUT = Path("/Volumes/RachnaPSSD/GPTResults/Exp3BatchResults/pre/transplant_results_final_pre_summary.csv")
-ABC_ROOT = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp3LLMOutput/GPT4o")
+CSV_PATH = SECONDARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+SUMMARY_PATH = SECONDARY_DRIVE / "ConfigFiles/package_structure_summary.txt"
+TRANSPLANT_OUTPUT = SECONDARY_DRIVE / "GPTResults/Exp3BatchResults/pre/transplant_results_final_pre.json"
+CSV_SUMMARY_OUTPUT = SECONDARY_DRIVE / "GPTResults/Exp3BatchResults/pre/transplant_results_final_pre_summary.csv"
+ABC_ROOT = SECONDARY_DRIVE / "FilteredDataset/Exp3LLMOutput/GPT4o"
 MODEL_NAME = ABC_ROOT.name  # e.g., "GPT4o"
 
 pkg_info = parse_package_summary(SUMMARY_PATH)

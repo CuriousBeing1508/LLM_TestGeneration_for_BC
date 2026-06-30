@@ -10,8 +10,12 @@ from pathlib import Path
 from transformers import AutoTokenizer
 from statistics import mean
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from config import SECONDARY_DRIVE
+
 # === CONFIG ===
-OUTPUT_ROOT = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp7LLMOutput/Qwen3_480b_cloud")
+OUTPUT_ROOT = SECONDARY_DRIVE / "FilteredDataset/Exp7LLMOutput/Qwen3_480b_cloud"
 CSV_REPORT_PATH = OUTPUT_ROOT.parent / "OutputTokenExp7_Qwen.csv"
 
 # Qwen tokenizer — i am using the one same family from HF.

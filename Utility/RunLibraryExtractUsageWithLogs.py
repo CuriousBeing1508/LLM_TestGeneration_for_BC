@@ -4,6 +4,10 @@ from pathlib import Path
 import sys
 import time
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from config import PRIMARY_DRIVE
+
 # === CONFIG ===
 # Use java 21 for this, Java 23 is not compatible with Byte-buddy: Dated May 23, 20225
 
@@ -18,11 +22,11 @@ import time
 
 # Experiment 1 Path
 SCRIPT_DIR = Path(__file__).resolve().parent
-csv_path = Path("/Volumes/Rachna-HD/FinalBUMP_Instances.csv")
+csv_path = PRIMARY_DRIVE / "FinalBUMP_Instances.csv"
 jar_path = SCRIPT_DIR / "Extract-library-usage-from-bytecode.jar"
-library_root = Path("/Volumes/Rachna-HD/Dataset/downloaded_jars")
-analysis_root = Path("/Volumes/Rachna-HD/Dataset/StaticAnalysis")
-log_dir = Path("/Volumes/Rachna-HD/logs")
+library_root = PRIMARY_DRIVE / "Dataset/downloaded_jars"
+analysis_root = PRIMARY_DRIVE / "Dataset/StaticAnalysis"
+log_dir = PRIMARY_DRIVE / "logs"
 log_dir.mkdir(parents=True, exist_ok=True)
 
 def log_and_run(cmd, bump_id=None):

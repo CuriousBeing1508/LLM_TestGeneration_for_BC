@@ -3,9 +3,13 @@ import subprocess
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from config import PRIMARY_DRIVE
+
 # ====== CONFIG (edit these two paths only) ======
-CSV_PATH_IN  = "/Volumes/Rachna-HD/updated_FinalBUMP_Instances.csv"       # existing CSV, includes custom_id, breakingCommit
-CSV_PATH_OUT = "/Volumes/Rachna-HD/updated_FinalBUMP_Instances_with_TestRunner.csv"  # new CSV to write
+CSV_PATH_IN  = PRIMARY_DRIVE / "updated_FinalBUMP_Instances.csv"       # existing CSV, includes custom_id, breakingCommit
+CSV_PATH_OUT = PRIMARY_DRIVE / "updated_FinalBUMP_Instances_with_TestRunner.csv"  # new CSV to write
 # ===============================================
 
 def _docker_read_first_pom(image_tag: str, timeout: int = 45) -> str:

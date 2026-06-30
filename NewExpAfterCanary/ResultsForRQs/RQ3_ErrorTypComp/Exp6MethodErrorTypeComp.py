@@ -5,6 +5,10 @@ from pathlib import Path
 from typing import Dict, List, Set, Tuple
 from collections import defaultdict
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from config import PRIMARY_DRIVE
+
 class ErrorExtractor:
     """Extracts and compares runtime errors from test execution logs"""
     
@@ -447,11 +451,11 @@ def print_comparison_summary(summary: Dict, results: List[Dict]):
 # Main execution
 if __name__ == "__main__":
     # Configuration
-    LLM_RESULTS_JSON = "/Volumes/Rachna-HD/GPTResults/Exp6BatchResults/bre/transplant_results_breaking_single_module.json"
-    BUMP_ERROR_CSV = "/Volumes/Rachna-HD/RQResults/RQ4_resultsBUMP.csv"
-    LLM_LOGS_DIR = "/Volumes/Rachna-HD/GPTResults/Exp6BatchResults/bre/logs"
-    OUTPUT_CSV = "/Volumes/Rachna-HD/GPTResults/Exp6BatchResults/bre/RQ4/BREErrorTypes/error_comparison.csv"
-    OUTPUT_JSON = "/Volumes/Rachna-HD/GPTResults/Exp6BatchResults/bre/RQ4/BREErrorTypes/error_comparison.json"
+    LLM_RESULTS_JSON = PRIMARY_DRIVE / "GPTResults/Exp6BatchResults/bre/transplant_results_breaking_single_module.json"
+    BUMP_ERROR_CSV = PRIMARY_DRIVE / "RQResults/RQ4_resultsBUMP.csv"
+    LLM_LOGS_DIR = PRIMARY_DRIVE / "GPTResults/Exp6BatchResults/bre/logs"
+    OUTPUT_CSV = PRIMARY_DRIVE / "GPTResults/Exp6BatchResults/bre/RQ4/BREErrorTypes/error_comparison.csv"
+    OUTPUT_JSON = PRIMARY_DRIVE / "GPTResults/Exp6BatchResults/bre/RQ4/BREErrorTypes/error_comparison.json"
     
     results, summary = analyze_error_detection(
         llm_results_json=LLM_RESULTS_JSON,

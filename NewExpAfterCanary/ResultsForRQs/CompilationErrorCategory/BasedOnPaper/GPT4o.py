@@ -15,6 +15,10 @@ from typing import Dict, List, Tuple
 from collections import defaultdict
 import os
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[4]))
+from config import PRIMARY_DRIVE
+
 
 # ---------------------------------------------------------------------------
 # Matching is done in explicit ordered passes — no priority numbers.
@@ -499,49 +503,49 @@ def print_model_summary(model_tag: str, variants_data: Dict):
 MODELS = {
     "GPT4o": {
         "Class": {
-            "logs_dir":         "/Volumes/Rachna-HD/GPTResults/Exp7BatchResultsOp2/pre/logs",
-            "compilation_json": "/Volumes/Rachna-HD/GPTResults/Exp7BatchResultsOp2/pre/compile_results_pre.json",
+            "logs_dir":         PRIMARY_DRIVE / "GPTResults/Exp7BatchResultsOp2/pre/logs",
+            "compilation_json": PRIMARY_DRIVE / "GPTResults/Exp7BatchResultsOp2/pre/compile_results_pre.json",
         },
         "Method": {
-            "logs_dir":         "/Volumes/Rachna-HD/GPTResults/Exp6BatchResults/pre/logs",
-            "compilation_json": "/Volumes/Rachna-HD/GPTResults/Exp6BatchResults/pre/compile_results_pre.json",
+            "logs_dir":         PRIMARY_DRIVE / "GPTResults/Exp6BatchResults/pre/logs",
+            "compilation_json": PRIMARY_DRIVE / "GPTResults/Exp6BatchResults/pre/compile_results_pre.json",
         },
         "Minimal": {
-            "logs_dir":         "/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/pre/logs",
-            "compilation_json": "/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/pre/compile_results_pre.json",
+            "logs_dir":         PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre/logs",
+            "compilation_json": PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre/compile_results_pre.json",
         },
     },
     "Qwen-480B": {
         "Class": {
-            "logs_dir":         "/Volumes/Rachna-HD/Qwen480Results/Exp7BatchResults/pre/logs",
-            "compilation_json": "/Volumes/Rachna-HD/Qwen480Results/Exp7BatchResults/pre/compile_results_pre.json",
+            "logs_dir":         PRIMARY_DRIVE / "Qwen480Results/Exp7BatchResults/pre/logs",
+            "compilation_json": PRIMARY_DRIVE / "Qwen480Results/Exp7BatchResults/pre/compile_results_pre.json",
         },
         "Method": {
-            "logs_dir":         "/Volumes/Rachna-HD/Qwen480Results/Exp6BatchResults/pre/logs",
-            "compilation_json": "/Volumes/Rachna-HD/Qwen480Results/Exp6BatchResults/pre/compile_results_pre.json",
+            "logs_dir":         PRIMARY_DRIVE / "Qwen480Results/Exp6BatchResults/pre/logs",
+            "compilation_json": PRIMARY_DRIVE / "Qwen480Results/Exp6BatchResults/pre/compile_results_pre.json",
         },
         "Minimal": {
-            "logs_dir":         "/Volumes/Rachna-HD/Qwen480Results/Exp3BatchResults/pre/logs",
-            "compilation_json": "/Volumes/Rachna-HD/Qwen480Results/Exp3BatchResults/pre/compile_results_pre.json",
+            "logs_dir":         PRIMARY_DRIVE / "Qwen480Results/Exp3BatchResults/pre/logs",
+            "compilation_json": PRIMARY_DRIVE / "Qwen480Results/Exp3BatchResults/pre/compile_results_pre.json",
         },
     },
     "GPTOSS-120B": {
         "Class": {
-            "logs_dir":         "/Volumes/Rachna-HD/GPTOSSResults/Exp7BatchResults/pre/logs",
-            "compilation_json": "/Volumes/Rachna-HD/GPTOSSResults/Exp7BatchResults/pre/compile_results_pre.json",
+            "logs_dir":         PRIMARY_DRIVE / "GPTOSSResults/Exp7BatchResults/pre/logs",
+            "compilation_json": PRIMARY_DRIVE / "GPTOSSResults/Exp7BatchResults/pre/compile_results_pre.json",
         },
         "Method": {
-            "logs_dir":         "/Volumes/Rachna-HD/GPTOSSResults/Exp6BatchResults/pre/logs",
-            "compilation_json": "/Volumes/Rachna-HD/GPTOSSResults/Exp6BatchResults/pre/compile_results_pre.json",
+            "logs_dir":         PRIMARY_DRIVE / "GPTOSSResults/Exp6BatchResults/pre/logs",
+            "compilation_json": PRIMARY_DRIVE / "GPTOSSResults/Exp6BatchResults/pre/compile_results_pre.json",
         },
         "Minimal": {
-            "logs_dir":         "/Volumes/Rachna-HD/GPTOSSResults/Exp3BatchResults/pre/logs",
-            "compilation_json": "/Volumes/Rachna-HD/GPTOSSResults/Exp3BatchResults/pre/compile_results_pre.json",
+            "logs_dir":         PRIMARY_DRIVE / "GPTOSSResults/Exp3BatchResults/pre/logs",
+            "compilation_json": PRIMARY_DRIVE / "GPTOSSResults/Exp3BatchResults/pre/compile_results_pre.json",
         },
     },
 }
 
-OUTPUT_DIR = "/Volumes/Rachna-HD/RQResultsForPaper/CompilErrorAnalysisResults"
+OUTPUT_DIR = PRIMARY_DRIVE / "RQResultsForPaper/CompilErrorAnalysisResults"
 
 
 if __name__ == "__main__":

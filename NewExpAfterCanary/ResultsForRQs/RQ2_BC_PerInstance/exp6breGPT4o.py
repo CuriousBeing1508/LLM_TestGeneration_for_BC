@@ -1,9 +1,13 @@
 import json
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from config import PRIMARY_DRIVE
+
 # === CONFIG ===
-BREAKING_RESULTS_PATH = Path("/Volumes/Rachna-HD/GPTResults/Exp6BatchResults/bre/transplant_results_breaking_single_module.json")
-OUTPUT_STATS_PATH = Path("/Volumes/Rachna-HD/GPTResults/Exp6BatchResults/bre/exp6breRQ2Stats.json")
+BREAKING_RESULTS_PATH = PRIMARY_DRIVE / "GPTResults/Exp6BatchResults/bre/transplant_results_breaking_single_module.json"
+OUTPUT_STATS_PATH = PRIMARY_DRIVE / "GPTResults/Exp6BatchResults/bre/exp6breRQ2Stats.json"
 
 def main():
     if not BREAKING_RESULTS_PATH.exists():

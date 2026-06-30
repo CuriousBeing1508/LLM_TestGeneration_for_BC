@@ -28,6 +28,10 @@ from common import (
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from config import PRIMARY_DRIVE, SECONDARY_DRIVE
+
 # Thread-safe locks
 results_lock = threading.Lock()
 print_lock = threading.Lock()
@@ -38,31 +42,31 @@ def safe_print(*args, **kwargs):
         print(*args, **kwargs)
 
 # # === CONFIG GPT===
-# CSV_PATH = "/Volumes/Rachna-HD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-# SUMMARY_PATH = "/Volumes/Rachna-HD/ConfigFiles/package_structure_summary.txt"
-# PRE_RESULTS_PATH = "/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/pre/transplant_results_final_pre.json"
-# BREAKING_OUTPUT = Path("/Volumes/Rachna-HD/GPTResults/Exp3BatchResults/bre/transplant_results_breaking_single_module.json")
-# MULTI_MODULE_LIST = Path("/Volumes/Rachna-HD/ConfigFiles/multi_module_instances.json")
-# ABC_ROOT = Path("/Volumes/Rachna-HD/FilteredDataset/Exp3LLMOutput/GPT4o")
+# CSV_PATH = PRIMARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+# SUMMARY_PATH = PRIMARY_DRIVE / "ConfigFiles/package_structure_summary.txt"
+# PRE_RESULTS_PATH = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre/transplant_results_final_pre.json"
+# BREAKING_OUTPUT = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/bre/transplant_results_breaking_single_module.json"
+# MULTI_MODULE_LIST = PRIMARY_DRIVE / "ConfigFiles/multi_module_instances.json"
+# ABC_ROOT = PRIMARY_DRIVE / "FilteredDataset/Exp3LLMOutput/GPT4o"
 
 
 # # === CONFIG Qwen===
-# CSV_PATH = "/Volumes/RachnaPSSD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-# SUMMARY_PATH = "/Volumes/RachnaPSSD/ConfigFiles/package_structure_summary.txt"
-# PRE_RESULTS_PATH = "/Volumes/RachnaPSSD/Qwen480Results/Exp3BatchResults/pre/transplant_results_final_pre.json"
-# BREAKING_OUTPUT = Path("/Volumes/RachnaPSSD/Qwen480Results/Exp3BatchResults/bre/transplant_results_breaking_single_module.json")
-# MULTI_MODULE_LIST = Path("/Volumes/RachnaPSSD/ConfigFiles/multi_module_instances.json")
-# ABC_ROOT = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp3LLMOutput/Qwen_480b_cloud")
+# CSV_PATH = SECONDARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+# SUMMARY_PATH = SECONDARY_DRIVE / "ConfigFiles/package_structure_summary.txt"
+# PRE_RESULTS_PATH = SECONDARY_DRIVE / "Qwen480Results/Exp3BatchResults/pre/transplant_results_final_pre.json"
+# BREAKING_OUTPUT = SECONDARY_DRIVE / "Qwen480Results/Exp3BatchResults/bre/transplant_results_breaking_single_module.json"
+# MULTI_MODULE_LIST = SECONDARY_DRIVE / "ConfigFiles/multi_module_instances.json"
+# ABC_ROOT = SECONDARY_DRIVE / "FilteredDataset/Exp3LLMOutput/Qwen_480b_cloud"
 
 
 
 # === CONFIG GPT-OSS===
-CSV_PATH = "/Volumes/RachnaPSSD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-SUMMARY_PATH = "/Volumes/RachnaPSSD/ConfigFiles/package_structure_summary.txt"
-PRE_RESULTS_PATH = "/Volumes/RachnaPSSD/GPTOSSResults/Exp3BatchResults/pre/transplant_results_final_pre.json"
-BREAKING_OUTPUT = Path("/Volumes/RachnaPSSD/GPTOSSResults/Exp3BatchResults/bre/transplant_results_breaking_single_module.json")
-MULTI_MODULE_LIST = Path("/Volumes/RachnaPSSD/ConfigFiles/multi_module_instances.json")
-ABC_ROOT = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp3LLMOutput/GPT_OSS_120b")
+CSV_PATH = SECONDARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
+SUMMARY_PATH = SECONDARY_DRIVE / "ConfigFiles/package_structure_summary.txt"
+PRE_RESULTS_PATH = SECONDARY_DRIVE / "GPTOSSResults/Exp3BatchResults/pre/transplant_results_final_pre.json"
+BREAKING_OUTPUT = SECONDARY_DRIVE / "GPTOSSResults/Exp3BatchResults/bre/transplant_results_breaking_single_module.json"
+MULTI_MODULE_LIST = SECONDARY_DRIVE / "ConfigFiles/multi_module_instances.json"
+ABC_ROOT = SECONDARY_DRIVE / "FilteredDataset/Exp3LLMOutput/GPT_OSS_120b"
 
 
 pkg_info = parse_package_summary(SUMMARY_PATH)
@@ -187,13 +191,13 @@ def cleanup_stale_containers():
             for name in container_names:
                 try:
                     subprocess.run(["docker", "rm", "-f", name], capture_output=True, timeout=10)
-                    safe_print(f"[CLEANUP]   ✓ Removed: {name}")
+                    safe_print(f"[CLEANUP]    Removed: {name}")
                     removed_count += 1
                 except Exception as e:
-                    safe_print(f"[CLEANUP]   ✗ Failed to remove {name}: {e}")
+                    safe_print(f"[CLEANUP]    Failed to remove {name}: {e}")
             safe_print(f"[CLEANUP] Successfully removed {removed_count}/{len(container_names)} container(s)")
         else:
-            safe_print(f"[CLEANUP] No stale containers found ✓")
+            safe_print(f"[CLEANUP] No stale containers found ")
     except Exception as e:
         safe_print(f"[CLEANUP] Warning: Could not check for stale containers: {e}")
 
@@ -202,18 +206,6 @@ def run_single_module_test(image_tag: str, custom_id: str, test_root: str,
                             package_decl: str, java_file: str, txt_path: Path):
     """
     Execute a test file on BREAKING stage.
-    EXACT SAME transplant logic as PRE script execute_compiled_test function.
-    
-    Args:
-        image_tag: Docker image for breaking stage
-        custom_id: Instance ID (e.g., BBC04)
-        test_root: Test root path (e.g., /recheck/src/test/java)
-        package_decl: REAL package WITHOUT LLMTest (e.g., de.retest.recheck)
-        java_file: Java filename (e.g., BBC04U3Test.java)
-        txt_path: Path to source .txt file
-    
-    Returns:
-        (success, err_info, log_path, result_type)
     """
     # Create minimal temp directory for THIS test only (SAME as PRE)
     temp_dir = Path(f"/tmp/breaking_single_{custom_id}_{java_file.replace('.java', '')}")
@@ -359,13 +351,13 @@ def run_single_module_test(image_tag: str, custom_id: str, test_root: str,
                             success = True
                             result_type = "pass"
                             failure_reason = None
-                            log_lines.append("[✓] PASS - No breaking change detected")
+                            log_lines.append(" PASS - No breaking change detected")
                         else:
                             # Test FAILED - BREAKING CHANGE!
                             success = False
                             result_type = "test_failure_breaking_change"
                             failure_reason = f"Tests run: {tests_run}, Failures: {failures}, Errors: {errors}"
-                            log_lines.append("[✗] BREAKING CHANGE - Test executed but failed")
+                            log_lines.append(" BREAKING CHANGE - Test executed but failed")
                             log_lines.append("[INFO] BUILD FAILURE is expected when test fails")
                     else:
                         success = False
@@ -384,7 +376,7 @@ def run_single_module_test(image_tag: str, custom_id: str, test_root: str,
                 success = False  # Mark as failure (so it goes to failed list)
                 result_type = "transplant_issue"
                 failure_reason = "Test did not execute despite BUILD SUCCESS"
-                log_lines.append("[⚠] TRANSPLANT ISSUE - BUILD SUCCESS but test did not execute")
+                log_lines.append(" TRANSPLANT ISSUE - BUILD SUCCESS but test did not execute")
                 log_lines.append("[INFO] Not counted as breaking change")
                 
             else:
@@ -392,7 +384,7 @@ def run_single_module_test(image_tag: str, custom_id: str, test_root: str,
                 success = False
                 result_type = "build_failure_without_test_execution"
                 failure_reason = "BUILD FAILURE - Test could not execute"
-                log_lines.append("[✗] BUILD FAILURE - Test did not execute")
+                log_lines.append(" BUILD FAILURE - Test did not execute")
                 log_lines.append("[INFO] Build failed before test could run")
                     
         except subprocess.TimeoutExpired:
@@ -400,21 +392,21 @@ def run_single_module_test(image_tag: str, custom_id: str, test_root: str,
             try:
                 subprocess.run(["docker", "kill", container_name], capture_output=True, timeout=10)
                 subprocess.run(["docker", "rm", "-f", container_name], capture_output=True, timeout=10)
-                log_lines.append(f"[CLEANUP] ✓ Killed and removed container: {container_name}")
+                log_lines.append(f"[CLEANUP]  Killed and removed container: {container_name}")
             except Exception as cleanup_err:
-                log_lines.append(f"[CLEANUP] ✗ Failed to cleanup container: {cleanup_err}")
+                log_lines.append(f"[CLEANUP]  Failed to cleanup container: {cleanup_err}")
             result_type = "build_failure_without_test_execution"
             failure_reason = "Timeout - execution exceeded 600 seconds"
             success = False
         except Exception as e:
-            log_lines.append(f"[EXCEPTION] ✗ {e}")
+            log_lines.append(f"[EXCEPTION]  {e}")
             import traceback
             log_lines.append(traceback.format_exc())
             try:
                 subprocess.run(["docker", "rm", "-f", container_name], capture_output=True, timeout=10)
-                log_lines.append(f"[CLEANUP] ✓ Removed container after exception: {container_name}")
+                log_lines.append(f"[CLEANUP]  Removed container after exception: {container_name}")
             except Exception as cleanup_err:
-                log_lines.append(f"[CLEANUP] ✗ Failed to cleanup container: {cleanup_err}")
+                log_lines.append(f"[CLEANUP]  Failed to cleanup container: {cleanup_err}")
             result_type = "build_failure_without_test_execution"
             failure_reason = f"Exception: {str(e)}"
             success = False
@@ -463,8 +455,7 @@ def main():
     MAX_WORKERS = 4
 
     safe_print(f"\n{'='*80}")
-    safe_print(f"Breaking Stage - SINGLE-MODULE ONLY (PARALLEL EXECUTION)")
-    safe_print(f"Transplant Logic: EXACT SAME as PRE script")
+    
     safe_print(f"Approach: javac + surefire:test")
     safe_print(f"Timeout: 600 seconds (10 minutes) per test")
     safe_print(f"ID Range: {START_ID} to {END_ID}")
@@ -613,19 +604,19 @@ def main():
                                     }
                                     
                                     if result_type == "compilation_error":
-                                        safe_print(f"  → {java_file}... ✗ COMPILATION ERROR")
+                                        safe_print(f"   {java_file}...  COMPILATION ERROR")
                                         compilation_error_count += 1
                                     elif result_type == "test_failure_breaking_change":
-                                        safe_print(f"  → {java_file}... ✗ BREAKING CHANGE")
+                                        safe_print(f"  → {java_file}...  BREAKING CHANGE")
                                         test_failure_count += 1
                                     elif result_type == "transplant_issue":
-                                        safe_print(f"  → {java_file}... ⚠ TRANSPLANT ISSUE")
+                                        safe_print(f"  → {java_file}... TRANSPLANT ISSUE")
                                         transplant_issue_count += 1
                                     elif result_type == "build_failure_without_test_execution":
-                                        safe_print(f"  → {java_file}... ✗ BUILD FAILURE")
+                                        safe_print(f"  → {java_file}...  BUILD FAILURE")
                                         build_failure_count += 1
                                     else:
-                                        safe_print(f"  → {java_file}... ✗ FAILED")
+                                        safe_print(f"  → {java_file}... FAILED")
                                     
                                     failure_count += 1
                                     per_test_status["failed"].append(failure_entry)
@@ -633,7 +624,7 @@ def main():
                         except Exception as exc:
                             java_file = task[4]
                             with results_lock:
-                                safe_print(f"  → {java_file}... ✗ EXCEPTION: {exc}")
+                                safe_print(f"  → {java_file}...  EXCEPTION: {exc}")
                                 failure_count += 1
                                 build_failure_count += 1
                                 per_test_status["failed"].append({

@@ -3,6 +3,10 @@ import csv
 import shutil
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from config import SECONDARY_DRIVE
+
 def read_matched_files_from_csv(csv_file):
     """Read the CSV file and extract the list of matched files (folder + filename)."""
     matched_files = set()
@@ -123,13 +127,13 @@ def remove_empty_directories(root_folder):
 if __name__ == "__main__":
     # ==================== CONFIGURATION ====================
     # Input: CSV file from the previous scan script
-    csv_file = "/Volumes/RachnaPSSD/GPTResults/Exp3BatchResults/test_files_filter.csv"
+    csv_file = SECONDARY_DRIVE / "GPTResults/Exp3BatchResults/test_files_filter.csv"
     
     # Source folder (the original folder with all files)
-    source_folder = "/Volumes/RachnaPSSD/oldDataOnDRive/GeneratedOutputClientsExp3/Qwen3_480b_cloud"
+    source_folder = SECONDARY_DRIVE / "oldDataOnDRive/GeneratedOutputClientsExp3/Qwen3_480b_cloud"
 
     # Destination folder (where non-matched files will be copied)
-    destination_folder = "/Volumes/RachnaPSSD/FilteredDataset/Exp3LLMOutput/Qwen_480b_cloud"
+    destination_folder = SECONDARY_DRIVE / "FilteredDataset/Exp3LLMOutput/Qwen_480b_cloud"
     # =======================================================
     
     print("=" * 80)

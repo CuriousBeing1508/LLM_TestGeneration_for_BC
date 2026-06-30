@@ -3,20 +3,24 @@ import json
 import subprocess
 from pathlib import Path
 
-LOG_DIR = Path("/Volumes/Rachna-HD/Experiment3Results/logs")
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from config import PRIMARY_DRIVE
+
+LOG_DIR = PRIMARY_DRIVE / "Experiment3Results/logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-LOG_EXEC_DIR = Path("/Volumes/Rachna-HD/Experiment3Results/logs/executionPhase")
+LOG_EXEC_DIR = PRIMARY_DRIVE / "Experiment3Results/logs/executionPhase"
 LOG_EXEC_DIR.mkdir(parents=True, exist_ok=True)
 
-LOG_BREAKING_DIR = Path("/Volumes/Rachna-HD/Experiment3Results/logs/breakingPhase")
+LOG_BREAKING_DIR = PRIMARY_DRIVE / "Experiment3Results/logs/breakingPhase"
 LOG_BREAKING_DIR.mkdir(parents=True, exist_ok=True)
 
-LOG_CANARY_DIR = Path("/Volumes/Rachna-HD/CanaryResults/logs")
+LOG_CANARY_DIR = PRIMARY_DRIVE / "CanaryResults/logs"
 LOG_CANARY_DIR.mkdir(parents=True, exist_ok=True)
 
 
-LOG_CANARY_V2_DIR = Path("/Volumes/Rachna-HD/CanaryResults/logsv2")
+LOG_CANARY_V2_DIR = PRIMARY_DRIVE / "CanaryResults/logsv2"
 LOG_CANARY_V2_DIR.mkdir(parents=True, exist_ok=True)
 class DockerRunError(Exception):
     def __init__(self, message, log_path):

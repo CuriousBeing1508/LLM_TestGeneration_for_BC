@@ -2,12 +2,16 @@ import pandas as pd
 import subprocess
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from config import PRIMARY_DRIVE
+
 # === CONFIG ===
 SCRIPT_DIR = Path(__file__).resolve().parent
 csv_path = SCRIPT_DIR / "Dataset" / "FinalBUMP_Instances.csv"
 jar_path = SCRIPT_DIR / "my_spoon_wrapper-1.0-shaded.jar"
-clients_base_folder = Path("/Volumes/Rachna-HD/Clients")
-analysis_root = Path("/Volumes/Rachna-HD/StaticAnalysis")
+clients_base_folder = PRIMARY_DRIVE / "Clients"
+analysis_root = PRIMARY_DRIVE / "StaticAnalysis"
 
 def remove_mac_metadata_files(git_repo_path):
     pack_dir = git_repo_path / ".git" / "objects" / "pack"
