@@ -1,0 +1,4 @@
+context,compile_instance_union,execute_instance_union,compile_file_union,execute_file_union,total_instances
+class,42,36,2924,1852,89
+method,38,35,1865,1075,89
+minimal,37,32,1775,907,89

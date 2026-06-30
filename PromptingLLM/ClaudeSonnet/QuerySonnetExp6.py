@@ -1,64 +1,47 @@
-# Got into hourly limits, and i also notice they have weekly limits as well. Need to be careful as they do not give numbers.
-# Updated with multi-API key rotation support
-
+# Updated for Claude Sonnet 4.6 via Anthropic API
+# Rate limit handling with resume support
+# Parameter consistency: temperature=0 (deterministic), repetition penalty at default
 import os
 import sys
 import csv
 import time
 import json
+import anthropic
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
-from ollama import Client
 from pathlib import Path
 
 # === CONFIGURATION ===
 START_IDX = 1    # Start row (1-based index)
-END_IDX = 190    # End row (None = all)
+END_IDX = 1   # End row (None = all)
 
 # Rate limiting configuration
 REQUEST_DELAY = 2.0  # Seconds to wait between requests (adjust as needed)
-HOURLY_WAIT_TIME = 3660  # Wait 61 minutes when hitting hourly limit (3600s + 60s buffer)
-
-# Weekly limit handling: Set to True to exit when hitting weekly limit
-# Set to False to wait for 7 days (not recommended)
-EXIT_ON_WEEKLY_LIMIT = True
-
-# Optional: Email notification settings (leave empty to disable)
-NOTIFICATION_EMAIL = ""  # Your email to receive notifications
-EMAIL_PASSWORD = ""  # App password for Gmail (not your regular password)
-SMTP_SERVER = ""
-SMTP_PORT = 587
 
 CSV_PATH = Path("/Volumes/RachnaPSSD/ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv")
 
 # === LOAD ENV ===
 load_dotenv()
 
-# === API KEY MANAGEMENT ===
-API_KEYS = [
-    os.getenv("OLLAMA_API_KEY"),
-    os.getenv("OLLAMA_API_KEY_2"),
-    os.getenv("OLLAMA_API_KEY_3"),
-    os.getenv("OLLAMA_API_KEY_4"),
-    os.getenv("OLLAMA_API_KEY_5"),
-]
+# === API KEY ===
+API_KEY = os.getenv("ANTHROPIC_API_KEY")
 
-# Filter out None values
-API_KEYS = [key for key in API_KEYS if key]
+if not API_KEY:
+    raise EnvironmentError("Please set ANTHROPIC_API_KEY environment variable.")
 
-if not API_KEYS:
-    raise EnvironmentError("Please set at least one OLLAMA_API_KEY environment variable.")
+# Claude model
+MODEL_NAME = "claude-sonnet-4-6"
 
-MODEL_NAME = "gpt-oss:120b-cloud"
+# Max tokens for response (required by Anthropic API)
+# TODO: Set this to match the max_tokens used for Qwen and GPT-4o for consistency
+MAX_OUTPUT_TOKENS = 32768  # just setting double higger than the default gpt40 truncation limit. 
 
 # === PATHS ===
 PROMPT_DIR = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp6Prompts")
-OUTPUT_ROOT = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp6LLMOutput") / "GPT_OSS_120b"
+OUTPUT_ROOT = Path("/Volumes/RachnaPSSD/FilteredDataset/Exp6LLMOutput") / "Claude_Sonnet"
 OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
 LOG_FILE = OUTPUT_ROOT / "generation_log.txt"
 PROGRESS_FILE = OUTPUT_ROOT / "progress.json"
-RATE_LIMIT_FILE = OUTPUT_ROOT / "rate_limit_info.json"
-CURRENT_KEY_INDEX_FILE = OUTPUT_ROOT / "current_key_index.json"
 
 # === SETUP LOGGING ===
 class Logger:
@@ -77,112 +60,15 @@ class Logger:
 sys.stdout = Logger(LOG_FILE)
 
 
-# === KEY ROTATION FUNCTIONS ===
-def get_current_key_index():
-    """Load the current API key index."""
-    if CURRENT_KEY_INDEX_FILE.exists():
-        with open(CURRENT_KEY_INDEX_FILE, "r", encoding="utf-8") as f:
-            data = json.load(f)
-            return data.get("index", 0)
-    return 0
-
-
-def save_current_key_index(index):
-    """Save the current API key index."""
-    with open(CURRENT_KEY_INDEX_FILE, "w", encoding="utf-8") as f:
-        json.dump({
-            "index": index, 
-            "timestamp": datetime.now().isoformat(),
-            "total_keys": len(API_KEYS)
-        }, f, indent=2)
-
-
-def get_next_api_key():
-    """Get the next available API key. Returns (new_client, new_index, has_more_keys)."""
-    current_index = get_current_key_index()
-    next_index = (current_index + 1) % len(API_KEYS)  # FIX: Cycle back to 0
-    
-    # Check if we've cycled through all keys
-    if next_index == 0 and current_index != 0:
-        # We've completed a full cycle
-        return None, current_index, False
-    
-    # Create new client with next key
-    new_client = Client(
-        host="https://ollama.com",
-        headers={"Authorization": f"Bearer {API_KEYS[next_index]}"}
-    )
-    
-    save_current_key_index(next_index)
-    return new_client, next_index, True
-
-
-# === INIT OLLAMA CLOUD CLIENT ===
-current_key_index = get_current_key_index()
-client = Client(
-    host="https://ollama.com",
-    headers={"Authorization": f"Bearer {API_KEYS[current_key_index]}"}
-)
+# === INIT ANTHROPIC CLIENT ===
+client = anthropic.Anthropic(api_key=API_KEY)
 
 print(f"\n{'='*80}")
-print(f"API Key Configuration:")
-print(f"  Total API keys available: {len(API_KEYS)}")
-print(f"  Currently using API key: {current_key_index + 1} of {len(API_KEYS)}")
-print(f"  Keys remaining in cycle: {len(API_KEYS) - current_key_index - 1}")
+print(f"Anthropic API Configuration:")
+print(f"  Model: {MODEL_NAME}")
+print(f"  Max output tokens: {MAX_OUTPUT_TOKENS}")
+print(f"  Temperature: 0 (deterministic)")
 print(f"{'='*80}\n")
-
-
-# === EMAIL NOTIFICATION ===
-def send_email_notification(subject, message):
-    """Send email notification if configured."""
-    if not NOTIFICATION_EMAIL or not EMAIL_PASSWORD:
-        return
-    
-    try:
-        import smtplib
-        from email.mime.text import MIMEText
-        from email.mime.multipart import MIMEMultipart
-        
-        msg = MIMEMultipart()
-        msg['From'] = NOTIFICATION_EMAIL
-        msg['To'] = NOTIFICATION_EMAIL
-        msg['Subject'] = subject
-        
-        msg.attach(MIMEText(message, 'plain'))
-        
-        server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
-        server.starttls()
-        server.login(NOTIFICATION_EMAIL, EMAIL_PASSWORD)
-        text = msg.as_string()
-        server.sendmail(NOTIFICATION_EMAIL, NOTIFICATION_EMAIL, text)
-        server.quit()
-        
-        print(f"✉ Email notification sent to {NOTIFICATION_EMAIL}")
-    except Exception as e:
-        print(f"Failed to send email notification: {e}")
-
-
-# === RATE LIMIT TRACKING ===
-def save_rate_limit_info(limit_type, hit_time, estimated_reset_time):
-    """Save rate limit information for future reference."""
-    rate_limit_data = {
-        "limit_type": limit_type,
-        "hit_time": hit_time.isoformat(),
-        "estimated_reset_time": estimated_reset_time.isoformat(),
-        "current_key_index": get_current_key_index(),
-        "total_keys": len(API_KEYS),
-        "message": f"{limit_type} limit hit. Resume after {estimated_reset_time.strftime('%Y-%m-%d %H:%M:%S')}"
-    }
-    with open(RATE_LIMIT_FILE, "w", encoding="utf-8") as f:
-        json.dump(rate_limit_data, f, indent=2)
-
-
-def load_rate_limit_info():
-    """Load rate limit information if exists."""
-    if RATE_LIMIT_FILE.exists():
-        with open(RATE_LIMIT_FILE, "r", encoding="utf-8") as f:
-            return json.load(f)
-    return None
 
 
 # === PROGRESS TRACKING ===
@@ -191,8 +77,7 @@ def save_progress(bump_id, txt_file_name):
     progress_data = {
         "last_bump_id": bump_id,
         "last_file": txt_file_name,
-        "timestamp": datetime.now().isoformat(),
-        "current_key_index": get_current_key_index()
+        "timestamp": datetime.now().isoformat()
     }
     with open(PROGRESS_FILE, "w", encoding="utf-8") as f:
         json.dump(progress_data, f, indent=2)
@@ -206,156 +91,108 @@ def load_progress():
     return None
 
 
-# === OLLAMA CLOUD CALL WITH RATE LIMIT HANDLING AND KEY ROTATION ===
-def call_qwen_cloud(prompt: str, max_retries=3):
+# === ANTHROPIC API CALL WITH RATE LIMIT HANDLING ===
+def call_cloud_model(prompt: str, max_retries=3):
     """
-    Calls Qwen via Ollama Cloud with rate limit handling and automatic key rotation.
+    Calls Claude Sonnet 4.6 via Anthropic API with rate limit handling.
     Returns tuple: (response_text, should_exit)
-    """
-    global client
     
+    We set temperature=0 for deterministic generation.
+    Anthropic API does not expose top_p, top_k, or repetition_penalty,
+    so those are left at model defaults to keep consistent with paper methodology.
+    """
     for attempt in range(max_retries):
-        try:
-            response = client.chat(
+        try: # Use streaming to handle long-running requests (required by Anthropic
+            # for operations that may take longer than 10 minutes)
+            response_text = ""
+            with client.messages.stream(
                 model=MODEL_NAME,
-                messages=[{"role": "user", "content": prompt}],
-                stream=False,
-                options={
-    "temperature": 0,       # Deterministic generation
-}
-                
-            )
-            return response["message"]["content"], False
+                max_tokens=MAX_OUTPUT_TOKENS,
+                temperature=0,       # Deterministic generation
+                messages=[{"role": "user", "content": prompt}]
+            ) as stream:
+                for text in stream.text_stream:
+                    response_text += text
 
-        except Exception as e:
-            error_msg = str(e).lower()
-            error_code = str(e)
-            
-            # FIX: Better rate limit detection
-            is_rate_limit = False
-            is_weekly = False
-            
-            # Check for HTTP 429 or rate limit keywords
-            if "429" in error_code:
-                is_rate_limit = True
-                # Try to determine if it's weekly or hourly
-                is_weekly = "week" in error_msg or "weekly" in error_msg
-            elif any(keyword in error_msg for keyword in ["rate limit", "too many requests", "quota exceeded"]):
-                is_rate_limit = True
-                is_weekly = "week" in error_msg or "weekly" in error_msg
-            
-            if is_rate_limit:
+            return response_text, False
+
+        except anthropic.RateLimitError as e:
+            # Per-minute rate limit (429) — wait and retry
+            current_time = datetime.now()
+
+            # Try to get retry-after from headers
+            retry_after = None
+            if hasattr(e, 'response') and e.response is not None:
+                retry_after = e.response.headers.get('retry-after')
+
+            wait_time = int(retry_after) + 5 if retry_after else 65  # Default ~1 min + buffer
+
+            print(f"\n{'='*80}")
+            print(f" RATE LIMIT HIT (429)")
+            print(f"Error: {e}")
+            print(f"Current time: {current_time.strftime('%Y-%m-%d %H:%M:%S')}")
+            print(f"Waiting for {wait_time} seconds before retrying...")
+            print(f"{'='*80}\n")
+
+            time.sleep(wait_time)
+            continue
+
+        except anthropic.APIStatusError as e:
+            # Insufficient credits / billing issue (402)
+            if e.status_code == 402:
                 current_time = datetime.now()
-                current_index = get_current_key_index()
-                
-                if is_weekly:
-                    # WEEKLY RATE LIMIT
-                    print(f"\n{'='*80}")
-                    print(f"⚠ WEEKLY RATE LIMIT HIT - API KEY {current_index + 1} of {len(API_KEYS)}")
-                    print(f"Error: {e}")
-                    print(f"Current time: {current_time.strftime('%Y-%m-%d %H:%M:%S')}")
-                    print(f"{'='*80}\n")
-                    
-                    # Try to switch to next API key
-                    new_client, new_index, has_more_keys = get_next_api_key()
-                    
-                    if has_more_keys:
-                        print(f"✓ Switching to API key {new_index + 1} of {len(API_KEYS)}")
-                        print(f"✓ Continuing processing with new key...\n")
-                        
-                        client = new_client
-                        
-                        email_subject = "Ollama Cloud - Switched to Next API Key"
-                        email_body = f"""Weekly rate limit hit at: {current_time.strftime('%Y-%m-%d %H:%M:%S')}
 
-Switched from API key {current_index + 1} to API key {new_index + 1}.
+                print(f"\n{'='*80}")
+                print(f" INSUFFICIENT CREDITS (402)")
+                print(f"Error: {e}")
+                print(f"Current time: {current_time.strftime('%Y-%m-%d %H:%M:%S')}")
+                print(f"{'='*80}")
+                print(f"\n Your Anthropic account has run out of credits.")
+                print(f"   Progress has been saved.")
+                print(f"\n To resume:")
+                print(f"   1. Add credits at https://console.anthropic.com/settings/billing")
+                print(f"   2. Run this script again - it will resume from where it stopped")
+                print(f"{'='*80}\n")
 
-The script is continuing automatically with the new key.
+                return None, True  # Signal to exit
 
-Check the log file for more details:
-{LOG_FILE}
-"""
-                        send_email_notification(email_subject, email_body)
-                        
-                        # Retry immediately with new key
-                        continue
-                    
-                    else:
-                        # All keys exhausted
-                        print(f" All {len(API_KEYS)} API keys have hit their weekly limits!")
-                        
-                        if EXIT_ON_WEEKLY_LIMIT:
-                            estimated_reset = current_time + timedelta(days=7)
-                            save_rate_limit_info("WEEKLY_ALL_KEYS", current_time, estimated_reset)
-                            
-                            print(f"\n All keys exhausted. Exiting gracefully.")
-                            print(f"   Progress has been saved.")
-                            print(f"   Estimated reset time: {estimated_reset.strftime('%Y-%m-%d %H:%M:%S')}")
-                            print(f"\n To resume:")
-                            print(f"   1. Wait for the weekly limits to reset")
-                            print(f"   2. Delete {CURRENT_KEY_INDEX_FILE.name} to reset to first key")
-                            print(f"   3. Run this script again - it will resume from where it stopped")
-                            print(f"{'='*80}\n")
-                            
-                            send_email_notification(
-                                "Ollama Cloud - ALL API Keys Weekly Limit Hit",
-                                f"All {len(API_KEYS)} API keys exhausted.\nEstimated reset: {estimated_reset}"
-                            )
-                            
-                            return None, True
-                        else:
-                            # Wait and reset to first key
-                            print(f" Waiting for 7 days before resuming...")
-                            estimated_reset = current_time + timedelta(days=7)
-                            save_rate_limit_info("WEEKLY_ALL_KEYS", current_time, estimated_reset)
-                            
-                            save_current_key_index(0)
-                            client = Client(
-                                host="https://ollama.com",
-                                headers={"Authorization": f"Bearer {API_KEYS[0]}"}
-                            )
-                            
-                            time.sleep(7 * 24 * 60 * 60)
-                            print(f"\n Resuming with key 1 after weekly wait")
-                            continue
-                
-                else:
-                    # HOURLY RATE LIMIT
-                    current_time = datetime.now()
-                    current_index = get_current_key_index()
-                    
-                    print(f"\n{'='*80}")
-                    print(f"⚠ HOURLY RATE LIMIT HIT - API KEY {current_index + 1}")
-                    print(f"Error: {e}")
-                    print(f"Current time: {current_time.strftime('%Y-%m-%d %H:%M:%S')}")
-                    print(f" Waiting for {HOURLY_WAIT_TIME // 60} minutes before resuming...")
-                    print(f"{'='*80}\n")
-                    
-                    wait_until = current_time + timedelta(seconds=HOURLY_WAIT_TIME)
-                    save_rate_limit_info("HOURLY", current_time, wait_until)
-                    
-                    print(f"Will resume at: {wait_until.strftime('%Y-%m-%d %H:%M:%S')}\n")
-                    time.sleep(HOURLY_WAIT_TIME)
-                    
-                    print(f"\n Resuming after hourly rate limit wait")
-                    print(f"Current time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-                    continue
-            
-            # Check for other retryable errors
-            elif "503" in error_code or "timeout" in error_msg or "connection" in error_msg:
+            # Authentication error (401)
+            elif e.status_code == 401:
+                print(f"\n{'='*80}")
+                print(f"🔑 AUTHENTICATION ERROR (401)")
+                print(f"Error: {e}")
+                print(f"Check your ANTHROPIC_API_KEY is correct.")
+                print(f"{'='*80}\n")
+                return None, True  # Signal to exit
+
+            # Server errors (500, 502, 503, 529 overloaded) — retry with backoff
+            elif e.status_code in (500, 502, 503, 529):
                 if attempt < max_retries - 1:
                     wait_time = (2 ** attempt) * 5
-                    print(f"⚠ Transient error: {e}")
-                    print(f"⏳ Retrying in {wait_time}s... (Attempt {attempt + 1}/{max_retries})")
+                    print(f"Transient error occurred (status {e.status_code}): {e}")
+                    print(f"Retrying in {wait_time} seconds... (Attempt {attempt + 1}/{max_retries})")
                     time.sleep(wait_time)
                     continue
                 else:
-                    return f"Error after {max_retries} retries: {e}", False
-            
-            # For other errors, return immediately
+                    return f"Error occurred after {max_retries} retries: {e}", False
+
+            # Other API errors
             else:
-                return f"Error occurred: {e}", False
-    
+                return f"Error occurred while generating test: {e}", False
+
+        except anthropic.APIConnectionError as e:
+            if attempt < max_retries - 1:
+                wait_time = (2 ** attempt) * 5
+                print(f"Connection error: {e}")
+                print(f"Retrying in {wait_time} seconds... (Attempt {attempt + 1}/{max_retries})")
+                time.sleep(wait_time)
+                continue
+            else:
+                return f"Error occurred after {max_retries} retries: {e}", False
+
+        except Exception as e:
+            return f"Error occurred while generating test: {e}", False
+
     return "Error: Max retries exceeded", False
 
 
@@ -387,17 +224,8 @@ def process_prompts(prompt_dir, csv_bump_ids, start_idx=1, end_idx=None, skip_ex
     print(f"{'='*80}")
     print(f"Total bump instances in CSV: {len(csv_bump_ids)}")
     print(f"Configured range: {start_idx + 1} to {start_idx + len(selected_ids)}")
-    print(f"Request delay: {REQUEST_DELAY}s")
-    print(f"Hourly wait: {HOURLY_WAIT_TIME // 60}min")
-    print(f"Weekly limit: {'EXIT' if EXIT_ON_WEEKLY_LIMIT else 'WAIT 7 days'}")
+    print(f"Request delay between calls: {REQUEST_DELAY} seconds")
     print("Instances to process:", selected_ids, "\n")
-
-    rate_limit_info = load_rate_limit_info()
-    if rate_limit_info:
-        print(f"ℹ Previous rate limit detected:")
-        print(f"   Type: {rate_limit_info['limit_type']}")
-        print(f"   Hit at: {rate_limit_info['hit_time']}")
-        print(f"   Estimated reset: {rate_limit_info['estimated_reset_time']}\n")
 
     bump_folders = [prompt_dir / bid for bid in selected_ids if (prompt_dir / bid).exists()]
 
@@ -407,15 +235,15 @@ def process_prompts(prompt_dir, csv_bump_ids, start_idx=1, end_idx=None, skip_ex
     skipped = 0
     errors = 0
 
+    # Check if we need to resume from a previous run
     progress = load_progress()
-    resume_from = None
-    
+    should_skip = progress is not None
+
     if progress:
-        resume_from = (progress['last_bump_id'], progress['last_file'])
         print(f"\n{'='*80}")
         print(f"RESUMING FROM PREVIOUS RUN")
-        print(f"Last processed: {resume_from[0]} / {resume_from[1]}")
-        print(f"Previous timestamp: {progress['timestamp']}")
+        print(f"Last processed: {progress['last_bump_id']} / {progress['last_file']}")
+        print(f"Previous run timestamp: {progress['timestamp']}")
         print(f"{'='*80}\n")
 
     for bump_folder in bump_folders:
@@ -423,6 +251,7 @@ def process_prompts(prompt_dir, csv_bump_ids, start_idx=1, end_idx=None, skip_ex
         txt_files = sorted(list(bump_folder.glob("*.txt")))
 
         if not txt_files:
+            print(f"No prompts found in {bump_id}")
             continue
 
         print(f"\n{'-'*80}")
@@ -430,48 +259,43 @@ def process_prompts(prompt_dir, csv_bump_ids, start_idx=1, end_idx=None, skip_ex
         print(f"{'-'*80}\n")
 
         for txt_file in txt_files:
-            # FIX: Skip logic - skip until we're PAST the resume point
-            if resume_from:
-                if bump_id == resume_from[0] and txt_file.name == resume_from[1]:
+            # Skip until we reach the last processed file (if resuming)
+            if should_skip:
+                if bump_id == progress['last_bump_id'] and txt_file.name == progress['last_file']:
+                    should_skip = False
                     print(f"✓ Found resume point: {bump_id}/{txt_file.name}")
-                    print(f"✓ Skipping this file (already processed)")
-                    resume_from = None  # Clear resume flag
-                    continue
-                elif bump_id == resume_from[0]:
-                    # Still in the same bump_id, but haven't reached the file yet
-                    continue
-                elif (prompt_dir / resume_from[0]) in bump_folders:
-                    # We haven't reached the resume bump_id yet
-                    resume_idx = selected_ids.index(resume_from[0])
-                    current_idx = selected_ids.index(bump_id)
-                    if current_idx < resume_idx:
-                        continue
+                    print(f"✓ Continuing from next file...\n")
+                continue
 
             processed += 1
             timestamp = datetime.now().strftime('%H:%M:%S')
-            current_key = get_current_key_index()
-            print(f"[{timestamp}] [{processed}/{total_files}] [Key {current_key + 1}/{len(API_KEYS)}] Processing {txt_file.name}")
+            print(f"[{timestamp}] [{processed}/{total_files}] Processing {txt_file}")
 
-            output_path = OUTPUT_ROOT / bump_id / txt_file.name
+            prompt_filename = txt_file.name
+            output_path = OUTPUT_ROOT / bump_id / prompt_filename
 
             if skip_existing and output_path.exists():
-                print(f"   Skipping (exists): {output_path}")
+                print(f"  → Skipping (already exists): {output_path}")
                 skipped += 1
                 continue
 
             with open(txt_file, "r", encoding="utf-8") as f:
                 prompt = f.read()
 
-            response, should_exit = call_qwen_cloud(prompt)
-            
+            # Call the API with rate limit handling
+            response, should_exit = call_cloud_model(prompt)
+
+            # Check if we need to exit (credits exhausted or auth error)
             if should_exit:
                 print(f"\n{'='*80}")
-                print(f" BATCH PROCESSING INTERRUPTED - WEEKLY LIMIT (ALL KEYS)")
+                print(f"BATCH PROCESSING INTERRUPTED")
+                print(f"Stopped at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
                 print(f"{'='*80}")
-                print(f"  Processed: {processed}/{total_files}")
-                print(f"  Written: {written}")
-                print(f"  Skipped: {skipped}")
-                print(f"  Errors: {errors}")
+                print(f"Progress at time of interruption:")
+                print(f"  Prompt files processed: {processed}/{total_files}")
+                print(f"  New outputs written: {written}")
+                print(f"  Already existing/skipped: {skipped}")
+                print(f"  Errors encountered: {errors}")
                 print(f"  Last file: {bump_id}/{txt_file.name}")
                 print(f"{'='*80}\n")
                 return
@@ -483,22 +307,29 @@ def process_prompts(prompt_dir, csv_bump_ids, start_idx=1, end_idx=None, skip_ex
 
                 print(f" Saved: {output_path}")
                 written += 1
+
+                # Save progress after each successful write
                 save_progress(bump_id, txt_file.name)
             else:
                 print(f" Failed: {response}")
                 errors += 1
 
+            # Add delay between requests to avoid hitting rate limits
             if processed < total_files:
                 time.sleep(REQUEST_DELAY)
 
     print(f"\n{'='*80}")
-    print(f" BATCH PROCESSING COMPLETE")
+    print(f"BATCH PROCESSING COMPLETE")
+    print(f"Finished at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print(f"{'='*80}")
-    print(f"  Processed: {processed}/{total_files}")
-    print(f"  Written: {written}")
-    print(f"  Skipped: {skipped}")
-    print(f"  Errors: {errors}")
-    print(f"  Final key: {get_current_key_index() + 1}/{len(API_KEYS)}")
+    print(f"Selected bump instances: {len(selected_ids)}")
+    print(f"Prompt files found: {total_files}")
+    print(f"New outputs written: {written}")
+    print(f"Already existing/skipped: {skipped}")
+    print(f"Errors encountered: {errors}")
+    print(f"All model responses saved under {OUTPUT_ROOT}")
+    print(f"Full log saved to: {LOG_FILE}")
+    print(f"Progress tracking file: {PROGRESS_FILE}")
     print(f"{'='*80}\n")
 
 
@@ -509,12 +340,11 @@ if __name__ == "__main__":
         process_prompts(PROMPT_DIR, csv_bump_ids, start_idx=START_IDX, end_idx=END_IDX)
     except KeyboardInterrupt:
         print(f"\n\n{'='*80}")
-        print("⚠ Script interrupted by user")
-        print("Progress saved. Run again to resume.")
-        print(f"Current key: {get_current_key_index() + 1}/{len(API_KEYS)}")
+        print("Script interrupted by user")
+        print("Progress has been saved. Run the script again to resume.")
         print(f"{'='*80}\n")
     except Exception as e:
         print(f"\n\n{'='*80}")
-        print(f" Fatal error: {e}")
+        print(f"Fatal error: {e}")
         print(f"{'='*80}\n")
         raise

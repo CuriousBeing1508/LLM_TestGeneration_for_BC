@@ -1,0 +1,438 @@
+==========================================================================================
+GROUP 2 · 8 steps · IDS-Messaging-Services (International-Data-Spaces-Association)
+dependency : org.springframework:spring-tx
+ normalized error category   : CONSTANT   [BeanInstantiationException|MojoFailureException|SocketTimeo…]
+ ground-truth bump_bc_errors : CONSTANT   [—]
+------------------------------------------------------------------------------------------
+[step 0] BBC05   5.3.24 → 6.0.3
+   ground truth (bump) : —
+   normalized          : BeanInstantiationException|MojoFailureException|SocketTimeoutException|UnsupportedClassVersionError
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC104   5.3.24 → 6.0.2
+   ground truth (bump) : —
+   normalized          : BeanInstantiationException|MojoFailureException|SocketTimeoutException|UnsupportedClassVersionError
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC107   5.3.24 → 6.0.1
+   ground truth (bump) : —
+   normalized          : BeanInstantiationException|MojoFailureException|SocketTimeoutException|UnsupportedClassVersionError
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC170   5.3.24 → 6.0.4
+   ground truth (bump) : —
+   normalized          : BeanInstantiationException|MojoFailureException|SocketTimeoutException|UnsupportedClassVersionError
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC186   5.3.24 → 6.0.0
+   ground truth (bump) : —
+   normalized          : BeanInstantiationException|MojoFailureException|SocketTimeoutException|UnsupportedClassVersionError
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC35   5.3.24 → 6.0.8
+   ground truth (bump) : —
+   normalized          : BeanInstantiationException|MojoFailureException|SocketTimeoutException|UnsupportedClassVersionError
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC53   5.3.24 → 6.0.5
+   ground truth (bump) : —
+   normalized          : BeanInstantiationException|MojoFailureException|SocketTimeoutException|UnsupportedClassVersionError
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC81   5.3.24 → 6.0.6
+   ground truth (bump) : —
+   normalized          : BeanInstantiationException|MojoFailureException|SocketTimeoutException|UnsupportedClassVersionError
+   LLM [class]         : not captured (no class-variant row)
+
+
+==========================================================================================
+GROUP 15 · 7 steps · jasmine-maven-plugin (searls)
+dependency : org.slf4j:slf4j-api
+ normalized error category   : CONSTANT   [AssertionError|MojoFailureException]
+ ground-truth bump_bc_errors : CONSTANT   [—]
+------------------------------------------------------------------------------------------
+[step 0] BBC135   1.7.32 → 2.0.2
+   ground truth (bump) : —
+   normalized          : AssertionError|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC178   1.7.32 → 2.0.3
+   ground truth (bump) : —
+   normalized          : AssertionError|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC187   1.7.32 → 2.0.0
+   ground truth (bump) : —
+   normalized          : AssertionError|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC26   1.7.32 → 2.0.5
+   ground truth (bump) : —
+   normalized          : AssertionError|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC66   1.7.32 → 2.0.1
+   ground truth (bump) : —
+   normalized          : AssertionError|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC88   1.7.32 → 2.0.4
+   ground truth (bump) : —
+   normalized          : AssertionError|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC98   1.7.32 → 2.0.6
+   ground truth (bump) : —
+   normalized          : AssertionError|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+
+==========================================================================================
+GROUP 28 · 7 steps · recheck (retest)
+dependency : org.slf4j:slf4j-api
+ normalized error category   : CONSTANT   [ClassCastException|MojoFailureException]
+ ground-truth bump_bc_errors : CONSTANT   [ClassCastException]
+------------------------------------------------------------------------------------------
+[step 0] BBC103   1.7.36 → 2.0.5
+   ground truth (bump) : ClassCastException
+   normalized          : ClassCastException|MojoFailureException
+   LLM GPT-4o [class] : AssertionFailedError
+
+[step 0] BBC131   1.7.36 → 2.0.3
+   ground truth (bump) : ClassCastException
+   normalized          : ClassCastException|MojoFailureException
+   LLM GPT-4o [class] : AssertionFailedError
+   LLM Qwen-480B [class] : AssertionFailedError
+
+[step 0] BBC136   1.7.36 → 2.0.1
+   ground truth (bump) : ClassCastException
+   normalized          : ClassCastException|MojoFailureException
+   LLM GPT-4o [class] : AssertionFailedError
+
+[step 0] BBC162   1.7.36 → 2.0.2
+   ground truth (bump) : ClassCastException
+   normalized          : ClassCastException|MojoFailureException
+   LLM GPT-4o [class] : AssertionFailedError
+   LLM Qwen-480B [class] : AssertionFailedError
+
+[step 0] BBC167   1.7.36 → 2.0.6
+   ground truth (bump) : ClassCastException
+   normalized          : ClassCastException|MojoFailureException
+   LLM GPT-4o [class] : AssertionFailedError
+
+[step 0] BBC45   1.7.36 → 2.0.4
+   ground truth (bump) : ClassCastException
+   normalized          : ClassCastException|MojoFailureException
+   LLM GPT-4o [class] : AssertionFailedError
+
+[step 0] BBC63   1.7.36 → 2.0.0
+   ground truth (bump) : ClassCastException
+   normalized          : ClassCastException|MojoFailureException
+   LLM GPT-4o [class] : AssertionFailedError
+
+
+==========================================================================================
+GROUP 1 · 7 steps · IDS-Messaging-Services (International-Data-Spaces-Association)
+dependency : com.fasterxml.jackson.core:jackson-databind
+ normalized error category   : CHANGES   [NoClassDefFoundError|AssertionFailedError|ClassNotFoundExce… → NoSuchMethodError|AssertionFailedError|SocketTimeoutExcepti…]
+ ground-truth bump_bc_errors : CONSTANT   [—]
+------------------------------------------------------------------------------------------
+[step 0] BBC111   2.9.10.8 → 2.13.3
+   ground truth (bump) : —
+   normalized          : NoClassDefFoundError|AssertionFailedError|ClassNotFoundException|SocketTimeoutException|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC119   2.9.10.8 → 2.13.2.2
+   ground truth (bump) : —
+   normalized          : NoClassDefFoundError|AssertionFailedError|ClassNotFoundException|SocketTimeoutException|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC124   2.9.10.8 → 2.13.1
+   ground truth (bump) : —
+   normalized          : NoClassDefFoundError|AssertionFailedError|ClassNotFoundException|SocketTimeoutException|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC179   2.9.10.8 → 2.13.3
+   ground truth (bump) : —
+   normalized          : NoClassDefFoundError|AssertionFailedError|ClassNotFoundException|SocketTimeoutException|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC182   2.9.10.8 → 2.13.2.1
+   ground truth (bump) : —
+   normalized          : NoClassDefFoundError|AssertionFailedError|ClassNotFoundException|SocketTimeoutException|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC52   2.13.4.2 → 2.14.0
+   ground truth (bump) : —
+   normalized          : NoSuchMethodError|AssertionFailedError|SocketTimeoutException|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC82   2.9.10.8 → 2.13.2
+   ground truth (bump) : —
+   normalized          : NoClassDefFoundError|AssertionFailedError|ClassNotFoundException|SocketTimeoutException|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+
+==========================================================================================
+GROUP 8 · 6 steps · dropwizard-pac4j (pac4j)
+dependency : com.fasterxml.jackson.core:jackson-databind
+ normalized error category   : CONSTANT   [NoClassDefFoundError|ClassNotFoundException|MojoFailureExce…]
+ ground-truth bump_bc_errors : CONSTANT   [ClassNotFoundException|NoClassDefFoundError → —]
+------------------------------------------------------------------------------------------
+[step 0] BBC147   2.10.5.1 → 2.14.2
+   ground truth (bump) : ClassNotFoundException|NoClassDefFoundError
+   normalized          : NoClassDefFoundError|ClassNotFoundException|MojoFailureException
+   LLM GPT-4o [class] : —
+
+[step 0] BBC33   2.10.5.1 → 2.14.1
+   ground truth (bump) : ClassNotFoundException|NoClassDefFoundError
+   normalized          : NoClassDefFoundError|ClassNotFoundException|MojoFailureException
+   LLM GPT-4o [class] : ClassNotFoundException|NoClassDefFoundError
+   LLM Qwen-480B [class] : ClassNotFoundException|NoClassDefFoundError
+
+[step 0] BBC54   2.10.5.1 → 2.13.4
+   ground truth (bump) : ClassNotFoundException|NoClassDefFoundError
+   normalized          : NoClassDefFoundError|ClassNotFoundException|MojoFailureException
+   LLM GPT-4o [class] : ClassNotFoundException|NoClassDefFoundError
+   LLM Qwen-480B [class] : —
+
+[step 0] BBC56   2.10.5.1 → 2.13.4.1
+   ground truth (bump) : ClassNotFoundException|NoClassDefFoundError
+   normalized          : NoClassDefFoundError|ClassNotFoundException|MojoFailureException
+   LLM Qwen-480B [class] : ClassNotFoundException|NoClassDefFoundError
+
+[step 0] BBC79   2.10.5.1 → 2.12.7.1
+   ground truth (bump) : —
+   normalized          : NoClassDefFoundError|ClassNotFoundException|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC83   2.10.5.1 → 2.13.4.2
+   ground truth (bump) : —
+   normalized          : NoClassDefFoundError|ClassNotFoundException|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+
+==========================================================================================
+GROUP 9 · 6 steps · dropwizard-pac4j (pac4j)
+dependency : org.eclipse.jetty:jetty-server
+ normalized error category   : CHANGES   [NoClassDefFoundError|StopException|ClassNotFoundException|M… → AbstractMethodError|RuntimeException|ProcessingException|So… → NoClassDefFoundError|ClassNotFoundException|MojoFailureExce…]
+ ground-truth bump_bc_errors : CONSTANT   [—]
+------------------------------------------------------------------------------------------
+[step 0] BBC01   9.4.35.v20201120 → 10.0.10
+   ground truth (bump) : —
+   normalized          : NoClassDefFoundError|StopException|ClassNotFoundException|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC121   9.4.35.v20201120 → 9.4.48.v20220622
+   ground truth (bump) : —
+   normalized          : AbstractMethodError|RuntimeException|ProcessingException|SocketException|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC184   9.4.35.v20201120 → 9.4.49.v20220914
+   ground truth (bump) : —
+   normalized          : AbstractMethodError|RuntimeException|ProcessingException|SocketException|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC51   9.4.35.v20201120 → 9.4.47.v20220610
+   ground truth (bump) : —
+   normalized          : AbstractMethodError|RuntimeException|ProcessingException|SocketException|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC55   9.4.35.v20201120 → 10.0.14
+   ground truth (bump) : —
+   normalized          : NoClassDefFoundError|ClassNotFoundException|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC80   9.4.35.v20201120 → 9.4.50.v20221201
+   ground truth (bump) : —
+   normalized          : AbstractMethodError|RuntimeException|ProcessingException|SocketException|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+
+==========================================================================================
+GROUP 4 · 4 steps · Refactoring-Bot (Refactoring-Bot)
+dependency : org.antlr:antlr4-runtime
+ normalized error category   : CONSTANT   [UnsupportedOperationException|ExceptionInInitializerError|I…]
+ ground-truth bump_bc_errors : CONSTANT   [ExceptionInInitializerError|InvalidClassException|Unsupport… → —]
+------------------------------------------------------------------------------------------
+[step 0] BBC145   4.7.2 → 4.1
+   ground truth (bump) : ExceptionInInitializerError|InvalidClassException|UnsupportedOperationException
+   normalized          : UnsupportedOperationException|ExceptionInInitializerError|InvalidClassException|MojoFailureException
+   LLM GPT-4o [class] : —
+   LLM Qwen-480B [class] : —
+
+[step 0] BBC16   4.7.2 → 4.12.0
+   ground truth (bump) : —
+   normalized          : UnsupportedOperationException|ExceptionInInitializerError|InvalidClassException|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC70   4.7.2 → 4.11.1
+   ground truth (bump) : —
+   normalized          : UnsupportedOperationException|ExceptionInInitializerError|InvalidClassException|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC78   4.7.2 → 4.10.1
+   ground truth (bump) : —
+   normalized          : UnsupportedOperationException|ExceptionInInitializerError|InvalidClassException|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+
+==========================================================================================
+GROUP 14 · 3 steps · jadler (jadler-mocking)
+dependency : org.slf4j:slf4j-api
+ normalized error category   : CONSTANT   [ClassCastException|MojoFailureException]
+ ground-truth bump_bc_errors : CONSTANT   [—]
+------------------------------------------------------------------------------------------
+[step 0] BBC24   1.7.36 → 2.0.0
+   ground truth (bump) : —
+   normalized          : ClassCastException|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC44   1.7.36 → 2.0.2
+   ground truth (bump) : —
+   normalized          : ClassCastException|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC99   1.7.36 → 2.0.1
+   ground truth (bump) : —
+   normalized          : ClassCastException|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+
+==========================================================================================
+GROUP 18 · 3 steps · junit-quickcheck (pholser)
+dependency : org.mockito:mockito-core
+ normalized error category   : CONSTANT   [AssertionError|MojoFailureException]
+ ground-truth bump_bc_errors : CONSTANT   [—]
+------------------------------------------------------------------------------------------
+[step 0] BBC148   4.11.0 → 5.3.1
+   ground truth (bump) : —
+   normalized          : AssertionError|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC41   4.11.0 → 5.2.0
+   ground truth (bump) : —
+   normalized          : AssertionError|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC97   4.11.0 → 5.4.0
+   ground truth (bump) : —
+   normalized          : AssertionError|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+
+==========================================================================================
+GROUP 35 · 3 steps · webapp (elimu-ai)
+dependency : org.apache.logging.log4j:log4j-api
+ normalized error category   : CONSTANT   [NoClassDefFoundError|NoSuchMethodError|MojoFailureException]
+ ground-truth bump_bc_errors : CONSTANT   [NoClassDefFoundError|NoSuchMethodError]
+------------------------------------------------------------------------------------------
+[step 0] BBC132   2.16.0 → 2.20.0
+   ground truth (bump) : NoClassDefFoundError|NoSuchMethodError
+   normalized          : NoClassDefFoundError|NoSuchMethodError|MojoFailureException
+   LLM GPT-4o [class] : NoClassDefFoundError|NoSuchMethodError
+   LLM Qwen-480B [class] : NoClassDefFoundError|NoSuchMethodError
+   LLM GPT-OSS-120b [class] : NoClassDefFoundError|NoSuchMethodError
+
+[step 0] BBC17   2.16.0 → 2.18.0
+   ground truth (bump) : NoClassDefFoundError|NoSuchMethodError
+   normalized          : NoClassDefFoundError|NoSuchMethodError|MojoFailureException
+   LLM GPT-4o [class] : NoClassDefFoundError|NoSuchMethodError
+   LLM Qwen-480B [class] : NoClassDefFoundError|NoSuchMethodError
+   LLM GPT-OSS-120b [class] : NoClassDefFoundError|NoSuchMethodError
+
+[step 0] BBC49   2.16.0 → 2.19.0
+   ground truth (bump) : NoClassDefFoundError|NoSuchMethodError
+   normalized          : NoClassDefFoundError|NoSuchMethodError|MojoFailureException
+   LLM GPT-4o [class] : NoClassDefFoundError|NoSuchMethodError
+   LLM Qwen-480B [class] : InvocationTargetException|NoClassDefFoundError|NoSuchMethodError
+   LLM GPT-OSS-120b [class] : NoClassDefFoundError|NoSuchMethodError
+
+
+==========================================================================================
+GROUP 36 · 3 steps · webapp (elimu-ai)
+dependency : org.apache.logging.log4j:log4j-core
+ normalized error category   : CONSTANT   [NoClassDefFoundError|ClassNotFoundException|MojoFailureExce…]
+ ground-truth bump_bc_errors : CONSTANT   [ClassNotFoundException|NoClassDefFoundError]
+------------------------------------------------------------------------------------------
+[step 0] BBC06   2.16.0 → 2.19.0
+   ground truth (bump) : ClassNotFoundException|NoClassDefFoundError
+   normalized          : NoClassDefFoundError|ClassNotFoundException|MojoFailureException
+   LLM GPT-4o [class] : ClassNotFoundException|NoClassDefFoundError
+   LLM Qwen-480B [class] : AssertionError|ClassNotFoundException|EOFException|InvocationTargetException|NoClassDefFoundError
+   LLM GPT-OSS-120b [class] : ClassNotFoundException|NoClassDefFoundError
+
+[step 0] BBC165   2.16.0 → 2.20.0
+   ground truth (bump) : ClassNotFoundException|NoClassDefFoundError
+   normalized          : NoClassDefFoundError|ClassNotFoundException|MojoFailureException
+   LLM GPT-4o [class] : ClassNotFoundException|NoClassDefFoundError
+   LLM Qwen-480B [class] : ClassNotFoundException|InvocationTargetException|NoClassDefFoundError
+   LLM GPT-OSS-120b [class] : ClassNotFoundException|NoClassDefFoundError
+
+[step 0] BBC36   2.16.0 → 2.18.0
+   ground truth (bump) : ClassNotFoundException|NoClassDefFoundError
+   normalized          : NoClassDefFoundError|ClassNotFoundException|MojoFailureException
+   LLM GPT-4o [class] : ClassNotFoundException|NoClassDefFoundError
+   LLM Qwen-480B [class] : ClassNotFoundException|NoClassDefFoundError
+   LLM GPT-OSS-120b [class] : ClassNotFoundException|NoClassDefFoundError
+
+
+==========================================================================================
+GROUP 37 · 3 steps · wsdoc (versly)
+dependency : com.fasterxml.jackson.core:jackson-databind
+ normalized error category   : CONSTANT   [NoClassDefFoundError|RuntimeException|ClassNotFoundExceptio…]
+ ground-truth bump_bc_errors : CONSTANT   [ClassNotFoundException|NoClassDefFoundError|RuntimeException]
+------------------------------------------------------------------------------------------
+[step 0] BBC02   2.4.2 → 2.12.6.1
+   ground truth (bump) : ClassNotFoundException|NoClassDefFoundError|RuntimeException
+   normalized          : NoClassDefFoundError|RuntimeException|ClassNotFoundException|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC03   2.4.2 → 2.9.10.8
+   ground truth (bump) : ClassNotFoundException|NoClassDefFoundError|RuntimeException
+   normalized          : NoClassDefFoundError|RuntimeException|ClassNotFoundException|MojoFailureException
+   LLM GPT-4o [class] : ClassNotFoundException|NoClassDefFoundError
+
+[step 0] BBC50   2.4.2 → 2.12.7.1
+   ground truth (bump) : ClassNotFoundException|NoClassDefFoundError|RuntimeException
+   normalized          : NoClassDefFoundError|RuntimeException|ClassNotFoundException|MojoFailureException
+   LLM GPT-4o [class] : ClassNotFoundException|NoClassDefFoundError
+   LLM Qwen-480B [class] : ClassNotFoundException|NoClassDefFoundError
+
+
+==========================================================================================
+GROUP 31 · 2 steps · scheduler (btrplace)
+dependency : org.antlr:antlr4-runtime
+ normalized error category   : CONSTANT   [ExceptionInInitializerError|InvalidClassException|Unsupport…]
+ ground-truth bump_bc_errors : CONSTANT   [—]
+------------------------------------------------------------------------------------------
+[step 0] BBC144   4.9.3 → 4.1
+   ground truth (bump) : —
+   normalized          : ExceptionInInitializerError|InvalidClassException|UnsupportedOperationException|ScriptBuilderException|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+[step 0] BBC74   4.9.3 → 4.10.1
+   ground truth (bump) : —
+   normalized          : ExceptionInInitializerError|InvalidClassException|UnsupportedOperationException|ScriptBuilderException|MojoFailureException
+   LLM [class]         : not captured (no class-variant row)
+
+
+==========================================================================================
+GROUP 34 · 2 steps · tamtam-bot-api (tamtam-chat)
+dependency : com.fasterxml.jackson.core:jackson-databind
+ normalized error category   : CONSTANT   [NoClassDefFoundError|IOException|Exception|APIException|Cla…]
+ ground-truth bump_bc_errors : CONSTANT   [APIException|ClassNotFoundException|Exception|IOException|N…]
+------------------------------------------------------------------------------------------
+[step 0] BBC146   2.9.10.3 → 2.13.4.1
+   ground truth (bump) : APIException|ClassNotFoundException|Exception|IOException|NoClassDefFoundError
+   normalized          : NoClassDefFoundError|IOException|Exception|APIException|ClassNotFoundException|MojoFailureException
+   LLM GPT-4o [class] : ClassNotFoundException|NoClassDefFoundError
+   LLM Qwen-480B [class] : ClassNotFoundException|NoClassDefFoundError
+   LLM GPT-OSS-120b [class] : ClassNotFoundException|NoClassDefFoundError
+
+[step 0] BBC27   2.9.10.3 → 2.12.6.1
+   ground truth (bump) : APIException|ClassNotFoundException|Exception|IOException|NoClassDefFoundError
+   normalized          : NoClassDefFoundError|IOException|Exception|APIException|ClassNotFoundException|MojoFailureException
+   LLM GPT-4o [class] : ClassNotFoundException|NoClassDefFoundError
+   LLM Qwen-480B [class] : —
+

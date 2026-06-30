@@ -1,0 +1,15 @@
+group_id,clientProject,org,dependency,n_updates,custom_ids
+1,IDS-Messaging-Services,International-Data-Spaces-Association,org.springframework:spring-tx,8,BBC05 -> BBC104 -> BBC107 -> BBC170 -> BBC186 -> BBC35 -> BBC53 -> BBC81
+2,jasmine-maven-plugin,searls,org.slf4j:slf4j-api,7,BBC135 -> BBC178 -> BBC187 -> BBC26 -> BBC66 -> BBC88 -> BBC98
+3,recheck,retest,org.slf4j:slf4j-api,7,BBC103 -> BBC131 -> BBC136 -> BBC162 -> BBC167 -> BBC45 -> BBC63
+4,IDS-Messaging-Services,International-Data-Spaces-Association,com.fasterxml.jackson.core:jackson-databind,6,BBC111 -> BBC119 -> BBC124 -> BBC179 -> BBC182 -> BBC52 -> BBC82
+5,dropwizard-pac4j,pac4j,com.fasterxml.jackson.core:jackson-databind,6,BBC147 -> BBC33 -> BBC54 -> BBC56 -> BBC79 -> BBC83
+6,dropwizard-pac4j,pac4j,org.eclipse.jetty:jetty-server,6,BBC01 -> BBC121 -> BBC184 -> BBC51 -> BBC55 -> BBC80
+7,Refactoring-Bot,Refactoring-Bot,org.antlr:antlr4-runtime,4,BBC145 -> BBC16 -> BBC70 -> BBC78
+8,jadler,jadler-mocking,org.slf4j:slf4j-api,3,BBC24 -> BBC44 -> BBC99
+9,junit-quickcheck,pholser,org.mockito:mockito-core,3,BBC148 -> BBC41 -> BBC97
+10,webapp,elimu-ai,org.apache.logging.log4j:log4j-api,3,BBC132 -> BBC17 -> BBC49
+11,webapp,elimu-ai,org.apache.logging.log4j:log4j-core,3,BBC06 -> BBC165 -> BBC36
+12,wsdoc,versly,com.fasterxml.jackson.core:jackson-databind,3,BBC02 -> BBC03 -> BBC50
+13,scheduler,btrplace,org.antlr:antlr4-runtime,2,BBC144 -> BBC74
+14,tamtam-bot-api,tamtam-chat,com.fasterxml.jackson.core:jackson-databind,2,BBC146 -> BBC27
