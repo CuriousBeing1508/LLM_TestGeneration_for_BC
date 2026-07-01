@@ -122,7 +122,7 @@ for i, result in enumerate(unknown_patterns[:5]):
         
         # Show why pattern detection might fail
         if lib_found and not test_found:
-            print(f"\n  ⚠️  ISSUE: Library found but test class NOT in stack!")
+            print(f"\n   ISSUE: Library found but test class NOT in stack!")
             print(f"     Looking for test class: '{result['test_class']}'")
             print(f"     Stack contains test frames like:")
             for line in stack_lines:
@@ -130,7 +130,7 @@ for i, result in enumerate(unknown_patterns[:5]):
                     print(f"       {line[:120]}")
                     break
     else:
-        print(f"\n  ⚠️  Log file not found!")
+        print(f"\n    Log file not found!")
 
 # Summary of issues
 print(f"\n{'='*80}")

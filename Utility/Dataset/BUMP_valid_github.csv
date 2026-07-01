@@ -1,4 +1,4 @@
-custom_id,clientGithubURL,clientProject,clientProjectOrganisation,breakingCommit,dependencyGroupID,dependencyArtifactID,previousVersion,newVersion,failureCategory,libraryGithubURL
+custom_id,url,clientProject,clientProjectOrganisation,breakingCommit,dependencyGroupID,dependencyArtifactID,previousVersion,newVersion,failureCategory,githubURL
 BBC01,https://github.com/pac4j/dropwizard-pac4j/pull/303,dropwizard-pac4j,pac4j,e3b288f3a1507baf36451c4844d6f360b472e3d1,org.eclipse.jetty,jetty-server,9.4.35.v20201120,10.0.10,TEST_FAILURE,https://github.com/jetty/jetty.project
 BBC02,https://github.com/versly/wsdoc/pull/77,wsdoc,versly,8776fe7cd60bd309daf843bc70608ebf963c6761,com.fasterxml.jackson.core,jackson-databind,2.4.2,2.12.6.1,TEST_FAILURE,https://github.com/FasterXML/jackson-databind
 BBC03,https://github.com/versly/wsdoc/pull/75,wsdoc,versly,063cf862c045e0a9e401a539497e34ddaf8332b3,com.fasterxml.jackson.core,jackson-databind,2.4.2,2.9.10.8,TEST_FAILURE,https://github.com/FasterXML/jackson-databind
@@ -126,12 +126,12 @@ BBC135,https://github.com/searls/jasmine-maven-plugin/pull/571,jasmine-maven-plu
 BBC136,https://github.com/retest/recheck/pull/1037,recheck,retest,c8a572a7d8e67eef75d9ab1a80d6acb952be6d7e,org.slf4j,slf4j-api,1.7.36,2.0.1,TEST_FAILURE,https://github.com/qos-ch/slf4j
 BBC137,https://github.com/jcabi/jcabi-ssh/pull/143,jcabi-ssh,jcabi,93ac5faf37905e0fb4b44f5401271f2d3d76f57a,org.apache.sshd,sshd-common,2.9.2,2.10.0,TEST_FAILURE,https://github.com/apache/mina-sshd
 BBC139,https://github.com/s4u/pgpverify-maven-plugin/pull/445,pgpverify-maven-plugin,s4u,923528a3dd1bcdba21490f7583c80a67d01285b2,org.junit.jupiter,junit-jupiter-params,5.9.1,5.9.2,TEST_FAILURE,https://github.com/junit-team/junit5
-BBC140,https://github.com/apache/directory-scimple/pull/49,directory-scimple,apache,2f9d75d4b01cd18afcb4676d134142882f9e0034,javax,javaee-api,7,8.0.1,TEST_FAILURE,https://github.com/javaee/glassfish
+BBC140,https://github.com/apache/directory-scimple/pull/49,directory-scimple,apache,2f9d75d4b01cd18afcb4676d134142882f9e0034,javax,javaee-api,7.0,8.0.1,TEST_FAILURE,https://github.com/javaee/glassfish
 BBC141,https://github.com/citerus/dddsample-core/pull/121,dddsample-core,citerus,8ecc7850c97f4616ec4e67f7568adf34293cc4f1,jakarta.xml.bind,jakarta.xml.bind-api,2.3.3,4.0.0,TEST_FAILURE,https://github.com/jakartaee/jaxb-api
 BBC142,https://github.com/retest/recheck.cli/pull/353,recheck.cli,retest,e35a97cf177d8cd7d022c4adca7da24f1a17a2eb,ch.qos.logback,logback-classic,1.2.11,1.4.5,TEST_FAILURE,https://github.com/qos-ch/logback
 BBC143,https://github.com/kstateome/lti-launch/pull/35,lti-launch,kstateome,f61b113c1493d02611bc5cdc9a80e8af0abf2035,org.springframework,spring-webmvc,4.1.6.RELEASE,5.3.18,TEST_FAILURE,https://github.com/spring-projects/spring-framework
-BBC144,https://github.com/btrplace/scheduler/pull/379,scheduler,btrplace,5476e69fca14862d862805790b73574e1de58dd2,org.antlr,antlr4-runtime,4.9.3,4.1,TEST_FAILURE,https://github.com/antlr/antlr4
-BBC145,https://github.com/Refactoring-Bot/Refactoring-Bot/pull/109,Refactoring-Bot,Refactoring-Bot,ff98f9e99811cd3186d3819d19b5b7f8143a0632,org.antlr,antlr4-runtime,4.7.2,4.1,TEST_FAILURE,https://github.com/antlr/antlr4
+BBC144,https://github.com/btrplace/scheduler/pull/379,scheduler,btrplace,5476e69fca14862d862805790b73574e1de58dd2,org.antlr,antlr4-runtime,4.9.3,4.10,TEST_FAILURE,https://github.com/antlr/antlr4
+BBC145,https://github.com/Refactoring-Bot/Refactoring-Bot/pull/109,Refactoring-Bot,Refactoring-Bot,ff98f9e99811cd3186d3819d19b5b7f8143a0632,org.antlr,antlr4-runtime,4.7.2,4.10,TEST_FAILURE,https://github.com/antlr/antlr4
 BBC146,https://github.com/tamtam-chat/tamtam-bot-api/pull/24,tamtam-bot-api,tamtam-chat,fafb59e8f1b9ddba4bbabe64818f361e7def7d04,com.fasterxml.jackson.core,jackson-databind,2.9.10.3,2.13.4.1,TEST_FAILURE,https://github.com/FasterXML/jackson-databind
 BBC147,https://github.com/pac4j/dropwizard-pac4j/pull/368,dropwizard-pac4j,pac4j,5b7634ef016e7e65084fb0253e96bffa5810c0df,com.fasterxml.jackson.core,jackson-databind,2.10.5.1,2.14.2,TEST_FAILURE,https://github.com/FasterXML/jackson-databind
 BBC148,https://github.com/pholser/junit-quickcheck/pull/499,junit-quickcheck,pholser,7c90c61e90e9936d8a7e355de8900214c759cb61,org.mockito,mockito-core,4.11.0,5.3.1,TEST_FAILURE,https://github.com/mockito/mockito

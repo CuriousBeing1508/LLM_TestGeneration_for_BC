@@ -84,7 +84,7 @@ def main():
         reader = csv.DictReader(f)
         rows = list(reader)
 
-    # ⬅️ include "source" so writer accepts rows
+    #  include "source" so writer accepts rows
     out_cols = [
         "custom_id", "breakingCommit", "image", "pom_path",
         "groupId", "artifactId", "version", "scope", "source"

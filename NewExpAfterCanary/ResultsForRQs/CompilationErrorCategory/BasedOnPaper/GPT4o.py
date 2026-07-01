@@ -20,26 +20,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[4]))
 from config import PRIMARY_DRIVE
 
 
-# ---------------------------------------------------------------------------
-# Matching is done in explicit ordered passes — no priority numbers.
-# Pass 1: Highly specific patterns (test framework, mockito, override)
-# Pass 2: Signature / access / type patterns
-# Pass 3: DeepDelta core kinds (cant.resolve, doesnt.exist, expected, etc.)
-# Pass 4: Catch-all → 'other' (raw message logged for post-hoc review)
-#
-# DeepDelta top-10 diagnostic kinds (Table 2, Mesbah et al. 2019):
-#   cant.resolve          51%  – undefined symbol
-#   doesnt.exist           9%  – undefined package
-#   expected               9%  – syntax error
-#   cant.apply.symbol      8%  – wrong method/ctor signature
-#   cant.apply.symbols     3%  – (same root cause, plural form)
-#   inconvertible.types    2%  – type incompatibility
-#   unreported.exception   1%  – unchecked exception
-#   does.not.override.abstract <1%
-#   already.defined        1%  – duplicate symbol
-#   strict                 6%  – build-tool dependency (Bazel-specific)
-# ---------------------------------------------------------------------------
-
 _RAW_PATTERNS = [
 
     # ── PASS 1: Specific / unambiguous patterns ────────────────────────────
@@ -465,7 +445,7 @@ def write_model_csv(
             for msg in smry.get("other_error_messages", []):
                 w.writerow({"context_variant": vt, "instance": msg})
 
-    print(f"  ✓ CSV → {output_path}")
+    print(f"  CSV → {output_path}")
 
 
 # ============================================================
@@ -569,4 +549,4 @@ if __name__ == "__main__":
         write_model_csv(model_tag, variants_data, out_csv)
         print_model_summary(model_tag, variants_data)
 
-    print(f"\n✓ Done. Outputs in: {OUTPUT_DIR}")
+    print(f"\n Done. Outputs in: {OUTPUT_DIR}")

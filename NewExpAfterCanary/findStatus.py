@@ -35,7 +35,7 @@ def _abc_has_any_file(custom_id: str) -> bool:
 
 def validate_image_runs(image_tag: str, timeout: int = 120) -> bool:
     """
-    Sanity check used in your logic:
+    Sanity check used in our logic:
     run the image (no mounts) and consider it OK if exit code == 0 OR 'BUILD SUCCESS' in stdout.
     """
     try:
@@ -46,37 +46,6 @@ def validate_image_runs(image_tag: str, timeout: int = 120) -> bool:
         return result.returncode == 0 or ("BUILD SUCCESS" in result.stdout)
     except Exception:
         return False
-
-# def status_for_row(custom_id: str, commit: str) -> str:
-#     """
-#     Mirrors your skip/use decision without running the canary:
-#     - skipped if:
-#         * breakingCommit missing
-#         * no files under ABC_ROOT/custom_id
-#         * no test_root in package summary
-#         * docker image fails sanity check
-#       otherwise: used
-#     """
-#     # 1) missing commit
-#     if not commit:
-#         return "skipped"
-
-#     # 2) no files in ABC root
-#     if not _abc_has_any_file(custom_id):
-#         return "skipped"
-
-#     # 3) test_root presence from summary
-#     test_root, _ = pkg_info.get((custom_id, "pre"), (None, None))
-#     if not test_root:
-#         return "skipped"
-
-#     # 4) docker sanity check
-#     image_tag = f"ghcr.io/chains-project/breaking-updates:{commit}-pre"
-#     if not validate_image_runs(image_tag):
-#         return "skipped"
-
-#     # Otherwise, this instance would proceed to canary in your full pipeline
-#     return "used"
 
 
 

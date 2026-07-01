@@ -221,8 +221,8 @@ def main():
         writer.writeheader()
         writer.writerows(updated_rows)
 
-    print(f"✅ Wrote updated CSV with test_framework column to: {CSV_PATH_OUT}")
-    print(f"📝 Detailed log (framework & POM path): {LOG_PATH}")
+    print(f" Wrote updated CSV with test_framework column to: {CSV_PATH_OUT}")
+    print(f" Detailed log (framework & POM path): {LOG_PATH}")
 
 if __name__ == "__main__":
     main()

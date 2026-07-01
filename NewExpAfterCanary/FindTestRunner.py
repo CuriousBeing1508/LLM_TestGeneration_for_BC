@@ -169,7 +169,7 @@ def main():
         writer.writeheader()
         writer.writerows(updated_rows)
 
-    print(f"✅ Wrote updated CSV with test_framework column to: {CSV_PATH_OUT}")
+    print(f" Wrote updated CSV with test_framework column to: {CSV_PATH_OUT}")
 
 if __name__ == "__main__":
     main()

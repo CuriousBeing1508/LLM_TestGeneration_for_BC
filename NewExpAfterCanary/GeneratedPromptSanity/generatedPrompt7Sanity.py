@@ -19,8 +19,7 @@ REPORT_FILE = SECONDARY_DRIVE / "SanityReport/Exp7_GenPrompt_report.txt"
 # Format: {folder_name: folder_path}
 OUTPUT_FOLDERS = {
     "GPT4o_Exp7": SECONDARY_DRIVE / "FilteredDataset/Exp7LLMOutput/GPT4o",
-    # "Claude_Exp6": SECONDARY_DRIVE / "FilteredDataset/Exp7LLMOutput/Claude",
-    # Add more output folders as needed
+    "Qwen_Exp6": SECONDARY_DRIVE / "FilteredDataset/Exp6LLMOutput/Qwen3_480b_cloud",
 }
 
 # Alternatively, auto-discover all output folders (uncomment to use)
