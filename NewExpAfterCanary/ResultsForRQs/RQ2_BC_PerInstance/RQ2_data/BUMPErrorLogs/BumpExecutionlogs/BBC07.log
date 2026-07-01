@@ -1,0 +1,89 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------< com.github.lookfirst:sardine >--------------------
+[INFO] Building Sardine WebDAV client 5.11-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ sardine ---
+[INFO] Deleting /sardine/target
+[INFO] 
+[INFO] --- enforcer:1.2:enforce (enforce-maven) @ sardine ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ sardine ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.3:compile (default-compile) @ sardine ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 125 source files to /sardine/target/classes
+[INFO] /sardine/src/main/java/com/github/sardine/util/SardineUtil.java: Some input files use or override a deprecated API.
+[INFO] /sardine/src/main/java/com/github/sardine/util/SardineUtil.java: Recompile with -Xlint:deprecation for details.
+[INFO] /sardine/src/main/java/com/github/sardine/impl/SardineImpl.java: /sardine/src/main/java/com/github/sardine/impl/SardineImpl.java uses unchecked or unsafe operations.
+[INFO] /sardine/src/main/java/com/github/sardine/impl/SardineImpl.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ sardine ---
+[INFO] skip non existing resourceDirectory /sardine/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.3:testCompile (default-testCompile) @ sardine ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 11 source files to /sardine/target/test-classes
+[INFO] /sardine/src/test/java/com/github/sardine/DavResourceTest.java: Some input files use or override a deprecated API.
+[INFO] /sardine/src/test/java/com/github/sardine/DavResourceTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- surefire:2.19:test (default-test) @ sardine ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.github.sardine.impl.io.ByteCountInputStreamTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.github.sardine.impl.io.ByteCountInputStreamTest
+Running com.github.sardine.impl.handler.MultiStatusResponseHandlerTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.652 sec - in com.github.sardine.impl.handler.MultiStatusResponseHandlerTest
+Running com.github.sardine.impl.SardineExceptionTest
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec <<< FAILURE! - in com.github.sardine.impl.SardineExceptionTest
+testMessage(com.github.sardine.impl.SardineExceptionTest)  Time elapsed: 0.008 sec  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[]m (400 response phra...> but was:<[status code: 400, reason phrase: ]m (400 response phra...>
+	at com.github.sardine.impl.SardineExceptionTest.testMessage(SardineExceptionTest.java:14)
+
+Running com.github.sardine.SardineUtilTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec - in com.github.sardine.SardineUtilTest
+Running com.github.sardine.ant.command.RecursiveGetTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in com.github.sardine.ant.command.RecursiveGetTest
+Running com.github.sardine.DavResourceTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.github.sardine.DavResourceTest
+
+Results :
+
+Failed tests: 
+  SardineExceptionTest.testMessage:14 expected:<[]m (400 response phra...> but was:<[status code: 400, reason phrase: ]m (400 response phra...>
+
+Tests run: 26, Failures: 1, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  7.652 s
+[INFO] Finished at: 2026-01-05T03:24:40Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 4 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.3
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:1.2
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.19
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19:test (default-test) on project sardine: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /sardine/target/surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested

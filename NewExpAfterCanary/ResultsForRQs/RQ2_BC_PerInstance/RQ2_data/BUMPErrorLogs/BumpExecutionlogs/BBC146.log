@@ -1,0 +1,1947 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< chat.tamtam:tamtam-bot-api >---------------------
+[INFO] Building TamTam Bot API Java Client 0.5.2-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ tamtam-bot-api ---
+[INFO] Deleting /tamtam-bot-api/target
+[INFO] 
+[INFO] --- jacoco:0.8.3:prepare-agent (prepare-agent) @ tamtam-bot-api ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.3/org.jacoco.agent-0.8.3-runtime.jar=destfile=/tamtam-bot-api/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.0.2:resources (default-resources) @ tamtam-bot-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /tamtam-bot-api/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ tamtam-bot-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 178 source files to /tamtam-bot-api/target/classes
+[INFO] 
+[INFO] --- resources:3.0.2:testResources (default-testResources) @ tamtam-bot-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 9 resources
+[INFO] 
+[INFO] --- compiler:3.8.0:testCompile (default-testCompile) @ tamtam-bot-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 102 source files to /tamtam-bot-api/target/test-classes
+[INFO] /tamtam-bot-api/src/test/java/chat/tamtam/botapi/model/ModelTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /tamtam-bot-api/src/test/java/chat/tamtam/botapi/model/ModelTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:3.0.0-M3:test (default-test) @ tamtam-bot-api ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running chat.tamtam.botapi.queries.RemoveMemberQueryTest
+2026-01-05 05:29:04 INFO  o.e.j.u.log:192 - Logging initialized @2590ms to org.eclipse.jetty.util.log.Slf4jLog
+2026-01-05 05:29:04 INFO  s.e.j.EmbeddedJettyServer:142 - == Spark has ignited ...
+2026-01-05 05:29:04 INFO  s.e.j.EmbeddedJettyServer:146 - >> Listening on 0.0.0.0:4567
+2026-01-05 05:29:04 INFO  o.e.j.s.Server:373 - jetty-9.4.8.v20171121, build timestamp: 2017-11-21T21:27:37Z, git hash: 82b8fb23f757335bb3329d540ce37a2a2615f0a8
+2026-01-05 05:29:05 INFO  o.e.j.s.session:364 - DefaultSessionIdManager workerName=node0
+2026-01-05 05:29:05 INFO  o.e.j.s.session:369 - No SessionScavenger set, using defaults
+2026-01-05 05:29:05 INFO  o.e.j.s.session:149 - Scavenging every 660000ms
+2026-01-05 05:29:05 INFO  o.e.j.s.AbstractConnector:288 - Started ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}
+2026-01-05 05:29:05 INFO  o.e.j.s.Server:410 - Started @2866ms
+2026-01-05 05:29:05 WARN  o.e.j.s.HttpChannel:568 - /chats/1/members
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518)
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1219)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsBytes(ObjectWriter.java:1109)
+	at chat.tamtam.botapi.client.impl.JacksonSerializer.serialize(JacksonSerializer.java:61)
+	at chat.tamtam.botapi.server.TamTamService.serialize(TamTamService.java:251)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.annotation.JsonKey
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	... 36 more
+2026-01-05 05:29:05 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/chats/1/members?access_token=dummyAccessToken&v=0.5.2&user_id=2&block=true, query body: null, responseBody: 
+[ERROR] Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.674 s <<< FAILURE! - in chat.tamtam.botapi.queries.RemoveMemberQueryTest
+[ERROR] removeMemberTest(chat.tamtam.botapi.queries.RemoveMemberQueryTest)  Time elapsed: 1.65 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+	at chat.tamtam.botapi.queries.RemoveMemberQueryTest.removeMemberTest(RemoveMemberQueryTest.java:37)
+
+[INFO] Running chat.tamtam.botapi.queries.GetMessageByIdQueryTest
+2026-01-05 05:29:05 WARN  o.e.j.s.HttpChannel:568 - /messages/mid1
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518)
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1219)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsBytes(ObjectWriter.java:1109)
+	at chat.tamtam.botapi.client.impl.JacksonSerializer.serialize(JacksonSerializer.java:61)
+	at chat.tamtam.botapi.server.TamTamService.serialize(TamTamService.java:251)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:05 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/messages/mid1?access_token=dummyAccessToken&v=0.5.2, query body: null, responseBody: 
+[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.017 s <<< FAILURE! - in chat.tamtam.botapi.queries.GetMessageByIdQueryTest
+[ERROR] getMessageByIdTest(chat.tamtam.botapi.queries.GetMessageByIdQueryTest)  Time elapsed: 0.017 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+	at chat.tamtam.botapi.queries.GetMessageByIdQueryTest.getMessageByIdTest(GetMessageByIdQueryTest.java:39)
+
+[INFO] Running chat.tamtam.botapi.queries.DeleteMessageQueryTest
+2026-01-05 05:29:05 WARN  o.e.j.s.HttpChannel:568 - /messages
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518)
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1219)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsBytes(ObjectWriter.java:1109)
+	at chat.tamtam.botapi.client.impl.JacksonSerializer.serialize(JacksonSerializer.java:61)
+	at chat.tamtam.botapi.server.TamTamService.serialize(TamTamService.java:251)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:05 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/messages?access_token=dummyAccessToken&v=0.5.2&message_id=mid.123, query body: null, responseBody: 
+[ERROR] Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in chat.tamtam.botapi.queries.DeleteMessageQueryTest
+[ERROR] shouldExecuteQuery(chat.tamtam.botapi.queries.DeleteMessageQueryTest)  Time elapsed: 0.009 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+	at chat.tamtam.botapi.queries.DeleteMessageQueryTest.shouldExecuteQuery(DeleteMessageQueryTest.java:45)
+
+[INFO] Running chat.tamtam.botapi.queries.AnswerOnCallbackQueryTest
+[ERROR] Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in chat.tamtam.botapi.queries.AnswerOnCallbackQueryTest
+[ERROR] answerOnCallbackTest(chat.tamtam.botapi.queries.AnswerOnCallbackQueryTest)  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at chat.tamtam.botapi.queries.AnswerOnCallbackQueryTest.answerOnCallbackTest(AnswerOnCallbackQueryTest.java:41)
+
+[INFO] Running chat.tamtam.botapi.queries.SendMessageQueryTest
+[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in chat.tamtam.botapi.queries.SendMessageQueryTest
+[ERROR] sendMessageTest(chat.tamtam.botapi.queries.SendMessageQueryTest)  Time elapsed: 0.013 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at chat.tamtam.botapi.queries.SendMessageQueryTest.sendMessageTest(SendMessageQueryTest.java:103)
+
+[INFO] Running chat.tamtam.botapi.queries.EditMyInfoQueryTest
+[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.011 s <<< FAILURE! - in chat.tamtam.botapi.queries.EditMyInfoQueryTest
+[ERROR] editMyInfoTest(chat.tamtam.botapi.queries.EditMyInfoQueryTest)  Time elapsed: 0.009 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at chat.tamtam.botapi.queries.EditMyInfoQueryTest.editMyInfoTest(EditMyInfoQueryTest.java:64)
+
+[INFO] Running chat.tamtam.botapi.queries.UnsubscribeQueryTest
+2026-01-05 05:29:05 WARN  o.e.j.s.HttpChannel:568 - /subscriptions
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518)
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1219)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsBytes(ObjectWriter.java:1109)
+	at chat.tamtam.botapi.client.impl.JacksonSerializer.serialize(JacksonSerializer.java:61)
+	at chat.tamtam.botapi.server.TamTamService.serialize(TamTamService.java:251)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:05 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/subscriptions?access_token=dummyAccessToken&v=0.5.2&url=https%3A%2F%2Furl.com, query body: null, responseBody: 
+[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.023 s <<< FAILURE! - in chat.tamtam.botapi.queries.UnsubscribeQueryTest
+[ERROR] unsubscribeTest(chat.tamtam.botapi.queries.UnsubscribeQueryTest)  Time elapsed: 0.021 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+	at chat.tamtam.botapi.queries.UnsubscribeQueryTest.unsubscribeTest(UnsubscribeQueryTest.java:36)
+
+[INFO] Running chat.tamtam.botapi.queries.GetChatByLinkQueryTest
+2026-01-05 05:29:05 WARN  o.e.j.s.HttpChannel:568 - /chats/helpchat
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518)
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1219)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsBytes(ObjectWriter.java:1109)
+	at chat.tamtam.botapi.client.impl.JacksonSerializer.serialize(JacksonSerializer.java:61)
+	at chat.tamtam.botapi.server.TamTamService.serialize(TamTamService.java:251)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:05 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/chats/helpchat?access_token=dummyAccessToken&v=0.5.2, query body: null, responseBody: 
+[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.014 s <<< FAILURE! - in chat.tamtam.botapi.queries.GetChatByLinkQueryTest
+[ERROR] getChatByLinkTest(chat.tamtam.botapi.queries.GetChatByLinkQueryTest)  Time elapsed: 0.014 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+	at chat.tamtam.botapi.queries.GetChatByLinkQueryTest.getChatByLinkTest(GetChatByLinkQueryTest.java:38)
+
+[INFO] Running chat.tamtam.botapi.queries.GetMembersQueryTest
+2026-01-05 05:29:05 WARN  o.e.j.s.HttpChannel:568 - /chats
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518)
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1219)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsBytes(ObjectWriter.java:1109)
+	at chat.tamtam.botapi.client.impl.JacksonSerializer.serialize(JacksonSerializer.java:61)
+	at chat.tamtam.botapi.server.TamTamService.serialize(TamTamService.java:251)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:05 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/chats?access_token=dummyAccessToken&v=0.5.2&count=1, query body: null, responseBody: 
+[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.012 s <<< FAILURE! - in chat.tamtam.botapi.queries.GetMembersQueryTest
+[ERROR] getMembersTest(chat.tamtam.botapi.queries.GetMembersQueryTest)  Time elapsed: 0.01 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+	at chat.tamtam.botapi.queries.GetMembersQueryTest.getMembersTest(GetMembersQueryTest.java:45)
+
+[INFO] Running chat.tamtam.botapi.queries.GetAdminsQueryTest
+2026-01-05 05:29:05 WARN  o.e.j.s.HttpChannel:568 - /chats/1/members/admins
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518)
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1219)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsBytes(ObjectWriter.java:1109)
+	at chat.tamtam.botapi.client.impl.JacksonSerializer.serialize(JacksonSerializer.java:61)
+	at chat.tamtam.botapi.server.TamTamService.serialize(TamTamService.java:251)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:05 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/chats/1/members/admins?access_token=dummyAccessToken&v=0.5.2, query body: null, responseBody: 
+[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.014 s <<< FAILURE! - in chat.tamtam.botapi.queries.GetAdminsQueryTest
+[ERROR] getAdminsTest(chat.tamtam.botapi.queries.GetAdminsQueryTest)  Time elapsed: 0.014 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+	at chat.tamtam.botapi.queries.GetAdminsQueryTest.getAdminsTest(GetAdminsQueryTest.java:39)
+
+[INFO] Running chat.tamtam.botapi.queries.GetPinnedMessageQueryTest
+2026-01-05 05:29:05 WARN  o.e.j.s.HttpChannel:568 - /chats/2/pin
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518)
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1219)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsBytes(ObjectWriter.java:1109)
+	at chat.tamtam.botapi.client.impl.JacksonSerializer.serialize(JacksonSerializer.java:61)
+	at chat.tamtam.botapi.server.TamTamService.serialize(TamTamService.java:251)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:05 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/chats/2/pin?access_token=dummyAccessToken&v=0.5.2, query body: null, responseBody: 
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.011 s <<< FAILURE! - in chat.tamtam.botapi.queries.GetPinnedMessageQueryTest
+[ERROR] getPinnedMessageTest(chat.tamtam.botapi.queries.GetPinnedMessageQueryTest)  Time elapsed: 0.011 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+	at chat.tamtam.botapi.queries.GetPinnedMessageQueryTest.getPinnedMessageTest(GetPinnedMessageQueryTest.java:38)
+
+[INFO] Running chat.tamtam.botapi.queries.GetUploadUrlQueryTest
+2026-01-05 05:29:05 WARN  o.e.j.s.HttpChannel:568 - /uploads
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518)
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1219)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsBytes(ObjectWriter.java:1109)
+	at chat.tamtam.botapi.client.impl.JacksonSerializer.serialize(JacksonSerializer.java:61)
+	at chat.tamtam.botapi.server.TamTamService.serialize(TamTamService.java:251)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:05 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/uploads?access_token=dummyAccessToken&v=0.5.2&type=file, query body: null, responseBody: 
+[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in chat.tamtam.botapi.queries.GetUploadUrlQueryTest
+[ERROR] getUploadUrlTest(chat.tamtam.botapi.queries.GetUploadUrlQueryTest)  Time elapsed: 0.013 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+	at chat.tamtam.botapi.queries.GetUploadUrlQueryTest.getUploadUrlTest(GetUploadUrlQueryTest.java:37)
+
+[INFO] Running chat.tamtam.botapi.queries.AddMembersQueryTest
+[ERROR] Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in chat.tamtam.botapi.queries.AddMembersQueryTest
+[ERROR] addMembersTest(chat.tamtam.botapi.queries.AddMembersQueryTest)  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at chat.tamtam.botapi.queries.AddMembersQueryTest.addMembersTest(AddMembersQueryTest.java:40)
+
+[INFO] Running chat.tamtam.botapi.queries.LeaveChatQueryTest
+2026-01-05 05:29:05 WARN  o.e.j.s.HttpChannel:568 - /chats/1/members/me
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518)
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1219)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsBytes(ObjectWriter.java:1109)
+	at chat.tamtam.botapi.client.impl.JacksonSerializer.serialize(JacksonSerializer.java:61)
+	at chat.tamtam.botapi.server.TamTamService.serialize(TamTamService.java:251)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:05 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/chats/1/members/me?access_token=dummyAccessToken&v=0.5.2, query body: null, responseBody: 
+[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in chat.tamtam.botapi.queries.LeaveChatQueryTest
+[ERROR] leaveChatTest(chat.tamtam.botapi.queries.LeaveChatQueryTest)  Time elapsed: 0.009 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+	at chat.tamtam.botapi.queries.LeaveChatQueryTest.leaveChatTest(LeaveChatQueryTest.java:36)
+
+[INFO] Running chat.tamtam.botapi.queries.GetMyInfoQueryTest
+2026-01-05 05:29:06 WARN  o.e.j.s.HttpChannel:568 - /me
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518)
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1219)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsBytes(ObjectWriter.java:1109)
+	at chat.tamtam.botapi.client.impl.JacksonSerializer.serialize(JacksonSerializer.java:61)
+	at chat.tamtam.botapi.server.TamTamService.serialize(TamTamService.java:251)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/me?access_token=dummyAccessToken&v=0.5.2, query body: null, responseBody: 
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.011 s <<< FAILURE! - in chat.tamtam.botapi.queries.GetMyInfoQueryTest
+[ERROR] getMyInfoTest(chat.tamtam.botapi.queries.GetMyInfoQueryTest)  Time elapsed: 0.011 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+	at chat.tamtam.botapi.queries.GetMyInfoQueryTest.getMyInfoTest(GetMyInfoQueryTest.java:37)
+
+[INFO] Running chat.tamtam.botapi.queries.GetMembershipQueryTest
+2026-01-05 05:29:06 WARN  o.e.j.s.HttpChannel:568 - /chats/10322/members/me
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518)
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1219)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsBytes(ObjectWriter.java:1109)
+	at chat.tamtam.botapi.client.impl.JacksonSerializer.serialize(JacksonSerializer.java:61)
+	at chat.tamtam.botapi.server.TamTamService.serialize(TamTamService.java:251)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/chats/10322/members/me?access_token=dummyAccessToken&v=0.5.2, query body: null, responseBody: 
+[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in chat.tamtam.botapi.queries.GetMembershipQueryTest
+[ERROR] getMembershipTest(chat.tamtam.botapi.queries.GetMembershipQueryTest)  Time elapsed: 0.008 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+	at chat.tamtam.botapi.queries.GetMembershipQueryTest.getMembershipTest(GetMembershipQueryTest.java:38)
+
+[INFO] Running chat.tamtam.botapi.queries.CollectionQueryParamTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.136 s - in chat.tamtam.botapi.queries.CollectionQueryParamTest
+[INFO] Running chat.tamtam.botapi.queries.ConstructQueryTest
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.001 s - in chat.tamtam.botapi.queries.ConstructQueryTest
+[INFO] Running chat.tamtam.botapi.queries.GetUpdatesQueryTest
+2026-01-05 05:29:06 WARN  o.e.j.s.HttpChannel:568 - /chats
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518)
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1219)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsBytes(ObjectWriter.java:1109)
+	at chat.tamtam.botapi.client.impl.JacksonSerializer.serialize(JacksonSerializer.java:61)
+	at chat.tamtam.botapi.server.TamTamService.serialize(TamTamService.java:251)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/chats?access_token=dummyAccessToken&v=0.5.2&count=2147483647, query body: null, responseBody: 
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in chat.tamtam.botapi.queries.GetUpdatesQueryTest
+[ERROR] getUpdatesTest(chat.tamtam.botapi.queries.GetUpdatesQueryTest)  Time elapsed: 0.009 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+	at chat.tamtam.botapi.queries.GetUpdatesQueryTest.getUpdatesTest(GetUpdatesQueryTest.java:93)
+
+[INFO] Running chat.tamtam.botapi.queries.PinMessageQueryTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in chat.tamtam.botapi.queries.PinMessageQueryTest
+[ERROR] pinMessageTest(chat.tamtam.botapi.queries.PinMessageQueryTest)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at chat.tamtam.botapi.queries.PinMessageQueryTest.pinMessageTest(PinMessageQueryTest.java:45)
+
+[INFO] Running chat.tamtam.botapi.queries.SendActionQueryTest
+[ERROR] Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in chat.tamtam.botapi.queries.SendActionQueryTest
+[ERROR] sendActionTest(chat.tamtam.botapi.queries.SendActionQueryTest)  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at chat.tamtam.botapi.queries.SendActionQueryTest.sendActionTest(SendActionQueryTest.java:39)
+
+[INFO] Running chat.tamtam.botapi.queries.UnpinMessageQueryTest
+2026-01-05 05:29:06 WARN  o.e.j.s.HttpChannel:568 - /chats/17/pin
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518)
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1219)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsBytes(ObjectWriter.java:1109)
+	at chat.tamtam.botapi.client.impl.JacksonSerializer.serialize(JacksonSerializer.java:61)
+	at chat.tamtam.botapi.server.TamTamService.serialize(TamTamService.java:251)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/chats/17/pin?access_token=dummyAccessToken&v=0.5.2, query body: null, responseBody: 
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in chat.tamtam.botapi.queries.UnpinMessageQueryTest
+[ERROR] unpinMessageTest(chat.tamtam.botapi.queries.UnpinMessageQueryTest)  Time elapsed: 0.007 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+	at chat.tamtam.botapi.queries.UnpinMessageQueryTest.unpinMessageTest(UnpinMessageQueryTest.java:42)
+
+[INFO] Running chat.tamtam.botapi.queries.SubscribeQueryTest
+[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in chat.tamtam.botapi.queries.SubscribeQueryTest
+[ERROR] subscribeTest(chat.tamtam.botapi.queries.SubscribeQueryTest)  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at chat.tamtam.botapi.queries.SubscribeQueryTest.subscribeTest(SubscribeQueryTest.java:40)
+
+[INFO] Running chat.tamtam.botapi.queries.GetChatQueryTest
+2026-01-05 05:29:06 WARN  o.e.j.s.HttpChannel:568 - /chats
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518)
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1219)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsBytes(ObjectWriter.java:1109)
+	at chat.tamtam.botapi.client.impl.JacksonSerializer.serialize(JacksonSerializer.java:61)
+	at chat.tamtam.botapi.server.TamTamService.serialize(TamTamService.java:251)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/chats?access_token=dummyAccessToken&v=0.5.2&count=2147483647, query body: null, responseBody: 
+[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in chat.tamtam.botapi.queries.GetChatQueryTest
+[ERROR] getChatTest(chat.tamtam.botapi.queries.GetChatQueryTest)  Time elapsed: 0.006 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+	at chat.tamtam.botapi.queries.GetChatQueryTest.getChatTest(GetChatQueryTest.java:36)
+
+[INFO] Running chat.tamtam.botapi.queries.GetSubscriptionsQueryTest
+2026-01-05 05:29:06 WARN  o.e.j.s.HttpChannel:568 - /subscriptions
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518)
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1219)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsBytes(ObjectWriter.java:1109)
+	at chat.tamtam.botapi.client.impl.JacksonSerializer.serialize(JacksonSerializer.java:61)
+	at chat.tamtam.botapi.server.TamTamService.serialize(TamTamService.java:251)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/subscriptions?access_token=dummyAccessToken&v=0.5.2, query body: null, responseBody: 
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in chat.tamtam.botapi.queries.GetSubscriptionsQueryTest
+[ERROR] getSubscriptionsTest(chat.tamtam.botapi.queries.GetSubscriptionsQueryTest)  Time elapsed: 0.002 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+	at chat.tamtam.botapi.queries.GetSubscriptionsQueryTest.getSubscriptionsTest(GetSubscriptionsQueryTest.java:35)
+
+[INFO] Running chat.tamtam.botapi.queries.EditChatQueryTest
+2026-01-05 05:29:06 WARN  o.e.j.s.HttpChannel:568 - /chats
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518)
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1219)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsBytes(ObjectWriter.java:1109)
+	at chat.tamtam.botapi.client.impl.JacksonSerializer.serialize(JacksonSerializer.java:61)
+	at chat.tamtam.botapi.server.TamTamService.serialize(TamTamService.java:251)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/chats?access_token=dummyAccessToken&v=0.5.2&count=2147483647, query body: null, responseBody: 
+[ERROR] Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in chat.tamtam.botapi.queries.EditChatQueryTest
+[ERROR] editChatTest(chat.tamtam.botapi.queries.EditChatQueryTest)  Time elapsed: 0.007 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+	at chat.tamtam.botapi.queries.EditChatQueryTest.editChatTest(EditChatQueryTest.java:42)
+
+[INFO] Running chat.tamtam.botapi.queries.GetMessagesQueryTest
+2026-01-05 05:29:06 WARN  o.e.j.s.HttpChannel:568 - /messages
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518)
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1219)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsBytes(ObjectWriter.java:1109)
+	at chat.tamtam.botapi.client.impl.JacksonSerializer.serialize(JacksonSerializer.java:61)
+	at chat.tamtam.botapi.server.TamTamService.serialize(TamTamService.java:251)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/messages?access_token=dummyAccessToken&v=0.5.2&chat_id=18&from=1144251613941878551&to=-7953391473677657633&count=-1371941065, query body: null, responseBody: 
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.012 s <<< FAILURE! - in chat.tamtam.botapi.queries.GetMessagesQueryTest
+[ERROR] getMessagesTest(chat.tamtam.botapi.queries.GetMessagesQueryTest)  Time elapsed: 0.011 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+	at chat.tamtam.botapi.queries.GetMessagesQueryTest.getMessagesTest(GetMessagesQueryTest.java:82)
+
+[INFO] Running chat.tamtam.botapi.queries.TamTamQueryTest
+2026-01-05 05:29:06 WARN  o.e.j.s.HttpChannel:568 - /cannotsend
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectMapper._writeValueAndClose(ObjectMapper.java:4568)
+	at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsString(ObjectMapper.java:3821)
+	at chat.tamtam.botapi.queries.TamTamQueryTest.lambda$before$7(TamTamQueryTest.java:100)
+	at spark.RouteImpl$1.handle(RouteImpl.java:72)
+	at spark.http.matching.Routes.execute(Routes.java:61)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/cannotsend?access_token=dummyAccessToken&v=0.5.2, query body: null, responseBody: 
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/internalerror?access_token=dummyAccessToken&v=0.5.2, query body: null, responseBody: not json body
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/emptybody?access_token=dummyAccessToken&v=0.5.2, query body: null, responseBody: 
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:196 - Error 503 while executing query, query url: http://localhost:4567/serviceunavailable?access_token=dummyAccessToken&v=0.5.2, query body: null, responseBody: 
+2026-01-05 05:29:06 WARN  o.e.j.s.HttpChannel:568 - /accessdenied
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectMapper._writeValueAndClose(ObjectMapper.java:4568)
+	at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsString(ObjectMapper.java:3821)
+	at chat.tamtam.botapi.queries.TamTamQueryTest.lambda$before$6(TamTamQueryTest.java:99)
+	at spark.RouteImpl$1.handle(RouteImpl.java:72)
+	at spark.http.matching.Routes.execute(Routes.java:61)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/accessdenied?access_token=dummyAccessToken&v=0.5.2, query body: null, responseBody: 
+2026-01-05 05:29:06 WARN  o.e.j.s.HttpChannel:568 - /toomanyrequests
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectMapper._writeValueAndClose(ObjectMapper.java:4568)
+	at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsString(ObjectMapper.java:3821)
+	at chat.tamtam.botapi.queries.TamTamQueryTest.lambda$before$4(TamTamQueryTest.java:97)
+	at spark.RouteImpl$1.handle(RouteImpl.java:72)
+	at spark.http.matching.Routes.execute(Routes.java:61)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/toomanyrequests?access_token=dummyAccessToken&v=0.5.2, query body: null, responseBody: 
+2026-01-05 05:29:06 WARN  o.e.j.s.HttpChannel:568 - /attachnotready
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectMapper._writeValueAndClose(ObjectMapper.java:4568)
+	at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsString(ObjectMapper.java:3821)
+	at chat.tamtam.botapi.queries.TamTamQueryTest.lambda$before$5(TamTamQueryTest.java:98)
+	at spark.RouteImpl$1.handle(RouteImpl.java:72)
+	at spark.http.matching.Routes.execute(Routes.java:61)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/attachnotready?access_token=dummyAccessToken&v=0.5.2, query body: null, responseBody: 
+2026-01-05 05:29:06 WARN  o.e.j.s.HttpChannel:568 - /errorbody
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectMapper._writeValueAndClose(ObjectMapper.java:4568)
+	at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsString(ObjectMapper.java:3821)
+	at chat.tamtam.botapi.queries.TamTamQueryTest.lambda$before$3(TamTamQueryTest.java:96)
+	at spark.RouteImpl$1.handle(RouteImpl.java:72)
+	at spark.http.matching.Routes.execute(Routes.java:61)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/errorbody?access_token=dummyAccessToken&v=0.5.2, query body: null, responseBody: 
+[ERROR] Tests run: 17, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.273 s <<< FAILURE! - in chat.tamtam.botapi.queries.TamTamQueryTest
+[ERROR] shouldThrowSMFException(chat.tamtam.botapi.queries.TamTamQueryTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.Exception: Unexpected exception, expected<chat.tamtam.botapi.exceptions.SendMessageForbiddenException> but was<chat.tamtam.botapi.exceptions.APIException>
+	at chat.tamtam.botapi.queries.TamTamQueryTest.shouldThrowSMFException(TamTamQueryTest.java:155)
+
+[ERROR] testAsync(chat.tamtam.botapi.queries.TamTamQueryTest)  Time elapsed: 0.141 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at chat.tamtam.botapi.queries.TamTamQueryTest.testAsync(TamTamQueryTest.java:167)
+
+[ERROR] shouldThrowAccessDeniedException(chat.tamtam.botapi.queries.TamTamQueryTest)  Time elapsed: 0.006 s  <<< ERROR!
+java.lang.Exception: Unexpected exception, expected<chat.tamtam.botapi.exceptions.ChatAccessForbiddenException> but was<chat.tamtam.botapi.exceptions.APIException>
+	at chat.tamtam.botapi.queries.TamTamQueryTest.shouldThrowAccessDeniedException(TamTamQueryTest.java:148)
+
+[ERROR] shouldThrowTMRException(chat.tamtam.botapi.queries.TamTamQueryTest)  Time elapsed: 0.006 s  <<< ERROR!
+java.lang.Exception: Unexpected exception, expected<chat.tamtam.botapi.exceptions.TooManyRequestsException> but was<chat.tamtam.botapi.exceptions.APIException>
+	at chat.tamtam.botapi.queries.TamTamQueryTest.shouldThrowTMRException(TamTamQueryTest.java:134)
+
+[ERROR] shouldThrowANRException(chat.tamtam.botapi.queries.TamTamQueryTest)  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.Exception: Unexpected exception, expected<chat.tamtam.botapi.exceptions.AttachmentNotReadyException> but was<chat.tamtam.botapi.exceptions.APIException>
+	at chat.tamtam.botapi.queries.TamTamQueryTest.shouldThrowANRException(TamTamQueryTest.java:141)
+
+[INFO] Running chat.tamtam.botapi.queries.EditMessageQueryTest
+[ERROR] Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in chat.tamtam.botapi.queries.EditMessageQueryTest
+[ERROR] editMessageTest(chat.tamtam.botapi.queries.EditMessageQueryTest)  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at chat.tamtam.botapi.queries.EditMessageQueryTest.editMessageTest(EditMessageQueryTest.java:45)
+
+[INFO] Running chat.tamtam.botapi.queries.GetChatsQueryTest
+2026-01-05 05:29:06 WARN  o.e.j.s.HttpChannel:568 - /chats
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518)
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1219)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsBytes(ObjectWriter.java:1109)
+	at chat.tamtam.botapi.client.impl.JacksonSerializer.serialize(JacksonSerializer.java:61)
+	at chat.tamtam.botapi.server.TamTamService.serialize(TamTamService.java:251)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/chats?access_token=dummyAccessToken&v=0.5.2&count=3, query body: null, responseBody: 
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in chat.tamtam.botapi.queries.GetChatsQueryTest
+[ERROR] getChatsTest(chat.tamtam.botapi.queries.GetChatsQueryTest)  Time elapsed: 0.004 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+	at chat.tamtam.botapi.queries.GetChatsQueryTest.getChatsTest(GetChatsQueryTest.java:36)
+
+[INFO] Running chat.tamtam.botapi.TamTamBotAPITest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in chat.tamtam.botapi.TamTamBotAPITest
+[INFO] Running chat.tamtam.botapi.client.impl.OkHttpTransportClientTest
+2026-01-05 05:29:06 DEBUG c.t.b.c.i.OkHttpTransportClient:255 - Executing request: Request{method=GET, url=http://localhost:4567/shouldThrowExceptionWhenResponseBodyIsInvalid?access_token=dummyAccessToken, tags={}}
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:133 - Queued change org.eclipse.jetty.io.ManagedSelector$Accept@2f91f28e on org.eclipse.jetty.io.ManagedSelector@4dcaebd4 id=1 keys=1 selected=0 actions=0
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:377 - Selector sun.nio.ch.EPollSelectorImpl@66111603 woken up from select, 0/1 selected
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:390 - Selector sun.nio.ch.EPollSelectorImpl@66111603 processing 0 keys, 1 actions
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:358 - action=org.eclipse.jetty.io.ManagedSelector$Accept@2f91f28e wakeup=false
+2026-01-05 05:29:06 DEBUG o.e.j.u.t.s.EatWhatYouKill:187 - EatWhatYouKill@7e14163f/SelectorProducer@d8eccc5/PRODUCING/ReservedThreadExecutor@1ce267b5{s=3/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567} t=org.eclipse.jetty.io.ManagedSelector$Accept@2f91f28e/NON_BLOCKING
+2026-01-05 05:29:06 DEBUG o.e.j.u.t.s.EatWhatYouKill:214 - EatWhatYouKill@7e14163f/SelectorProducer@d8eccc5/PRODUCING/ReservedThreadExecutor@1ce267b5{s=3/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567} PC t=org.eclipse.jetty.io.ManagedSelector$Accept@2f91f28e
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:133 - Queued change org.eclipse.jetty.io.ManagedSelector$CreateEndPoint@14c7ef2a on org.eclipse.jetty.io.ManagedSelector@4dcaebd4 id=1 keys=2 selected=0 actions=0
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:335 - Forcing selection, actions=1
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:358 - action=null wakeup=true
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:374 - Selector sun.nio.ch.EPollSelectorImpl@66111603 waiting on select
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:377 - Selector sun.nio.ch.EPollSelectorImpl@66111603 woken up from select, 0/2 selected
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:390 - Selector sun.nio.ch.EPollSelectorImpl@66111603 processing 0 keys, 1 actions
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:358 - action=org.eclipse.jetty.io.ManagedSelector$CreateEndPoint@14c7ef2a wakeup=false
+2026-01-05 05:29:06 DEBUG o.e.j.u.t.s.EatWhatYouKill:187 - EatWhatYouKill@7e14163f/SelectorProducer@d8eccc5/PRODUCING/ReservedThreadExecutor@1ce267b5{s=3/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567} t=org.eclipse.jetty.io.ManagedSelector$CreateEndPoint@14c7ef2a/BLOCKING
+2026-01-05 05:29:06 DEBUG o.e.j.u.t.ReservedThreadExecutor:206 - ReservedThreadExecutor@1ce267b5{s=3/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567} tryExecute EatWhatYouKill@7e14163f/SelectorProducer@d8eccc5/PRODUCING/ReservedThreadExecutor@1ce267b5{s=3/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}
+2026-01-05 05:29:06 DEBUG o.e.j.u.t.ReservedThreadExecutor:275 - ReservedThreadExecutor@1ce267b5{s=2/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}@6f54e193 offer EatWhatYouKill@7e14163f/SelectorProducer@d8eccc5/PRODUCING/ReservedThreadExecutor@1ce267b5{s=2/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}
+2026-01-05 05:29:06 DEBUG o.e.j.u.t.s.EatWhatYouKill:240 - EatWhatYouKill@7e14163f/SelectorProducer@d8eccc5/IDLE/ReservedThreadExecutor@1ce267b5{s=2/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567} EPC t=org.eclipse.jetty.io.ManagedSelector$CreateEndPoint@14c7ef2a
+2026-01-05 05:29:06 DEBUG o.e.j.i.IdleTimeout:156 - SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=-,flush=-,to=0/3600000}{io=0/0,kio=0,kro=0}-><null> idle timeout check, elapsed: 0 ms, remaining: 3600000 ms
+2026-01-05 05:29:06 DEBUG o.e.j.u.t.ReservedThreadExecutor:333 - ReservedThreadExecutor@1ce267b5{s=2/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}@6f54e193 task=EatWhatYouKill@7e14163f/SelectorProducer@d8eccc5/IDLE/ReservedThreadExecutor@1ce267b5{s=2/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}
+2026-01-05 05:29:06 DEBUG o.e.j.u.t.s.EatWhatYouKill:130 - EatWhatYouKill@7e14163f/SelectorProducer@d8eccc5/IDLE/ReservedThreadExecutor@1ce267b5{s=2/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567} run
+2026-01-05 05:29:06 DEBUG o.e.j.s.HttpChannel:114 - new HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null} -> SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=-,flush=-,to=6/3600000}{io=0/0,kio=0,kro=0}-><null>,null,HttpChannelState@5baac1a{s=IDLE a=NOT_ASYNC i=true r=IDLE w=false}
+2026-01-05 05:29:06 DEBUG o.e.j.u.t.s.EatWhatYouKill:138 - EatWhatYouKill@7e14163f/SelectorProducer@d8eccc5/IDLE/ReservedThreadExecutor@1ce267b5{s=2/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567} produce
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:335 - Forcing selection, actions=0
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:358 - action=null wakeup=false
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:374 - Selector sun.nio.ch.EPollSelectorImpl@66111603 waiting on select
+2026-01-05 05:29:06 DEBUG o.e.j.s.HttpConnection:110 - New HTTP Connection HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}<-SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=-,flush=-,to=9/3600000}{io=0/0,kio=0,kro=0}-><null>
+2026-01-05 05:29:06 DEBUG o.e.j.i.AbstractEndPoint:336 - onOpen SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=-,flush=-,to=9/3600000}{io=0/0,kio=0,kro=0}->HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}
+2026-01-05 05:29:06 DEBUG o.e.j.i.AbstractConnection:197 - onOpen HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}<-SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=-,flush=-,to=10/3600000}{io=0/0,kio=0,kro=0}->HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}
+2026-01-05 05:29:06 DEBUG o.e.j.i.AbstractConnection:133 - fillInterested HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}<-SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=-,flush=-,to=11/3600000}{io=0/0,kio=0,kro=0}->HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}
+2026-01-05 05:29:06 DEBUG o.e.j.i.FillInterest:79 - interested FillInterest@593780e6{AC.ReadCB@4d2a9d47{HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}<-SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=FI,flush=-,to=7/3600000}{io=0/0,kio=0,kro=0}->HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}}}
+2026-01-05 05:29:06 DEBUG o.e.j.i.ChannelEndPoint:426 - changeInterests p=false 0->1 for SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=FI,flush=-,to=7/3600000}{io=0/1,kio=0,kro=0}->HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:133 - Queued change CEP:SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=FI,flush=-,to=8/3600000}{io=0/1,kio=0,kro=0}->HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}:runUpdateKey:NON_BLOCKING on org.eclipse.jetty.io.ManagedSelector@4dcaebd4 id=1 keys=2 selected=0 actions=0
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:377 - Selector sun.nio.ch.EPollSelectorImpl@66111603 woken up from select, 0/2 selected
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:390 - Selector sun.nio.ch.EPollSelectorImpl@66111603 processing 0 keys, 1 actions
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:215 - Created SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=FI,flush=-,to=8/3600000}{io=0/1,kio=0,kro=0}->HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:358 - action=CEP:SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=FI,flush=-,to=8/3600000}{io=0/1,kio=0,kro=0}->HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}:runUpdateKey:NON_BLOCKING wakeup=false
+2026-01-05 05:29:06 DEBUG o.e.j.u.t.ReservedThreadExecutor:292 - ReservedThreadExecutor@1ce267b5{s=3/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}@9bd2da6 waiting
+2026-01-05 05:29:06 DEBUG o.e.j.u.t.s.EatWhatYouKill:187 - EatWhatYouKill@7e14163f/SelectorProducer@d8eccc5/PRODUCING/ReservedThreadExecutor@1ce267b5{s=3/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567} t=CEP:SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=FI,flush=-,to=10/3600000}{io=0/1,kio=0,kro=0}->HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}:runUpdateKey:NON_BLOCKING/NON_BLOCKING
+2026-01-05 05:29:06 DEBUG o.e.j.u.t.s.EatWhatYouKill:214 - EatWhatYouKill@7e14163f/SelectorProducer@d8eccc5/PRODUCING/ReservedThreadExecutor@1ce267b5{s=3/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567} PC t=CEP:SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=FI,flush=-,to=10/3600000}{io=0/1,kio=0,kro=0}->HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}:runUpdateKey:NON_BLOCKING
+2026-01-05 05:29:06 DEBUG o.e.j.i.ChannelEndPoint:392 - Key interests updated 0 -> 1 on SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=FI,flush=-,to=10/3600000}{io=1/1,kio=1,kro=0}->HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:335 - Forcing selection, actions=0
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:358 - action=null wakeup=false
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:374 - Selector sun.nio.ch.EPollSelectorImpl@66111603 waiting on select
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:377 - Selector sun.nio.ch.EPollSelectorImpl@66111603 woken up from select, 1/2 selected
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:390 - Selector sun.nio.ch.EPollSelectorImpl@66111603 processing 1 keys, 0 actions
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:415 - selected channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:4567 remote=/127.0.0.1:40238], selector=sun.nio.ch.EPollSelectorImpl@66111603, interestOps=1, readyOps=1 SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=FI,flush=-,to=14/3600000}{io=1/1,kio=1,kro=1}->HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null} 
+2026-01-05 05:29:06 DEBUG o.e.j.i.ChannelEndPoint:352 - onSelected 1->0 r=true w=false for SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=FI,flush=-,to=15/3600000}{io=1/0,kio=1,kro=1}->HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}
+2026-01-05 05:29:06 DEBUG o.e.j.i.ChannelEndPoint:364 - task CEP:SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=FI,flush=-,to=15/3600000}{io=1/0,kio=1,kro=1}->HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}:runFillable:BLOCKING
+2026-01-05 05:29:06 DEBUG o.e.j.u.t.s.EatWhatYouKill:187 - EatWhatYouKill@7e14163f/SelectorProducer@d8eccc5/PRODUCING/ReservedThreadExecutor@1ce267b5{s=3/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567} t=CEP:SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=FI,flush=-,to=16/3600000}{io=1/0,kio=1,kro=1}->HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}:runFillable:BLOCKING/BLOCKING
+2026-01-05 05:29:06 DEBUG o.e.j.u.t.ReservedThreadExecutor:206 - ReservedThreadExecutor@1ce267b5{s=3/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567} tryExecute EatWhatYouKill@7e14163f/SelectorProducer@d8eccc5/PRODUCING/ReservedThreadExecutor@1ce267b5{s=3/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}
+2026-01-05 05:29:06 DEBUG o.e.j.u.t.ReservedThreadExecutor:275 - ReservedThreadExecutor@1ce267b5{s=2/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}@9bd2da6 offer EatWhatYouKill@7e14163f/SelectorProducer@d8eccc5/PRODUCING/ReservedThreadExecutor@1ce267b5{s=2/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}
+2026-01-05 05:29:06 DEBUG o.e.j.u.t.s.EatWhatYouKill:240 - EatWhatYouKill@7e14163f/SelectorProducer@d8eccc5/IDLE/ReservedThreadExecutor@1ce267b5{s=2/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567} EPC t=CEP:SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=FI,flush=-,to=16/3600000}{io=1/0,kio=1,kro=1}->HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}:runFillable:BLOCKING
+2026-01-05 05:29:06 DEBUG o.e.j.u.t.ReservedThreadExecutor:333 - ReservedThreadExecutor@1ce267b5{s=2/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}@9bd2da6 task=EatWhatYouKill@7e14163f/SelectorProducer@d8eccc5/IDLE/ReservedThreadExecutor@1ce267b5{s=2/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}
+2026-01-05 05:29:06 DEBUG o.e.j.i.FillInterest:99 - fillable FillInterest@593780e6{AC.ReadCB@4d2a9d47{HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}<-SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=FI,flush=-,to=16/3600000}{io=1/0,kio=1,kro=1}->HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}}}
+2026-01-05 05:29:06 DEBUG o.e.j.u.t.s.EatWhatYouKill:130 - EatWhatYouKill@7e14163f/SelectorProducer@d8eccc5/IDLE/ReservedThreadExecutor@1ce267b5{s=2/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567} run
+2026-01-05 05:29:06 DEBUG o.e.j.s.HttpConnection:226 - HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}<-SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=-,flush=-,to=18/3600000}{io=1/0,kio=1,kro=1}->HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null} onFillable enter HttpChannelState@5baac1a{s=IDLE a=NOT_ASYNC i=true r=IDLE w=false} null
+2026-01-05 05:29:06 DEBUG o.e.j.u.t.s.EatWhatYouKill:138 - EatWhatYouKill@7e14163f/SelectorProducer@d8eccc5/IDLE/ReservedThreadExecutor@1ce267b5{s=2/8,p=0}@SelectorManager@ServerConnector@4b06ff92{HTTP/1.1,[http/1.1]}{0.0.0.0:4567} produce
+2026-01-05 05:29:06 DEBUG o.e.j.i.ChannelEndPoint:242 - filled 200 SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=-,flush=-,to=23/3600000}{io=1/0,kio=1,kro=1}->HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:358 - action=null wakeup=false
+2026-01-05 05:29:06 DEBUG o.e.j.i.ChannelEndPoint:392 - Key interests updated 1 -> 0 on SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=-,flush=-,to=1/3600000}{io=0/0,kio=0,kro=1}->HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}
+2026-01-05 05:29:06 DEBUG o.e.j.s.HttpConnection:336 - HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}<-SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=-,flush=-,to=1/3600000}{io=0/0,kio=0,kro=1}->HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null} filled 200 HeapByteBuffer@325505b4[p=0,l=200,c=8192,r=200]={<<<GET /shouldThrowE...oding: gzip\r\n\r\n>>>Connection: Keep-...\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00}
+2026-01-05 05:29:06 DEBUG o.e.j.i.ManagedSelector:374 - Selector sun.nio.ch.EPollSelectorImpl@66111603 waiting on select
+2026-01-05 05:29:06 DEBUG o.e.j.s.HttpConnection:354 - HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null}<-SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=-,flush=-,to=2/3600000}{io=0/0,kio=0,kro=1}->HttpConnection@4d2a9d47[p=HttpParser{s=START,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=0,c=false,a=IDLE,uri=null} parse HeapByteBuffer@325505b4[p=0,l=200,c=8192,r=200]={<<<GET /shouldThrowE...oding: gzip\r\n\r\n>>>Connection: Keep-...\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00} {}
+2026-01-05 05:29:06 DEBUG o.e.j.h.HttpParser:1342 - parseNext s=START HeapByteBuffer@325505b4[p=0,l=200,c=8192,r=200]={<<<GET /shouldThrowE...oding: gzip\r\n\r\n>>>Connection: Keep-...\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00}
+2026-01-05 05:29:06 DEBUG o.e.j.h.HttpParser:1685 - START --> SPACE1
+2026-01-05 05:29:06 DEBUG o.e.j.h.HttpParser:1685 - SPACE1 --> URI
+2026-01-05 05:29:06 DEBUG o.e.j.h.HttpParser:1685 - URI --> SPACE2
+2026-01-05 05:29:06 DEBUG o.e.j.h.HttpParser:1685 - SPACE2 --> REQUEST_VERSION
+2026-01-05 05:29:06 DEBUG o.e.j.h.HttpParser:1685 - REQUEST_VERSION --> HEADER
+2026-01-05 05:29:06 DEBUG o.e.j.h.HttpParser:1693 - HEADER:null --> VALUE
+2026-01-05 05:29:06 DEBUG o.e.j.h.HttpParser:1693 - HEADER:null --> IN_VALUE
+2026-01-05 05:29:06 DEBUG o.e.j.h.HttpParser:1693 - HEADER:null --> FIELD
+2026-01-05 05:29:06 DEBUG o.e.j.h.HttpParser:1693 - HEADER:null --> VALUE
+2026-01-05 05:29:06 DEBUG o.e.j.h.HttpParser:1693 - HEADER:null --> IN_VALUE
+2026-01-05 05:29:06 DEBUG o.e.j.h.HttpParser:1693 - HEADER:null --> FIELD
+2026-01-05 05:29:06 DEBUG o.e.j.h.HttpParser:1693 - HEADER:Connection: keep-alive --> IN_VALUE
+2026-01-05 05:29:06 DEBUG o.e.j.h.HttpParser:1693 - HEADER:Connection: keep-alive --> FIELD
+2026-01-05 05:29:06 DEBUG o.e.j.h.HttpParser:1693 - HEADER:Accept-Encoding: gzip --> IN_VALUE
+2026-01-05 05:29:06 DEBUG o.e.j.h.HttpParser:1693 - HEADER:Accept-Encoding: gzip --> FIELD
+2026-01-05 05:29:06 DEBUG o.e.j.h.HttpParser:1685 - HEADER --> END
+2026-01-05 05:29:06 DEBUG o.e.j.s.HttpChannel:643 - REQUEST for //localhost:4567/shouldThrowExceptionWhenResponseBodyIsInvalid?access_token=dummyAccessToken on HttpChannelOverHttp@2e2fb84a{r=1,c=false,a=IDLE,uri=//localhost:4567/shouldThrowExceptionWhenResponseBodyIsInvalid?access_token=dummyAccessToken}
+GET //localhost:4567/shouldThrowExceptionWhenResponseBodyIsInvalid?access_token=dummyAccessToken HTTP/1.1
+User-Agent: TamTam Java Client/0.0.1
+Host: localhost:4567
+Connection: keep-alive
+Accept-Encoding: gzip
+
+
+2026-01-05 05:29:06 DEBUG o.e.j.s.HttpChannel:659 - HttpChannelOverHttp@2e2fb84a{r=1,c=false,a=IDLE,uri=//localhost:4567/shouldThrowExceptionWhenResponseBodyIsInvalid?access_token=dummyAccessToken} onContentComplete
+2026-01-05 05:29:06 DEBUG o.e.j.s.HttpChannel:675 - HttpChannelOverHttp@2e2fb84a{r=1,c=false,a=IDLE,uri=//localhost:4567/shouldThrowExceptionWhenResponseBodyIsInvalid?access_token=dummyAccessToken} onRequestComplete
+2026-01-05 05:29:06 DEBUG o.e.j.s.HttpInput:607 - HttpInputOverHTTP@1303ca5e[c=0,q=0,[0]=null,s=STREAM] addContent EOF
+2026-01-05 05:29:06 DEBUG o.e.j.s.HttpConnection:359 - HttpConnection@4d2a9d47[p=HttpParser{s=END,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=1,c=false,a=IDLE,uri=//localhost:4567/shouldThrowExceptionWhenResponseBodyIsInvalid?access_token=dummyAccessToken}<-SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=-,flush=-,to=9/3600000}{io=0/0,kio=0,kro=1}->HttpConnection@4d2a9d47[p=HttpParser{s=END,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=1,c=false,a=IDLE,uri=//localhost:4567/shouldThrowExceptionWhenResponseBodyIsInvalid?access_token=dummyAccessToken} parsed true HttpParser{s=END,0 of -1}
+2026-01-05 05:29:06 DEBUG o.e.j.s.HttpConnection:203 - releaseRequestBuffer HttpConnection@4d2a9d47[p=HttpParser{s=END,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=1,c=false,a=IDLE,uri=//localhost:4567/shouldThrowExceptionWhenResponseBodyIsInvalid?access_token=dummyAccessToken}<-SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=-,flush=-,to=11/3600000}{io=0/0,kio=0,kro=1}->HttpConnection@4d2a9d47[p=HttpParser{s=END,0 of -1},g=HttpGenerator@a099405{s=START}]=>HttpChannelOverHttp@2e2fb84a{r=1,c=false,a=IDLE,uri=//localhost:4567/shouldThrowExceptionWhenResponseBodyIsInvalid?access_token=dummyAccessToken}
+2026-01-05 05:29:06 DEBUG o.e.j.s.HttpChannel:302 - HttpChannelOverHttp@2e2fb84a{r=1,c=false,a=IDLE,uri=//localhost:4567/shouldThrowExceptionWhenResponseBodyIsInvalid?access_token=dummyAccessToken} handle //localhost:4567/shouldThrowExceptionWhenResponseBodyIsInvalid?access_token=dummyAccessToken 
+2026-01-05 05:29:06 DEBUG o.e.j.s.HttpChannelState:217 - handling HttpChannelState@5baac1a{s=IDLE a=NOT_ASYNC i=true r=IDLE w=false}
+2026-01-05 05:29:06 DEBUG o.e.j.s.HttpChannel:315 - HttpChannelOverHttp@2e2fb84a{r=1,c=false,a=DISPATCHED,uri=//localhost:4567/shouldThrowExceptionWhenResponseBodyIsInvalid?access_token=dummyAccessToken} action DISPATCH
+2026-01-05 05:29:06 DEBUG o.e.j.s.Server:519 - REQUEST GET /shouldThrowExceptionWhenResponseBodyIsInvalid on HttpChannelOverHttp@2e2fb84a{r=1,c=false,a=DISPATCHED,uri=//localhost:4567/shouldThrowExceptionWhenResponseBodyIsInvalid?access_token=dummyAccessToken}
+2026-01-05 05:29:06 DEBUG o.e.j.s.session:1559 - sessionHandler=spark.embeddedserver.jetty.JettyHandler1173680135==dftMaxIdleSec=-1
+2026-01-05 05:29:06 DEBUG o.e.j.s.session:1560 - session=null
+2026-01-05 05:29:06 DEBUG o.e.j.s.HttpChannel:757 - sendResponse info=null content=DirectByteBuffer@559cdc59[p=0,l=8,c=32768,r=8]={<<<response>>> body\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00...\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00} complete=false committing=true callback=Blocker@4ffe1bfb{null}
+2026-01-05 05:29:06 DEBUG o.e.j.s.HttpChannel:813 - COMMIT for /shouldThrowExceptionWhenResponseBodyIsInvalid on HttpChannelOverHttp@2e2fb84a{r=1,c=true,a=DISPATCHED,uri=//localhost:4567/shouldThrowExceptionWhenResponseBodyIsInvalid?access_token=dummyAccessToken}
+200 null HTTP/1.1
+Date: Mon, 05 Jan 2026 05:29:06 GMT
+Content-Length: 9223372036854775807
+Content-Type: text/html;charset=utf-8
+
+
+2026-01-05 05:29:06 DEBUG o.e.j.s.HttpConnection:721 - org.eclipse.jetty.server.HttpConnection$SendCallback@42226960[PROCESSING][i=HTTP/1.1{s=200,h=3,cl=9223372036854775807},cb=org.eclipse.jetty.server.HttpChannel$CommitCallback@2034ddeb] generate: NEED_HEADER (null,[p=0,l=8,c=32768,r=8],false)@START
+2026-01-05 05:29:06 DEBUG o.e.j.h.HttpGenerator:638 - generateHeaders HTTP/1.1{s=200,h=3,cl=9223372036854775807} last=false content=DirectByteBuffer@559cdc59[p=0,l=8,c=32768,r=8]={<<<response>>> body\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00...\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00}
+2026-01-05 05:29:06 DEBUG o.e.j.h.HttpGenerator:639 - Date: Mon, 05 Jan 2026 05:29:06 GMT
+Content-Length: 9223372036854775807
+Content-Type: text/html;charset=utf-8
+
+
+2026-01-05 05:29:06 DEBUG o.e.j.h.HttpGenerator:807 - CONTENT_LENGTH
+2026-01-05 05:29:06 DEBUG o.e.j.s.HttpConnection:721 - org.eclipse.jetty.server.HttpConnection$SendCallback@42226960[PROCESSING][i=HTTP/1.1{s=200,h=3,cl=9223372036854775807},cb=org.eclipse.jetty.server.HttpChannel$CommitCallback@2034ddeb] generate: FLUSH ([p=0,l=164,c=8192,r=164],[p=0,l=8,c=32768,r=8],false)@COMMITTED
+2026-01-05 05:29:06 DEBUG o.e.j.i.ChannelEndPoint:288 - flushed 172 SocketChannelEndPoint@6004fc03{/127.0.0.1:40238<->/127.0.0.1:4567,OPEN,fill=-,flush=W,to=17/3600000}{io=0/0,kio=0,kro=1}->HttpConnection@4d2a9d47[p=HttpParser{s=END,0 of -1},g=HttpGenerator@a099405{s=COMMITTED}]=>HttpChannelOverHttp@2e2fb84a{r=1,c=true,a=DISPATCHED,uri=//localhost:4567/shouldThrowExceptionWhenResponseBodyIsInvalid?access_token=dummyAccessToken}
+2026-01-05 05:29:06 DEBUG o.e.j.i.WriteFlusher:433 - Flushed=true 164/164+1 WriteFlusher@1379b3a0{WRITING}->null
+2026-01-05 05:29:06 DEBUG o.e.j.s.HttpConnection:721 - org.eclipse.jetty.server.HttpConnection$SendCallback@42226960[PROCESSING][i=HTTP/1.1{s=200,h=3,cl=9223372036854775807},cb=org.eclipse.jetty.server.HttpChannel$CommitCallback@2034ddeb] generate: DONE ([p=164,l=164,c=8192,r=0],[p=8,l=8,c=32768,r=0],false)@COMMITTED
+2026-01-05 05:29:06 DEBUG o.e.j.s.HttpChannel:757 - sendResponse info=null content=HeapByteBuffer@2c6753f7[p=0,l=0,c=0,r=0]={<<<>>>} complete=true committing=false callback=Blocker@4ffe1bfb{null}
+2026-01-05 05:29:06 DEBUG o.e.j.s.HttpConnection:721 - org.eclipse.jetty.server.HttpConnection$SendCallback@42226960[PROCESSING][i=null,cb=org.eclipse.jetty.server.HttpChannel$ContentCallback@7d5f5672] generate: CONTINUE (null,[p=0,l=0,c=0,r=0],true)@COMPLETING
+2026-01-05 05:29:06 ERROR c.t.b.c.i.OkHttpTransportClient:176 - Failed to close resource test.txt
+java.io.IOException: fake exception
+	at chat.tamtam.botapi.client.impl.OkHttpTransportClient.post(OkHttpTransportClient.java:174)
+	at chat.tamtam.botapi.client.impl.OkHttpTransportClientTest.shouldThrowException(OkHttpTransportClientTest.java:41)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:19)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junitcore.JUnitCore.run(JUnitCore.java:55)
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.createRequestAndRun(JUnitCoreWrapper.java:137)
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.executeEager(JUnitCoreWrapper.java:107)
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.execute(JUnitCoreWrapper.java:83)
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.execute(JUnitCoreWrapper.java:75)
+	at org.apache.maven.surefire.junitcore.JUnitCoreProvider.invoke(JUnitCoreProvider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in chat.tamtam.botapi.client.impl.OkHttpTransportClientTest
+[INFO] Running chat.tamtam.botapi.client.impl.JacksonSerializerTest
+[ERROR] Tests run: 10, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.017 s <<< FAILURE! - in chat.tamtam.botapi.client.impl.JacksonSerializerTest
+[ERROR] testSerializeToString(chat.tamtam.botapi.client.impl.JacksonSerializerTest)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at chat.tamtam.botapi.client.impl.JacksonSerializerTest.testSerializeToString(JacksonSerializerTest.java:67)
+
+[ERROR] shouldThrowSerializationException(chat.tamtam.botapi.client.impl.JacksonSerializerTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.Exception: Unexpected exception, expected<chat.tamtam.botapi.exceptions.SerializationException> but was<java.lang.NoClassDefFoundError>
+	at chat.tamtam.botapi.client.impl.JacksonSerializerTest.shouldThrowSerializationException(JacksonSerializerTest.java:27)
+
+[ERROR] testSerialize(chat.tamtam.botapi.client.impl.JacksonSerializerTest)  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at chat.tamtam.botapi.client.impl.JacksonSerializerTest.testSerialize(JacksonSerializerTest.java:75)
+
+[ERROR] testDeserializeStream(chat.tamtam.botapi.client.impl.JacksonSerializerTest)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at chat.tamtam.botapi.client.impl.JacksonSerializerTest.testDeserializeStream(JacksonSerializerTest.java:83)
+
+[ERROR] shouldThrowSerializationException2(chat.tamtam.botapi.client.impl.JacksonSerializerTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.Exception: Unexpected exception, expected<chat.tamtam.botapi.exceptions.SerializationException> but was<java.lang.NoClassDefFoundError>
+	at chat.tamtam.botapi.client.impl.JacksonSerializerTest.shouldThrowSerializationException2(JacksonSerializerTest.java:32)
+
+[INFO] Running chat.tamtam.botapi.client.ClientResponseTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in chat.tamtam.botapi.client.ClientResponseTest
+[INFO] Running chat.tamtam.botapi.client.TamTamClientTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in chat.tamtam.botapi.client.TamTamClientTest
+[INFO] Running chat.tamtam.botapi.TamTamUploadAPITest
+2026-01-05 05:29:06 INFO  c.t.b.TamTamUploadAPITest:84 - Uploaded 21920 bytes
+2026-01-05 05:29:06 WARN  o.e.j.s.HttpChannel:568 - /imageupload
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectMapper._writeValueAndClose(ObjectMapper.java:4568)
+	at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsString(ObjectMapper.java:3821)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:06 INFO  c.t.b.TamTamUploadAPITest:84 - Uploaded 21920 bytes
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/imageupload?access_token=dummyAccessToken&v=0.5.2, query body: null, responseBody: 
+2026-01-05 05:29:06 INFO  c.t.b.c.i.OkHttpTransportClient:104 - Started uploading to url https://url
+2026-01-05 05:29:06 INFO  c.t.b.c.i.OkHttpTransportClient:139 - Finished uploading to url https://url
+2026-01-05 05:29:06 INFO  c.t.b.TamTamUploadAPITest:68 - Uploaded 214 bytes
+2026-01-05 05:29:06 WARN  o.e.j.s.HttpChannel:568 - /fileupload
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectMapper._writeValueAndClose(ObjectMapper.java:4568)
+	at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsString(ObjectMapper.java:3821)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/fileupload?access_token=dummyAccessToken&v=0.5.2, query body: null, responseBody: 
+2026-01-05 05:29:06 INFO  c.t.b.c.i.OkHttpTransportClient:104 - Started uploading to url http://localhost:4567/fileupload
+2026-01-05 05:29:06 INFO  c.t.b.TamTamUploadAPITest:68 - Uploaded 5 bytes
+2026-01-05 05:29:06 WARN  o.e.j.s.HttpChannel:568 - /fileupload
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectMapper._writeValueAndClose(ObjectMapper.java:4568)
+	at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsString(ObjectMapper.java:3821)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:06 INFO  c.t.b.c.i.OkHttpTransportClient:139 - Finished uploading to url http://localhost:4567/fileupload
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/fileupload?access_token=dummyAccessToken&v=0.5.2, query body: null, responseBody: 
+2026-01-05 05:29:06 INFO  c.t.b.TamTamUploadAPITest:84 - Uploaded 21920 bytes
+2026-01-05 05:29:06 WARN  o.e.j.s.HttpChannel:568 - /imageupload
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectMapper._writeValueAndClose(ObjectMapper.java:4568)
+	at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsString(ObjectMapper.java:3821)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:06 INFO  c.t.b.TamTamUploadAPITest:84 - Uploaded 21920 bytes
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/imageupload?access_token=dummyAccessToken&v=0.5.2, query body: null, responseBody: 
+2026-01-05 05:29:06 INFO  c.t.b.c.i.OkHttpTransportClient:104 - Started uploading to url http://localhost:4567/avupload
+2026-01-05 05:29:06 INFO  c.t.b.TamTamUploadAPITest:100 - Uploaded 2048000 bytes
+2026-01-05 05:29:06 WARN  o.e.j.s.HttpChannel:568 - /avupload
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectMapper._writeValueAndClose(ObjectMapper.java:4568)
+	at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsString(ObjectMapper.java:3821)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:06 INFO  c.t.b.TamTamUploadAPITest:100 - Uploaded 166691 bytes
+2026-01-05 05:29:06 WARN  o.e.j.s.HttpChannel:568 - /avupload
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectMapper._writeValueAndClose(ObjectMapper.java:4568)
+	at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsString(ObjectMapper.java:3821)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:06 INFO  c.t.b.c.i.OkHttpTransportClient:139 - Finished uploading to url http://localhost:4567/avupload
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/avupload?access_token=dummyAccessToken&v=0.5.2, query body: null, responseBody: 
+2026-01-05 05:29:06 INFO  c.t.b.TamTamUploadAPITest:100 - Uploaded 2214906 bytes
+2026-01-05 05:29:06 WARN  o.e.j.s.HttpChannel:568 - /avupload
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectMapper._writeValueAndClose(ObjectMapper.java:4568)
+	at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsString(ObjectMapper.java:3821)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/avupload?access_token=dummyAccessToken&v=0.5.2, query body: null, responseBody: 
+[ERROR] Tests run: 7, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.259 s <<< FAILURE! - in chat.tamtam.botapi.TamTamUploadAPITest
+[ERROR] uploadImage1(chat.tamtam.botapi.TamTamUploadAPITest)  Time elapsed: 0.039 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+	at chat.tamtam.botapi.TamTamUploadAPITest.uploadImage1(TamTamUploadAPITest.java:133)
+
+[ERROR] uploadFile(chat.tamtam.botapi.TamTamUploadAPITest)  Time elapsed: 0.019 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 400
+	at chat.tamtam.botapi.TamTamUploadAPITest.uploadFile(TamTamUploadAPITest.java:111)
+
+[ERROR] uploadFile1(chat.tamtam.botapi.TamTamUploadAPITest)  Time elapsed: 0.015 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 400
+	at chat.tamtam.botapi.TamTamUploadAPITest.uploadFile1(TamTamUploadAPITest.java:118)
+
+[ERROR] uploadImage(chat.tamtam.botapi.TamTamUploadAPITest)  Time elapsed: 0.013 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+	at chat.tamtam.botapi.TamTamUploadAPITest.uploadImage(TamTamUploadAPITest.java:126)
+
+[ERROR] uploadAV1(chat.tamtam.botapi.TamTamUploadAPITest)  Time elapsed: 0.112 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 400
+	at chat.tamtam.botapi.TamTamUploadAPITest.uploadAV1(TamTamUploadAPITest.java:148)
+
+[ERROR] uploadAV(chat.tamtam.botapi.TamTamUploadAPITest)  Time elapsed: 0.04 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 400
+	at chat.tamtam.botapi.TamTamUploadAPITest.uploadAV(TamTamUploadAPITest.java:141)
+
+[INFO] Running chat.tamtam.botapi.model.UpdateTest
+2026-01-05 05:29:06 WARN  o.e.j.s.HttpChannel:568 - /chats
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518)
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1219)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsBytes(ObjectWriter.java:1109)
+	at chat.tamtam.botapi.client.impl.JacksonSerializer.serialize(JacksonSerializer.java:61)
+	at chat.tamtam.botapi.server.TamTamService.serialize(TamTamService.java:251)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/chats?access_token=dummyAccessToken&v=0.5.2&count=2147483647, query body: null, responseBody: 
+2026-01-05 05:29:06 WARN  o.e.j.s.HttpChannel:568 - /chats
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518)
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1219)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsBytes(ObjectWriter.java:1109)
+	at chat.tamtam.botapi.client.impl.JacksonSerializer.serialize(JacksonSerializer.java:61)
+	at chat.tamtam.botapi.server.TamTamService.serialize(TamTamService.java:251)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/chats?access_token=dummyAccessToken&v=0.5.2&count=2147483647, query body: null, responseBody: 
+2026-01-05 05:29:06 WARN  o.e.j.s.HttpChannel:568 - /chats
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+	at com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector.hasAsKey(JacksonAnnotationIntrospector.java:1094)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addFields(POJOPropertiesCollector.java:496)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:421)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:270)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueAccessor(BasicBeanDescription.java:258)
+	at com.fasterxml.jackson.databind.ser.BasicSerializerFactory.findSerializerByAnnotations(BasicSerializerFactory.java:391)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory._createSerializer2(BeanSerializerFactory.java:224)
+	at com.fasterxml.jackson.databind.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:173)
+	at com.fasterxml.jackson.databind.SerializerProvider._createUntypedSerializer(SerializerProvider.java:1495)
+	at com.fasterxml.jackson.databind.SerializerProvider._createAndCacheUntypedSerializer(SerializerProvider.java:1443)
+	at com.fasterxml.jackson.databind.SerializerProvider.findValueSerializer(SerializerProvider.java:544)
+	at com.fasterxml.jackson.databind.SerializerProvider.findTypedValueSerializer(SerializerProvider.java:822)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:308)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518)
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1219)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsBytes(ObjectWriter.java:1109)
+	at chat.tamtam.botapi.client.impl.JacksonSerializer.serialize(JacksonSerializer.java:61)
+	at chat.tamtam.botapi.server.TamTamService.serialize(TamTamService.java:251)
+	at spark.ResponseTransformerRouteImpl$1.render(ResponseTransformerRouteImpl.java:42)
+	at spark.http.matching.Routes.execute(Routes.java:63)
+	at spark.http.matching.MatcherFilter.doFilter(MatcherFilter.java:130)
+	at spark.embeddedserver.jetty.JettyHandler.doHandle(JettyHandler.java:50)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1568)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:530)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-01-05 05:29:06 ERROR c.t.b.c.TamTamClient:208 - Error while executing query, query url: http://localhost:4567/chats?access_token=dummyAccessToken&v=0.5.2&count=2147483647, query body: null, responseBody: 
+[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.029 s <<< FAILURE! - in chat.tamtam.botapi.model.UpdateTest
+[ERROR] shouldMapEveryUpdate(chat.tamtam.botapi.model.UpdateTest)  Time elapsed: 0.007 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+	at chat.tamtam.botapi.model.UpdateTest.<init>(UpdateTest.java:48)
+
+[ERROR] shouldMapDefault(chat.tamtam.botapi.model.UpdateTest)  Time elapsed: 0.009 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+	at chat.tamtam.botapi.model.UpdateTest.<init>(UpdateTest.java:48)
+
+[ERROR] shouldVisitDefault(chat.tamtam.botapi.model.UpdateTest)  Time elapsed: 0.012 s  <<< ERROR!
+chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+	at chat.tamtam.botapi.model.UpdateTest.<init>(UpdateTest.java:48)
+
+[INFO] Running chat.tamtam.botapi.model.TamTamEnumTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in chat.tamtam.botapi.model.TamTamEnumTest
+[INFO] Running chat.tamtam.botapi.model.ButtonTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in chat.tamtam.botapi.model.ButtonTest
+[INFO] Running chat.tamtam.botapi.model.UploadTypeTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in chat.tamtam.botapi.model.UploadTypeTest
+[INFO] Running chat.tamtam.botapi.model.AttachmentRequestTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in chat.tamtam.botapi.model.AttachmentRequestTest
+[INFO] Running chat.tamtam.botapi.model.ModelTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.375 s - in chat.tamtam.botapi.model.ModelTest
+[INFO] Running chat.tamtam.botapi.model.AttachmentTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in chat.tamtam.botapi.model.AttachmentTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   TamTamUploadAPITest.uploadAV:141 » API Unexpected server error: 400
+[ERROR]   TamTamUploadAPITest.uploadAV1:148 » API Unexpected server error: 400
+[ERROR]   TamTamUploadAPITest.uploadFile:111 » API Unexpected server error: 400
+[ERROR]   TamTamUploadAPITest.uploadFile1:118 » API Unexpected server error: 400
+[ERROR]   TamTamUploadAPITest.uploadImage:126 » API Unexpected server error: 500
+[ERROR]   TamTamUploadAPITest.uploadImage1:133 » API Unexpected server error: 500
+[ERROR]   JacksonSerializerTest.shouldThrowSerializationException »  Unexpected exceptio...
+[ERROR]   JacksonSerializerTest.shouldThrowSerializationException2 »  Unexpected excepti...
+[ERROR]   JacksonSerializerTest.testDeserializeStream:83 » NoClassDefFound com/fasterxml...
+[ERROR]   JacksonSerializerTest.testSerialize:75 » NoClassDefFound com/fasterxml/jackson...
+[ERROR]   JacksonSerializerTest.testSerializeToString:67 » NoClassDefFound com/fasterxml...
+[ERROR]   UpdateTest.<init>:48->UnitTestBase.randomChat:53 » API Unexpected server error...
+[ERROR]   UpdateTest.<init>:48->UnitTestBase.randomChat:53 » API Unexpected server error...
+[ERROR]   UpdateTest.<init>:48->UnitTestBase.randomChat:53 » API Unexpected server error...
+[ERROR]   AddMembersQueryTest.addMembersTest:40 » NoClassDefFound com/fasterxml/jackson/...
+[ERROR]   AnswerOnCallbackQueryTest.answerOnCallbackTest:41 » NoClassDefFound com/faster...
+[ERROR]   DeleteMessageQueryTest.shouldExecuteQuery:45 » API Unexpected server error: 50...
+[ERROR]   EditChatQueryTest.editChatTest:42->UnitTestBase.randomChat:53 » API Unexpected...
+[ERROR]   EditMessageQueryTest.editMessageTest:45 » NoClassDefFound com/fasterxml/jackso...
+[ERROR]   EditMyInfoQueryTest.editMyInfoTest:64 » NoClassDefFound com/fasterxml/jackson/...
+[ERROR]   GetAdminsQueryTest.getAdminsTest:39 » API Unexpected server error: 500
+[ERROR]   GetChatByLinkQueryTest.getChatByLinkTest:38 » API Unexpected server error: 500
+[ERROR]   GetChatQueryTest.getChatTest:36->UnitTestBase.randomChat:53 » API Unexpected s...
+[ERROR]   GetChatsQueryTest.getChatsTest:36 » API Unexpected server error: 500
+[ERROR]   GetMembersQueryTest.getMembersTest:45 » API Unexpected server error: 500
+[ERROR]   GetMembershipQueryTest.getMembershipTest:38 » API Unexpected server error: 500
+[ERROR]   GetMessageByIdQueryTest.getMessageByIdTest:39 » API Unexpected server error: 5...
+[ERROR]   GetMessagesQueryTest.getMessagesTest:82 » API Unexpected server error: 500
+[ERROR]   GetMyInfoQueryTest.getMyInfoTest:37 » API Unexpected server error: 500
+[ERROR]   GetPinnedMessageQueryTest.getPinnedMessageTest:38 » API Unexpected server erro...
+[ERROR]   GetSubscriptionsQueryTest.getSubscriptionsTest:35 » API Unexpected server erro...
+[ERROR]   GetUpdatesQueryTest.getUpdatesTest:93->UnitTestBase.randomChat:53 » API Unexpe...
+[ERROR]   GetUploadUrlQueryTest.getUploadUrlTest:37 » API Unexpected server error: 500
+[ERROR]   LeaveChatQueryTest.leaveChatTest:36 » API Unexpected server error: 500
+[ERROR]   PinMessageQueryTest.pinMessageTest:45 » NoClassDefFound com/fasterxml/jackson/...
+[ERROR]   RemoveMemberQueryTest.removeMemberTest:37 » API Unexpected server error: 500
+[ERROR]   SendActionQueryTest.sendActionTest:39 » NoClassDefFound com/fasterxml/jackson/...
+[ERROR]   SendMessageQueryTest.sendMessageTest:103 » NoClassDefFound com/fasterxml/jacks...
+[ERROR]   SubscribeQueryTest.subscribeTest:40 » NoClassDefFound com/fasterxml/jackson/an...
+[ERROR]   TamTamQueryTest.shouldThrowANRException »  Unexpected exception, expected<chat...
+[ERROR]   TamTamQueryTest.shouldThrowAccessDeniedException »  Unexpected exception, expe...
+[ERROR]   TamTamQueryTest.shouldThrowSMFException »  Unexpected exception, expected<chat...
+[ERROR]   TamTamQueryTest.shouldThrowTMRException »  Unexpected exception, expected<chat...
+[ERROR]   TamTamQueryTest.testAsync:167 » NoClassDefFound com/fasterxml/jackson/annotati...
+[ERROR]   UnpinMessageQueryTest.unpinMessageTest:42 » API Unexpected server error: 500
+[ERROR]   UnsubscribeQueryTest.unsubscribeTest:36 » API Unexpected server error: 500
+[INFO] 
+[ERROR] Tests run: 108, Failures: 0, Errors: 46, Skipped: 1
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  21.129 s
+[INFO] Finished at: 2026-01-05T05:29:12Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 5 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.8.0
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.0.2
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M3
+[WARNING]  * org.apache.maven.plugins:maven-clean-plugin:3.0.0
+[WARNING]  * org.jacoco:jacoco-maven-plugin:0.8.3
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M3:test (default-test) on project tamtam-bot-api: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /tamtam-bot-api/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested

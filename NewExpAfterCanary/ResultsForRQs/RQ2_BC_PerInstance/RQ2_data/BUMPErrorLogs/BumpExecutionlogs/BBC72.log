@@ -1,0 +1,938 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.equinor:neqsim >-------------------------
+[INFO] Building neqsim 2.3.3
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ neqsim ---
+[INFO] Deleting /neqsim/target
+[INFO] 
+[INFO] --- flatten:1.2.7:clean (flatten.clean) @ neqsim ---
+[INFO] Deleting /neqsim/.flattened-pom.xml
+[INFO] 
+[INFO] --- enforcer:3.0.0:enforce (enforce-maven) @ neqsim ---
+[INFO] 
+[INFO] --- jacoco:0.8.7:prepare-agent (default) @ neqsim ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/neqsim/target/jacoco.exec,excludes=neqsim/physicalProperties/util/parameterFitting/**/*:neqsim/fluidMechanics/util/parameterFitting/**/*:neqsim/PVTsimulation/util/parameterFitting/**/*:neqsim/thermo/util/parameterFitting/**/*:neqsim/statistics/util/parameterFitting/**/*:neqsim/PVTsimulation/util/parameterfitting/**/*
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ neqsim ---
+[INFO] Copying 222 resources
+[INFO] 
+[INFO] --- flatten:1.2.7:flatten (flatten) @ neqsim ---
+[INFO] Generating flattened POM of project com.equinor:neqsim:jar:2.3.3...
+[INFO] 
+[INFO] --- compiler:3.9.0:compile (default-compile) @ neqsim ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 907 source files to /neqsim/target/classes
+[INFO] /neqsim/src/main/java/neqsim/thermo/system/SystemThermo.java: Some input files use or override a deprecated API.
+[INFO] /neqsim/src/main/java/neqsim/thermo/system/SystemThermo.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ neqsim ---
+[INFO] skip non existing resourceDirectory /neqsim/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.9.0:testCompile (default-testCompile) @ neqsim ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 212 source files to /neqsim/target/test-classes
+[INFO] /neqsim/src/test/java/neqsim/processSimulation/util/example/MasstransferMeOH.java: Some input files use or override a deprecated API.
+[INFO] /neqsim/src/test/java/neqsim/processSimulation/util/example/MasstransferMeOH.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- surefire:3.0.0-M5:test (default-test) @ neqsim ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running neqsim.PVTsimulation.simulation.SaturationPressureTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.629 s <<< FAILURE! - in neqsim.PVTsimulation.simulation.SaturationPressureTest
+[ERROR] neqsim.PVTsimulation.simulation.SaturationPressureTest.testCalcSaturationPressure  Time elapsed: 0.486 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.impl.ThreadContextDataInjector
+	at neqsim.PVTsimulation.simulation.SaturationPressureTest.testCalcSaturationPressure(SaturationPressureTest.java:17)
+
+[INFO] Running neqsim.PVTsimulation.simulation.SaturationTemperatureTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in neqsim.PVTsimulation.simulation.SaturationTemperatureTest
+[ERROR] neqsim.PVTsimulation.simulation.SaturationTemperatureTest.testCalcSaturationTemperature  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+	at neqsim.PVTsimulation.simulation.SaturationTemperatureTest.<init>(SaturationTemperatureTest.java:13)
+
+[INFO] Running neqsim.standards.salesContract.BaseContractTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.standards.salesContract.BaseContractTest
+[ERROR] neqsim.standards.salesContract.BaseContractTest.testRunCheck  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.standards.salesContract.BaseContractTest.<init>(BaseContractTest.java:7)
+
+[INFO] Running neqsim.standards.gasQuality.Draft_ISO18453Test
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in neqsim.standards.gasQuality.Draft_ISO18453Test
+[ERROR] neqsim.standards.gasQuality.Draft_ISO18453Test.testCalculate  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.standards.gasQuality.Draft_ISO18453Test.<init>(Draft_ISO18453Test.java:9)
+
+[INFO] Running neqsim.standards.gasQuality.Standard_ISO6976Test
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in neqsim.standards.gasQuality.Standard_ISO6976Test
+[ERROR] neqsim.standards.gasQuality.Standard_ISO6976Test  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos
+	at neqsim.standards.gasQuality.Standard_ISO6976Test.setUpBeforeClass(Standard_ISO6976Test.java:26)
+
+[INFO] Running neqsim.standards.gasQuality.Standard_ISO6578Test
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.012 s <<< FAILURE! - in neqsim.standards.gasQuality.Standard_ISO6578Test
+[ERROR] neqsim.standards.gasQuality.Standard_ISO6578Test.testCalculate  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.standards.gasQuality.Standard_ISO6578Test.<init>(Standard_ISO6578Test.java:8)
+
+[INFO] Running neqsim.standards.gasQuality.Draft_GERG2004Test
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.standards.gasQuality.Draft_GERG2004Test
+[ERROR] neqsim.standards.gasQuality.Draft_GERG2004Test.testCalculate  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.standards.gasQuality.Draft_GERG2004Test.<init>(Draft_GERG2004Test.java:9)
+
+[INFO] Running neqsim.thermo.component.ComponentHydrateGFTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.101 s <<< FAILURE! - in neqsim.thermo.component.ComponentHydrateGFTest
+[ERROR] neqsim.thermo.component.ComponentHydrateGFTest  Time elapsed: 0.101 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos
+	at neqsim.thermo.component.ComponentHydrateGFTest.setUpBeforeClass(ComponentHydrateGFTest.java:26)
+
+[INFO] Running neqsim.thermo.component.ComponentTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.thermo.component.ComponentTest
+[ERROR] neqsim.thermo.component.ComponentTest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos
+	at neqsim.thermo.component.ComponentTest.setUpBeforeClass(ComponentTest.java:17)
+
+[INFO] Running neqsim.thermo.util.example.FlashGasTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.thermo.util.example.FlashGasTest
+[ERROR] neqsim.thermo.util.example.FlashGasTest  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos
+	at neqsim.thermo.util.example.FlashGasTest.setUp(FlashGasTest.java:35)
+
+[INFO] Running neqsim.thermo.util.example.VapourPressureTTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.thermo.util.example.VapourPressureTTest
+[ERROR] neqsim.thermo.util.example.VapourPressureTTest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkCPAstatoil
+	at neqsim.thermo.util.example.VapourPressureTTest.setUp(VapourPressureTTest.java:29)
+
+[INFO] Running neqsim.thermo.util.example.FlashWaterTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in neqsim.thermo.util.example.FlashWaterTest
+[ERROR] neqsim.thermo.util.example.FlashWaterTest  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos
+	at neqsim.thermo.util.example.FlashWaterTest.setUp(FlashWaterTest.java:28)
+
+[INFO] Running neqsim.thermo.util.example.SrkOilCharacterizationTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in neqsim.thermo.util.example.SrkOilCharacterizationTest
+[ERROR] neqsim.thermo.util.example.SrkOilCharacterizationTest  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos
+	at neqsim.thermo.util.example.SrkOilCharacterizationTest.setUp(SrkOilCharacterizationTest.java:28)
+
+[INFO] Running neqsim.thermo.util.example.SrkEoSTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.thermo.util.example.SrkEoSTest
+[ERROR] neqsim.thermo.util.example.SrkEoSTest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos
+	at neqsim.thermo.util.example.SrkEoSTest.setUp(SrkEoSTest.java:33)
+
+[INFO] Running neqsim.thermo.util.example.KlabFlashBugTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.042 s <<< FAILURE! - in neqsim.thermo.util.example.KlabFlashBugTest
+[ERROR] neqsim.thermo.util.example.KlabFlashBugTest  Time elapsed: 0.042 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos
+	at neqsim.thermo.util.example.KlabFlashBugTest.setUp(KlabFlashBugTest.java:35)
+
+[INFO] Running neqsim.thermo.util.example.FlashOilTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.thermo.util.example.FlashOilTest
+[ERROR] neqsim.thermo.util.example.FlashOilTest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos
+	at neqsim.thermo.util.example.FlashOilTest.setUp(FlashOilTest.java:48)
+
+[INFO] Running neqsim.thermo.util.readwrite.EclipseFluidReadWriteTest
+[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.033 s <<< FAILURE! - in neqsim.thermo.util.readwrite.EclipseFluidReadWriteTest
+[ERROR] neqsim.thermo.util.readwrite.EclipseFluidReadWriteTest.testRead  Time elapsed: 0.022 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+	at neqsim.thermo.util.readwrite.EclipseFluidReadWriteTest.testRead(EclipseFluidReadWriteTest.java:41)
+
+[ERROR] neqsim.thermo.util.readwrite.EclipseFluidReadWriteTest.testSetComposition  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.util.readwrite.EclipseFluidReadWrite
+	at neqsim.thermo.util.readwrite.EclipseFluidReadWriteTest.testSetComposition(EclipseFluidReadWriteTest.java:65)
+
+[ERROR] neqsim.thermo.util.readwrite.EclipseFluidReadWriteTest.testReadAndAddFluids  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.util.readwrite.EclipseFluidReadWrite
+	at neqsim.thermo.util.readwrite.EclipseFluidReadWriteTest.testReadAndAddFluids(EclipseFluidReadWriteTest.java:47)
+
+[INFO] Running neqsim.thermo.system.SystemThermoSetMolarCompositionTest
+[ERROR] Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in neqsim.thermo.system.SystemThermoSetMolarCompositionTest
+[ERROR] neqsim.thermo.system.SystemThermoSetMolarCompositionTest.testNoFlowPlus  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.thermo.system.SystemThermoSetMolarCompositionTest.<init>(SystemThermoSetMolarCompositionTest.java:7)
+
+[ERROR] neqsim.thermo.system.SystemThermoSetMolarCompositionTest.testSetMolarCompositionOfPlusFluid  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.thermo.system.SystemThermoSetMolarCompositionTest.<init>(SystemThermoSetMolarCompositionTest.java:7)
+
+[ERROR] neqsim.thermo.system.SystemThermoSetMolarCompositionTest.setMolarCompositionPlus  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.thermo.system.SystemThermoSetMolarCompositionTest.<init>(SystemThermoSetMolarCompositionTest.java:7)
+
+[ERROR] neqsim.thermo.system.SystemThermoSetMolarCompositionTest.testSetMolarComposition  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.thermo.system.SystemThermoSetMolarCompositionTest.<init>(SystemThermoSetMolarCompositionTest.java:7)
+
+[ERROR] neqsim.thermo.system.SystemThermoSetMolarCompositionTest.testNoFlowPlusFluid  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.thermo.system.SystemThermoSetMolarCompositionTest.<init>(SystemThermoSetMolarCompositionTest.java:7)
+
+[ERROR] neqsim.thermo.system.SystemThermoSetMolarCompositionTest.testNoFlow  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.thermo.system.SystemThermoSetMolarCompositionTest.<init>(SystemThermoSetMolarCompositionTest.java:7)
+
+[INFO] Running neqsim.thermo.system.SystemPropertiesTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.thermo.system.SystemPropertiesTest
+[ERROR] neqsim.thermo.system.SystemPropertiesTest.testGetProperties  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.thermo.system.SystemPropertiesTest.<init>(SystemPropertiesTest.java:6)
+
+[INFO] Running neqsim.thermo.system.SystemThermoAddComponentTest
+[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in neqsim.thermo.system.SystemThermoAddComponentTest
+[ERROR] neqsim.thermo.system.SystemThermoAddComponentTest.testAddPlusFraction  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.thermo.system.SystemThermoAddComponentTest.<init>(SystemThermoAddComponentTest.java:7)
+
+[ERROR] neqsim.thermo.system.SystemThermoAddComponentTest.testGetTotalNumberOfMoles  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.thermo.system.SystemThermoAddComponentTest.<init>(SystemThermoAddComponentTest.java:7)
+
+[ERROR] neqsim.thermo.system.SystemThermoAddComponentTest.testAddComponent  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.thermo.system.SystemThermoAddComponentTest.<init>(SystemThermoAddComponentTest.java:7)
+
+[ERROR] neqsim.thermo.system.SystemThermoAddComponentTest.testAddTBPFraction  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.thermo.system.SystemThermoAddComponentTest.<init>(SystemThermoAddComponentTest.java:7)
+
+[INFO] Running neqsim.thermo.system.SystemUMRPRUMCEosNewTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.014 s <<< FAILURE! - in neqsim.thermo.system.SystemUMRPRUMCEosNewTest
+[ERROR] neqsim.thermo.system.SystemUMRPRUMCEosNewTest  Time elapsed: 0.014 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemEos
+	at neqsim.thermo.system.SystemUMRPRUMCEosNewTest.setUp(SystemUMRPRUMCEosNewTest.java:24)
+
+[INFO] Running neqsim.thermo.system.SystemSrkCPAstatoilTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.thermo.system.SystemSrkCPAstatoilTest
+[ERROR] neqsim.thermo.system.SystemSrkCPAstatoilTest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkCPAstatoil
+	at neqsim.thermo.system.SystemSrkCPAstatoilTest.setUp(SystemSrkCPAstatoilTest.java:27)
+
+[INFO] Running neqsim.thermo.system.SystemElectrolyteCPATest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in neqsim.thermo.system.SystemElectrolyteCPATest
+[ERROR] neqsim.thermo.system.SystemElectrolyteCPATest  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos
+	at neqsim.thermo.system.SystemElectrolyteCPATest.setUp(SystemElectrolyteCPATest.java:28)
+
+[INFO] Running neqsim.thermo.system.SystemSrkSchwartzentruberEosTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.thermo.system.SystemSrkSchwartzentruberEosTest
+[ERROR] neqsim.thermo.system.SystemSrkSchwartzentruberEosTest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos
+	at neqsim.thermo.system.SystemSrkSchwartzentruberEosTest.setUp(SystemSrkSchwartzentruberEosTest.java:22)
+
+[INFO] Running neqsim.thermo.system.SystemPrEoSTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.thermo.system.SystemPrEoSTest
+[ERROR] neqsim.thermo.system.SystemPrEoSTest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemPrEos
+	at neqsim.thermo.system.SystemPrEoSTest.setUp(SystemPrEosTest.java:21)
+
+[INFO] Running neqsim.thermodynamicOperations.ThermodynamicOperationsTest
+[ERROR] Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.014 s <<< FAILURE! - in neqsim.thermodynamicOperations.ThermodynamicOperationsTest
+[ERROR] neqsim.thermodynamicOperations.ThermodynamicOperationsTest.testpropertyFlashOnlineSingle  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos
+	at neqsim.thermodynamicOperations.ThermodynamicOperationsTest.testpropertyFlashOnlineSingle(ThermodynamicOperationsTest.java:169)
+
+[ERROR] neqsim.thermodynamicOperations.ThermodynamicOperationsTest.testNeqSimPython  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos
+	at neqsim.thermodynamicOperations.ThermodynamicOperationsTest.testNeqSimPython(ThermodynamicOperationsTest.java:17)
+
+[ERROR] neqsim.thermodynamicOperations.ThermodynamicOperationsTest.testpropertyFlashOnline  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos
+	at neqsim.thermodynamicOperations.ThermodynamicOperationsTest.testpropertyFlashOnline(ThermodynamicOperationsTest.java:147)
+
+[ERROR] neqsim.thermodynamicOperations.ThermodynamicOperationsTest.testComponentNames  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos
+	at neqsim.thermodynamicOperations.ThermodynamicOperationsTest.testComponentNames(ThermodynamicOperationsTest.java:77)
+
+[ERROR] neqsim.thermodynamicOperations.ThermodynamicOperationsTest.testPropertyFlash  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos
+	at neqsim.thermodynamicOperations.ThermodynamicOperationsTest.testPropertyFlash(ThermodynamicOperationsTest.java:107)
+
+[ERROR] neqsim.thermodynamicOperations.ThermodynamicOperationsTest.testNeqSimPython2  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos
+	at neqsim.thermodynamicOperations.ThermodynamicOperationsTest.testNeqSimPython2(ThermodynamicOperationsTest.java:48)
+
+[INFO] Running neqsim.thermodynamicOperations.flashOps.TVFlashTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in neqsim.thermodynamicOperations.flashOps.TVFlashTest
+[ERROR] neqsim.thermodynamicOperations.flashOps.TVFlashTest.testTVflash  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemUMRPRUMCEos
+	at neqsim.thermodynamicOperations.flashOps.TVFlashTest.setUp(TVFlashTest.java:26)
+
+[INFO] Running neqsim.thermodynamicOperations.flashOps.PSFlashGERG2008Test
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.thermodynamicOperations.flashOps.PSFlashGERG2008Test
+[ERROR] neqsim.thermodynamicOperations.flashOps.PSFlashGERG2008Test.testRun  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemPrEos
+	at neqsim.thermodynamicOperations.flashOps.PSFlashGERG2008Test.setUp(PSFlashGERG2008Test.java:27)
+
+[INFO] Running neqsim.thermodynamicOperations.flashOps.WaxFlashTest
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.002 s - in neqsim.thermodynamicOperations.flashOps.WaxFlashTest
+[INFO] Running neqsim.thermodynamicOperations.flashOps.TPFlashTest
+[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in neqsim.thermodynamicOperations.flashOps.TPFlashTest
+[ERROR] neqsim.thermodynamicOperations.flashOps.TPFlashTest.testRun2  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemPrEos
+	at neqsim.thermodynamicOperations.flashOps.TPFlashTest.setUp(TPFlashTest.java:25)
+
+[ERROR] neqsim.thermodynamicOperations.flashOps.TPFlashTest.testRun3  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemPrEos
+	at neqsim.thermodynamicOperations.flashOps.TPFlashTest.setUp(TPFlashTest.java:25)
+
+[ERROR] neqsim.thermodynamicOperations.flashOps.TPFlashTest.testRun5  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemPrEos
+	at neqsim.thermodynamicOperations.flashOps.TPFlashTest.setUp(TPFlashTest.java:25)
+
+[INFO] Running neqsim.thermodynamicOperations.flashOps.PHFlashTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in neqsim.thermodynamicOperations.flashOps.PHFlashTest
+[ERROR] neqsim.thermodynamicOperations.flashOps.PHFlashTest.testRun  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemPrEos
+	at neqsim.thermodynamicOperations.flashOps.PHFlashTest.setUp(PHFlashTest.java:27)
+
+[INFO] Running neqsim.thermodynamicOperations.flashOps.PHFlashGERG2008Test
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in neqsim.thermodynamicOperations.flashOps.PHFlashGERG2008Test
+[ERROR] neqsim.thermodynamicOperations.flashOps.PHFlashGERG2008Test.testRun  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemPrEos
+	at neqsim.thermodynamicOperations.flashOps.PHFlashGERG2008Test.setUp(PHFlashGERG2008Test.java:27)
+
+[INFO] Running neqsim.processSimulation.measurementDevice.pHProbeTest
+[ERROR] Tests run: 4, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in neqsim.processSimulation.measurementDevice.pHProbeTest
+[ERROR] neqsim.processSimulation.measurementDevice.pHProbeTest.testGetMeasuredValueWithAlkanility  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkCPAstatoil
+	at neqsim.processSimulation.measurementDevice.pHProbeTest.testGetMeasuredValueWithAlkanility(pHProbeTest.java:43)
+
+[ERROR] neqsim.processSimulation.measurementDevice.pHProbeTest.testGetMeasuredValue  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkCPAstatoil
+	at neqsim.processSimulation.measurementDevice.pHProbeTest.testGetMeasuredValue(pHProbeTest.java:17)
+
+[INFO] Running neqsim.processSimulation.measurementDevice.WellAllocatorTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.processSimulation.measurementDevice.WellAllocatorTest
+[ERROR] neqsim.processSimulation.measurementDevice.WellAllocatorTest.testGetMeasuredValueString  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.measurementDevice.WellAllocatorTest.<init>(WellAllocatorTest.java:15)
+
+[INFO] Running neqsim.processSimulation.util.example.process1Test
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.processSimulation.util.example.process1Test
+[ERROR] neqsim.processSimulation.util.example.process1Test  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkCPA
+	at neqsim.processSimulation.util.example.process1Test.setUp(process1Test.java:19)
+
+[INFO] Running neqsim.processSimulation.processEquipment.stream.StreamTest
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.processSimulation.processEquipment.stream.StreamTest
+[ERROR] neqsim.processSimulation.processEquipment.stream.StreamTest.testLCV  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processEquipment.stream.StreamTest.<init>(StreamTest.java:14)
+
+[ERROR] neqsim.processSimulation.processEquipment.stream.StreamTest.testNoFlow  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processEquipment.stream.StreamTest.<init>(StreamTest.java:14)
+
+[INFO] Running neqsim.processSimulation.processEquipment.compressor.CompressorTest
+[ERROR] Tests run: 7, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in neqsim.processSimulation.processEquipment.compressor.CompressorTest
+[ERROR] neqsim.processSimulation.processEquipment.compressor.CompressorTest.testCompressorWithGERG2008  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+	at neqsim.processSimulation.processEquipment.compressor.CompressorTest.<clinit>(CompressorTest.java:20)
+
+[ERROR] neqsim.processSimulation.processEquipment.compressor.CompressorTest.testMultiPhaseCompression  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.processSimulation.processEquipment.compressor.CompressorTest
+
+[ERROR] neqsim.processSimulation.processEquipment.compressor.CompressorTest.testCompressorWithSrk  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.processSimulation.processEquipment.compressor.CompressorTest
+
+[ERROR] neqsim.processSimulation.processEquipment.compressor.CompressorTest.testCompressorRigorousMethod  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.processSimulation.processEquipment.compressor.CompressorTest
+
+[ERROR] neqsim.processSimulation.processEquipment.compressor.CompressorTest.testCompressorSchultzMethod  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.processSimulation.processEquipment.compressor.CompressorTest
+
+[ERROR] neqsim.processSimulation.processEquipment.compressor.CompressorTest.testSerialize  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.processSimulation.processEquipment.compressor.CompressorTest
+
+[ERROR] neqsim.processSimulation.processEquipment.compressor.CompressorTest.testIsentropicCalcMethod  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.processSimulation.processEquipment.compressor.CompressorTest
+
+[INFO] Running neqsim.processSimulation.processEquipment.compressor.CompressorPropertyProfileTest
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in neqsim.processSimulation.processEquipment.compressor.CompressorPropertyProfileTest
+[ERROR] neqsim.processSimulation.processEquipment.compressor.CompressorPropertyProfileTest.testFailRunCalculation  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processEquipment.compressor.CompressorPropertyProfileTest.<init>(CompressorPropertyProfileTest.java:10)
+
+[ERROR] neqsim.processSimulation.processEquipment.compressor.CompressorPropertyProfileTest.testRunCalculation  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processEquipment.compressor.CompressorPropertyProfileTest.<init>(CompressorPropertyProfileTest.java:10)
+
+[INFO] Running neqsim.processSimulation.processEquipment.compressor.CompressorCalculationTest
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.processSimulation.processEquipment.compressor.CompressorCalculationTest
+[ERROR] neqsim.processSimulation.processEquipment.compressor.CompressorCalculationTest.testCompressorChartEquals  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processEquipment.compressor.CompressorCalculationTest.<init>(CompressorCalculationTest.java:10)
+
+[ERROR] neqsim.processSimulation.processEquipment.compressor.CompressorCalculationTest.testRun  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processEquipment.compressor.CompressorCalculationTest.<init>(CompressorCalculationTest.java:10)
+
+[INFO] Running neqsim.processSimulation.processEquipment.compressor.CompressorChartTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in neqsim.processSimulation.processEquipment.compressor.CompressorChartTest
+[ERROR] neqsim.processSimulation.processEquipment.compressor.CompressorChartTest.test_Run  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos
+	at neqsim.processSimulation.processEquipment.compressor.CompressorChartTest.setUp(CompressorChartTest.java:16)
+
+[INFO] Running neqsim.processSimulation.processEquipment.pump.PumpTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.processSimulation.processEquipment.pump.PumpTest
+[ERROR] neqsim.processSimulation.processEquipment.pump.PumpTest.testRun  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processEquipment.pump.PumpTest.<init>(PumpTest.java:13)
+
+[INFO] Running neqsim.processSimulation.processEquipment.adsorber.SimpleAdsorberTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.processSimulation.processEquipment.adsorber.SimpleAdsorberTest
+[ERROR] neqsim.processSimulation.processEquipment.adsorber.SimpleAdsorberTest.testRun  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processEquipment.adsorber.SimpleAdsorberTest.<init>(SimpleAdsorberTest.java:8)
+
+[INFO] Running neqsim.processSimulation.processEquipment.mixer.MixerTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.processSimulation.processEquipment.mixer.MixerTest
+[ERROR] neqsim.processSimulation.processEquipment.mixer.MixerTest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos
+	at neqsim.processSimulation.processEquipment.mixer.MixerTest.setUpBeforeClass(MixerTest.java:26)
+
+[INFO] Running neqsim.processSimulation.processEquipment.splitter.ComponentSplitterTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.processSimulation.processEquipment.splitter.ComponentSplitterTest
+[ERROR] neqsim.processSimulation.processEquipment.splitter.ComponentSplitterTest.testRun  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos
+	at neqsim.processSimulation.processEquipment.splitter.ComponentSplitterTest.setUpBeforeClass(ComponentSplitterTest.java:20)
+
+[INFO] Running neqsim.processSimulation.processEquipment.separator.SeparatorTest
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in neqsim.processSimulation.processEquipment.separator.SeparatorTest
+[ERROR] neqsim.processSimulation.processEquipment.separator.SeparatorTest.testOnePhase  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processEquipment.separator.SeparatorTest.<init>(SeparatorTest.java:14)
+
+[ERROR] neqsim.processSimulation.processEquipment.separator.SeparatorTest.testFlow  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processEquipment.separator.SeparatorTest.<init>(SeparatorTest.java:14)
+
+[INFO] Running neqsim.processSimulation.processEquipment.powerGeneration.GasTurbineTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in neqsim.processSimulation.processEquipment.powerGeneration.GasTurbineTest
+[ERROR] neqsim.processSimulation.processEquipment.powerGeneration.GasTurbineTest  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos
+	at neqsim.processSimulation.processEquipment.powerGeneration.GasTurbineTest.setUp(GasTurbineTest.java:16)
+
+[INFO] Running neqsim.processSimulation.processEquipment.absorber.SimpleAbsorberTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.processSimulation.processEquipment.absorber.SimpleAbsorberTest
+[ERROR] neqsim.processSimulation.processEquipment.absorber.SimpleAbsorberTest.testRun  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processEquipment.absorber.SimpleAbsorberTest.<init>(SimpleAbsorberTest.java:8)
+
+[INFO] Running neqsim.processSimulation.processSystem.GlycolRigTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in neqsim.processSimulation.processSystem.GlycolRigTest
+[ERROR] neqsim.processSimulation.processSystem.GlycolRigTest.runTEGProcessTest  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.GlycolRigTest.<init>(GlycolRigTest.java:28)
+
+[INFO] Running neqsim.processSimulation.processSystem.ProcessSystemTest
+[ERROR] Tests run: 41, Failures: 0, Errors: 41, Skipped: 0, Time elapsed: 0.049 s <<< FAILURE! - in neqsim.processSimulation.processSystem.ProcessSystemTest
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testGetMeasurementDevice  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.runTEGProcessTest  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testGetPower  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testReplaceObject  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testAdd  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testRun  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testGetMechanicalWeight  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testClear  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testAddUnitsWithNoName  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testCopy  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testOpen  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testSave  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testSize  Time elapsed: 0.009 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testView  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testSetTimeStep  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testReportMeasuredValues  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testGetExergyChange  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testGetUnitNumber  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testGetSystemMechanicalDesign  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testGetName  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testGetUnit  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testGetSurroundingTemperature  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testGetCostEstimator  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testDisplayResult  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testGetEntropyProduction  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testSetSystemMechanicalDesign  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testGetConditionMonitor  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testRemoveUnit  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testAddUnitTwice  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testSetSurroundingTemperature  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testGetHeaterDuty  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testGetCoolerDuty  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testGetUnitOperations  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testRunAsThread  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testClearAll  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testPrintLogFile  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testSetName  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testHasUnitName  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testGetAllUnitNames  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testSetFluid  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.testReportResults  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.<init>(ProcessSystemTest.java:25)
+
+[INFO] Running neqsim.processSimulation.processSystem.ProcessSystemControllerTest
+[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in neqsim.processSimulation.processSystem.ProcessSystemControllerTest
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemControllerTest.testStaticSimulationWithController  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemControllerTest.<init>(ProcessSystemControllerTest.java:14)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemControllerTest.testGetTimeStep  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemControllerTest.<init>(ProcessSystemControllerTest.java:14)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemControllerTest.testGetName  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemControllerTest.<init>(ProcessSystemControllerTest.java:14)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemControllerTest.testGetTime  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemControllerTest.<init>(ProcessSystemControllerTest.java:14)
+
+[INFO] Running neqsim.processSimulation.processSystem.ProcessSystemRunTransientTest
+[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in neqsim.processSimulation.processSystem.ProcessSystemRunTransientTest
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemRunTransientTest.testGetTimeStep  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemRunTransientTest.<init>(ProcessSystemRunTransientTest.java:16)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemRunTransientTest.testGetName  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemRunTransientTest.<init>(ProcessSystemRunTransientTest.java:16)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemRunTransientTest.testGetTime  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemRunTransientTest.<init>(ProcessSystemRunTransientTest.java:16)
+
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemRunTransientTest.testDynamicCalculation2  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.processSimulation.processSystem.ProcessSystemRunTransientTest.<init>(ProcessSystemRunTransientTest.java:16)
+
+[INFO] Running neqsim.physicalProperties.physicalPropertyMethods.liquidPhysicalProperties.density.CostaldTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.physicalProperties.physicalPropertyMethods.liquidPhysicalProperties.density.CostaldTest
+[ERROR] neqsim.physicalProperties.physicalPropertyMethods.liquidPhysicalProperties.density.CostaldTest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos
+	at neqsim.physicalProperties.physicalPropertyMethods.liquidPhysicalProperties.density.CostaldTest.setUp(CostaldTest.java:14)
+
+[INFO] Running neqsim.physicalProperties.physicalPropertyMethods.commonPhasePhysicalProperties.viscosity.FrictionTheoryViscosityMethodTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.physicalProperties.physicalPropertyMethods.commonPhasePhysicalProperties.viscosity.FrictionTheoryViscosityMethodTest
+[ERROR] neqsim.physicalProperties.physicalPropertyMethods.commonPhasePhysicalProperties.viscosity.FrictionTheoryViscosityMethodTest  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos
+	at neqsim.physicalProperties.physicalPropertyMethods.commonPhasePhysicalProperties.viscosity.FrictionTheoryViscosityMethodTest.setUp(FrictionTheoryViscosityMethodTest.java:13)
+
+[INFO] Running neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest
+[ERROR] Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.027 s <<< FAILURE! - in neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest
+[ERROR] neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.testSolveTransient  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.<init>(PipeFlowSystemTest.java:10)
+
+[ERROR] neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.testCreateSystem  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.<init>(PipeFlowSystemTest.java:10)
+
+[ERROR] neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.testSolveSteadyState  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.<init>(PipeFlowSystemTest.java:10)
+
+[ERROR] neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.testInit  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.<init>(PipeFlowSystemTest.java:10)
+
+[ERROR] neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.testSolveSteadyStateConstantFrictionFactor  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class neqsim.util.database.NeqSimDataBase
+	at neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.<init>(PipeFlowSystemTest.java:10)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   SaturationPressureTest.testCalcSaturationPressure:17 » NoClassDefFound Could n...
+[ERROR]   SaturationTemperatureTest.<init>:13->NeqSimTest.<init>:11 » NoClassDefFound Co...
+[ERROR]   PipeFlowSystemTest.<init>:10->NeqSimTest.<init>:11 » NoClassDefFound Could not...
+[ERROR]   PipeFlowSystemTest.<init>:10->NeqSimTest.<init>:11 » NoClassDefFound Could not...
+[ERROR]   PipeFlowSystemTest.<init>:10->NeqSimTest.<init>:11 » NoClassDefFound Could not...
+[ERROR]   PipeFlowSystemTest.<init>:10->NeqSimTest.<init>:11 » NoClassDefFound Could not...
+[ERROR]   PipeFlowSystemTest.<init>:10->NeqSimTest.<init>:11 » NoClassDefFound Could not...
+[ERROR]   FrictionTheoryViscosityMethodTest.setUp:13 NoClassDefFound Could not initializ...
+[ERROR]   CostaldTest.setUp:14 NoClassDefFound Could not initialize class neqsim.thermo....
+[ERROR]   WellAllocatorTest.<init>:15->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   pHProbeTest.testGetMeasuredValue:17 NoClassDefFound Could not initialize class...
+[ERROR]   pHProbeTest.testGetMeasuredValueWithAlkanility:43 NoClassDefFound Could not in...
+[ERROR]   SimpleAbsorberTest.<init>:8->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   SimpleAdsorberTest.<init>:8->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   CompressorCalculationTest.<init>:10->NeqSimTest.<init>:11 » NoClassDefFound Co...
+[ERROR]   CompressorCalculationTest.<init>:10->NeqSimTest.<init>:11 » NoClassDefFound Co...
+[ERROR]   CompressorChartTest.setUp:16 NoClassDefFound Could not initialize class neqsim...
+[ERROR]   CompressorPropertyProfileTest.<init>:10->NeqSimTest.<init>:11 » NoClassDefFound
+[ERROR]   CompressorPropertyProfileTest.<init>:10->NeqSimTest.<init>:11 » NoClassDefFound
+[ERROR]   CompressorTest.testCompressorRigorousMethod » NoClassDefFound Could not initia...
+[ERROR]   CompressorTest.testCompressorSchultzMethod » NoClassDefFound Could not initial...
+[ERROR]   CompressorTest.<clinit>:20 » NoClassDefFound Could not initialize class org.ap...
+[ERROR]   CompressorTest.testCompressorWithSrk » NoClassDefFound Could not initialize cl...
+[ERROR]   CompressorTest.testIsentropicCalcMethod » NoClassDefFound Could not initialize...
+[ERROR]   CompressorTest.testMultiPhaseCompression » NoClassDefFound Could not initializ...
+[ERROR]   CompressorTest.testSerialize » NoClassDefFound Could not initialize class neqs...
+[ERROR]   MixerTest.setUpBeforeClass:26 NoClassDefFound Could not initialize class neqsi...
+[ERROR]   GasTurbineTest.setUp:16 NoClassDefFound Could not initialize class neqsim.ther...
+[ERROR]   PumpTest.<init>:13->NeqSimTest.<init>:11 » NoClassDefFound Could not initializ...
+[ERROR]   SeparatorTest.<init>:14->NeqSimTest.<init>:11 » NoClassDefFound Could not init...
+[ERROR]   SeparatorTest.<init>:14->NeqSimTest.<init>:11 » NoClassDefFound Could not init...
+[ERROR]   ComponentSplitterTest.setUpBeforeClass:20 NoClassDefFound Could not initialize...
+[ERROR]   StreamTest.<init>:14->NeqSimTest.<init>:11 » NoClassDefFound Could not initial...
+[ERROR]   StreamTest.<init>:14->NeqSimTest.<init>:11 » NoClassDefFound Could not initial...
+[ERROR]   GlycolRigTest.<init>:28->NeqSimTest.<init>:11 » NoClassDefFound Could not init...
+[ERROR]   ProcessSystemControllerTest.<init>:14->NeqSimTest.<init>:11 » NoClassDefFound ...
+[ERROR]   ProcessSystemControllerTest.<init>:14->NeqSimTest.<init>:11 » NoClassDefFound ...
+[ERROR]   ProcessSystemControllerTest.<init>:14->NeqSimTest.<init>:11 » NoClassDefFound ...
+[ERROR]   ProcessSystemControllerTest.<init>:14->NeqSimTest.<init>:11 » NoClassDefFound ...
+[ERROR]   ProcessSystemRunTransientTest.<init>:16->NeqSimTest.<init>:11 » NoClassDefFound
+[ERROR]   ProcessSystemRunTransientTest.<init>:16->NeqSimTest.<init>:11 » NoClassDefFound
+[ERROR]   ProcessSystemRunTransientTest.<init>:16->NeqSimTest.<init>:11 » NoClassDefFound
+[ERROR]   ProcessSystemRunTransientTest.<init>:16->NeqSimTest.<init>:11 » NoClassDefFound
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   ProcessSystemTest.<init>:25->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   process1Test.setUp:19 NoClassDefFound Could not initialize class neqsim.thermo...
+[ERROR]   Draft_GERG2004Test.<init>:9->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   Draft_ISO18453Test.<init>:9->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+[ERROR]   Standard_ISO6578Test.<init>:8->NeqSimTest.<init>:11 » NoClassDefFound Could no...
+[ERROR]   Standard_ISO6976Test.setUpBeforeClass:26 NoClassDefFound Could not initialize ...
+[ERROR]   BaseContractTest.<init>:7->NeqSimTest.<init>:11 » NoClassDefFound Could not in...
+[ERROR]   ComponentHydrateGFTest.setUpBeforeClass:26 NoClassDefFound Could not initializ...
+[ERROR]   ComponentTest.setUpBeforeClass:17 NoClassDefFound Could not initialize class n...
+[ERROR]   SystemElectrolyteCPATest.setUp:28 NoClassDefFound Could not initialize class n...
+[ERROR]   SystemPrEoSTest.setUp:21 NoClassDefFound Could not initialize class neqsim.the...
+[ERROR]   SystemPropertiesTest.<init>:6->NeqSimTest.<init>:11 » NoClassDefFound Could no...
+[ERROR]   SystemSrkCPAstatoilTest.setUp:27 NoClassDefFound Could not initialize class ne...
+[ERROR]   SystemSrkSchwartzentruberEosTest.setUp:22 NoClassDefFound Could not initialize...
+[ERROR]   SystemThermoAddComponentTest.<init>:7->NeqSimTest.<init>:11 » NoClassDefFound ...
+[ERROR]   SystemThermoAddComponentTest.<init>:7->NeqSimTest.<init>:11 » NoClassDefFound ...
+[ERROR]   SystemThermoAddComponentTest.<init>:7->NeqSimTest.<init>:11 » NoClassDefFound ...
+[ERROR]   SystemThermoAddComponentTest.<init>:7->NeqSimTest.<init>:11 » NoClassDefFound ...
+[ERROR]   SystemThermoSetMolarCompositionTest.<init>:7->NeqSimTest.<init>:11 » NoClassDefFound
+[ERROR]   SystemThermoSetMolarCompositionTest.<init>:7->NeqSimTest.<init>:11 » NoClassDefFound
+[ERROR]   SystemThermoSetMolarCompositionTest.<init>:7->NeqSimTest.<init>:11 » NoClassDefFound
+[ERROR]   SystemThermoSetMolarCompositionTest.<init>:7->NeqSimTest.<init>:11 » NoClassDefFound
+[ERROR]   SystemThermoSetMolarCompositionTest.<init>:7->NeqSimTest.<init>:11 » NoClassDefFound
+[ERROR]   SystemThermoSetMolarCompositionTest.<init>:7->NeqSimTest.<init>:11 » NoClassDefFound
+[ERROR]   SystemUMRPRUMCEosNewTest.setUp:24 NoClassDefFound Could not initialize class n...
+[ERROR]   FlashGasTest.setUp:35 NoClassDefFound Could not initialize class neqsim.thermo...
+[ERROR]   FlashOilTest.setUp:48 NoClassDefFound Could not initialize class neqsim.thermo...
+[ERROR]   FlashWaterTest.setUp:28 NoClassDefFound Could not initialize class neqsim.ther...
+[ERROR]   KlabFlashBugTest.setUp:35 NoClassDefFound Could not initialize class neqsim.th...
+[ERROR]   SrkEoSTest.setUp:33 NoClassDefFound Could not initialize class neqsim.thermo.s...
+[ERROR]   SrkOilCharacterizationTest.setUp:28 NoClassDefFound Could not initialize class...
+[ERROR]   VapourPressureTTest.setUp:29 NoClassDefFound Could not initialize class neqsim...
+[ERROR]   EclipseFluidReadWriteTest.testRead:41 » NoClassDefFound Could not initialize c...
+[ERROR]   EclipseFluidReadWriteTest.testReadAndAddFluids:47 NoClassDefFound Could not in...
+[ERROR]   EclipseFluidReadWriteTest.testSetComposition:65 NoClassDefFound Could not init...
+[ERROR]   ThermodynamicOperationsTest.testComponentNames:77 NoClassDefFound Could not in...
+[ERROR]   ThermodynamicOperationsTest.testNeqSimPython:17 NoClassDefFound Could not init...
+[ERROR]   ThermodynamicOperationsTest.testNeqSimPython2:48 NoClassDefFound Could not ini...
+[ERROR]   ThermodynamicOperationsTest.testPropertyFlash:107 NoClassDefFound Could not in...
+[ERROR]   ThermodynamicOperationsTest.testpropertyFlashOnline:147 NoClassDefFound Could ...
+[ERROR]   ThermodynamicOperationsTest.testpropertyFlashOnlineSingle:169 NoClassDefFound ...
+[ERROR]   PHFlashGERG2008Test.setUp:27 NoClassDefFound Could not initialize class neqsim...
+[ERROR]   PHFlashTest.setUp:27 NoClassDefFound Could not initialize class neqsim.thermo....
+[ERROR]   PSFlashGERG2008Test.setUp:27 NoClassDefFound Could not initialize class neqsim...
+[ERROR]   TPFlashTest.setUp:25 NoClassDefFound Could not initialize class neqsim.thermo....
+[ERROR]   TPFlashTest.setUp:25 NoClassDefFound Could not initialize class neqsim.thermo....
+[ERROR]   TPFlashTest.setUp:25 NoClassDefFound Could not initialize class neqsim.thermo....
+[ERROR]   TVFlashTest.setUp:26 NoClassDefFound Could not initialize class neqsim.thermo....
+[INFO] 
+[ERROR] Tests run: 134, Failures: 0, Errors: 131, Skipped: 1
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  25.517 s
+[INFO] Finished at: 2026-01-05T04:25:14Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 6 plugin(s)
+[WARNING] 
+[WARNING]  * org.jacoco:jacoco-maven-plugin:0.8.7
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.9.0
+[WARNING]  * org.codehaus.mojo:flatten-maven-plugin:1.2.7
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.0.0
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project neqsim: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /neqsim/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR StatusLogger Unable to create Lookup for ctx
+ java.lang.NoSuchMethodError: 'java.lang.ClassLoader[] org.apache.logging.log4j.util.LoaderUtil.getClassLoaders()'
+	at org.apache.logging.log4j.core.impl.ThreadContextDataInjector.getServiceProviders(ThreadContextDataInjector.java:77)
+	at org.apache.logging.log4j.core.impl.ThreadContextDataInjector.<clinit>(ThreadContextDataInjector.java:64)
+	at org.apache.logging.log4j.core.impl.ThreadContextDataInjector$ForCopyOnWriteThreadContextMap.<init>(ThreadContextDataInjector.java:220)
+	at org.apache.logging.log4j.core.impl.ContextDataInjectorFactory.createDefaultInjector(ContextDataInjectorFactory.java:94)
+	at org.apache.logging.log4j.core.impl.ContextDataInjectorFactory.createInjector(ContextDataInjectorFactory.java:71)
+	at org.apache.logging.log4j.core.lookup.ContextMapLookup.<init>(ContextMapLookup.java:34)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.apache.logging.log4j.core.util.ReflectionUtil.instantiate(ReflectionUtil.java:189)
+	at org.apache.logging.log4j.core.lookup.Interpolator.<init>(Interpolator.java:81)
+	at org.apache.logging.log4j.core.lookup.Interpolator.<init>(Interpolator.java:100)
+	at org.apache.logging.log4j.core.config.AbstractConfiguration.<init>(AbstractConfiguration.java:133)
+	at org.apache.logging.log4j.core.config.NullConfiguration.<init>(NullConfiguration.java:32)
+	at org.apache.logging.log4j.core.LoggerContext.<clinit>(LoggerContext.java:74)
+	at org.apache.logging.log4j.core.selector.ClassLoaderContextSelector.createContext(ClassLoaderContextSelector.java:254)
+	at org.apache.logging.log4j.core.selector.ClassLoaderContextSelector.locateContext(ClassLoaderContextSelector.java:218)
+	at org.apache.logging.log4j.core.selector.ClassLoaderContextSelector.getContext(ClassLoaderContextSelector.java:136)
+	at org.apache.logging.log4j.core.selector.ClassLoaderContextSelector.getContext(ClassLoaderContextSelector.java:123)
+	at org.apache.logging.log4j.core.selector.ClassLoaderContextSelector.getContext(ClassLoaderContextSelector.java:117)
+	at org.apache.logging.log4j.core.impl.Log4jContextFactory.getContext(Log4jContextFactory.java:150)
+	at org.apache.logging.log4j.core.impl.Log4jContextFactory.getContext(Log4jContextFactory.java:47)
+	at org.apache.logging.log4j.LogManager.getContext(LogManager.java:196)
+	at org.apache.logging.log4j.LogManager.getLogger(LogManager.java:599)
+	at neqsim.thermo.system.SystemThermo.<clinit>(SystemThermo.java:126)
+	at neqsim.PVTsimulation.simulation.SaturationPressureTest.testCalcSaturationPressure(SaturationPressureTest.java:17)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:725)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:214)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:210)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:135)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:66)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:188)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:154)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:128)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)

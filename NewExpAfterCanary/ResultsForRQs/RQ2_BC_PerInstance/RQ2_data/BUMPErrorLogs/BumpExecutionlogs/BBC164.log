@@ -1,0 +1,307 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< it.baccan:HTML2POP3 >-------------------------
+[INFO] Building HTML2POP3 3.1.0 3.1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ HTML2POP3 ---
+[INFO] Deleting /html2pop3/target
+[INFO] 
+[INFO] --- resources:3.3.0:copy-resources (copy-resources) @ HTML2POP3 ---
+[INFO] Copying 1 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- dependency:3.3.0:sources (default) @ HTML2POP3 ---
+[INFO] Can't extract module name from json-20220320-sources.jar: json.20220320.sources: Invalid module name: '20220320' is not a Java identifier
+[INFO] Can't extract module name from logback-classic-1.4.0-sources.jar: Provider class ch.qos.logback.classic.spi.LogbackServiceProvider not in module
+[INFO] Can't extract module name from junit-jupiter-engine-5.9.0-sources.jar: Provider class org.junit.jupiter.engine.JupiterTestEngine not in module
+[INFO] 
+[INFO] The following files have been resolved:
+[INFO]    org.json:json:jar:sources:20220320
+[INFO]    net.sourceforge.jregex:jregex:jar:sources:1.2_01 -- module jregex (auto)
+[INFO]    org.projectlombok:lombok:jar:sources:1.18.24 -- module lombok (auto)
+[INFO]    org.slf4j:slf4j-api:jar:sources:2.0.0 -- module slf4j.api (auto)
+[INFO]    ch.qos.logback:logback-classic:jar:sources:1.4.0
+[INFO]    ch.qos.logback:logback-core:jar:sources:1.2.11 -- module logback.core (auto)
+[INFO]    org.unbescape:unbescape:jar:sources:1.1.6.RELEASE -- module unbescape (auto)
+[INFO]    com.konghq:unirest-java:jar:sources:3.13.11 -- module unirest.java (auto)
+[INFO]    org.apache.httpcomponents:httpclient:jar:sources:4.5.13 -- module httpclient (auto)
+[INFO]    org.apache.httpcomponents:httpcore:jar:sources:4.4.13 -- module httpcore (auto)
+[INFO]    commons-logging:commons-logging:jar:sources:1.2 -- module commons.logging (auto)
+[INFO]    org.apache.httpcomponents:httpmime:jar:sources:4.5.13 -- module httpmime (auto)
+[INFO]    org.apache.httpcomponents:httpcore-nio:jar:sources:4.4.13 -- module httpcore.nio (auto)
+[INFO]    org.apache.httpcomponents:httpasyncclient:jar:sources:4.1.5 -- module httpasyncclient (auto)
+[INFO]    com.google.code.gson:gson:jar:sources:2.9.0 -- module gson (auto)
+[INFO]    org.junit.jupiter:junit-jupiter-api:jar:sources:5.9.0 -- module junit.jupiter.api (auto)
+[INFO]    org.opentest4j:opentest4j:jar:sources:1.2.0 -- module opentest4j (auto)
+[INFO]    org.junit.platform:junit-platform-commons:jar:sources:1.9.0 -- module junit.platform.commons (auto)
+[INFO]    org.apiguardian:apiguardian-api:jar:sources:1.1.2 -- module apiguardian.api (auto)
+[INFO]    org.junit.jupiter:junit-jupiter-params:jar:sources:5.9.0 -- module junit.jupiter.params (auto)
+[INFO]    org.junit.jupiter:junit-jupiter-engine:jar:sources:5.9.0
+[INFO]    org.junit.platform:junit-platform-engine:jar:sources:1.9.0 -- module junit.platform.engine (auto)
+[INFO]    commons-codec:commons-codec:jar:sources:1.15 -- module commons.codec (auto)
+[INFO]    org.jsoup:jsoup:jar:sources:1.15.3 -- module jsoup (auto)
+[INFO]    org.graalvm.sdk:graal-sdk:jar:sources:22.2.0 -- module graal.sdk (auto)
+[INFO] 
+[INFO] The following files have NOT been resolved:
+[INFO]    org.json:json:jar:20220320:compile -- module org.json [auto]
+[INFO]    net.sourceforge.jregex:jregex:jar:1.2_01:compile -- module jregex (auto)
+[INFO]    org.projectlombok:lombok:jar:1.18.24:compile -- module lombok
+[INFO]    org.slf4j:slf4j-api:jar:2.0.0:compile -- module org.slf4j
+[INFO]    ch.qos.logback:logback-classic:jar:1.4.0:compile -- module ch.qos.logback.classic
+[INFO]    ch.qos.logback:logback-core:jar:1.2.11:compile -- module logback.core (auto)
+[INFO]    org.unbescape:unbescape:jar:1.1.6.RELEASE:compile -- module unbescape [auto]
+[INFO]    com.konghq:unirest-java:jar:3.13.11:compile -- module unirest.java (auto)
+[INFO]    org.apache.httpcomponents:httpclient:jar:4.5.13:compile -- module org.apache.httpcomponents.httpclient [auto]
+[INFO]    org.apache.httpcomponents:httpcore:jar:4.4.13:compile -- module org.apache.httpcomponents.httpcore [auto]
+[INFO]    commons-logging:commons-logging:jar:1.2:compile -- module commons.logging (auto)
+[INFO]    org.apache.httpcomponents:httpmime:jar:4.5.13:compile -- module org.apache.httpcomponents.httpmime [auto]
+[INFO]    org.apache.httpcomponents:httpcore-nio:jar:4.4.13:compile -- module org.apache.httpcomponents.httpcore.nio [auto]
+[INFO]    org.apache.httpcomponents:httpasyncclient:jar:4.1.5:compile -- module org.apache.httpcomponents.httpasyncclient [auto]
+[INFO]    com.google.code.gson:gson:jar:2.9.0:compile -- module com.google.gson
+[INFO]    org.junit.jupiter:junit-jupiter-api:jar:5.9.0:test -- module org.junit.jupiter.api
+[INFO]    org.opentest4j:opentest4j:jar:1.2.0:test -- module org.opentest4j
+[INFO]    org.junit.platform:junit-platform-commons:jar:1.9.0:test -- module org.junit.platform.commons
+[INFO]    org.apiguardian:apiguardian-api:jar:1.1.2:test -- module org.apiguardian.api
+[INFO]    org.junit.jupiter:junit-jupiter-params:jar:5.9.0:test -- module org.junit.jupiter.params
+[INFO]    org.junit.jupiter:junit-jupiter-engine:jar:5.9.0:test -- module org.junit.jupiter.engine
+[INFO]    org.junit.platform:junit-platform-engine:jar:1.9.0:test -- module org.junit.platform.engine
+[INFO]    commons-codec:commons-codec:jar:1.15:compile -- module org.apache.commons.codec [auto]
+[INFO]    org.jsoup:jsoup:jar:1.15.3:compile -- module org.jsoup [auto]
+[INFO]    org.graalvm.sdk:graal-sdk:jar:22.2.0:provided -- module org.graalvm.sdk
+[INFO] 
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ HTML2POP3 ---
+[INFO] Copying 7 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ HTML2POP3 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 53 source files to /html2pop3/target/classes
+[WARNING] /html2pop3/src/main/java/it/baccan/html2pop3/HTML2POP3.java:[176,41] keys() in it.baccan.html2pop3.HTML2POP3.SortedProperties overrides keys() in java.util.Dictionary
+  return type requires unchecked conversion from java.util.Enumeration to java.util.Enumeration<java.lang.Object>
+[WARNING] /html2pop3/src/main/java/it/baccan/html2pop3/HTML2POP3.java:[176,41] keys() in it.baccan.html2pop3.HTML2POP3.SortedProperties overrides keys() in java.util.Properties
+  return type requires unchecked conversion from java.util.Enumeration to java.util.Enumeration<java.lang.Object>
+[WARNING] /html2pop3/src/main/java/it/baccan/html2pop3/HTML2POP3.java:[176,41] keys() in it.baccan.html2pop3.HTML2POP3.SortedProperties overrides keys() in java.util.Hashtable
+  return type requires unchecked conversion from java.util.Enumeration to java.util.Enumeration<java.lang.Object>
+[WARNING] /html2pop3/src/main/java/it/baccan/html2pop3/plugin/pop3/PluginTiscali.java:[267,44] Double(double) in java.lang.Double has been deprecated
+[WARNING] /html2pop3/src/main/java/it/baccan/html2pop3/utils/FakeURLStreamHandlerFactory.java:[42,76] newInstance() in java.lang.Class has been deprecated
+[WARNING] /html2pop3/src/main/java/it/baccan/html2pop3/utils/FakeURLStreamHandlerFactory.java:[56,83] newInstance() in java.lang.Class has been deprecated
+[WARNING] /html2pop3/src/main/java/it/baccan/html2pop3/HTMLGUI.java:[186,24] unchecked call to DefaultComboBoxModel(E[]) as a member of the raw type javax.swing.DefaultComboBoxModel
+[WARNING] /html2pop3/src/main/java/it/baccan/html2pop3/HTMLGUI.java:[186,23] unchecked call to setModel(javax.swing.ComboBoxModel<E>) as a member of the raw type javax.swing.JComboBox
+[WARNING] /html2pop3/src/main/java/it/baccan/html2pop3/HTMLGUI.java:[355,59] getText() in javax.swing.JPasswordField has been deprecated
+[WARNING] /html2pop3/src/main/java/it/baccan/html2pop3/HTMLGUI.java:[388,22] show() in java.awt.Window has been deprecated
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ HTML2POP3 ---
+[INFO] skip non existing resourceDirectory /html2pop3/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ HTML2POP3 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /html2pop3/target/test-classes
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ HTML2POP3 ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running it.baccan.html2pop3.utils.FilterTest
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.068 s <<< FAILURE! - in it.baccan.html2pop3.utils.FilterTest
+[ERROR] it.baccan.html2pop3.utils.FilterTest.testAdd  Time elapsed: 0.01 s  <<< ERROR!
+java.lang.NoSuchMethodError: 'java.lang.String ch.qos.logback.core.util.EnvUtil.logbackVersion()'
+	at ch.qos.logback.classic.util.ContextInitializer.autoConfig(ContextInitializer.java:81)
+	at ch.qos.logback.classic.util.ContextInitializer.autoConfig(ContextInitializer.java:77)
+	at ch.qos.logback.classic.spi.LogbackServiceProvider.initializeLoggerContext(LogbackServiceProvider.java:50)
+	at ch.qos.logback.classic.spi.LogbackServiceProvider.initialize(LogbackServiceProvider.java:41)
+	at org.slf4j.LoggerFactory.bind(LoggerFactory.java:152)
+	at org.slf4j.LoggerFactory.performInitialization(LoggerFactory.java:139)
+	at org.slf4j.LoggerFactory.getProvider(LoggerFactory.java:421)
+	at org.slf4j.LoggerFactory.getILoggerFactory(LoggerFactory.java:407)
+	at org.slf4j.LoggerFactory.getLogger(LoggerFactory.java:356)
+	at org.slf4j.LoggerFactory.getLogger(LoggerFactory.java:382)
+	at it.baccan.html2pop3.utils.FilterTest.<clinit>(FilterTest.java:19)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.junit.platform.commons.util.ReflectionUtils.newInstance(ReflectionUtils.java:552)
+	at org.junit.jupiter.engine.execution.ConstructorInvocation.proceed(ConstructorInvocation.java:56)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.api.extension.InvocationInterceptor.interceptTestClassConstructor(InvocationInterceptor.java:73)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:62)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestClassConstructor(ClassBasedTestDescriptor.java:363)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateTestClass(ClassBasedTestDescriptor.java:310)
+	at org.junit.jupiter.engine.descriptor.ClassTestDescriptor.instantiateTestClass(ClassTestDescriptor.java:79)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:286)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:278)
+	at java.base/java.util.Optional.orElseGet(Optional.java:369)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:277)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:105)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:104)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:50)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+[ERROR] it.baccan.html2pop3.utils.FilterTest.testIsAllow  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class it.baccan.html2pop3.utils.FilterTest
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.junit.platform.commons.util.ReflectionUtils.newInstance(ReflectionUtils.java:552)
+	at org.junit.jupiter.engine.execution.ConstructorInvocation.proceed(ConstructorInvocation.java:56)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.api.extension.InvocationInterceptor.interceptTestClassConstructor(InvocationInterceptor.java:73)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:62)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestClassConstructor(ClassBasedTestDescriptor.java:363)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateTestClass(ClassBasedTestDescriptor.java:310)
+	at org.junit.jupiter.engine.descriptor.ClassTestDescriptor.instantiateTestClass(ClassTestDescriptor.java:79)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:286)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:278)
+	at java.base/java.util.Optional.orElseGet(Optional.java:369)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:277)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:105)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:104)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:50)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+[INFO] Running it.baccan.html2pop3.utils.ContentTypeTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 s - in it.baccan.html2pop3.utils.ContentTypeTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   FilterTest.<clinit>:19 » NoSuchMethod 'java.lang.String ch.qos.logback.core.util.EnvUtil.logbackVersion()'
+[ERROR]   FilterTest.testIsAllow » NoClassDefFound Could not initialize class it.baccan.html2pop3.utils.FilterTest
+[INFO] 
+[ERROR] Tests run: 5, Failures: 0, Errors: 2, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.319 s
+[INFO] Finished at: 2026-01-05T05:55:45Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 3 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-dependency-plugin:3.3.0
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project HTML2POP3: 
+[ERROR] 
+[ERROR] Please refer to /html2pop3/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested

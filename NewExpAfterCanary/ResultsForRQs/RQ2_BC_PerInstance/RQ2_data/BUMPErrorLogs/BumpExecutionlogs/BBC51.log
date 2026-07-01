@@ -1,0 +1,1730 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< org.pac4j:dropwizard-pac4j >---------------------
+[INFO] Building Dropwizard pac4j Support 5.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ dropwizard-pac4j ---
+[INFO] Deleting /dropwizard-pac4j/target
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce-maven) @ dropwizard-pac4j ---
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (dependency-convergence) @ dropwizard-pac4j ---
+[INFO] Downloading from sonatype-nexus: https://oss.sonatype.org/content/repositories/releases/org/apache/logging/log4j/log4j-api-java9/2.11.2/log4j-api-java9-2.11.2.pom
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-api-java9/2.11.2/log4j-api-java9-2.11.2.pom
+[WARNING] The POM for org.apache.logging.log4j:log4j-api-java9:zip:2.11.2 is missing, no dependency information available
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ dropwizard-pac4j ---
+[INFO] skip non existing resourceDirectory /dropwizard-pac4j/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ dropwizard-pac4j ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /dropwizard-pac4j/target/classes
+[INFO] 
+[INFO] >>> pmd:3.17.0:check (run-pmd) > :pmd @ dropwizard-pac4j >>>
+[INFO] 
+[INFO] --- pmd:3.17.0:pmd (pmd) @ dropwizard-pac4j ---
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] PMD version: 6.46.0
+[INFO] 
+[INFO] <<< pmd:3.17.0:check (run-pmd) < :pmd @ dropwizard-pac4j <<<
+[INFO] 
+[INFO] 
+[INFO] --- pmd:3.17.0:check (run-pmd) @ dropwizard-pac4j ---
+[INFO] PMD version: 6.46.0
+[INFO] 
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ dropwizard-pac4j ---
+[INFO] Copying 10 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ dropwizard-pac4j ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to /dropwizard-pac4j/target/test-classes
+[INFO] /dropwizard-pac4j/src/test/java/org/pac4j/dropwizard/factory/FakeConfigFactory.java: /dropwizard-pac4j/src/test/java/org/pac4j/dropwizard/factory/FakeConfigFactory.java uses unchecked or unsafe operations.
+[INFO] /dropwizard-pac4j/src/test/java/org/pac4j/dropwizard/factory/FakeConfigFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ dropwizard-pac4j ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.pac4j.dropwizard.bundle.BundleFactoryTest
+INFO  [2026-01-05 04:04:43,102] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2026-01-05 04:04:43,125] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2026-01-05 04:04:43,139] io.dropwizard.server.ServerFactory: Starting App
+INFO  [2026-01-05 04:04:43,271] org.eclipse.jetty.setuid.SetUIDListener: Opened application@44924587{HTTP/1.1, (http/1.1)}{0.0.0.0:33553}
+INFO  [2026-01-05 04:04:43,271] org.eclipse.jetty.setuid.SetUIDListener: Opened admin@18460128{HTTP/1.1, (http/1.1)}{0.0.0.0:41589}
+INFO  [2026-01-05 04:04:43,274] org.eclipse.jetty.server.Server: jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 11.0.19+7-alpine-r1
+INFO  [2026-01-05 04:04:43,295] org.eclipse.jetty.server.session: DefaultSessionIdManager workerName=node0
+INFO  [2026-01-05 04:04:43,295] org.eclipse.jetty.server.session: No SessionScavenger set, using defaults
+INFO  [2026-01-05 04:04:43,297] org.eclipse.jetty.server.session: node0 Scavenging every 600000ms
+INFO  [2026-01-05 04:04:43,814] io.dropwizard.jersey.DropwizardResourceConfig: The following paths were found for the configured resources:
+
+    NONE
+
+INFO  [2026-01-05 04:04:43,823] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@115dcaea{/,null,AVAILABLE}
+INFO  [2026-01-05 04:04:43,825] io.dropwizard.setup.AdminEnvironment: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+WARN  [2026-01-05 04:04:43,825] io.dropwizard.setup.AdminEnvironment: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2026-01-05 04:04:43,827] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@4dfe8b37{/,null,AVAILABLE}
+INFO  [2026-01-05 04:04:43,839] org.eclipse.jetty.server.AbstractConnector: Started application@44924587{HTTP/1.1, (http/1.1)}{0.0.0.0:33553}
+INFO  [2026-01-05 04:04:43,842] org.eclipse.jetty.server.AbstractConnector: Started admin@18460128{HTTP/1.1, (http/1.1)}{0.0.0.0:41589}
+INFO  [2026-01-05 04:04:43,843] org.eclipse.jetty.server.Server: Started @3292ms
+INFO  [2026-01-05 04:04:43,879] org.eclipse.jetty.server.AbstractConnector: Stopped application@44924587{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-01-05 04:04:43,881] org.eclipse.jetty.server.AbstractConnector: Stopped admin@18460128{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-01-05 04:04:43,881] org.eclipse.jetty.server.session: node0 Stopped scavenging
+INFO  [2026-01-05 04:04:44,168] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2026-01-05 04:04:44,169] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2026-01-05 04:04:44,170] io.dropwizard.server.ServerFactory: Starting App
+INFO  [2026-01-05 04:04:44,175] org.eclipse.jetty.setuid.SetUIDListener: Opened application@7459a21e{HTTP/1.1, (http/1.1)}{0.0.0.0:40709}
+INFO  [2026-01-05 04:04:44,176] org.eclipse.jetty.setuid.SetUIDListener: Opened admin@7eeb38b2{HTTP/1.1, (http/1.1)}{0.0.0.0:45497}
+INFO  [2026-01-05 04:04:44,176] org.eclipse.jetty.server.Server: jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 11.0.19+7-alpine-r1
+INFO  [2026-01-05 04:04:44,301] io.dropwizard.jersey.DropwizardResourceConfig: The following paths were found for the configured resources:
+
+    NONE
+
+INFO  [2026-01-05 04:04:44,305] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@55e1192{/,null,AVAILABLE}
+INFO  [2026-01-05 04:04:44,305] io.dropwizard.setup.AdminEnvironment: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+WARN  [2026-01-05 04:04:44,305] io.dropwizard.setup.AdminEnvironment: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2026-01-05 04:04:44,306] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@68a305eb{/,null,AVAILABLE}
+INFO  [2026-01-05 04:04:44,307] org.eclipse.jetty.server.AbstractConnector: Started application@7459a21e{HTTP/1.1, (http/1.1)}{0.0.0.0:40709}
+INFO  [2026-01-05 04:04:44,310] org.eclipse.jetty.server.AbstractConnector: Started admin@7eeb38b2{HTTP/1.1, (http/1.1)}{0.0.0.0:45497}
+INFO  [2026-01-05 04:04:44,311] org.eclipse.jetty.server.Server: Started @3760ms
+INFO  [2026-01-05 04:04:44,313] org.eclipse.jetty.server.AbstractConnector: Stopped application@7459a21e{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-01-05 04:04:44,315] org.eclipse.jetty.server.AbstractConnector: Stopped admin@7eeb38b2{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-01-05 04:04:44,496] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2026-01-05 04:04:44,497] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2026-01-05 04:04:44,497] io.dropwizard.server.ServerFactory: Starting App
+INFO  [2026-01-05 04:04:44,502] org.eclipse.jetty.setuid.SetUIDListener: Opened application@14fc9bd{HTTP/1.1, (http/1.1)}{0.0.0.0:33087}
+INFO  [2026-01-05 04:04:44,502] org.eclipse.jetty.setuid.SetUIDListener: Opened admin@7ed49a7f{HTTP/1.1, (http/1.1)}{0.0.0.0:39863}
+INFO  [2026-01-05 04:04:44,502] org.eclipse.jetty.server.Server: jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 11.0.19+7-alpine-r1
+INFO  [2026-01-05 04:04:44,594] io.dropwizard.jersey.DropwizardResourceConfig: The following paths were found for the configured resources:
+
+    NONE
+
+INFO  [2026-01-05 04:04:44,595] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@7a31ca20{/,null,AVAILABLE}
+INFO  [2026-01-05 04:04:44,596] io.dropwizard.setup.AdminEnvironment: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+WARN  [2026-01-05 04:04:44,597] io.dropwizard.setup.AdminEnvironment: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2026-01-05 04:04:44,601] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@21edd891{/,null,AVAILABLE}
+INFO  [2026-01-05 04:04:44,608] org.eclipse.jetty.server.AbstractConnector: Started application@14fc9bd{HTTP/1.1, (http/1.1)}{0.0.0.0:33087}
+INFO  [2026-01-05 04:04:44,613] org.eclipse.jetty.server.AbstractConnector: Started admin@7ed49a7f{HTTP/1.1, (http/1.1)}{0.0.0.0:39863}
+INFO  [2026-01-05 04:04:44,614] org.eclipse.jetty.server.Server: Started @4062ms
+INFO  [2026-01-05 04:04:44,616] org.eclipse.jetty.server.AbstractConnector: Stopped application@14fc9bd{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-01-05 04:04:44,618] org.eclipse.jetty.server.AbstractConnector: Stopped admin@7ed49a7f{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-01-05 04:04:44,808] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2026-01-05 04:04:44,808] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2026-01-05 04:04:44,810] io.dropwizard.server.ServerFactory: Starting App
+INFO  [2026-01-05 04:04:44,815] org.eclipse.jetty.setuid.SetUIDListener: Opened application@34c7232c{HTTP/1.1, (http/1.1)}{0.0.0.0:44741}
+INFO  [2026-01-05 04:04:44,815] org.eclipse.jetty.setuid.SetUIDListener: Opened admin@50ec4bfc{HTTP/1.1, (http/1.1)}{0.0.0.0:36009}
+INFO  [2026-01-05 04:04:44,815] org.eclipse.jetty.server.Server: jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 11.0.19+7-alpine-r1
+INFO  [2026-01-05 04:04:44,816] org.eclipse.jetty.server.session: DefaultSessionIdManager workerName=node0
+INFO  [2026-01-05 04:04:44,816] org.eclipse.jetty.server.session: No SessionScavenger set, using defaults
+INFO  [2026-01-05 04:04:44,816] org.eclipse.jetty.server.session: node0 Scavenging every 660000ms
+INFO  [2026-01-05 04:04:44,922] io.dropwizard.jersey.DropwizardResourceConfig: The following paths were found for the configured resources:
+
+    NONE
+
+INFO  [2026-01-05 04:04:44,924] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@794240e2{/,null,AVAILABLE}
+INFO  [2026-01-05 04:04:44,925] io.dropwizard.setup.AdminEnvironment: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+WARN  [2026-01-05 04:04:44,925] io.dropwizard.setup.AdminEnvironment: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2026-01-05 04:04:44,926] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@5a30722c{/,null,AVAILABLE}
+INFO  [2026-01-05 04:04:44,928] org.eclipse.jetty.server.AbstractConnector: Started application@34c7232c{HTTP/1.1, (http/1.1)}{0.0.0.0:44741}
+INFO  [2026-01-05 04:04:44,930] org.eclipse.jetty.server.AbstractConnector: Started admin@50ec4bfc{HTTP/1.1, (http/1.1)}{0.0.0.0:36009}
+INFO  [2026-01-05 04:04:44,930] org.eclipse.jetty.server.Server: Started @4379ms
+INFO  [2026-01-05 04:04:44,933] org.eclipse.jetty.server.AbstractConnector: Stopped application@34c7232c{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-01-05 04:04:44,934] org.eclipse.jetty.server.AbstractConnector: Stopped admin@50ec4bfc{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-01-05 04:04:44,934] org.eclipse.jetty.server.session: node0 Stopped scavenging
+[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 3.686 s <<< FAILURE! - in org.pac4j.dropwizard.bundle.BundleFactoryTest
+[ERROR] org.pac4j.dropwizard.bundle.BundleFactoryTest.emptyPac4jInConfig  Time elapsed: 2.485 s  <<< ERROR!
+java.lang.RuntimeException: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+	at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:257)
+	at io.dropwizard.testing.DropwizardTestSupport.after(DropwizardTestSupport.java:237)
+	at org.pac4j.dropwizard.AbstractApplicationTest.tearDown(AbstractApplicationTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+	at org.eclipse.jetty.util.MultiException.ifExceptionThrow(MultiException.java:122)
+	at org.eclipse.jetty.server.Server.doStop(Server.java:484)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+	at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:252)
+	... 27 more
+	Suppressed: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.setFailed(AbstractLifeCycle.java:238)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:99)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.handler.StatisticsHandler.doStop(StatisticsHandler.java:272)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.Server.doStop(Server.java:470)
+		... 29 more
+	Suppressed: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.setFailed(AbstractLifeCycle.java:238)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:99)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at com.codahale.metrics.jetty9.InstrumentedHandler.doStop(InstrumentedHandler.java:285)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.handler.StatisticsHandler.doStop(StatisticsHandler.java:272)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.Server.doStop(Server.java:470)
+		... 29 more
+Caused by: [CIRCULAR REFERENCE: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+
+[ERROR] org.pac4j.dropwizard.bundle.BundleFactoryTest.sessiondisabledForced  Time elapsed: 0.425 s  <<< ERROR!
+java.lang.RuntimeException: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+	at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:257)
+	at io.dropwizard.testing.DropwizardTestSupport.after(DropwizardTestSupport.java:237)
+	at org.pac4j.dropwizard.AbstractApplicationTest.tearDown(AbstractApplicationTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+	at org.eclipse.jetty.util.MultiException.ifExceptionThrow(MultiException.java:122)
+	at org.eclipse.jetty.server.Server.doStop(Server.java:484)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+	at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:252)
+	... 27 more
+	Suppressed: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.setFailed(AbstractLifeCycle.java:238)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:99)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.handler.StatisticsHandler.doStop(StatisticsHandler.java:272)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.Server.doStop(Server.java:470)
+		... 29 more
+	Suppressed: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.setFailed(AbstractLifeCycle.java:238)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:99)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at com.codahale.metrics.jetty9.InstrumentedHandler.doStop(InstrumentedHandler.java:285)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.handler.StatisticsHandler.doStop(StatisticsHandler.java:272)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.Server.doStop(Server.java:470)
+		... 29 more
+Caused by: [CIRCULAR REFERENCE: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+
+[ERROR] org.pac4j.dropwizard.bundle.BundleFactoryTest.noPac4jInConfig  Time elapsed: 0.301 s  <<< ERROR!
+java.lang.RuntimeException: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+	at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:257)
+	at io.dropwizard.testing.DropwizardTestSupport.after(DropwizardTestSupport.java:237)
+	at org.pac4j.dropwizard.AbstractApplicationTest.tearDown(AbstractApplicationTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+	at org.eclipse.jetty.util.MultiException.ifExceptionThrow(MultiException.java:122)
+	at org.eclipse.jetty.server.Server.doStop(Server.java:484)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+	at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:252)
+	... 27 more
+	Suppressed: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.setFailed(AbstractLifeCycle.java:238)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:99)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.handler.StatisticsHandler.doStop(StatisticsHandler.java:272)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.Server.doStop(Server.java:470)
+		... 29 more
+	Suppressed: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.setFailed(AbstractLifeCycle.java:238)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:99)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at com.codahale.metrics.jetty9.InstrumentedHandler.doStop(InstrumentedHandler.java:285)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.handler.StatisticsHandler.doStop(StatisticsHandler.java:272)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.Server.doStop(Server.java:470)
+		... 29 more
+Caused by: [CIRCULAR REFERENCE: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+
+[ERROR] org.pac4j.dropwizard.bundle.BundleFactoryTest.sessionEnabledForced  Time elapsed: 0.316 s  <<< ERROR!
+java.lang.RuntimeException: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+	at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:257)
+	at io.dropwizard.testing.DropwizardTestSupport.after(DropwizardTestSupport.java:237)
+	at org.pac4j.dropwizard.AbstractApplicationTest.tearDown(AbstractApplicationTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+	at org.eclipse.jetty.util.MultiException.ifExceptionThrow(MultiException.java:122)
+	at org.eclipse.jetty.server.Server.doStop(Server.java:484)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+	at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:252)
+	... 27 more
+	Suppressed: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.setFailed(AbstractLifeCycle.java:238)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:99)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.handler.StatisticsHandler.doStop(StatisticsHandler.java:272)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.Server.doStop(Server.java:470)
+		... 29 more
+	Suppressed: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.setFailed(AbstractLifeCycle.java:238)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:99)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at com.codahale.metrics.jetty9.InstrumentedHandler.doStop(InstrumentedHandler.java:285)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.handler.StatisticsHandler.doStop(StatisticsHandler.java:272)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.Server.doStop(Server.java:470)
+		... 29 more
+Caused by: [CIRCULAR REFERENCE: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+
+[INFO] Running org.pac4j.dropwizard.e2e.EndToEndServletTest
+INFO  [2026-01-05 04:04:45,147] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2026-01-05 04:04:45,147] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2026-01-05 04:04:45,226] io.dropwizard.server.ServerFactory: Starting App
+INFO  [2026-01-05 04:04:45,229] org.eclipse.jetty.setuid.SetUIDListener: Opened application@4466cf5d{HTTP/1.1, (http/1.1)}{0.0.0.0:33541}
+INFO  [2026-01-05 04:04:45,229] org.eclipse.jetty.setuid.SetUIDListener: Opened admin@2c60ce47{HTTP/1.1, (http/1.1)}{0.0.0.0:44125}
+INFO  [2026-01-05 04:04:45,229] org.eclipse.jetty.server.Server: jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 11.0.19+7-alpine-r1
+INFO  [2026-01-05 04:04:45,230] org.eclipse.jetty.server.session: DefaultSessionIdManager workerName=node0
+INFO  [2026-01-05 04:04:45,230] org.eclipse.jetty.server.session: No SessionScavenger set, using defaults
+INFO  [2026-01-05 04:04:45,230] org.eclipse.jetty.server.session: node0 Scavenging every 660000ms
+INFO  [2026-01-05 04:04:45,404] io.dropwizard.jersey.DropwizardResourceConfig: The following paths were found for the configured resources:
+
+    GET     /dogs/{name} (org.pac4j.dropwizard.e2e.DogsResource)
+    POST    /dogs/{name} (org.pac4j.dropwizard.e2e.DogsResource)
+
+INFO  [2026-01-05 04:04:45,405] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@1d17423f{/,null,AVAILABLE}
+INFO  [2026-01-05 04:04:45,406] io.dropwizard.setup.AdminEnvironment: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+WARN  [2026-01-05 04:04:45,406] io.dropwizard.setup.AdminEnvironment: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2026-01-05 04:04:45,408] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@582dcd35{/,null,AVAILABLE}
+INFO  [2026-01-05 04:04:45,413] org.eclipse.jetty.server.AbstractConnector: Started application@4466cf5d{HTTP/1.1, (http/1.1)}{0.0.0.0:33541}
+INFO  [2026-01-05 04:04:45,418] org.eclipse.jetty.server.AbstractConnector: Started admin@2c60ce47{HTTP/1.1, (http/1.1)}{0.0.0.0:44125}
+INFO  [2026-01-05 04:04:45,418] org.eclipse.jetty.server.Server: Started @4867ms
+INFO  [2026-01-05 04:04:45,632] org.eclipse.jetty.server.AbstractConnector: Stopped application@4466cf5d{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-01-05 04:04:45,633] org.eclipse.jetty.server.AbstractConnector: Stopped admin@2c60ce47{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-01-05 04:04:45,633] org.eclipse.jetty.server.session: node0 Stopped scavenging
+INFO  [2026-01-05 04:04:45,875] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2026-01-05 04:04:45,875] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2026-01-05 04:04:45,878] io.dropwizard.server.ServerFactory: Starting App
+INFO  [2026-01-05 04:04:45,884] org.eclipse.jetty.setuid.SetUIDListener: Opened application@58186f9f{HTTP/1.1, (http/1.1)}{0.0.0.0:45699}
+INFO  [2026-01-05 04:04:45,884] org.eclipse.jetty.setuid.SetUIDListener: Opened admin@62faf77{HTTP/1.1, (http/1.1)}{0.0.0.0:39855}
+INFO  [2026-01-05 04:04:45,884] org.eclipse.jetty.server.Server: jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 11.0.19+7-alpine-r1
+INFO  [2026-01-05 04:04:45,886] org.eclipse.jetty.server.session: DefaultSessionIdManager workerName=node0
+INFO  [2026-01-05 04:04:45,886] org.eclipse.jetty.server.session: No SessionScavenger set, using defaults
+INFO  [2026-01-05 04:04:45,886] org.eclipse.jetty.server.session: node0 Scavenging every 660000ms
+INFO  [2026-01-05 04:04:46,057] io.dropwizard.jersey.DropwizardResourceConfig: The following paths were found for the configured resources:
+
+    GET     /dogs/{name} (org.pac4j.dropwizard.e2e.DogsResource)
+    POST    /dogs/{name} (org.pac4j.dropwizard.e2e.DogsResource)
+
+INFO  [2026-01-05 04:04:46,066] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@521ba38f{/,null,AVAILABLE}
+INFO  [2026-01-05 04:04:46,066] io.dropwizard.setup.AdminEnvironment: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+WARN  [2026-01-05 04:04:46,067] io.dropwizard.setup.AdminEnvironment: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2026-01-05 04:04:46,068] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@b1d19ff{/,null,AVAILABLE}
+INFO  [2026-01-05 04:04:46,069] org.eclipse.jetty.server.AbstractConnector: Started application@58186f9f{HTTP/1.1, (http/1.1)}{0.0.0.0:45699}
+INFO  [2026-01-05 04:04:46,070] org.eclipse.jetty.server.AbstractConnector: Started admin@62faf77{HTTP/1.1, (http/1.1)}{0.0.0.0:39855}
+INFO  [2026-01-05 04:04:46,070] org.eclipse.jetty.server.Server: Started @5520ms
+INFO  [2026-01-05 04:04:46,128] org.eclipse.jetty.server.AbstractConnector: Stopped application@58186f9f{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-01-05 04:04:46,129] org.eclipse.jetty.server.AbstractConnector: Stopped admin@62faf77{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-01-05 04:04:46,129] org.eclipse.jetty.server.session: node0 Stopped scavenging
+INFO  [2026-01-05 04:04:46,314] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2026-01-05 04:04:46,315] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2026-01-05 04:04:46,317] io.dropwizard.server.ServerFactory: Starting App
+INFO  [2026-01-05 04:04:46,327] org.eclipse.jetty.setuid.SetUIDListener: Opened application@72715e61{HTTP/1.1, (http/1.1)}{0.0.0.0:34399}
+INFO  [2026-01-05 04:04:46,328] org.eclipse.jetty.setuid.SetUIDListener: Opened admin@68f776ee{HTTP/1.1, (http/1.1)}{0.0.0.0:38457}
+INFO  [2026-01-05 04:04:46,328] org.eclipse.jetty.server.Server: jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 11.0.19+7-alpine-r1
+INFO  [2026-01-05 04:04:46,330] org.eclipse.jetty.server.session: DefaultSessionIdManager workerName=node0
+INFO  [2026-01-05 04:04:46,330] org.eclipse.jetty.server.session: No SessionScavenger set, using defaults
+INFO  [2026-01-05 04:04:46,330] org.eclipse.jetty.server.session: node0 Scavenging every 660000ms
+INFO  [2026-01-05 04:04:46,423] io.dropwizard.jersey.DropwizardResourceConfig: The following paths were found for the configured resources:
+
+    GET     /dogs/{name} (org.pac4j.dropwizard.e2e.DogsResource)
+    POST    /dogs/{name} (org.pac4j.dropwizard.e2e.DogsResource)
+
+INFO  [2026-01-05 04:04:46,424] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@55d1f065{/,null,AVAILABLE}
+INFO  [2026-01-05 04:04:46,424] io.dropwizard.setup.AdminEnvironment: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+WARN  [2026-01-05 04:04:46,424] io.dropwizard.setup.AdminEnvironment: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2026-01-05 04:04:46,425] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@4aac81ca{/,null,AVAILABLE}
+INFO  [2026-01-05 04:04:46,429] org.eclipse.jetty.server.AbstractConnector: Started application@72715e61{HTTP/1.1, (http/1.1)}{0.0.0.0:34399}
+INFO  [2026-01-05 04:04:46,434] org.eclipse.jetty.server.AbstractConnector: Started admin@68f776ee{HTTP/1.1, (http/1.1)}{0.0.0.0:38457}
+INFO  [2026-01-05 04:04:46,434] org.eclipse.jetty.server.Server: Started @5883ms
+INFO  [2026-01-05 04:04:46,462] org.eclipse.jetty.server.AbstractConnector: Stopped application@72715e61{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-01-05 04:04:46,463] org.eclipse.jetty.server.AbstractConnector: Stopped admin@68f776ee{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-01-05 04:04:46,463] org.eclipse.jetty.server.session: node0 Stopped scavenging
+[ERROR] Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 1.468 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndServletTest
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResources  Time elapsed: 0.636 s  <<< ERROR!
+javax.ws.rs.ProcessingException: java.net.SocketException: Unexpected end of file from server
+	at org.glassfish.jersey.client.internal.HttpUrlConnector.apply(HttpUrlConnector.java:261)
+	at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:297)
+	at org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$1(JerseyInvocation.java:632)
+	at org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:654)
+	at org.glassfish.jersey.client.JerseyInvocation.lambda$runInScope$3(JerseyInvocation.java:648)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:205)
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:390)
+	at org.glassfish.jersey.client.JerseyInvocation.runInScope(JerseyInvocation.java:648)
+	at org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:631)
+	at org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:406)
+	at org.glassfish.jersey.client.JerseyInvocation$Builder.get(JerseyInvocation.java:302)
+	at org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResources(EndToEndServletTest.java:62)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.net.SocketException: Unexpected end of file from server
+	at java.base/sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:899)
+	at java.base/sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:722)
+	at java.base/sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:896)
+	at java.base/sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:722)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1615)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1520)
+	at java.base/java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:527)
+	at org.glassfish.jersey.client.internal.HttpUrlConnector._apply(HttpUrlConnector.java:374)
+	at org.glassfish.jersey.client.internal.HttpUrlConnector.apply(HttpUrlConnector.java:259)
+	... 39 more
+
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResources  Time elapsed: 0.637 s  <<< ERROR!
+java.lang.RuntimeException: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+	at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:257)
+	at io.dropwizard.testing.DropwizardTestSupport.after(DropwizardTestSupport.java:237)
+	at org.pac4j.dropwizard.AbstractApplicationTest.tearDown(AbstractApplicationTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+	at org.eclipse.jetty.util.MultiException.ifExceptionThrow(MultiException.java:122)
+	at org.eclipse.jetty.server.Server.doStop(Server.java:484)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+	at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:252)
+	... 27 more
+	Suppressed: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.setFailed(AbstractLifeCycle.java:238)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:99)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.handler.StatisticsHandler.doStop(StatisticsHandler.java:272)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.Server.doStop(Server.java:470)
+		... 29 more
+	Suppressed: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.setFailed(AbstractLifeCycle.java:238)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:99)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at com.codahale.metrics.jetty9.InstrumentedHandler.doStop(InstrumentedHandler.java:285)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.handler.StatisticsHandler.doStop(StatisticsHandler.java:272)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.Server.doStop(Server.java:470)
+		... 29 more
+Caused by: [CIRCULAR REFERENCE: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResourcesForm  Time elapsed: 0.494 s  <<< ERROR!
+javax.ws.rs.ProcessingException: java.net.SocketException: Unexpected end of file from server
+	at org.glassfish.jersey.client.internal.HttpUrlConnector.apply(HttpUrlConnector.java:261)
+	at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:297)
+	at org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$1(JerseyInvocation.java:632)
+	at org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:654)
+	at org.glassfish.jersey.client.JerseyInvocation.lambda$runInScope$3(JerseyInvocation.java:648)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:205)
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:390)
+	at org.glassfish.jersey.client.JerseyInvocation.runInScope(JerseyInvocation.java:648)
+	at org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:631)
+	at org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:434)
+	at org.glassfish.jersey.client.JerseyInvocation$Builder.post(JerseyInvocation.java:335)
+	at org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResourcesForm(EndToEndServletTest.java:45)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.net.SocketException: Unexpected end of file from server
+	at java.base/sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:899)
+	at java.base/sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:722)
+	at java.base/sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:896)
+	at java.base/sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:722)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1615)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1520)
+	at java.base/java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:527)
+	at org.glassfish.jersey.client.internal.HttpUrlConnector._apply(HttpUrlConnector.java:374)
+	at org.glassfish.jersey.client.internal.HttpUrlConnector.apply(HttpUrlConnector.java:259)
+	... 39 more
+
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResourcesForm  Time elapsed: 0.495 s  <<< ERROR!
+java.lang.RuntimeException: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+	at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:257)
+	at io.dropwizard.testing.DropwizardTestSupport.after(DropwizardTestSupport.java:237)
+	at org.pac4j.dropwizard.AbstractApplicationTest.tearDown(AbstractApplicationTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+	at org.eclipse.jetty.util.MultiException.ifExceptionThrow(MultiException.java:122)
+	at org.eclipse.jetty.server.Server.doStop(Server.java:484)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+	at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:252)
+	... 27 more
+	Suppressed: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.setFailed(AbstractLifeCycle.java:238)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:99)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.handler.StatisticsHandler.doStop(StatisticsHandler.java:272)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.Server.doStop(Server.java:470)
+		... 29 more
+	Suppressed: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.setFailed(AbstractLifeCycle.java:238)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:99)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at com.codahale.metrics.jetty9.InstrumentedHandler.doStop(InstrumentedHandler.java:285)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.handler.StatisticsHandler.doStop(StatisticsHandler.java:272)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.Server.doStop(Server.java:470)
+		... 29 more
+Caused by: [CIRCULAR REFERENCE: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.restrictsAccessToResources  Time elapsed: 0.333 s  <<< ERROR!
+javax.ws.rs.ProcessingException: java.net.SocketException: Unexpected end of file from server
+	at org.glassfish.jersey.client.internal.HttpUrlConnector.apply(HttpUrlConnector.java:261)
+	at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:297)
+	at org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$0(JerseyInvocation.java:619)
+	at org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:654)
+	at org.glassfish.jersey.client.JerseyInvocation.lambda$runInScope$3(JerseyInvocation.java:648)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:205)
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:390)
+	at org.glassfish.jersey.client.JerseyInvocation.runInScope(JerseyInvocation.java:648)
+	at org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:618)
+	at org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:397)
+	at org.glassfish.jersey.client.JerseyInvocation$Builder.get(JerseyInvocation.java:297)
+	at org.pac4j.dropwizard.e2e.EndToEndServletTest.restrictsAccessToResources(EndToEndServletTest.java:76)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.net.SocketException: Unexpected end of file from server
+	at java.base/sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:899)
+	at java.base/sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:722)
+	at java.base/sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:896)
+	at java.base/sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:722)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1615)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1520)
+	at java.base/java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:527)
+	at org.glassfish.jersey.client.internal.HttpUrlConnector._apply(HttpUrlConnector.java:374)
+	at org.glassfish.jersey.client.internal.HttpUrlConnector.apply(HttpUrlConnector.java:259)
+	... 39 more
+
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.restrictsAccessToResources  Time elapsed: 0.333 s  <<< ERROR!
+java.lang.RuntimeException: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+	at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:257)
+	at io.dropwizard.testing.DropwizardTestSupport.after(DropwizardTestSupport.java:237)
+	at org.pac4j.dropwizard.AbstractApplicationTest.tearDown(AbstractApplicationTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+	at org.eclipse.jetty.util.MultiException.ifExceptionThrow(MultiException.java:122)
+	at org.eclipse.jetty.server.Server.doStop(Server.java:484)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+	at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:252)
+	... 27 more
+	Suppressed: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.setFailed(AbstractLifeCycle.java:238)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:99)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.handler.StatisticsHandler.doStop(StatisticsHandler.java:272)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.Server.doStop(Server.java:470)
+		... 29 more
+	Suppressed: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.setFailed(AbstractLifeCycle.java:238)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:99)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at com.codahale.metrics.jetty9.InstrumentedHandler.doStop(InstrumentedHandler.java:285)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.handler.StatisticsHandler.doStop(StatisticsHandler.java:272)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.Server.doStop(Server.java:470)
+		... 29 more
+Caused by: [CIRCULAR REFERENCE: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+
+[INFO] Running org.pac4j.dropwizard.e2e.EndToEndTest
+INFO  [2026-01-05 04:04:46,714] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2026-01-05 04:04:46,715] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2026-01-05 04:04:46,725] io.dropwizard.server.ServerFactory: Starting App
+INFO  [2026-01-05 04:04:46,734] org.eclipse.jetty.setuid.SetUIDListener: Opened application@27dfd12b{HTTP/1.1, (http/1.1)}{0.0.0.0:33175}
+INFO  [2026-01-05 04:04:46,734] org.eclipse.jetty.setuid.SetUIDListener: Opened admin@4348fa35{HTTP/1.1, (http/1.1)}{0.0.0.0:42209}
+INFO  [2026-01-05 04:04:46,734] org.eclipse.jetty.server.Server: jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 11.0.19+7-alpine-r1
+INFO  [2026-01-05 04:04:46,735] org.eclipse.jetty.server.session: DefaultSessionIdManager workerName=node0
+INFO  [2026-01-05 04:04:46,735] org.eclipse.jetty.server.session: No SessionScavenger set, using defaults
+INFO  [2026-01-05 04:04:46,735] org.eclipse.jetty.server.session: node0 Scavenging every 600000ms
+INFO  [2026-01-05 04:04:46,833] io.dropwizard.jersey.DropwizardResourceConfig: The following paths were found for the configured resources:
+
+    GET     /dogs/{name} (org.pac4j.dropwizard.e2e.DogsResource)
+    POST    /dogs/{name} (org.pac4j.dropwizard.e2e.DogsResource)
+
+INFO  [2026-01-05 04:04:46,834] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@62883f8a{/,null,AVAILABLE}
+INFO  [2026-01-05 04:04:46,835] io.dropwizard.setup.AdminEnvironment: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+WARN  [2026-01-05 04:04:46,835] io.dropwizard.setup.AdminEnvironment: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2026-01-05 04:04:46,836] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@19a7906c{/,null,AVAILABLE}
+INFO  [2026-01-05 04:04:46,838] org.eclipse.jetty.server.AbstractConnector: Started application@27dfd12b{HTTP/1.1, (http/1.1)}{0.0.0.0:33175}
+INFO  [2026-01-05 04:04:46,840] org.eclipse.jetty.server.AbstractConnector: Started admin@4348fa35{HTTP/1.1, (http/1.1)}{0.0.0.0:42209}
+INFO  [2026-01-05 04:04:46,840] org.eclipse.jetty.server.Server: Started @6289ms
+INFO  [2026-01-05 04:04:46,871] org.eclipse.jetty.server.AbstractConnector: Stopped application@27dfd12b{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-01-05 04:04:46,873] org.eclipse.jetty.server.AbstractConnector: Stopped admin@4348fa35{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-01-05 04:04:46,873] org.eclipse.jetty.server.session: node0 Stopped scavenging
+INFO  [2026-01-05 04:04:46,991] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2026-01-05 04:04:46,991] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2026-01-05 04:04:46,993] io.dropwizard.server.ServerFactory: Starting App
+INFO  [2026-01-05 04:04:46,998] org.eclipse.jetty.setuid.SetUIDListener: Opened application@792e8181{HTTP/1.1, (http/1.1)}{0.0.0.0:35321}
+INFO  [2026-01-05 04:04:46,998] org.eclipse.jetty.setuid.SetUIDListener: Opened admin@511d5e6e{HTTP/1.1, (http/1.1)}{0.0.0.0:38399}
+INFO  [2026-01-05 04:04:46,998] org.eclipse.jetty.server.Server: jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 11.0.19+7-alpine-r1
+INFO  [2026-01-05 04:04:46,999] org.eclipse.jetty.server.session: DefaultSessionIdManager workerName=node0
+INFO  [2026-01-05 04:04:46,999] org.eclipse.jetty.server.session: No SessionScavenger set, using defaults
+INFO  [2026-01-05 04:04:46,999] org.eclipse.jetty.server.session: node0 Scavenging every 600000ms
+INFO  [2026-01-05 04:04:47,061] io.dropwizard.jersey.DropwizardResourceConfig: The following paths were found for the configured resources:
+
+    GET     /dogs/{name} (org.pac4j.dropwizard.e2e.DogsResource)
+    POST    /dogs/{name} (org.pac4j.dropwizard.e2e.DogsResource)
+
+INFO  [2026-01-05 04:04:47,061] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@56499781{/,null,AVAILABLE}
+INFO  [2026-01-05 04:04:47,062] io.dropwizard.setup.AdminEnvironment: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+WARN  [2026-01-05 04:04:47,062] io.dropwizard.setup.AdminEnvironment: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2026-01-05 04:04:47,062] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@2a2798a2{/,null,AVAILABLE}
+INFO  [2026-01-05 04:04:47,063] org.eclipse.jetty.server.AbstractConnector: Started application@792e8181{HTTP/1.1, (http/1.1)}{0.0.0.0:35321}
+INFO  [2026-01-05 04:04:47,097] org.eclipse.jetty.server.AbstractConnector: Started admin@511d5e6e{HTTP/1.1, (http/1.1)}{0.0.0.0:38399}
+INFO  [2026-01-05 04:04:47,106] org.eclipse.jetty.server.Server: Started @6552ms
+INFO  [2026-01-05 04:04:47,191] org.eclipse.jetty.server.AbstractConnector: Stopped application@792e8181{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-01-05 04:04:47,193] org.eclipse.jetty.server.AbstractConnector: Stopped admin@511d5e6e{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-01-05 04:04:47,193] org.eclipse.jetty.server.session: node0 Stopped scavenging
+INFO  [2026-01-05 04:04:47,310] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2026-01-05 04:04:47,310] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2026-01-05 04:04:47,312] io.dropwizard.server.ServerFactory: Starting App
+INFO  [2026-01-05 04:04:47,316] org.eclipse.jetty.setuid.SetUIDListener: Opened application@1e482ecd{HTTP/1.1, (http/1.1)}{0.0.0.0:45813}
+INFO  [2026-01-05 04:04:47,317] org.eclipse.jetty.setuid.SetUIDListener: Opened admin@58b5f7d2{HTTP/1.1, (http/1.1)}{0.0.0.0:36125}
+INFO  [2026-01-05 04:04:47,317] org.eclipse.jetty.server.Server: jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 11.0.19+7-alpine-r1
+INFO  [2026-01-05 04:04:47,319] org.eclipse.jetty.server.session: DefaultSessionIdManager workerName=node0
+INFO  [2026-01-05 04:04:47,319] org.eclipse.jetty.server.session: No SessionScavenger set, using defaults
+INFO  [2026-01-05 04:04:47,319] org.eclipse.jetty.server.session: node0 Scavenging every 600000ms
+INFO  [2026-01-05 04:04:47,370] io.dropwizard.jersey.DropwizardResourceConfig: The following paths were found for the configured resources:
+
+    GET     /dogs/{name} (org.pac4j.dropwizard.e2e.DogsResource)
+    POST    /dogs/{name} (org.pac4j.dropwizard.e2e.DogsResource)
+
+INFO  [2026-01-05 04:04:47,371] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@521c67f0{/,null,AVAILABLE}
+INFO  [2026-01-05 04:04:47,371] io.dropwizard.setup.AdminEnvironment: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+WARN  [2026-01-05 04:04:47,371] io.dropwizard.setup.AdminEnvironment: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2026-01-05 04:04:47,371] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@451af781{/,null,AVAILABLE}
+INFO  [2026-01-05 04:04:47,374] org.eclipse.jetty.server.AbstractConnector: Started application@1e482ecd{HTTP/1.1, (http/1.1)}{0.0.0.0:45813}
+INFO  [2026-01-05 04:04:47,376] org.eclipse.jetty.server.AbstractConnector: Started admin@58b5f7d2{HTTP/1.1, (http/1.1)}{0.0.0.0:36125}
+INFO  [2026-01-05 04:04:47,376] org.eclipse.jetty.server.Server: Started @6825ms
+INFO  [2026-01-05 04:04:47,418] org.eclipse.jetty.server.AbstractConnector: Stopped application@1e482ecd{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-01-05 04:04:47,419] org.eclipse.jetty.server.AbstractConnector: Stopped admin@58b5f7d2{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-01-05 04:04:47,419] org.eclipse.jetty.server.session: node0 Stopped scavenging
+[ERROR] Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.944 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndTest
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndTest.grantsAccessToResources  Time elapsed: 0.393 s  <<< ERROR!
+javax.ws.rs.ProcessingException: java.net.SocketException: Unexpected end of file from server
+	at org.glassfish.jersey.client.internal.HttpUrlConnector.apply(HttpUrlConnector.java:261)
+	at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:297)
+	at org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$1(JerseyInvocation.java:632)
+	at org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:654)
+	at org.glassfish.jersey.client.JerseyInvocation.lambda$runInScope$3(JerseyInvocation.java:648)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:205)
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:390)
+	at org.glassfish.jersey.client.JerseyInvocation.runInScope(JerseyInvocation.java:648)
+	at org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:631)
+	at org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:406)
+	at org.glassfish.jersey.client.JerseyInvocation$Builder.get(JerseyInvocation.java:302)
+	at org.pac4j.dropwizard.e2e.EndToEndTest.grantsAccessToResources(EndToEndTest.java:62)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.net.SocketException: Unexpected end of file from server
+	at java.base/sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:899)
+	at java.base/sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:722)
+	at java.base/sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:896)
+	at java.base/sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:722)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1615)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1520)
+	at java.base/java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:527)
+	at org.glassfish.jersey.client.internal.HttpUrlConnector._apply(HttpUrlConnector.java:374)
+	at org.glassfish.jersey.client.internal.HttpUrlConnector.apply(HttpUrlConnector.java:259)
+	... 39 more
+
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndTest.grantsAccessToResources  Time elapsed: 0.394 s  <<< ERROR!
+java.lang.RuntimeException: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+	at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:257)
+	at io.dropwizard.testing.DropwizardTestSupport.after(DropwizardTestSupport.java:237)
+	at org.pac4j.dropwizard.AbstractApplicationTest.tearDown(AbstractApplicationTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+	at org.eclipse.jetty.util.MultiException.ifExceptionThrow(MultiException.java:122)
+	at org.eclipse.jetty.server.Server.doStop(Server.java:484)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+	at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:252)
+	... 27 more
+	Suppressed: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.setFailed(AbstractLifeCycle.java:238)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:99)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.handler.StatisticsHandler.doStop(StatisticsHandler.java:272)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.Server.doStop(Server.java:470)
+		... 29 more
+	Suppressed: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.setFailed(AbstractLifeCycle.java:238)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:99)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at com.codahale.metrics.jetty9.InstrumentedHandler.doStop(InstrumentedHandler.java:285)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.handler.StatisticsHandler.doStop(StatisticsHandler.java:272)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.Server.doStop(Server.java:470)
+		... 29 more
+Caused by: [CIRCULAR REFERENCE: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndTest.grantsAccessToResourcesForm  Time elapsed: 0.319 s  <<< ERROR!
+javax.ws.rs.ProcessingException: java.net.SocketException: Unexpected end of file from server
+	at org.glassfish.jersey.client.internal.HttpUrlConnector.apply(HttpUrlConnector.java:261)
+	at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:297)
+	at org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$1(JerseyInvocation.java:632)
+	at org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:654)
+	at org.glassfish.jersey.client.JerseyInvocation.lambda$runInScope$3(JerseyInvocation.java:648)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:205)
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:390)
+	at org.glassfish.jersey.client.JerseyInvocation.runInScope(JerseyInvocation.java:648)
+	at org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:631)
+	at org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:434)
+	at org.glassfish.jersey.client.JerseyInvocation$Builder.post(JerseyInvocation.java:335)
+	at org.pac4j.dropwizard.e2e.EndToEndTest.grantsAccessToResourcesForm(EndToEndTest.java:45)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.net.SocketException: Unexpected end of file from server
+	at java.base/sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:899)
+	at java.base/sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:722)
+	at java.base/sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:896)
+	at java.base/sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:722)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1615)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1520)
+	at java.base/java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:527)
+	at org.glassfish.jersey.client.internal.HttpUrlConnector._apply(HttpUrlConnector.java:374)
+	at org.glassfish.jersey.client.internal.HttpUrlConnector.apply(HttpUrlConnector.java:259)
+	... 39 more
+
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndTest.grantsAccessToResourcesForm  Time elapsed: 0.319 s  <<< ERROR!
+java.lang.RuntimeException: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+	at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:257)
+	at io.dropwizard.testing.DropwizardTestSupport.after(DropwizardTestSupport.java:237)
+	at org.pac4j.dropwizard.AbstractApplicationTest.tearDown(AbstractApplicationTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+	at org.eclipse.jetty.util.MultiException.ifExceptionThrow(MultiException.java:122)
+	at org.eclipse.jetty.server.Server.doStop(Server.java:484)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+	at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:252)
+	... 27 more
+	Suppressed: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.setFailed(AbstractLifeCycle.java:238)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:99)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.handler.StatisticsHandler.doStop(StatisticsHandler.java:272)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.Server.doStop(Server.java:470)
+		... 29 more
+	Suppressed: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.setFailed(AbstractLifeCycle.java:238)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:99)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at com.codahale.metrics.jetty9.InstrumentedHandler.doStop(InstrumentedHandler.java:285)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.handler.StatisticsHandler.doStop(StatisticsHandler.java:272)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.Server.doStop(Server.java:470)
+		... 29 more
+Caused by: [CIRCULAR REFERENCE: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndTest.restrictsAccessToResources  Time elapsed: 0.227 s  <<< ERROR!
+javax.ws.rs.ProcessingException: java.net.SocketException: Unexpected end of file from server
+	at org.glassfish.jersey.client.internal.HttpUrlConnector.apply(HttpUrlConnector.java:261)
+	at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:297)
+	at org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$0(JerseyInvocation.java:619)
+	at org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:654)
+	at org.glassfish.jersey.client.JerseyInvocation.lambda$runInScope$3(JerseyInvocation.java:648)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:205)
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:390)
+	at org.glassfish.jersey.client.JerseyInvocation.runInScope(JerseyInvocation.java:648)
+	at org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:618)
+	at org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:397)
+	at org.glassfish.jersey.client.JerseyInvocation$Builder.get(JerseyInvocation.java:297)
+	at org.pac4j.dropwizard.e2e.EndToEndTest.restrictsAccessToResources(EndToEndTest.java:76)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.net.SocketException: Unexpected end of file from server
+	at java.base/sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:899)
+	at java.base/sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:722)
+	at java.base/sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:896)
+	at java.base/sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:722)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1615)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1520)
+	at java.base/java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:527)
+	at org.glassfish.jersey.client.internal.HttpUrlConnector._apply(HttpUrlConnector.java:374)
+	at org.glassfish.jersey.client.internal.HttpUrlConnector.apply(HttpUrlConnector.java:259)
+	... 39 more
+
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndTest.restrictsAccessToResources  Time elapsed: 0.227 s  <<< ERROR!
+java.lang.RuntimeException: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+	at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:257)
+	at io.dropwizard.testing.DropwizardTestSupport.after(DropwizardTestSupport.java:237)
+	at org.pac4j.dropwizard.AbstractApplicationTest.tearDown(AbstractApplicationTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+	at org.eclipse.jetty.util.MultiException.ifExceptionThrow(MultiException.java:122)
+	at org.eclipse.jetty.server.Server.doStop(Server.java:484)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+	at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:252)
+	... 27 more
+	Suppressed: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.setFailed(AbstractLifeCycle.java:238)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:99)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.handler.StatisticsHandler.doStop(StatisticsHandler.java:272)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.Server.doStop(Server.java:470)
+		... 29 more
+	Suppressed: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.setFailed(AbstractLifeCycle.java:238)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:99)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at com.codahale.metrics.jetty9.InstrumentedHandler.doStop(InstrumentedHandler.java:285)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.handler.StatisticsHandler.doStop(StatisticsHandler.java:272)
+		at org.eclipse.jetty.util.component.AbstractLifeCycle.stop(AbstractLifeCycle.java:94)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.stop(ContainerLifeCycle.java:180)
+		at org.eclipse.jetty.util.component.ContainerLifeCycle.doStop(ContainerLifeCycle.java:201)
+		at org.eclipse.jetty.server.handler.AbstractHandler.doStop(AbstractHandler.java:108)
+		at org.eclipse.jetty.server.Server.doStop(Server.java:470)
+		... 29 more
+Caused by: [CIRCULAR REFERENCE: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+
+[INFO] Running org.pac4j.dropwizard.factory.DefaultConfigurationTest
+WARN  [2026-01-05 04:04:47,966] org.pac4j.core.matching.matcher.PathMatcher: Be careful when using the 'excludeBranch' or 'excludeRegex' methods. They use regular expressions and their definitions may be error prone. You could exclude more URLs than expected.
+INFO  [2026-01-05 04:04:48,021] org.pac4j.core.config.ConfigBuilder: Build the configuration from factory: org.pac4j.dropwizard.factory.FakeConfigFactory
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.672 s - in org.pac4j.dropwizard.factory.DefaultConfigurationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   BundleFactoryTest>AbstractApplicationTest.tearDown:36 » Runtime MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+[ERROR]   BundleFactoryTest>AbstractApplicationTest.tearDown:36 » Runtime MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+[ERROR]   BundleFactoryTest>AbstractApplicationTest.tearDown:36 » Runtime MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+[ERROR]   BundleFactoryTest>AbstractApplicationTest.tearDown:36 » Runtime MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResources
+[ERROR]   Run 1: EndToEndServletTest.grantsAccessToResources:62 » Processing java.net.SocketException: Unexpected end of file from server
+[ERROR]   Run 2: EndToEndServletTest>AbstractApplicationTest.tearDown:36 » Runtime MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+[INFO] 
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResourcesForm
+[ERROR]   Run 1: EndToEndServletTest.grantsAccessToResourcesForm:45 » Processing java.net.SocketException: Unexpected end of file from server
+[ERROR]   Run 2: EndToEndServletTest>AbstractApplicationTest.tearDown:36 » Runtime MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+[INFO] 
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.restrictsAccessToResources
+[ERROR]   Run 1: EndToEndServletTest.restrictsAccessToResources:76 » Processing java.net.SocketException: Unexpected end of file from server
+[ERROR]   Run 2: EndToEndServletTest>AbstractApplicationTest.tearDown:36 » Runtime MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+[INFO] 
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndTest.grantsAccessToResources
+[ERROR]   Run 1: EndToEndTest.grantsAccessToResources:62 » Processing java.net.SocketException: Unexpected end of file from server
+[ERROR]   Run 2: EndToEndTest>AbstractApplicationTest.tearDown:36 » Runtime MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+[INFO] 
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndTest.grantsAccessToResourcesForm
+[ERROR]   Run 1: EndToEndTest.grantsAccessToResourcesForm:45 » Processing java.net.SocketException: Unexpected end of file from server
+[ERROR]   Run 2: EndToEndTest>AbstractApplicationTest.tearDown:36 » Runtime MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+[INFO] 
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndTest.restrictsAccessToResources
+[ERROR]   Run 1: EndToEndTest.restrictsAccessToResources:76 » Processing java.net.SocketException: Unexpected end of file from server
+[ERROR]   Run 2: EndToEndTest>AbstractApplicationTest.tearDown:36 » Runtime MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.]
+[INFO] 
+[INFO] 
+[ERROR] Tests run: 16, Failures: 0, Errors: 10, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  21.674 s
+[INFO] Finished at: 2026-01-05T04:04:48Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 4 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-pmd-plugin:3.17.0
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.1.0
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project dropwizard-pac4j: 
+[ERROR] 
+[ERROR] Please refer to /dropwizard-pac4j/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested

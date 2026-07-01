@@ -1,0 +1,318 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] 
+[INFO] ---------------< com.github.searls:jasmine-maven-plugin >---------------
+[INFO] Building jasmine-maven-plugin 3.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] ----------------------------[ maven-plugin ]----------------------------
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/webjars/npm/glob/maven-metadata.xml
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/webjars/npm/glob/maven-metadata.xml (1.5 kB at 3.9 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/webjars/npm/fs.realpath/maven-metadata.xml
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/webjars/npm/fs.realpath/maven-metadata.xml (333 B at 4.6 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/webjars/npm/inherits/maven-metadata.xml
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/webjars/npm/inherits/maven-metadata.xml (423 B at 8.5 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/webjars/npm/path-is-absolute/maven-metadata.xml
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/webjars/npm/path-is-absolute/maven-metadata.xml (369 B at 7.5 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/webjars/npm/once/maven-metadata.xml
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/webjars/npm/once/maven-metadata.xml (419 B at 9.1 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/webjars/npm/wrappy/maven-metadata.xml
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/webjars/npm/wrappy/maven-metadata.xml (359 B at 7.8 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/webjars/npm/minimatch/maven-metadata.xml
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/webjars/npm/minimatch/maven-metadata.xml (1.2 kB at 25 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/webjars/npm/brace-expansion/maven-metadata.xml
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/webjars/npm/brace-expansion/maven-metadata.xml (525 B at 12 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/webjars/npm/balanced-match/maven-metadata.xml
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/webjars/npm/balanced-match/maven-metadata.xml (491 B at 11 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/webjars/npm/brace-expansion/1.1.12/brace-expansion-1.1.12.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/webjars/npm/brace-expansion/1.1.12/brace-expansion-1.1.12.pom (1.9 kB at 35 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/webjars/npm/minimatch/3.0.8/minimatch-3.0.8.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/webjars/npm/minimatch/3.0.8/minimatch-3.0.8.pom (1.7 kB at 30 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/webjars/npm/inflight/maven-metadata.xml
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/webjars/npm/inflight/maven-metadata.xml (361 B at 7.2 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/webjars/npm/jasmine-core/maven-metadata.xml
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/webjars/npm/jasmine-core/maven-metadata.xml (1.4 kB at 29 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/webjars/npm/brace-expansion/1.1.12/brace-expansion-1.1.12.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/webjars/npm/brace-expansion/1.1.12/brace-expansion-1.1.12.jar (7.8 kB at 144 kB/s)
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ jasmine-maven-plugin ---
+[INFO] Deleting /jasmine-maven-plugin/target
+[INFO] 
+[INFO] --- jacoco:0.8.7:prepare-agent (default) @ jasmine-maven-plugin ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/jasmine-maven-plugin/target/jacoco.exec,excludes=com/github/searls/jasmine/mojo/HelpMojo*:**com.steadystate*
+[INFO] 
+[INFO] --- plugin:3.6.4:helpmojo (generated-helpmojo) @ jasmine-maven-plugin ---
+[ERROR] 
+
+Some dependencies of Maven Plugins are expected to be in provided scope.
+Please make sure that dependencies listed below declared in POM
+have set '<scope>provided</scope>' as well.
+
+The following dependencies are in wrong scope:
+ * org.apache.maven:maven-plugin-api:jar:3.8.6:compile
+ * org.apache.maven:maven-model:jar:3.8.6:compile
+ * org.apache.maven:maven-artifact:jar:3.8.6:compile
+ * org.apache.maven:maven-core:jar:3.8.6:compile
+ * org.apache.maven:maven-settings:jar:3.8.6:compile
+ * org.apache.maven:maven-settings-builder:jar:3.8.6:compile
+ * org.apache.maven:maven-builder-support:jar:3.8.6:compile
+ * org.apache.maven:maven-repository-metadata:jar:3.8.6:compile
+ * org.apache.maven:maven-model-builder:jar:3.8.6:compile
+ * org.apache.maven:maven-resolver-provider:jar:3.8.6:compile
+
+
+
+[INFO] Using 'UTF-8' encoding to read mojo source files.
+[INFO] java-javadoc mojo extractor found 0 mojo descriptor.
+[INFO] ant mojo extractor found 0 mojo descriptor.
+[INFO] bsh mojo extractor found 0 mojo descriptor.
+[INFO] java-annotations mojo extractor found 0 mojo descriptor.
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ jasmine-maven-plugin ---
+[INFO] Copying 7 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ jasmine-maven-plugin ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 50 source files to /jasmine-maven-plugin/target/classes
+[INFO] /jasmine-maven-plugin/src/main/java/com/github/searls/jasmine/server/ResourceHandlerConfigurator.java: /jasmine-maven-plugin/src/main/java/com/github/searls/jasmine/server/ResourceHandlerConfigurator.java uses or overrides a deprecated API.
+[INFO] /jasmine-maven-plugin/src/main/java/com/github/searls/jasmine/server/ResourceHandlerConfigurator.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- plugin:3.6.4:descriptor (default-descriptor) @ jasmine-maven-plugin ---
+[ERROR] 
+
+Some dependencies of Maven Plugins are expected to be in provided scope.
+Please make sure that dependencies listed below declared in POM
+have set '<scope>provided</scope>' as well.
+
+The following dependencies are in wrong scope:
+ * org.apache.maven:maven-plugin-api:jar:3.8.6:compile
+ * org.apache.maven:maven-model:jar:3.8.6:compile
+ * org.apache.maven:maven-artifact:jar:3.8.6:compile
+ * org.apache.maven:maven-core:jar:3.8.6:compile
+ * org.apache.maven:maven-settings:jar:3.8.6:compile
+ * org.apache.maven:maven-settings-builder:jar:3.8.6:compile
+ * org.apache.maven:maven-builder-support:jar:3.8.6:compile
+ * org.apache.maven:maven-repository-metadata:jar:3.8.6:compile
+ * org.apache.maven:maven-model-builder:jar:3.8.6:compile
+ * org.apache.maven:maven-resolver-provider:jar:3.8.6:compile
+
+
+
+[INFO] Using 'UTF-8' encoding to read mojo source files.
+[INFO] java-javadoc mojo extractor found 0 mojo descriptor.
+[INFO] ant mojo extractor found 0 mojo descriptor.
+[INFO] bsh mojo extractor found 0 mojo descriptor.
+[INFO] java-annotations mojo extractor found 3 mojo descriptors.
+[INFO] 
+[INFO] --- plugin:3.6.4:descriptor (mojo-descriptor) @ jasmine-maven-plugin ---
+[ERROR] 
+
+Some dependencies of Maven Plugins are expected to be in provided scope.
+Please make sure that dependencies listed below declared in POM
+have set '<scope>provided</scope>' as well.
+
+The following dependencies are in wrong scope:
+ * org.apache.maven:maven-plugin-api:jar:3.8.6:compile
+ * org.apache.maven:maven-model:jar:3.8.6:compile
+ * org.apache.maven:maven-artifact:jar:3.8.6:compile
+ * org.apache.maven:maven-core:jar:3.8.6:compile
+ * org.apache.maven:maven-settings:jar:3.8.6:compile
+ * org.apache.maven:maven-settings-builder:jar:3.8.6:compile
+ * org.apache.maven:maven-builder-support:jar:3.8.6:compile
+ * org.apache.maven:maven-repository-metadata:jar:3.8.6:compile
+ * org.apache.maven:maven-model-builder:jar:3.8.6:compile
+ * org.apache.maven:maven-resolver-provider:jar:3.8.6:compile
+
+
+
+[INFO] Using 'UTF-8' encoding to read mojo source files.
+[INFO] java-javadoc mojo extractor found 0 mojo descriptor.
+[INFO] ant mojo extractor found 0 mojo descriptor.
+[INFO] bsh mojo extractor found 0 mojo descriptor.
+[INFO] java-annotations mojo extractor found 3 mojo descriptors.
+[INFO] 
+[INFO] --- sisu:1.4:main-index (generate-index) @ jasmine-maven-plugin ---
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ jasmine-maven-plugin ---
+[INFO] Copying 114 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ jasmine-maven-plugin ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 35 source files to /jasmine-maven-plugin/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ jasmine-maven-plugin ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.github.searls.jasmine.format.JasmineResultLoggerTest
+[ERROR] Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 1.054 s <<< FAILURE! - in com.github.searls.jasmine.format.JasmineResultLoggerTest
+[ERROR] shouldLogDetails  Time elapsed: 0.906 s  <<< FAILURE!
+java.lang.AssertionError: 
+[Expected 
+-------------------------------------------------------
+ J A S M I N E   S P E C S
+------------------------------------------------------- to be logged.] 
+Expecting ArrayList:
+  []
+to contain:
+  ["
+-------------------------------------------------------
+ J A S M I N E   S P E C S
+-------------------------------------------------------"]
+but could not find the following element(s):
+  ["
+-------------------------------------------------------
+ J A S M I N E   S P E C S
+-------------------------------------------------------"]
+
+	at com.github.searls.jasmine.format.JasmineResultLoggerTest.assertMessage(JasmineResultLoggerTest.java:91)
+	at com.github.searls.jasmine.format.JasmineResultLoggerTest.shouldLogDetails(JasmineResultLoggerTest.java:78)
+
+[ERROR] shouldLogHeader  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: 
+[Expected 
+-------------------------------------------------------
+ J A S M I N E   S P E C S
+------------------------------------------------------- to be logged.] 
+Expecting ArrayList:
+  []
+to contain:
+  ["
+-------------------------------------------------------
+ J A S M I N E   S P E C S
+-------------------------------------------------------"]
+but could not find the following element(s):
+  ["
+-------------------------------------------------------
+ J A S M I N E   S P E C S
+-------------------------------------------------------"]
+
+	at com.github.searls.jasmine.format.JasmineResultLoggerTest.assertMessage(JasmineResultLoggerTest.java:91)
+	at com.github.searls.jasmine.format.JasmineResultLoggerTest.shouldLogHeader(JasmineResultLoggerTest.java:68)
+
+[INFO] Running com.github.searls.jasmine.format.FormatsScriptTagsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.searls.jasmine.format.FormatsScriptTagsTest
+[INFO] Running com.github.searls.jasmine.io.RelativizesFilePathsTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 s - in com.github.searls.jasmine.io.RelativizesFilePathsTest
+[INFO] Running com.github.searls.jasmine.io.scripts.BasicScriptResolverTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.647 s - in com.github.searls.jasmine.io.scripts.BasicScriptResolverTest
+[INFO] Running com.github.searls.jasmine.io.scripts.FindsScriptLocationsInDirectoryTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.103 s - in com.github.searls.jasmine.io.scripts.FindsScriptLocationsInDirectoryTest
+[INFO] Running com.github.searls.jasmine.io.scripts.ContextPathScriptResolverTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 s - in com.github.searls.jasmine.io.scripts.ContextPathScriptResolverTest
+[INFO] Running com.github.searls.jasmine.runner.HtmlGeneratorConfigurationFactoryTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.125 s - in com.github.searls.jasmine.runner.HtmlGeneratorConfigurationFactoryTest
+[INFO] Running com.github.searls.jasmine.runner.WebDriverWaiterTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.525 s - in com.github.searls.jasmine.runner.WebDriverWaiterTest
+[INFO] Running com.github.searls.jasmine.runner.CreatesRunnerTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.264 s - in com.github.searls.jasmine.runner.CreatesRunnerTest
+[INFO] Running com.github.searls.jasmine.runner.ConsoleErrorCheckerTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 s - in com.github.searls.jasmine.runner.ConsoleErrorCheckerTest
+[INFO] Running com.github.searls.jasmine.runner.SpecRunnerExecutorTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in com.github.searls.jasmine.runner.SpecRunnerExecutorTest
+[INFO] Running com.github.searls.jasmine.server.ServerManagerTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.545 s - in com.github.searls.jasmine.server.ServerManagerTest
+[INFO] Running com.github.searls.jasmine.server.ResourceHandlerConfiguratorTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.483 s - in com.github.searls.jasmine.server.ResourceHandlerConfiguratorTest
+[INFO] Running com.github.searls.jasmine.server.JasmineResourceHandlerTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.315 s - in com.github.searls.jasmine.server.JasmineResourceHandlerTest
+[INFO] Running com.github.searls.jasmine.config.ServerConfigurationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in com.github.searls.jasmine.config.ServerConfigurationTest
+[INFO] Running com.github.searls.jasmine.driver.WebDriverFactoryTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.464 s - in com.github.searls.jasmine.driver.WebDriverFactoryTest
+[INFO] Running com.github.searls.jasmine.model.AbstractJasmineResultTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in com.github.searls.jasmine.model.AbstractJasmineResultTest
+[INFO] Running com.github.searls.jasmine.mojo.TestMojoTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.197 s - in com.github.searls.jasmine.mojo.TestMojoTest
+[INFO] Running com.github.searls.jasmine.mojo.ServerMojoTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.241 s - in com.github.searls.jasmine.mojo.ServerMojoTest
+[INFO] Running com.github.searls.jasmine.mojo.AbstractJasmineMojoTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.171 s - in com.github.searls.jasmine.mojo.AbstractJasmineMojoTest
+[INFO] Running com.github.searls.jasmine.mojo.ReporterRetrieverTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in com.github.searls.jasmine.mojo.ReporterRetrieverTest
+[INFO] Running com.github.searls.jasmine.mojo.ResourceRetrieverTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 s - in com.github.searls.jasmine.mojo.ResourceRetrieverTest
+[INFO] Running com.github.searls.jasmine.thirdpartylibs.WebJarResourceHandlerTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.654 s - in com.github.searls.jasmine.thirdpartylibs.WebJarResourceHandlerTest
+[INFO] Running com.github.searls.jasmine.thirdpartylibs.ClassPathResourceHandlerTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in com.github.searls.jasmine.thirdpartylibs.ClassPathResourceHandlerTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   JasmineResultLoggerTest.shouldLogDetails:78->assertMessage:91 [Expected 
+-------------------------------------------------------
+ J A S M I N E   S P E C S
+------------------------------------------------------- to be logged.] 
+Expecting ArrayList:
+  []
+to contain:
+  ["
+-------------------------------------------------------
+ J A S M I N E   S P E C S
+-------------------------------------------------------"]
+but could not find the following element(s):
+  ["
+-------------------------------------------------------
+ J A S M I N E   S P E C S
+-------------------------------------------------------"]
+
+[ERROR]   JasmineResultLoggerTest.shouldLogHeader:68->assertMessage:91 [Expected 
+-------------------------------------------------------
+ J A S M I N E   S P E C S
+------------------------------------------------------- to be logged.] 
+Expecting ArrayList:
+  []
+to contain:
+  ["
+-------------------------------------------------------
+ J A S M I N E   S P E C S
+-------------------------------------------------------"]
+but could not find the following element(s):
+  ["
+-------------------------------------------------------
+ J A S M I N E   S P E C S
+-------------------------------------------------------"]
+
+[INFO] 
+[ERROR] Tests run: 72, Failures: 2, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  28.093 s
+[INFO] Finished at: 2026-01-05T06:16:34Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 6 plugin(s)
+[WARNING] 
+[WARNING]  * org.jacoco:jacoco-maven-plugin:0.8.7
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-plugin-plugin:3.6.4
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.22.2
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING]  * org.sonatype.plugins:sisu-maven-plugin:1.4
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project jasmine-maven-plugin: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /jasmine-maven-plugin/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions prior to 1.8.
+SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/uk/org/lidalia/slf4j-test/1.2.0/slf4j-test-1.2.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#ignoredBindings for an explanation.

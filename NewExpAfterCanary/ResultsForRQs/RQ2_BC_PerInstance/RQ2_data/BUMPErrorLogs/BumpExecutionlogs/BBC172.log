@@ -1,0 +1,179 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< uk.gov.pay:pay-cardid >------------------------
+[INFO] Building pay-cardid 0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ pay-cardid ---
+[INFO] Deleting /pay-cardid/target
+[INFO] 
+[INFO] --- resources:3.3.1:copy-resources (copy-resources) @ pay-cardid ---
+[INFO] Copying 1 resource from src/main/resources/config to target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ pay-cardid ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ pay-cardid ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 15 source files with javac [debug release 11] to target/classes
+[INFO] /pay-cardid/src/main/java/uk/gov/pay/card/model/CardInformationRequest.java: /pay-cardid/src/main/java/uk/gov/pay/card/model/CardInformationRequest.java uses or overrides a deprecated API.
+[INFO] /pay-cardid/src/main/java/uk/gov/pay/card/model/CardInformationRequest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ pay-cardid ---
+[INFO] Copying 6 resources from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ pay-cardid ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 8 source files with javac [debug release 11] to target/test-classes
+[WARNING] /pay-cardid/src/test/java/uk/gov/pay/card/it/resources/CardIdResourceITest.java:[36,8] deprecated item is not annotated with @Deprecated
+[INFO] 
+[INFO] --- surefire:3.1.0:test (default-test) @ pay-cardid ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running uk.gov.pay.card.resources.HealthCheckResourceTest
+05:58:53.882 [main] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $[*]
+05:58:53.887 [main] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['ping']['healthy']
+05:58:53.887 [main] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['deadlocks']['healthy']
+05:58:53.909 [main] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $[*]
+05:58:53.909 [main] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['ping']['healthy']
+05:58:53.909 [main] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['deadlocks']['healthy']
+05:58:53.918 [main] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $[*]
+05:58:53.918 [main] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['ping']['healthy']
+05:58:53.918 [main] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['deadlocks']['healthy']
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.214 s - in uk.gov.pay.card.resources.HealthCheckResourceTest
+[INFO] Running uk.gov.pay.card.db.RangeSetCardInformationStoreTest
+05:58:53.940 [main] INFO uk.gov.pay.card.db.loader.BinRangeDataLoader - Loading Worldpay data in to card information store
+05:58:53.963 [main] INFO uk.gov.pay.card.db.loader.BinRangeDataLoader - 6 records loaded... DONE
+05:58:53.964 [main] INFO uk.gov.pay.card.db.loader.BinRangeDataLoader - Finished initialising the card information store - keys=4
+05:58:54.043 [main] INFO uk.gov.pay.card.db.loader.BinRangeDataLoader - Loading Worldpay data in to card information store
+05:58:54.044 [main] INFO uk.gov.pay.card.db.loader.BinRangeDataLoader - 6 records loaded... DONE
+05:58:54.044 [main] INFO uk.gov.pay.card.db.loader.BinRangeDataLoader - Finished initialising the card information store - keys=4
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.112 s - in uk.gov.pay.card.db.RangeSetCardInformationStoreTest
+[INFO] Running uk.gov.pay.card.db.loader.BinRangeDataLoaderTest
+05:58:54.088 [main] INFO uk.gov.pay.card.db.loader.BinRangeDataLoader - Loading Discover data in to card information store
+05:58:54.091 [main] INFO uk.gov.pay.card.db.loader.BinRangeDataLoader - 5 records loaded... DONE
+05:58:54.092 [main] INFO uk.gov.pay.card.db.loader.BinRangeDataLoader - Finished initialising the card information store - Mock for CardInformationStore, hashCode: 859985937
+05:58:54.098 [main] INFO uk.gov.pay.card.db.loader.BinRangeDataLoader - Loading Worldpay data in to card information store
+05:58:54.100 [main] INFO uk.gov.pay.card.db.loader.BinRangeDataLoader - 3 records loaded... DONE
+05:58:54.100 [main] INFO uk.gov.pay.card.db.loader.BinRangeDataLoader - Finished initialising the card information store - Mock for CardInformationStore, hashCode: 1869652507
+05:58:54.104 [main] INFO uk.gov.pay.card.db.loader.BinRangeDataLoader - Loading Test Cards data in to card information store
+05:58:54.105 [main] INFO uk.gov.pay.card.db.loader.BinRangeDataLoader - 4 records loaded... DONE
+05:58:54.105 [main] INFO uk.gov.pay.card.db.loader.BinRangeDataLoader - Finished initialising the card information store - Mock for CardInformationStore, hashCode: 780570776
+05:58:54.113 [main] INFO uk.gov.pay.card.db.loader.BinRangeDataLoader - Loading Worldpay data in to card information store
+05:58:54.116 [main] INFO uk.gov.pay.card.db.loader.BinRangeDataLoader - Loading Worldpay data in to card information store
+05:58:54.117 [main] INFO uk.gov.pay.card.db.loader.BinRangeDataLoader - 6 records loaded... DONE
+05:58:54.117 [main] INFO uk.gov.pay.card.db.loader.BinRangeDataLoader - Finished initialising the card information store - Mock for CardInformationStore, hashCode: 1287401019
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s - in uk.gov.pay.card.db.loader.BinRangeDataLoaderTest
+[INFO] Running uk.gov.pay.card.db.loader.BinRangeParserTest
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 s - in uk.gov.pay.card.db.loader.BinRangeParserTest
+[INFO] Running uk.gov.pay.card.service.CardServiceTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in uk.gov.pay.card.service.CardServiceTest
+[INFO] Running uk.gov.pay.card.it.resources.CardIdResourceITest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.153 s <<< FAILURE! - in uk.gov.pay.card.it.resources.CardIdResourceITest
+[ERROR] uk.gov.pay.card.it.resources.CardIdResourceITest  Time elapsed: 0.153 s  <<< ERROR!
+java.lang.Exception: java.lang.NoClassDefFoundError: io/dropwizard/logging/common/AbstractAppenderFactory
+	at io.dropwizard.testing.junit5.DropwizardExtensionsSupport.beforeAll(DropwizardExtensionsSupport.java:87)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeBeforeAllCallbacks$12(ClassBasedTestDescriptor.java:395)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeBeforeAllCallbacks(ClassBasedTestDescriptor.java:395)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.before(ClassBasedTestDescriptor.java:211)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.before(ClassBasedTestDescriptor.java:84)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:148)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:50)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.lang.NoClassDefFoundError: io/dropwizard/logging/common/AbstractAppenderFactory
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
+	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:174)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:800)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassOnClassPathOrNull(BuiltinClassLoader.java:698)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:621)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:579)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	at io.dropwizard.jackson.DiscoverableSubtypeResolver.loadClass(DiscoverableSubtypeResolver.java:117)
+	at io.dropwizard.jackson.DiscoverableSubtypeResolver.discoverServices(DiscoverableSubtypeResolver.java:93)
+	at io.dropwizard.jackson.DiscoverableSubtypeResolver.<init>(DiscoverableSubtypeResolver.java:46)
+	at io.dropwizard.jackson.DiscoverableSubtypeResolver.<init>(DiscoverableSubtypeResolver.java:35)
+	at io.dropwizard.jackson.Jackson.configure(Jackson.java:91)
+	at io.dropwizard.jackson.Jackson.newObjectMapper(Jackson.java:34)
+	at io.dropwizard.setup.Bootstrap.<init>(Bootstrap.java:64)
+	at io.dropwizard.testing.DropwizardTestSupport$2.<init>(DropwizardTestSupport.java:288)
+	at io.dropwizard.testing.DropwizardTestSupport.startIfRequired(DropwizardTestSupport.java:288)
+	at io.dropwizard.testing.DropwizardTestSupport.before(DropwizardTestSupport.java:226)
+	at io.dropwizard.testing.junit5.DropwizardAppExtension.before(DropwizardAppExtension.java:198)
+	at io.dropwizard.testing.junit5.DropwizardExtensionsSupport.beforeAll(DropwizardExtensionsSupport.java:97)
+	at io.dropwizard.testing.junit5.DropwizardExtensionsSupport.beforeAll(DropwizardExtensionsSupport.java:83)
+	... 43 more
+Caused by: java.lang.ClassNotFoundException: io.dropwizard.logging.common.AbstractAppenderFactory
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	... 65 more
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   CardIdResourceITest »  java.lang.NoClassDefFoundError: io/dropwizard/logging/common/AbstractAppenderFactory
+[INFO] 
+[ERROR] Tests run: 37, Failures: 0, Errors: 1, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  10.714 s
+[INFO] Finished at: 2026-01-05T05:58:54Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.1.0:test (default-test) on project pay-cardid: 
+[ERROR] 
+[ERROR] Please refer to /pay-cardid/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested

@@ -1,0 +1,496 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] messaging-services                                                 [pom]
+[INFO] core                                                               [jar]
+[INFO] messaging                                                          [jar]
+[INFO] clearinghouse                                                      [jar]
+[INFO] broker                                                             [jar]
+[INFO] vocol                                                              [jar]
+[INFO] paris                                                              [jar]
+[INFO] appstore                                                           [jar]
+[INFO] 
+[INFO] ------------------< ids.messaging:messaging-services >------------------
+[INFO] Building messaging-services 7.0.1                                  [1/8]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] Downloading from sovity-public: https://pkgs.dev.azure.com/sovity/5bec6cbd-c80a-47ac-86ce-1deb26cee853/_packaging/artifact/maven/v1/de/fraunhofer/iais/eis/infomodel/util/5.0.0-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from eis-ids-public: https://maven.iais.fraunhofer.de/artifactory/eis-ids-public/de/fraunhofer/iais/eis/infomodel/util/5.0.0-SNAPSHOT/maven-metadata.xml
+[WARNING] Could not transfer metadata de.fraunhofer.iais.eis.infomodel:util:5.0.0-SNAPSHOT/maven-metadata.xml from/to eis-ids-public (https://maven.iais.fraunhofer.de/artifactory/eis-ids-public): maven.iais.fraunhofer.de: Name does not resolve
+[WARNING] de.fraunhofer.iais.eis.infomodel:util:5.0.0-SNAPSHOT/maven-metadata.xml failed to transfer from https://maven.iais.fraunhofer.de/artifactory/eis-ids-public during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of eis-ids-public has elapsed or updates are forced. Original error: Could not transfer metadata de.fraunhofer.iais.eis.infomodel:util:5.0.0-SNAPSHOT/maven-metadata.xml from/to eis-ids-public (https://maven.iais.fraunhofer.de/artifactory/eis-ids-public): maven.iais.fraunhofer.de: Name does not resolve
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ messaging-services ---
+[INFO] 
+[INFO] --- flatten:1.3.0:clean (flatten.clean) @ messaging-services ---
+[INFO] Deleting /IDS-Messaging-Services/.flattened-pom.xml
+[INFO] 
+[INFO] --- flatten:1.3.0:flatten (flatten) @ messaging-services ---
+[INFO] Generating flattened POM of project ids.messaging:messaging-services:pom:7.0.1...
+[INFO] 
+[INFO] -------------------------< ids.messaging:core >-------------------------
+[INFO] Building core 7.0.1                                                [2/8]
+[INFO]   from core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ core ---
+[INFO] Deleting /IDS-Messaging-Services/core/target
+[INFO] 
+[INFO] --- flatten:1.3.0:clean (flatten.clean) @ core ---
+[INFO] Deleting /IDS-Messaging-Services/core/.flattened-pom.xml
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ core ---
+[INFO] skip non existing resourceDirectory /IDS-Messaging-Services/core/src/main/resources
+[INFO] 
+[INFO] --- flatten:1.3.0:flatten (flatten) @ core ---
+[INFO] Generating flattened POM of project ids.messaging:core:jar:7.0.1...
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 29 source files to /IDS-Messaging-Services/core/target/classes
+[INFO] /IDS-Messaging-Services/core/src/main/java/ids/messaging/core/config/ConfigProducer.java: /IDS-Messaging-Services/core/src/main/java/ids/messaging/core/config/ConfigProducer.java uses or overrides a deprecated API.
+[INFO] /IDS-Messaging-Services/core/src/main/java/ids/messaging/core/config/ConfigProducer.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ core ---
+[INFO] Copying 4 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /IDS-Messaging-Services/core/target/test-classes
+[INFO] /IDS-Messaging-Services/core/src/test/java/ids/messaging/core/config/PreConfigInterceptor.java: /IDS-Messaging-Services/core/src/test/java/ids/messaging/core/config/PreConfigInterceptor.java uses or overrides a deprecated API.
+[INFO] /IDS-Messaging-Services/core/src/test/java/ids/messaging/core/config/PreConfigInterceptor.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ core ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running ids.messaging.core.config.ConfigProducerTest
+04:05:02.042 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+04:05:02.048 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+04:05:02.092 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [ids.messaging.core.config.ConfigProducerTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+04:05:02.101 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [ids.messaging.core.config.ConfigProducerTest], using SpringBootContextLoader
+04:05:02.104 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [ids.messaging.core.config.ConfigProducerTest]: class path resource [ids/messaging/core/config/ConfigProducerTest-context.xml] does not exist
+04:05:02.106 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [ids.messaging.core.config.ConfigProducerTest]: class path resource [ids/messaging/core/config/ConfigProducerTestContext.groovy] does not exist
+04:05:02.106 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [ids.messaging.core.config.ConfigProducerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+04:05:02.157 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [ids.messaging.core.config.ConfigProducerTest]
+04:05:02.260 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [ids.messaging.core.config.ConfigProducerTest]: using defaults.
+04:05:02.260 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+04:05:02.267 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/web/context/request/RequestAttributes]
+04:05:02.268 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/TransactionDefinition]
+04:05:02.268 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+04:05:02.269 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6d23017e, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@54dcfa5a, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@1817f1eb, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@767e20cf, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3a3e78f, org.springframework.test.context.event.EventPublishingTestExecutionListener@301ec38b, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@17a1e4ca, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@10ded6a9, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@c5dc4a2, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4a194c39, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@52066604, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@340b9973]
+04:05:02.272 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@6b3e12b5 testClass = ConfigProducerTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@5aac4250 testClass = ConfigProducerTest, locations = '{}', classes = '{class ids.messaging.core.config.TestSpringApp}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{classpath:application.properties}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7ba8c737, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@31edaa7d, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@7b993c65, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@723e88f9, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@14a50707, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@20ce78ec], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [false] with mode [null].
+04:05:02.296 [main] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@6b3e12b5 testClass = ConfigProducerTest, testInstance = ids.messaging.core.config.ConfigProducerTest@7cbc3762, testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@5aac4250 testClass = ConfigProducerTest, locations = '{}', classes = '{class ids.messaging.core.config.TestSpringApp}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{classpath:application.properties}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7ba8c737, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@31edaa7d, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@7b993c65, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@723e88f9, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@14a50707, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@20ce78ec], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]].
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.4)
+
+2026-01-05 04:05:02.735  INFO 65 --- [           main] i.m.core.config.ConfigProducerTest       : Starting ConfigProducerTest using Java 11.0.19 on 8ee00a7fb15f with PID 65 (started by root in /IDS-Messaging-Services/core)
+2026-01-05 04:05:02.742  INFO 65 --- [           main] i.m.core.config.ConfigProducerTest       : No active profile set, falling back to 1 default profile: "default"
+2026-01-05 04:05:05.866  INFO 65 --- [           main] i.m.core.config.PreConfigInterceptor     : Intercepting loading of configuration! [code=(IMSCOI0055)]
+2026-01-05 04:05:05.866  INFO 65 --- [           main] i.m.core.config.PreConfigInterceptor     : Loading config from classpath: configmodel.json [code=(IMSCOI0057)]
+2026-01-05 04:05:05.876  INFO 65 --- [           main] i.m.core.config.PreConfigInterceptor     : Importing configuration from file. [code=(IMSCOI0056)]
+2026-01-05 04:05:06.730  INFO 65 --- [           main] i.m.c.c.ssl.keystore.KeyStoreManager     : Successfully loaded Keystore. [code=(IMSCOI0049)]
+2026-01-05 04:05:06.742  INFO 65 --- [           main] i.m.c.c.ssl.keystore.KeyStoreManager     : Successfully loaded Truststore. [code=(IMSCOI0049)]
+2026-01-05 04:05:07.079  WARN 65 --- [           main] i.messaging.core.config.ClientProvider   : Trustmanager is trusting all Certificates in TEST_DEPLOYMENT mode, you should not use this in production! [code=(IMSCOW0032)]
+2026-01-05 04:05:07.117  INFO 65 --- [           main] i.m.core.config.PostConfigInterceptor    : Modifying configuration using interceptor interface. [code=(IMSCOI0047)]
+2026-01-05 04:05:07.937  INFO 65 --- [           main] i.m.core.config.ConfigProducerTest       : Started ConfigProducerTest in 5.622 seconds (JVM running for 7.013)
+2026-01-05 04:05:18.593  WARN 65 --- [           main] i.m.c.d.aisec.AisecTokenManagerService   : TEST_DEPLOYMENT: IDS-Message is sent without a valid DAT, will not be sent in PRODUCTIVE_DEPLOYMENT. [code=(IMSCOW0041), reason=(Error connecting to DAPS (possibly currently not reachable or wrong DAPS-URL): connect timed out)]
+2026-01-05 04:05:19.029  WARN 65 --- [           main] i.messaging.core.config.ClientProvider   : Proxy port invalid! Trying to skip using this proxy! Please check configuration! [code=(IMSCOW0031), port=(-1)]
+2026-01-05 04:05:29.061  WARN 65 --- [           main] i.m.c.d.o.OrbiterTokenManagerService     : [code=(IMSCOW0028)] connect timed out
+
+java.net.SocketTimeoutException: connect timed out
+	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method) ~[na:na]
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412) ~[na:na]
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255) ~[na:na]
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:609) ~[na:na]
+	at okhttp3.internal.platform.Platform.connectSocket(Platform.kt:128) ~[okhttp-4.10.0.jar:na]
+	at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.kt:295) ~[okhttp-4.10.0.jar:na]
+	at okhttp3.internal.connection.RealConnection.connect(RealConnection.kt:207) ~[okhttp-4.10.0.jar:na]
+	at okhttp3.internal.connection.ExchangeFinder.findConnection(ExchangeFinder.kt:226) ~[okhttp-4.10.0.jar:na]
+	at okhttp3.internal.connection.ExchangeFinder.findHealthyConnection(ExchangeFinder.kt:106) ~[okhttp-4.10.0.jar:na]
+	at okhttp3.internal.connection.ExchangeFinder.find(ExchangeFinder.kt:74) ~[okhttp-4.10.0.jar:na]
+	at okhttp3.internal.connection.RealCall.initExchange$okhttp(RealCall.kt:255) ~[okhttp-4.10.0.jar:na]
+	at okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.kt:32) ~[okhttp-4.10.0.jar:na]
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109) ~[okhttp-4.10.0.jar:na]
+	at okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.kt:95) ~[okhttp-4.10.0.jar:na]
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109) ~[okhttp-4.10.0.jar:na]
+	at okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.kt:83) ~[okhttp-4.10.0.jar:na]
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109) ~[okhttp-4.10.0.jar:na]
+	at okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.kt:76) ~[okhttp-4.10.0.jar:na]
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109) ~[okhttp-4.10.0.jar:na]
+	at ids.messaging.core.config.ClientProvider$EncodingInterceptor.intercept(ClientProvider.java:490) ~[classes/:na]
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109) ~[okhttp-4.10.0.jar:na]
+	at okhttp3.internal.connection.RealCall.getResponseWithInterceptorChain$okhttp(RealCall.kt:201) ~[okhttp-4.10.0.jar:na]
+	at okhttp3.internal.connection.RealCall.execute(RealCall.kt:154) ~[okhttp-4.10.0.jar:na]
+	at ids.messaging.core.daps.orbiter.OrbiterTokenManagerService.sendCertificateRequest(OrbiterTokenManagerService.java:175) ~[classes/:na]
+	at ids.messaging.core.daps.orbiter.OrbiterTokenManagerService.createClient(OrbiterTokenManagerService.java:135) ~[classes/:na]
+	at ids.messaging.core.daps.orbiter.OrbiterTokenManagerService.acquireToken(OrbiterTokenManagerService.java:279) ~[classes/:na]
+	at ids.messaging.core.config.ConfigProducerTest.lambda$testProvider$1(ConfigProducerTest.java:88) ~[test-classes/:na]
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53) ~[junit-jupiter-api-5.9.1.jar:5.9.1]
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35) ~[junit-jupiter-api-5.9.1.jar:5.9.1]
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3083) ~[junit-jupiter-api-5.9.1.jar:5.9.1]
+	at ids.messaging.core.config.ConfigProducerTest.testProvider(ConfigProducerTest.java:88) ~[test-classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727) ~[junit-platform-commons-1.9.1.jar:1.9.1]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:217) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.9.1.jar:1.9.1]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:220) ~[junit-platform-launcher-1.3.1.jar:1.3.1]
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:188) ~[junit-platform-launcher-1.3.1.jar:1.3.1]
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:202) ~[junit-platform-launcher-1.3.1.jar:1.3.1]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:181) ~[junit-platform-launcher-1.3.1.jar:1.3.1]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:128) ~[junit-platform-launcher-1.3.1.jar:1.3.1]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:150) ~[surefire-junit-platform-2.22.2.jar:2.22.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:124) ~[surefire-junit-platform-2.22.2.jar:2.22.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384) ~[surefire-booter-2.22.2.jar:2.22.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345) ~[surefire-booter-2.22.2.jar:2.22.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126) ~[surefire-booter-2.22.2.jar:2.22.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418) ~[surefire-booter-2.22.2.jar:2.22.2]
+
+2026-01-05 04:05:29.111  INFO 65 --- [           main] i.m.c.c.ssl.keystore.KeyStoreManager     : Successfully loaded Keystore. [code=(IMSCOI0049)]
+2026-01-05 04:05:29.115  INFO 65 --- [           main] i.m.c.c.ssl.keystore.KeyStoreManager     : Successfully loaded Truststore. [code=(IMSCOI0049)]
+2026-01-05 04:05:29.122  WARN 65 --- [           main] i.messaging.core.config.ClientProvider   : Trustmanager is trusting all Certificates in TEST_DEPLOYMENT mode, you should not use this in production! [code=(IMSCOW0032)]
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 27.147 s - in ids.messaging.core.config.ConfigProducerTest
+[INFO] Running ids.messaging.core.daps.DapsVerifierTest
+2026-01-05 04:05:29.133  WARN 65 --- [           main] ids.messaging.core.daps.DapsVerifier     : Could not verify DAT Claims! [code=(IMSCOW0036)]
+2026-01-05 04:05:29.133  INFO 65 --- [           main] ids.messaging.core.daps.DapsVerifier     : Successfully verified DAT claims. [code=(IMSCOI0050)]
+2026-01-05 04:05:29.134  INFO 65 --- [           main] ids.messaging.core.daps.DapsVerifier     : Successfully verified DAT claims. [code=(IMSCOI0050)]
+2026-01-05 04:05:29.134  INFO 65 --- [           main] ids.messaging.core.daps.DapsVerifier     : Successfully verified DAT claims. [code=(IMSCOI0050)]
+2026-01-05 04:05:29.135  WARN 65 --- [           main] ids.messaging.core.daps.DapsVerifier     : Custom DAT validation rule failed! [code=(IMSCOW0035), message=(This rule sometimes fails!)]
+2026-01-05 04:05:29.135  WARN 65 --- [           main] ids.messaging.core.daps.DapsVerifier     : Custom DAT validation rule failed! [code=(IMSCOW0035), message=(This rule sometimes fails!)]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in ids.messaging.core.daps.DapsVerifierTest
+[INFO] Running ids.messaging.core.daps.DapsValidatorTest
+2026-01-05 04:05:29.180  INFO 65 --- [           main] o.s.t.c.s.DefaultTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2026-01-05 04:05:29.182  INFO 65 --- [           main] o.s.t.c.s.DefaultTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7109b603, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@76b642aa, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@29b5e7db, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@286dfa20, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1468e880, org.springframework.test.context.event.EventPublishingTestExecutionListener@508f4bb5, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@5602e540, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@11f9b95a, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@42066f0d, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@687e561b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@299786b1, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@75f8d9b0]
+2026-01-05 04:05:30.134  INFO 65 --- [           main] ids.messaging.core.daps.DapsVerifier     : Successfully verified DAT claims. [code=(IMSCOI0050)]
+2026-01-05 04:05:30.136  INFO 65 --- [           main] ids.messaging.core.daps.DapsVerifier     : Successfully verified DAT claims. [code=(IMSCOI0050)]
+2026-01-05 04:05:30.139  WARN 65 --- [           main] ids.messaging.core.daps.DapsValidator    : SecurityProfile could not be successfully verified! [message=(Security profile violation. Registered security profile at DAPS is: idsc:BASE_CONNECTOR_SECURITY_PROFILE, but the given security profile is: idsc:TRUSTED_CONNECTOR_SECURITY_PROFILE), code=(IMSCOW0033)]
+2026-01-05 04:05:30.140  WARN 65 --- [           main] ids.messaging.core.daps.DapsValidator    : SecurityProfile could not be successfully verified! [message=(Security profile violation. Registered security profile at DAPS is: idsc:BASE_CONNECTOR_SECURITY_PROFILE, but the given security profile is: aiosdhiuaghduiwh), code=(IMSCOW0033)]
+2026-01-05 04:05:30.164  WARN 65 --- [           main] ids.messaging.core.daps.DapsValidator    : SecurityProfile could not be successfully verified! [message=(Security profile violation. Registered security profile at DAPS is: sjondfasdhfiou, but the given security profile is: idsc:TRUSTED_CONNECTOR_SECURITY_PROFILE), code=(IMSCOW0033)]
+2026-01-05 04:05:30.175  WARN 65 --- [           main] ids.messaging.core.daps.DapsValidator    : SecurityProfile could not be successfully verified! [message=(Security profile violation. No security profile given in DAT!), code=(IMSCOW0033)]
+2026-01-05 04:05:30.216  INFO 65 --- [           main] ids.messaging.core.daps.DapsVerifier     : Successfully verified DAT claims. [code=(IMSCOI0050)]
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.077 s - in ids.messaging.core.daps.DapsValidatorTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ----------------------< ids.messaging:messaging >-----------------------
+[INFO] Building messaging 7.0.1                                           [3/8]
+[INFO]   from messaging/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ messaging ---
+[INFO] Deleting /IDS-Messaging-Services/messaging/target
+[INFO] 
+[INFO] --- flatten:1.3.0:clean (flatten.clean) @ messaging ---
+[INFO] Deleting /IDS-Messaging-Services/messaging/.flattened-pom.xml
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ messaging ---
+[INFO] skip non existing resourceDirectory /IDS-Messaging-Services/messaging/src/main/resources
+[INFO] 
+[INFO] --- flatten:1.3.0:flatten (flatten) @ messaging ---
+[INFO] Generating flattened POM of project ids.messaging:messaging:jar:7.0.1...
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ messaging ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 103 source files to /IDS-Messaging-Services/messaging/target/classes
+[INFO] /IDS-Messaging-Services/messaging/src/main/java/ids/messaging/protocol/multipart/parser/MultipartParser.java: /IDS-Messaging-Services/messaging/src/main/java/ids/messaging/protocol/multipart/parser/MultipartParser.java uses or overrides a deprecated API.
+[INFO] /IDS-Messaging-Services/messaging/src/main/java/ids/messaging/protocol/multipart/parser/MultipartParser.java: Recompile with -Xlint:deprecation for details.
+[INFO] /IDS-Messaging-Services/messaging/src/main/java/ids/messaging/requests/builder/IdsRequestBuilder.java: /IDS-Messaging-Services/messaging/src/main/java/ids/messaging/requests/builder/IdsRequestBuilder.java uses unchecked or unsafe operations.
+[INFO] /IDS-Messaging-Services/messaging/src/main/java/ids/messaging/requests/builder/IdsRequestBuilder.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ messaging ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ messaging ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 15 source files to /IDS-Messaging-Services/messaging/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ messaging ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running ids.messaging.response.MessageResponseTest
+04:05:39.415 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+04:05:39.417 [main] INFO org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.0.13.Final
+04:05:39.422 [main] DEBUG org.hibernate.validator.internal.engine.resolver.TraversableResolvers - Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+04:05:39.424 [main] DEBUG org.hibernate.validator.internal.xml.config.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+04:05:39.425 [main] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+04:05:39.426 [main] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+04:05:39.426 [main] DEBUG org.hibernate.validator.internal.xml.config.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+04:05:39.520 [main] DEBUG org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+04:05:39.525 [main] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryImpl - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+04:05:39.525 [main] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryImpl - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+04:05:39.525 [main] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryImpl - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+04:05:39.525 [main] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryImpl - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+04:05:39.525 [main] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryImpl - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+04:05:39.639 [main] DEBUG org.hibernate.validator.internal.engine.resolver.TraversableResolvers - Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+04:05:39.640 [main] DEBUG org.hibernate.validator.internal.xml.config.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+04:05:39.640 [main] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+04:05:39.640 [main] DEBUG org.hibernate.validator.internal.xml.config.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+04:05:39.640 [main] DEBUG org.hibernate.validator.internal.xml.config.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+04:05:39.644 [main] DEBUG org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+04:05:39.644 [main] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryImpl - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+04:05:39.644 [main] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryImpl - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+04:05:39.644 [main] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryImpl - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+04:05:39.644 [main] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryImpl - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+04:05:39.644 [main] DEBUG org.hibernate.validator.internal.engine.ValidatorFactoryImpl - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 3.657 s <<< FAILURE! - in ids.messaging.response.MessageResponseTest
+[ERROR] testResponses  Time elapsed: 3.644 s  <<< ERROR!
+java.lang.NoSuchMethodError: 'boolean com.fasterxml.jackson.annotation.JsonSubTypes.failOnRepeatedNames()'
+	at ids.messaging.response.MessageResponseTest.testResponses(MessageResponseTest.java:50)
+
+[INFO] Running ids.messaging.dispatcher.MessageDispatcherTest
+04:05:40.415 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+04:05:40.421 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+04:05:40.467 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [ids.messaging.dispatcher.MessageDispatcherTest] from class [org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper]
+04:05:40.484 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [ids.messaging.dispatcher.MessageDispatcherTest]: class path resource [ids/messaging/dispatcher/MessageDispatcherTest-context.xml] does not exist
+04:05:40.485 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [ids.messaging.dispatcher.MessageDispatcherTest]: class path resource [ids/messaging/dispatcher/MessageDispatcherTestContext.groovy] does not exist
+04:05:40.485 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [ids.messaging.dispatcher.MessageDispatcherTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+04:05:40.555 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [ids.messaging.dispatcher.MessageDispatcherTest]
+04:05:40.569 [main] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - @TestExecutionListeners is not present for class [ids.messaging.dispatcher.MessageDispatcherTest]: using defaults.
+04:05:40.570 [main] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+04:05:40.580 [main] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@76d05cc9, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@42b21d99, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@68dcfd52, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@25b5c5e3, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@5177e388, org.springframework.test.context.support.DirtiesContextTestExecutionListener@37b72ea, org.springframework.test.context.transaction.TransactionalTestExecutionListener@cc239ba, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7d37f1c, org.springframework.test.context.event.EventPublishingTestExecutionListener@69d6a7cd, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3162743f, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@2c708440, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3047254d, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@6cf31447, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4e92466a, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@66e8997c]
+04:05:40.584 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@1abc9f14 testClass = MessageDispatcherTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@6a0ac48e testClass = MessageDispatcherTest, locations = '{}', classes = '{class ids.messaging.handler.request.RequestMessageHandlerService, class ids.messaging.dispatcher.MessageDispatcherProvider, class ids.messaging.dispatcher.MessageDispatcherTest$TestContextConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{shacl.validation=false, org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@24e08d59 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration, org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration, org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration, org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration, org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration, org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration, org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration, org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration, org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration, org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration, org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration, org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration, org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration, org.springframework.boot.test.autoconfigure.web.reactive.WebTestClientAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@5c645b43, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@58399d82, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@980c9c92, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@213860b8, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@141e879d, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@a94c8f4c, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@162182cb, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@6136998b, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [false] with mode [null].
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.4)
+
+2026-01-05 04:05:41.096  INFO 211 --- [           main] i.m.dispatcher.MessageDispatcherTest     : Starting MessageDispatcherTest using Java 11.0.19 on 8ee00a7fb15f with PID 211 (started by root in /IDS-Messaging-Services/messaging)
+2026-01-05 04:05:41.097  INFO 211 --- [           main] i.m.dispatcher.MessageDispatcherTest     : No active profile set, falling back to 1 default profile: "default"
+2026-01-05 04:05:44.081  INFO 211 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-01-05 04:05:44.082  INFO 211 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-01-05 04:05:44.088  INFO 211 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 6 ms
+2026-01-05 04:05:44.130  INFO 211 --- [           main] i.m.dispatcher.MessageDispatcherTest     : Started MessageDispatcherTest in 3.506 seconds (JVM running for 8.472)
+2026-01-05 04:05:44.524 ERROR 211 --- [           main] i.m.dispatcher.MessageDispatcher         : A preDispatchingFilter failed, sending response RejectionReason.MALFORMED_MESSAGE! [code=(IMSMEE0019), result=(predispatching)]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.186 s - in ids.messaging.dispatcher.MessageDispatcherTest
+[INFO] Running ids.messaging.requests.InfrastructureServiceTest
+2026-01-05 04:05:44.608  INFO 211 --- [           main] o.s.t.c.s.DefaultTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2026-01-05 04:05:44.608  INFO 211 --- [           main] o.s.t.c.s.DefaultTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@422ba9b7, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@26cdd4af, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@707f4647, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@4b8a0d03, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@54f373d4, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1c53bd49, org.springframework.test.context.transaction.TransactionalTestExecutionListener@16949dfa, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@d6d683e, org.springframework.test.context.event.EventPublishingTestExecutionListener@42cfd794, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@43778371, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@71beada8, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@17f41739, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2b3b1124, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@54286339, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@507f47f9]
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.032 s <<< FAILURE! - in ids.messaging.requests.InfrastructureServiceTest
+[ERROR] testInfrastructureService  Time elapsed: 0.469 s  <<< ERROR!
+java.lang.NoSuchMethodError: 'boolean com.fasterxml.jackson.annotation.JsonSubTypes.failOnRepeatedNames()'
+	at ids.messaging.requests.InfrastructureServiceTest.testInfrastructureService(InfrastructureServiceTest.java:160)
+
+[INFO] Running ids.messaging.util.InfomodelMessageBuilderTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.369 s <<< FAILURE! - in ids.messaging.util.InfomodelMessageBuilderTest
+[ERROR] testBuildMessage  Time elapsed: 0.369 s  <<< ERROR!
+java.lang.NoSuchMethodError: 'boolean com.fasterxml.jackson.annotation.JsonSubTypes.failOnRepeatedNames()'
+	at ids.messaging.util.InfomodelMessageBuilderTest.testBuildMessage(InfomodelMessageBuilderTest.java:41)
+
+[INFO] Running ids.messaging.util.IdsMessageUtilsTest
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.491 s <<< FAILURE! - in ids.messaging.util.IdsMessageUtilsTest
+[ERROR] testUtils  Time elapsed: 0.49 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.NoSuchMethodError: 'boolean com.fasterxml.jackson.annotation.JsonSubTypes.failOnRepeatedNames()'
+	at ids.messaging.util.IdsMessageUtilsTest.testUtils(IdsMessageUtilsTest.java:60)
+Caused by: java.lang.NoSuchMethodError: 'boolean com.fasterxml.jackson.annotation.JsonSubTypes.failOnRepeatedNames()'
+	at ids.messaging.util.IdsMessageUtilsTest.lambda$testUtils$0(IdsMessageUtilsTest.java:60)
+	at ids.messaging.util.IdsMessageUtilsTest.testUtils(IdsMessageUtilsTest.java:60)
+
+[INFO] Running ids.messaging.util.SerializerProviderTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.263 s - in ids.messaging.util.SerializerProviderTest
+[INFO] Running ids.messaging.util.RequestUtilsTest
+2026-01-05 04:05:47.792  INFO 211 --- [           main] ids.messaging.util.RequestUtils          : String [code=(IMSMEI0069)]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in ids.messaging.util.RequestUtilsTest
+[INFO] Running ids.messaging.endpoint.MessageControllerTest
+2026-01-05 04:05:47.818  INFO 211 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [ids.messaging.endpoint.MessageControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2026-01-05 04:05:47.835  INFO 211 --- [           main] .b.t.a.w.s.WebMvcTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2026-01-05 04:05:47.836  INFO 211 --- [           main] .b.t.a.w.s.WebMvcTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@64f33dee, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@61c58320, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@10e4ee33, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6e90cec8, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@13f182b9, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5ee0cf64, org.springframework.test.context.transaction.TransactionalTestExecutionListener@69c227fd, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@14c5283, org.springframework.test.context.event.EventPublishingTestExecutionListener@1eb7ec59, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@46748b04, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3e71a1f8, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@5d4a34ff, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7cbede2b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1ef04613, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@2d3d4a54]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.4)
+
+2026-01-05 04:05:47.884  INFO 211 --- [           main] i.m.endpoint.MessageControllerTest       : Starting MessageControllerTest using Java 11.0.19 on 8ee00a7fb15f with PID 211 (started by root in /IDS-Messaging-Services/messaging)
+2026-01-05 04:05:47.885  INFO 211 --- [           main] i.m.endpoint.MessageControllerTest       : No active profile set, falling back to 1 default profile: "default"
+2026-01-05 04:05:48.641  INFO 211 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-01-05 04:05:48.641  INFO 211 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-01-05 04:05:48.643  INFO 211 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-01-05 04:05:48.658  INFO 211 --- [           main] i.m.endpoint.MessageControllerTest       : Started MessageControllerTest in 0.818 seconds (JVM running for 13.0)
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.941 s <<< FAILURE! - in ids.messaging.endpoint.MessageControllerTest
+[ERROR] testGetValidMultipartReturn  Time elapsed: 0.071 s  <<< ERROR!
+java.lang.NoSuchMethodError: 'boolean com.fasterxml.jackson.annotation.JsonSubTypes.failOnRepeatedNames()'
+	at ids.messaging.endpoint.MessageControllerTest.testGetValidMultipartReturn(MessageControllerTest.java:157)
+
+[INFO] Running ids.messaging.endpoint.EndpointServiceTest
+2026-01-05 04:05:48.743  INFO 211 --- [           main] .b.t.a.w.s.WebMvcTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [ids.messaging.endpoint.EndpointServiceTest], using SpringBootContextLoader
+2026-01-05 04:05:48.745  INFO 211 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [ids.messaging.endpoint.EndpointServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2026-01-05 04:05:48.755  INFO 211 --- [           main] .b.t.a.w.s.WebMvcTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2026-01-05 04:05:48.755  INFO 211 --- [           main] .b.t.a.w.s.WebMvcTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@10b3ea72, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@44587c44, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@618fb1, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@48751d8a, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@471a9e8c, org.springframework.test.context.support.DirtiesContextTestExecutionListener@40277077, org.springframework.test.context.transaction.TransactionalTestExecutionListener@4cb773c5, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2c4eae94, org.springframework.test.context.event.EventPublishingTestExecutionListener@3f33bb6f, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@446cc036, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@33b2ba25, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6ad198c9, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@481bae3f, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@6a54aa7a, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@4c114687]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.4)
+
+2026-01-05 04:05:48.788  INFO 211 --- [           main] i.m.endpoint.EndpointServiceTest         : Starting EndpointServiceTest using Java 11.0.19 on 8ee00a7fb15f with PID 211 (started by root in /IDS-Messaging-Services/messaging)
+2026-01-05 04:05:48.788  INFO 211 --- [           main] i.m.endpoint.EndpointServiceTest         : No active profile set, falling back to 1 default profile: "default"
+2026-01-05 04:05:49.559  INFO 211 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-01-05 04:05:49.559  INFO 211 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-01-05 04:05:49.560  INFO 211 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-01-05 04:05:49.574  INFO 211 --- [           main] i.m.endpoint.EndpointServiceTest         : Started EndpointServiceTest in 0.816 seconds (JVM running for 13.916)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.843 s - in ids.messaging.endpoint.EndpointServiceTest
+[INFO] Running ids.messaging.protocol.multipart.parser.MultipartParserTest
+2026-01-05 04:05:49.592  INFO 211 --- [           main] i.m.p.m.parser.MultipartParserTest       : --7c4d4824-0162-4bb8-88e0-7a5ce0d75b88
+Content-Disposition: form-data; name="header"
+Content-Length: 6
+
+value1
+--7c4d4824-0162-4bb8-88e0-7a5ce0d75b88
+Content-Disposition: form-data; name="payload"
+Content-Length: 6
+
+value2
+--7c4d4824-0162-4bb8-88e0-7a5ce0d75b88--
+ [code=(IMSMEI0070)]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 s - in ids.messaging.protocol.multipart.parser.MultipartParserTest
+[INFO] Running ids.messaging.protocol.multipart.MultipartResponseConverterTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.54 s <<< FAILURE! - in ids.messaging.protocol.multipart.MultipartResponseConverterTest
+[ERROR] testConvertResponse  Time elapsed: 0.54 s  <<< ERROR!
+java.lang.NoSuchMethodError: 'boolean com.fasterxml.jackson.annotation.JsonSubTypes.failOnRepeatedNames()'
+	at ids.messaging.protocol.multipart.MultipartResponseConverterTest.buildMultipart(MultipartResponseConverterTest.java:211)
+	at ids.messaging.protocol.multipart.MultipartResponseConverterTest.testConvertResponse(MultipartResponseConverterTest.java:106)
+
+[INFO] Running ids.messaging.protocol.http.IdsHttpServiceTest
+2026-01-05 04:05:50.191  INFO 211 --- [           main] o.s.t.c.s.DefaultTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2026-01-05 04:05:50.192  INFO 211 --- [           main] o.s.t.c.s.DefaultTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@8f374de, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@426913c4, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1bba9862, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@451a4187, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@565c887e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5c215642, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1317ac2c, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@416c1b0, org.springframework.test.context.event.EventPublishingTestExecutionListener@363ba634, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@60fe75f7, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@4e26c308, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@7c8f803d, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@176e839e, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4ac0d49, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@7c6ab057]
+2026-01-05 04:05:50.402  INFO 211 --- [           main] i.m.protocol.http.IdsHttpService         : Sending request to http://localhost:57343/ ... [code=(IMSMEI0065)]
+2026-01-05 04:05:50.430  INFO 211 --- [           main] i.m.protocol.http.IdsHttpService         : Successfully received response to request. [code=(IMSMEI0067)]
+2026-01-05 04:05:50.430  INFO 211 --- [           main] i.m.protocol.http.IdsHttpService         : Sending request to http://localhost:57343/ ... [code=(IMSMEI0065)]
+2026-01-05 04:05:50.433  INFO 211 --- [           main] i.m.protocol.http.IdsHttpService         : Successfully received response to request. [code=(IMSMEI0067)]
+2026-01-05 04:05:50.436  INFO 211 --- [           main] i.m.protocol.http.IdsHttpService         : Sending request to http://localhost:57343/ ... [code=(IMSMEI0065)]
+2026-01-05 04:05:50.438  INFO 211 --- [           main] i.m.protocol.http.IdsHttpService         : Successfully received response to request. [code=(IMSMEI0067)]
+2026-01-05 04:05:50.440  INFO 211 --- [           main] i.m.protocol.http.IdsHttpService         : Sending request to http://localhost:57343/ ... [code=(IMSMEI0065)]
+2026-01-05 04:05:50.442  INFO 211 --- [           main] i.m.protocol.http.IdsHttpService         : Successfully received response to request. [code=(IMSMEI0067)]
+2026-01-05 04:05:50.444  INFO 211 --- [           main] i.m.protocol.http.IdsHttpService         : Sending request to http://localhost:57343/ ... [code=(IMSMEI0065)]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.279 s - in ids.messaging.protocol.http.IdsHttpServiceTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   IdsMessageUtilsTest.testUtils:60 Unexpected exception thrown: java.lang.NoSuchMethodError: 'boolean com.fasterxml.jackson.annotation.JsonSubTypes.failOnRepeatedNames()'
+[ERROR] Errors: 
+[ERROR]   MessageControllerTest.testGetValidMultipartReturn:157 » NoSuchMethod 'boolean ...
+[ERROR]   MultipartResponseConverterTest.testConvertResponse:106->buildMultipart:211 » NoSuchMethod
+[ERROR]   InfrastructureServiceTest.testInfrastructureService:160 » NoSuchMethod 'boolea...
+[ERROR]   MessageResponseTest.testResponses:50 » NoSuchMethod 'boolean com.fasterxml.jac...
+[ERROR]   InfomodelMessageBuilderTest.testBuildMessage:41 » NoSuchMethod 'boolean com.fa...
+[INFO] 
+[ERROR] Tests run: 12, Failures: 1, Errors: 5, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for messaging-services 7.0.1:
+[INFO] 
+[INFO] messaging-services ................................. SUCCESS [  3.822 s]
+[INFO] core ............................................... SUCCESS [ 36.095 s]
+[INFO] messaging .......................................... FAILURE [ 20.235 s]
+[INFO] clearinghouse ...................................... SKIPPED
+[INFO] broker ............................................. SKIPPED
+[INFO] vocol .............................................. SKIPPED
+[INFO] paris .............................................. SKIPPED
+[INFO] appstore ........................................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:00 min
+[INFO] Finished at: 2026-01-05T04:05:50Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 4 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.22.2
+[WARNING]  * org.codehaus.mojo:flatten-maven-plugin:1.3.0
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project messaging: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /IDS-Messaging-Services/messaging/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :messaging
+
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested

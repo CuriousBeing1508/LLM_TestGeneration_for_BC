@@ -1,0 +1,516 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 9 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 9 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] scheduler                                                          [pom]
+[INFO] scheduler-api                                                      [jar]
+[INFO] scheduler-json                                                     [jar]
+[INFO] scheduler-choco                                                    [jar]
+[INFO] scheduler-examples                                                 [jar]
+[INFO] btrpsl                                                             [jar]
+[INFO] safeplace                                                          [jar]
+[INFO] bench                                                              [jar]
+[INFO] scheduler-split                                                    [jar]
+[INFO] 
+[INFO] -----------------------< org.btrplace:scheduler >-----------------------
+[INFO] Building scheduler 1.12.9-SNAPSHOT                                 [1/9]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ scheduler ---
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default) @ scheduler ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/scheduler/target/jacoco.exec,excludes=org/btrplace/btrpsl/**/*:org/btrplace/safeplace/**/*:org/btrplace/bench/**/*:org/btrplace/scheduler/runner/disjoint/**/*
+[INFO] 
+[INFO] --- jacoco:0.8.8:report (report) @ scheduler ---
+[INFO] Skipping JaCoCo execution due to missing execution data file.
+[INFO] 
+[INFO] ---------------------< org.btrplace:scheduler-api >---------------------
+[INFO] Building scheduler-api 1.12.9-SNAPSHOT                             [2/9]
+[INFO]   from api/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ scheduler-api ---
+[INFO] Deleting /scheduler/api/target
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default) @ scheduler-api ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/scheduler/api/target/jacoco.exec,excludes=org/btrplace/btrpsl/**/*:org/btrplace/safeplace/**/*:org/btrplace/bench/**/*:org/btrplace/scheduler/runner/disjoint/**/*
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ scheduler-api ---
+[INFO] skip non existing resourceDirectory /scheduler/api/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ scheduler-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 146 source files to /scheduler/api/target/classes
+[INFO] /scheduler/api/src/main/java/org/btrplace/model/view/NamingService.java: Some input files use unchecked or unsafe operations.
+[INFO] /scheduler/api/src/main/java/org/btrplace/model/view/NamingService.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ scheduler-api ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ scheduler-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 68 source files to /scheduler/api/target/test-classes
+[INFO] /scheduler/api/src/test/java/org/btrplace/util/IntObjectMapTest.java: /scheduler/api/src/test/java/org/btrplace/util/IntObjectMapTest.java uses unchecked or unsafe operations.
+[INFO] /scheduler/api/src/test/java/org/btrplace/util/IntObjectMapTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:3.0.0-M7:test (default-test) @ scheduler-api ---
+[INFO] Using auto detected provider org.apache.maven.surefire.testng.TestNGProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running TestSuite
+overbook(node=node#0, rc=foo, ratio=1.5, discrete)
+preserve(vm=vm#0, rc=cpu, amount=3, discrete)
+gather(vms=[vm#0, vm#1], continuous)
+sleeping(vms=vm#0)
+root(vm=vm#0, continuous)
+split(vms=[[vm#0], [vm#1]], discrete)
+0:1 {action=migrate(vm=vm#3, from=node#2, to=node#1, bw=2147483647), @post= {allocate(vm=vm#3, rc=foo, amount=2)}}
+1:2 {action=shutdown(vm=vm#2, on=node#1)}
+2:3 {action=allocate(vm=vm#1, on=node#0, rc=foo, amount=2)}
+2:3 {action=boot(vm=vm#4, on=node#2)}
+3:4 {action=migrate(vm=vm#0, from=node#0, to=node#2, bw=2147483647)}
+resourceCapacity(nodes=[node#0, node#1], rc=foo, amount=3, continuous)
+quarantine(node=node#0, continuous)
+running(vms=vm#0)
+ready(vms=vm#0)
+online(node=node#0)
+splitAmong(vms=[[[vm#0, vm#1], [vm#2, vm#3]], nodes=[[node#0, node#1], [node#2, node#3]], discrete)
+killed(vm=vm#0)
+runningCapacity(nodes=[node#0, node#1], amount=3)
+lonely(vms=[vm#0, vm#1, vm#2], discrete)
+Mapping:
+node#3: - 
+node#2: - 
+node#1: vm#2 vm#1
+node#0: vm#0
+READY
+
+Attributes: -
+Views: -
+Mapping:
+node#3: - 
+node#2: - 
+node#1: vm#2 vm#1
+node#0: vm#0
+READY
+
+Attributes: -
+Views: -
+spread(vms=[vm#0, vm#1], discrete)
+ban(vm=vm#0, nodes=[node#0], continuous)
+offline(node=node#0)
+fence(vm=vm#0, nodes=[node#0], continuous)
+seq(vms=[vm#0, vm#1, vm#2], continuous)
+1:3 {action=pretty(vm#3, start= 1, end=3)}
+1:3 {action=pretty(vm#0, start= 1, end=3)}
+2:4 {action=pretty(vm#1, start= 2, end=4)}
+2:4 {action=pretty(vm#2, start= 2, end=4)}
+[INFO] Tests run: 260, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.119 s - in TestSuite
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 260, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jacoco:0.8.8:report (report) @ scheduler-api ---
+[INFO] Loading execution data file /scheduler/api/target/jacoco.exec
+[INFO] Analyzed bundle 'scheduler-api' with 123 classes
+[INFO] 
+[INFO] --------------------< org.btrplace:scheduler-json >---------------------
+[INFO] Building scheduler-json 1.12.9-SNAPSHOT                            [3/9]
+[INFO]   from json/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ scheduler-json ---
+[INFO] Deleting /scheduler/json/target
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default) @ scheduler-json ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/scheduler/json/target/jacoco.exec,excludes=org/btrplace/btrpsl/**/*:org/btrplace/safeplace/**/*:org/btrplace/bench/**/*:org/btrplace/scheduler/runner/disjoint/**/*
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ scheduler-json ---
+[INFO] skip non existing resourceDirectory /scheduler/json/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ scheduler-json ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 61 source files to /scheduler/json/target/classes
+[INFO] /scheduler/json/src/main/java/org/btrplace/json/model/view/ModelViewsConverter.java: Some input files use unchecked or unsafe operations.
+[INFO] /scheduler/json/src/main/java/org/btrplace/json/model/view/ModelViewsConverter.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ scheduler-json ---
+[INFO] skip non existing resourceDirectory /scheduler/json/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ scheduler-json ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 40 source files to /scheduler/json/target/test-classes
+[INFO] 
+[INFO] --- surefire:3.0.0-M7:test (default-test) @ scheduler-json ---
+[INFO] Using auto detected provider org.apache.maven.surefire.testng.TestNGProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running TestSuite
+{"id":"ns","type":"vm","map":{"VM 1":1,"VM 2":2,"VM 3":3,"VM 4":4,"VM 5":5,"VM 6":6,"VM 7":7,"VM 8":8,"VM 9":9,"VM 0":0}}
+{"mapping":{"readyVMs":[2],"onlineNodes":{"0":{"sleepingVMs":[1],"runningVMs":[0]},"2":{"sleepingVMs":[],"runningVMs":[3]}},"offlineNodes":[1]},"attributes":{"nodes":{},"vms":{}},"views":[]}
+{"mapping":{"readyVMs":[0],"onlineNodes":{"0":{"sleepingVMs":[],"runningVMs":[]}},"offlineNodes":[]},"attributes":{"nodes":{"0":{"type":"xen"}},"vms":{"0":{"boot":5}}},"views":[{"defConsumption":0,"nodes":{"0":10},"rcId":"cpu","id":"shareableResource","defCapacity":0,"vms":{"0":5}}]}
+{"nodes":{"0":{"boot":7}},"vms":{"0":{"template":"xen","forge":3},"3":{"template":"kvm","foo":1.3,"clone":true}}}
+{"model":{"mapping":{"readyVMs":[1,0],"onlineNodes":{},"offlineNodes":[0]},"attributes":{"nodes":{},"vms":{}},"views":[]},"constraints":[{"node":0,"id":"online"},{"vm":1,"id":"running"}],"objective":{"id":"minimizeMTTR"}}
+{"vm":0,"id":"killed"}
+{"vm":0,"id":"ready"}
+{"vm":0,"id":"root"}
+{"nodes":[0,1],"vm":0,"continuous":false,"id":"ban"}
+{"amount":2,"nodes":[0,1,2],"continuous":false,"id":"maxOnline"}
+{"node":0,"rc":"foo","continuous":true,"id":"overbook","ratio":1.4}
+{"nodes":[0,1],"vm":0,"continuous":false,"id":"fence"}
+{"origin":{"mapping":{"readyVMs":[],"onlineNodes":{"0":{"sleepingVMs":[],"runningVMs":[0]}},"offlineNodes":[]},"attributes":{"nodes":{},"vms":{}},"views":[]},"actions":[{"vm":0,"start":0,"end":1,"id":"bootVM","hooks":{"pre":[{"vm":0,"qty":7,"id":"customID"}],"post":[{"vm":0,"qty":10,"id":"customID"}]},"on":0}]}
+{"node":0,"id":"quarantine"}
+{"vm":0,"continuous":false,"id":"noDelay"}
+{"continuous":false,"id":"gather","vms":[0,1]}
+{"continuous":false,"vm2":1,"id":"Precedence","vm1":0}
+{"continuous":false,"id":"Serialize","vms":[0,1]}
+{"continuous":false,"id":"Sync","vms":[0,1]}
+{"vm":0,"continuous":false,"id":"Deadline","timestamp":"+00:00:15"}
+{"node":0,"id":"online"}
+{"vm":0,"id":"sleeping"}
+{"amount":5,"nodes":[0,1,2],"id":"runningCapacity"}
+{"rc":"cpu","amount":5,"nodes":[0,1,2],"continuous":false,"id":"resourceCapacity"}
+{"continuous":false,"parts":[[0,1],[2,3],[4]],"id":"split"}
+{"continuous":false,"parts":[[0,1],[2,3],[4]],"id":"among","vms":[0,1,2]}
+{"node":0,"id":"offline"}
+{"vm":0,"id":"running"}
+{"rc":"cpu","amount":5,"vm":0,"id":"preserve"}
+{"continuous":false,"id":"spread","vms":[0,1]}
+{"continuous":false,"id":"lonely","vms":[0,1]}
+{"id":"minimizeMTTR"}
+{"id":"minimizeMigrations"}
+{"id":"seq","vms":[0,1,2]}
+{"pParts":[[0,1],[2,3],[4]],"continuous":false,"id":"splitAmong","vParts":[[0,1,2],[6,7],[3,4,5]]}
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.848 s - in TestSuite
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jacoco:0.8.8:report (report) @ scheduler-json ---
+[INFO] Loading execution data file /scheduler/json/target/jacoco.exec
+[INFO] Analyzed bundle 'scheduler-json' with 64 classes
+[INFO] 
+[INFO] --------------------< org.btrplace:scheduler-choco >--------------------
+[INFO] Building scheduler-choco 1.12.9-SNAPSHOT                           [4/9]
+[INFO]   from choco/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ scheduler-choco ---
+[INFO] Deleting /scheduler/choco/target
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default) @ scheduler-choco ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/scheduler/choco/target/jacoco.exec,excludes=org/btrplace/btrpsl/**/*:org/btrplace/safeplace/**/*:org/btrplace/bench/**/*:org/btrplace/scheduler/runner/disjoint/**/*
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ scheduler-choco ---
+[INFO] skip non existing resourceDirectory /scheduler/choco/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ scheduler-choco ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 118 source files to /scheduler/choco/target/classes
+[INFO] /scheduler/choco/src/main/java/org/btrplace/scheduler/choco/DefaultReconfigurationProblem.java: /scheduler/choco/src/main/java/org/btrplace/scheduler/choco/DefaultReconfigurationProblem.java uses or overrides a deprecated API.
+[INFO] /scheduler/choco/src/main/java/org/btrplace/scheduler/choco/DefaultReconfigurationProblem.java: Recompile with -Xlint:deprecation for details.
+[INFO] /scheduler/choco/src/main/java/org/btrplace/scheduler/choco/duration/DurationEvaluators.java: Some input files use unchecked or unsafe operations.
+[INFO] /scheduler/choco/src/main/java/org/btrplace/scheduler/choco/duration/DurationEvaluators.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ scheduler-choco ---
+[INFO] Copying 9 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ scheduler-choco ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 63 source files to /scheduler/choco/target/test-classes
+[INFO] 
+[INFO] --- surefire:3.0.0-M7:test (default-test) @ scheduler-choco ---
+[INFO] Using auto detected provider org.apache.maven.surefire.testng.TestNGProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running TestSuite
+0:5 {action=shutdown(node=node#0)}
+0:5 {action=shutdown(node=node#0)}
+5:10 {action=shutdown(node=node#1)}
+0:10 {action=boot(node=node#1)}
+1:6 {action=shutdown(node=node#1)}
+6:16 {action=boot(node=node#2)}
+2:7 {action=shutdown(node=node#0)}
+0:5 {action=shutdown(node=node#0)}
+5:7 {action=boot(node=node#1)}
+node ONLINE : shutdownable
+node OFFLINE : bootable
+vm [INIT] -> INIT: stayInit
+vm [INIT] -> READY: forge
+vm [READY] -> READY: stayReady
+vm [RUNNING] -> READY: shutdown
+vm [READY] -> RUNNING: boot
+vm [RUNNING] -> RUNNING: relocatable
+vm [SLEEPING] -> RUNNING: resume
+vm [RUNNING] -> SLEEPING: suspend
+vm [SLEEPING] -> SLEEPING: staySleeping
+vm [INIT, READY, RUNNING, SLEEPING] -> KILLED: kill
+
+at 0ms, 0 Nodes (NaN n/s), 0 Backtracks, 0 Fails, 0 Restarts, objective: 12
+2 node(s); 3 VM(s); 1 constraint(s); optimize
+Building duration: 4ms (core) + 7ms (specialization)
+After 48ms of search (terminated): at 48ms, 12 Nodes (Infinity n/s), 21 Backtracks, 9 Fails, 0 Restarts, 2 solution(s):
+	1)at 27ms, 7 Nodes (Infinity n/s), 0 Backtracks, 0 Fails, 0 Restarts, objective: 2
+	2)at 47ms, 12 Nodes (Infinity n/s), 11 Backtracks, 5 Fails, 0 Restarts, objective: 1
+
+0:1 {action=migrate(vm=vm#0, from=node#0, to=node#1, bw=2147483647), @post= {allocate(vm=vm#0, rc=cpu, amount=5)}}
+4 node(s); 56 VM(s); 30 constraint(s); optimize
+Building duration: 7ms (core) + 22ms (specialization)
+After 3268ms of search (terminated): at 3268ms, 84388 Nodes (28,129.3 n/s), 168769 Backtracks, 84381 Fails, 0 Restarts, 4 solution(s):
+	1)at 115ms, 64 Nodes (Infinity n/s), 0 Backtracks, 0 Fails, 0 Restarts, objective: 22
+	2)at 251ms, 107 Nodes (Infinity n/s), 83 Backtracks, 41 Fails, 0 Restarts, objective: 14
+	3)at 3243ms, 84340 Nodes (28,113.3 n/s), 168551 Backtracks, 84274 Fails, 0 Restarts, objective: 6
+	4)at 3266ms, 84388 Nodes (28,129.3 n/s), 168646 Backtracks, 84321 Fails, 0 Restarts, objective: 3
+
+0:3 {action=migrate(vm=vm#31, from=node#1, to=node#2, bw=2147483647), @post= {allocate(vm=vm#31, rc=controller_cpu, amount=3345)}}
+3:3 {action=allocate(vm=vm#29, on=node#1, rc=controller_cpu, amount=79)}
+3:3 {action=allocate(vm=vm#20, on=node#1, rc=controller_cpu, amount=174)}
+3:3 {action=allocate(vm=vm#24, on=node#1, rc=controller_cpu, amount=577)}
+3:3 {action=allocate(vm=vm#27, on=node#1, rc=controller_cpu, amount=587)}
+3:3 {action=allocate(vm=vm#18, on=node#1, rc=controller_cpu, amount=123)}
+3:3 {action=allocate(vm=vm#19, on=node#1, rc=controller_cpu, amount=561)}
+3:3 {action=allocate(vm=vm#32, on=node#1, rc=controller_cpu, amount=1864)}
+3:3 {action=allocate(vm=vm#22, on=node#1, rc=controller_cpu, amount=99)}
+3:3 {action=allocate(vm=vm#25, on=node#1, rc=controller_cpu, amount=574)}
+3:3 {action=allocate(vm=vm#28, on=node#1, rc=controller_cpu, amount=127)}
+3:3 {action=allocate(vm=vm#33, on=node#1, rc=controller_cpu, amount=496)}
+3.0 x foo + 0.0
+--- 0 ---
+4 node(s); 96 VM(s); 62 constraint(s); satisfy
+Building duration: 8ms (core) + 5ms (specialization)
+After 15ms of search (terminated): at 15ms, 98 Nodes (Infinity n/s), 1 Backtracks, 1 Fails, 0 Restarts, 1 solution(s):
+	1)at 15ms, 98 Nodes (Infinity n/s), 1 Backtracks, 1 Fails, 0 Restarts, objective: 400
+
+15 action(s)
+--- 1 ---
+8 node(s); 136 VM(s); 65 constraint(s); satisfy
+Building duration: 5ms (core) + 3ms (specialization)
+After 50ms of search (terminated): at 50ms, 157 Nodes (Infinity n/s), 1 Backtracks, 1 Fails, 0 Restarts, 1 solution(s):
+	1)at 50ms, 157 Nodes (Infinity n/s), 1 Backtracks, 1 Fails, 0 Restarts, objective: 1123
+
+41 action(s)
+--- 2 ---
+8 node(s); 136 VM(s); 65 constraint(s); satisfy
+Building duration: 2ms (core) + 8ms (specialization)
+After 60ms of search (terminated): at 60ms, 151 Nodes (Infinity n/s), 1 Backtracks, 1 Fails, 0 Restarts, 1 solution(s):
+	1)at 54ms, 151 Nodes (Infinity n/s), 1 Backtracks, 1 Fails, 0 Restarts, objective: 1030
+
+36 action(s)
+--- 3 ---
+8 node(s); 139 VM(s); 82 constraint(s); satisfy
+Building duration: 12ms (core) + 8ms (specialization)
+After 51ms of search (terminated): at 51ms, 176 Nodes (Infinity n/s), 1 Backtracks, 1 Fails, 0 Restarts, 1 solution(s):
+	1)at 46ms, 176 Nodes (Infinity n/s), 1 Backtracks, 1 Fails, 0 Restarts, objective: 1607
+
+66 action(s)
+--- 4 ---
+8 node(s); 139 VM(s); 82 constraint(s); satisfy
+Building duration: 21ms (core) + 14ms (specialization)
+After 141ms of search (terminated): at 141ms, 173 Nodes (Infinity n/s), 1 Backtracks, 1 Fails, 0 Restarts, 1 solution(s):
+	1)at 132ms, 173 Nodes (Infinity n/s), 1 Backtracks, 1 Fails, 0 Restarts, objective: 1655
+
+66 action(s)
+0:1 {action=migrate(vm=vm#4, from=node#2, to=node#3, bw=1000)}
+1:2 {action=migrate(vm=vm#5, from=node#2, to=node#3, bw=1000)}
+2:3 {action=shutdown(node=node#2)}
+2:3 {action=migrate(vm=vm#2, from=node#1, to=node#3, bw=1000)}
+3:4 {action=migrate(vm=vm#3, from=node#1, to=node#3, bw=1000)}
+4:5 {action=migrate(vm=vm#0, from=node#0, to=node#3, bw=1000)}
+4:5 {action=shutdown(node=node#1)}
+5:6 {action=migrate(vm=vm#1, from=node#0, to=node#3, bw=1000)}
+6:7 {action=shutdown(node=node#0)}
+---- Stage 1/2 ----
+4 node(s); 8 VM(s); 3 constraint(s); satisfy
+Building duration: 1ms (core) + 2ms (specialization)
+After 14ms of search (terminated): at 14ms, 6 Nodes (Infinity n/s), 0 Backtracks, 0 Fails, 0 Restarts, 1 solution(s):
+	1)at 13ms, 6 Nodes (Infinity n/s), 0 Backtracks, 0 Fails, 0 Restarts, objective: 12
+
+---- Stage 2/2 ----
+4 node(s); 8 VM(s); 11 constraint(s); satisfy
+Building duration: 13ms (core) + 2ms (specialization)
+After 24ms of search (terminated): at 24ms, 32 Nodes (Infinity n/s), 25 Backtracks, 23 Fails, 0 Restarts, 1 solution(s):
+	1)at 24ms, 32 Nodes (Infinity n/s), 25 Backtracks, 23 Fails, 0 Restarts, objective: 36
+
+
+4 node(s); 87 VM(s) (21 managed); 1 constraint(s); satisfy; timeout: 60000s
+Building duration: 4ms (core) + 8ms (specialization)
+After 12ms of search (terminated): at 12ms, 27 Nodes (Infinity n/s), 0 Backtracks, 0 Fails, 0 Restarts, 1 solution(s):
+	1)at 12ms, 27 Nodes (Infinity n/s), 0 Backtracks, 0 Fails, 0 Restarts, objective: 23
+
+1000 node(s); 10000 VM(s); 10000 constraint(s); satisfy; timeout: 1s
+Building duration: 357ms (core) + 84ms (specialization)
+After 1317ms of search (timeout): at 1317ms, 1 Nodes (1.0 n/s), 0 Backtracks, 0 Fails, 0 Restarts, 0 solution(s).
+500 node(s); 51001 VM(s); 1 constraint(s); satisfy
+Building duration: 582ms (core) + 378ms (specialization)
+After 990ms of search (terminated): at 990ms, 0 Nodes (NaN n/s), 0 Backtracks, 1 Fails, 0 Restarts, 0 solution(s).
+[ERROR] Tests run: 264, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 67.208 s <<< FAILURE! - in TestSuite
+[ERROR] org.btrplace.scheduler.choco.IssuesTest.testIssue100  Time elapsed: 0.057 s  <<< FAILURE!
+java.lang.IllegalArgumentException: org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 141434.
+	at org.btrplace.json.JSON.readInstance(JSON.java:78)
+	at org.btrplace.json.JSON.readInstance(JSON.java:60)
+	at org.btrplace.scheduler.choco.IssuesTest.computable(IssuesTest.java:515)
+	at org.btrplace.scheduler.choco.IssuesTest.testIssue100(IssuesTest.java:535)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:135)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:673)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:220)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:945)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:193)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 141434.
+	at org.btrplace.json.JSONObjectConverter.fromJSON(JSONObjectConverter.java:71)
+	at org.btrplace.json.JSON.readInstance(JSON.java:76)
+	... 18 more
+Caused by: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 141434.
+	at net.minidev.json.parser.JSONParserBase.readObject(JSONParserBase.java:557)
+	at net.minidev.json.parser.JSONParserBase.readMain(JSONParserBase.java:465)
+	at net.minidev.json.parser.JSONParserBase.readObject(JSONParserBase.java:612)
+	at net.minidev.json.parser.JSONParserBase.readMain(JSONParserBase.java:465)
+	at net.minidev.json.parser.JSONParserBase.readObject(JSONParserBase.java:612)
+	at net.minidev.json.parser.JSONParserBase.readMain(JSONParserBase.java:465)
+	at net.minidev.json.parser.JSONParserBase.readObject(JSONParserBase.java:612)
+	at net.minidev.json.parser.JSONParserBase.readMain(JSONParserBase.java:465)
+	at net.minidev.json.parser.JSONParserBase.readObject(JSONParserBase.java:612)
+	at net.minidev.json.parser.JSONParserBase.readFirst(JSONParserBase.java:363)
+	at net.minidev.json.parser.JSONParserBase.parse(JSONParserBase.java:216)
+	at net.minidev.json.parser.JSONParserReader.parse(JSONParserReader.java:55)
+	at net.minidev.json.parser.JSONParserReader.parse(JSONParserReader.java:44)
+	at net.minidev.json.parser.JSONParser.parse(JSONParser.java:246)
+	at org.btrplace.json.JSONObjectConverter.fromJSON(JSONObjectConverter.java:65)
+	... 19 more
+
+[ERROR] org.btrplace.scheduler.choco.IssuesTest.testIssue101  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.IllegalArgumentException: org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 49876.
+	at org.btrplace.json.JSON.readInstance(JSON.java:78)
+	at org.btrplace.json.JSON.readInstance(JSON.java:60)
+	at org.btrplace.scheduler.choco.IssuesTest.computable(IssuesTest.java:515)
+	at org.btrplace.scheduler.choco.IssuesTest.testIssue101(IssuesTest.java:540)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:135)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:673)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:220)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:945)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:193)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 49876.
+	at org.btrplace.json.JSONObjectConverter.fromJSON(JSONObjectConverter.java:71)
+	at org.btrplace.json.JSON.readInstance(JSON.java:76)
+	... 18 more
+Caused by: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 49876.
+	at net.minidev.json.parser.JSONParserBase.readObject(JSONParserBase.java:557)
+	at net.minidev.json.parser.JSONParserBase.readMain(JSONParserBase.java:465)
+	at net.minidev.json.parser.JSONParserBase.readObject(JSONParserBase.java:612)
+	at net.minidev.json.parser.JSONParserBase.readMain(JSONParserBase.java:465)
+	at net.minidev.json.parser.JSONParserBase.readObject(JSONParserBase.java:612)
+	at net.minidev.json.parser.JSONParserBase.readMain(JSONParserBase.java:465)
+	at net.minidev.json.parser.JSONParserBase.readObject(JSONParserBase.java:612)
+	at net.minidev.json.parser.JSONParserBase.readMain(JSONParserBase.java:465)
+	at net.minidev.json.parser.JSONParserBase.readObject(JSONParserBase.java:612)
+	at net.minidev.json.parser.JSONParserBase.readFirst(JSONParserBase.java:363)
+	at net.minidev.json.parser.JSONParserBase.parse(JSONParserBase.java:216)
+	at net.minidev.json.parser.JSONParserReader.parse(JSONParserReader.java:55)
+	at net.minidev.json.parser.JSONParserReader.parse(JSONParserReader.java:44)
+	at net.minidev.json.parser.JSONParser.parse(JSONParser.java:246)
+	at org.btrplace.json.JSONObjectConverter.fromJSON(JSONObjectConverter.java:65)
+	... 19 more
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   IssuesTest.testIssue100:535->computable:515 » IllegalArgument org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 141434.
+[ERROR]   IssuesTest.testIssue101:540->computable:515 » IllegalArgument org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 49876.
+[INFO] 
+[ERROR] Tests run: 264, Failures: 2, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for scheduler 1.12.9-SNAPSHOT:
+[INFO] 
+[INFO] scheduler .......................................... SUCCESS [  0.641 s]
+[INFO] scheduler-api ...................................... SUCCESS [ 13.078 s]
+[INFO] scheduler-json ..................................... SUCCESS [  4.347 s]
+[INFO] scheduler-choco .................................... FAILURE [01:12 min]
+[INFO] scheduler-examples ................................. SKIPPED
+[INFO] btrpsl ............................................. SKIPPED
+[INFO] safeplace .......................................... SKIPPED
+[INFO] bench .............................................. SKIPPED
+[INFO] scheduler-split .................................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:32 min
+[INFO] Finished at: 2026-01-05T03:33:51Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 4 plugin(s)
+[WARNING] 
+[WARNING]  * org.jacoco:jacoco-maven-plugin:0.8.8
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project scheduler-choco: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /scheduler/choco/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :scheduler-choco
+
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+1:2 {action=migrate(vm=vm#0, from=node#0, to=node#1, bw=2147483647)}
+1:2 {action=migrate(vm=vm#1, from=node#0, to=node#1, bw=2147483647)}
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+{"mapping":{"readyVMs":[],"onlineNodes":{"0":{"sleepingVMs":[],"runningVMs":[]},"1":{"sleepingVMs":[],"runningVMs":[]}},"offlineNodes":[]},"attributes":{"nodes":{},"vms":{}},"views":[{"routing":{"routes":[{"nodes_map":{"dst":1,"src":0},"links":[{"link":0,"direction":"true"},{"link":1,"direction":"false"}]}],"type":"static"},"switches":[{"id":0,"capacity":1000}],"links":[{"physicalElement":{"id":0,"type":"node"},"id":0,"capacity":1000,"switch":0},{"physicalElement":{"id":1,"type":"node"},"id":1,"capacity":1000,"switch":0}],"id":"net"}]}
+{"mapping":{"readyVMs":[],"onlineNodes":{"0":{"sleepingVMs":[],"runningVMs":[]},"1":{"sleepingVMs":[],"runningVMs":[]}},"offlineNodes":[]},"attributes":{"nodes":{},"vms":{}},"views":[{"routing":{"type":"default"},"switches":[{"id":0,"capacity":1000}],"links":[{"physicalElement":{"id":0,"type":"node"},"id":0,"capacity":1000,"switch":0},{"physicalElement":{"id":1,"type":"node"},"id":1,"capacity":1000,"switch":0}],"id":"net"}]}
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+0:1 {action=migrate(vm=vm#1, from=node#1, to=node#2, bw=2147483647)}
+1:2 {action=migrate(vm=vm#0, from=node#0, to=node#1, bw=2147483647)}
+0:1 {action=migrate(vm=vm#0, from=node#0, to=node#1, bw=2147483647)}
+0:1 {action=migrate(vm=vm#1, from=node#1, to=node#0, bw=2147483647)}

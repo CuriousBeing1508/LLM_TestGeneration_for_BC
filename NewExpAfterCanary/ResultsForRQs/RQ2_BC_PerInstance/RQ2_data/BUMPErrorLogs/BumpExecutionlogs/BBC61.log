@@ -1,0 +1,152 @@
+[INFO] Using jgitver configuration file: /pdb/.mvn/jgitver.config.xml
+[INFO] Using jgitver-maven-plugin [1.9.0] (sha1: 410af24b23bf392ebb2810475800189c6d881817)
+[INFO]     version '0.0.0-NOT_A_GIT_REPOSITORY' computed in 70 ms
+[INFO] 
+[INFO] Scanning for projects...
+[INFO] jgitver-maven-plugin is about to change project(s) version(s)
+[INFO]     com.feedzai::pdb::0.0.0-SNAPSHOT -> 0.0.0-NOT_A_GIT_REPOSITORY
+[INFO] 
+[INFO] --------------------------< com.feedzai:pdb >---------------------------
+[INFO] Building pdb 0.0.0-NOT_A_GIT_REPOSITORY
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ pdb ---
+[INFO] Deleting /pdb/target
+[INFO] 
+[INFO] --- enforcer:1.2:enforce (enforce-maven) @ pdb ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ pdb ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ pdb ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 137 source files to /pdb/target/classes
+[INFO] /pdb/src/main/java/com/feedzai/commons/sql/abstraction/dml/result/H2ResultIterator.java: Some input files use or override a deprecated API.
+[INFO] /pdb/src/main/java/com/feedzai/commons/sql/abstraction/dml/result/H2ResultIterator.java: Recompile with -Xlint:deprecation for details.
+[INFO] /pdb/src/main/java/com/feedzai/commons/sql/abstraction/dml/result/ResultColumn.java: Some input files use unchecked or unsafe operations.
+[INFO] /pdb/src/main/java/com/feedzai/commons/sql/abstraction/dml/result/ResultColumn.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ pdb ---
+[INFO] Copying 7 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ pdb ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 35 source files to /pdb/target/test-classes
+[INFO] /pdb/src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/abs/EngineGeneralTest.java: Some input files use or override a deprecated API.
+[INFO] /pdb/src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/abs/EngineGeneralTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /pdb/src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/abs/AbstractEngineSchemaTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /pdb/src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/abs/AbstractEngineSchemaTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ pdb ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.feedzai.commons.sql.abstraction.dml.DmlTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.147 s - in com.feedzai.commons.sql.abstraction.dml.DmlTest
+[INFO] Running com.feedzai.commons.sql.abstraction.util.StringUtilsTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s - in com.feedzai.commons.sql.abstraction.util.StringUtilsTest
+[INFO] Running com.feedzai.commons.sql.abstraction.engine.impl.db2.DB2EngineSchemaTest
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s - in com.feedzai.commons.sql.abstraction.engine.impl.db2.DB2EngineSchemaTest
+[INFO] Running com.feedzai.commons.sql.abstraction.engine.impl.abs.JSonTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.828 s - in com.feedzai.commons.sql.abstraction.engine.impl.abs.JSonTest
+[INFO] Running com.feedzai.commons.sql.abstraction.engine.impl.abs.LongOverflowTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.112 s - in com.feedzai.commons.sql.abstraction.engine.impl.abs.LongOverflowTest
+[INFO] Running com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineIsolationTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.391 s - in com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineIsolationTest
+[INFO] Running com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCloseTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.021 s <<< FAILURE! - in com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCloseTest
+[ERROR] com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCloseTest  Time elapsed: 0.021 s  <<< ERROR!
+java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+	at com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCloseTest.initStatic(EngineCloseTest.java:102)
+
+[INFO] Running com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineGeneralTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.017 s <<< FAILURE! - in com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineGeneralTest
+[ERROR] com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineGeneralTest  Time elapsed: 0.016 s  <<< ERROR!
+java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+	at com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineGeneralTest.initStatic(EngineGeneralTest.java:181)
+
+[INFO] Running com.feedzai.commons.sql.abstraction.engine.impl.abs.QueryTimeoutsTest
+[WARNING] Tests run: 4, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 0.007 s - in com.feedzai.commons.sql.abstraction.engine.impl.abs.QueryTimeoutsTest
+[INFO] Running com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCreateTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.144 s - in com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCreateTest
+[INFO] Running com.feedzai.commons.sql.abstraction.engine.impl.abs.TimeoutsTest
+[WARNING] Tests run: 5, Failures: 0, Errors: 0, Skipped: 5, Time elapsed: 0.012 s - in com.feedzai.commons.sql.abstraction.engine.impl.abs.TimeoutsTest
+[INFO] Running com.feedzai.commons.sql.abstraction.engine.impl.abs.SelectForUpdateTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.055 s - in com.feedzai.commons.sql.abstraction.engine.impl.abs.SelectForUpdateTest
+[INFO] Running com.feedzai.commons.sql.abstraction.engine.impl.abs.UnderflowTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 s - in com.feedzai.commons.sql.abstraction.engine.impl.abs.UnderflowTest
+[INFO] Running com.feedzai.commons.sql.abstraction.engine.impl.abs.ForeignKeyTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.863 s - in com.feedzai.commons.sql.abstraction.engine.impl.abs.ForeignKeyTest
+[INFO] Running com.feedzai.commons.sql.abstraction.engine.impl.abs.BatchUpdateTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.097 s <<< FAILURE! - in com.feedzai.commons.sql.abstraction.engine.impl.abs.BatchUpdateTest
+[ERROR] com.feedzai.commons.sql.abstraction.engine.impl.abs.BatchUpdateTest  Time elapsed: 0.096 s  <<< ERROR!
+java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+	at com.feedzai.commons.sql.abstraction.engine.impl.abs.BatchUpdateTest.initStatic(BatchUpdateTest.java:143)
+
+[INFO] Running com.feedzai.commons.sql.abstraction.engine.impl.postgresql.PostgreSqlEngineSchemaTest
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.feedzai.commons.sql.abstraction.engine.impl.postgresql.PostgreSqlEngineSchemaTest
+[INFO] Running com.feedzai.commons.sql.abstraction.engine.impl.cockroach.CockroachDBEngineSchemaTest
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in com.feedzai.commons.sql.abstraction.engine.impl.cockroach.CockroachDBEngineSchemaTest
+[INFO] Running com.feedzai.commons.sql.abstraction.engine.impl.h2.H2EngineSchemaTest
+[WARNING] Tests run: 30, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.966 s - in com.feedzai.commons.sql.abstraction.engine.impl.h2.H2EngineSchemaTest
+[INFO] Running com.feedzai.commons.sql.abstraction.engine.impl.sqlserver.SqlServerEngineIsolationTest
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in com.feedzai.commons.sql.abstraction.engine.impl.sqlserver.SqlServerEngineIsolationTest
+[INFO] Running com.feedzai.commons.sql.abstraction.engine.impl.sqlserver.SqlServerEngineGeneralTest
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in com.feedzai.commons.sql.abstraction.engine.impl.sqlserver.SqlServerEngineGeneralTest
+[INFO] Running com.feedzai.commons.sql.abstraction.engine.impl.sqlserver.SqlServerEngineSchemaTest
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in com.feedzai.commons.sql.abstraction.engine.impl.sqlserver.SqlServerEngineSchemaTest
+[INFO] Running com.feedzai.commons.sql.abstraction.engine.impl.oracle.OracleEngineSchemaTest
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in com.feedzai.commons.sql.abstraction.engine.impl.oracle.OracleEngineSchemaTest
+[INFO] Running com.feedzai.commons.sql.abstraction.engine.impl.mysql.MySqlEngineSchemaTest
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.feedzai.commons.sql.abstraction.engine.impl.mysql.MySqlEngineSchemaTest
+[INFO] Running com.feedzai.commons.sql.abstraction.engine.DatabaseFactoryTest
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in com.feedzai.commons.sql.abstraction.engine.DatabaseFactoryTest
+[INFO] Running com.feedzai.commons.sql.abstraction.engine.pool.DatabaseEnginePoolTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.388 s - in com.feedzai.commons.sql.abstraction.engine.pool.DatabaseEnginePoolTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   BatchUpdateTest.initStatic:143 ClassCast class org.slf4j.helpers.NOPLogger can...
+[ERROR]   EngineCloseTest.initStatic:102 ClassCast class org.slf4j.helpers.NOPLogger can...
+[ERROR]   EngineGeneralTest.initStatic:181 ClassCast class org.slf4j.helpers.NOPLogger c...
+[INFO] 
+[ERROR] Tests run: 94, Failures: 0, Errors: 3, Skipped: 10
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  26.026 s
+[INFO] Finished at: 2026-01-05T04:09:43Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 4 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.22.2
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:1.2
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project pdb: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /pdb/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.

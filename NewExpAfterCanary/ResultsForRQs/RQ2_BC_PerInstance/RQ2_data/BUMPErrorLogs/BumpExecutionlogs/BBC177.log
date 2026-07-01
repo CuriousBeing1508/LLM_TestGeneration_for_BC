@@ -1,0 +1,241 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] billy                                                              [pom]
+[INFO] billy core                                                         [jar]
+[INFO] billy core JPA                                                     [jar]
+[INFO] billy GIN                                                          [jar]
+[INFO] billy portugal (PT Pack)                                           [jar]
+[INFO] billy spain (ES Pack)                                              [jar]
+[INFO] billy france (FR Pack)                                             [jar]
+[INFO] 
+[INFO] -----------------------< com.premiumminds:billy >-----------------------
+[INFO] Building billy 6.0.0-SNAPSHOT                                      [1/7]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ billy ---
+[INFO] 
+[INFO] --- license:4.1:format (format-headers) @ billy ---
+[INFO] Updating license headers...
+[INFO] 
+[INFO] --------------------< com.premiumminds:billy-core >---------------------
+[INFO] Building billy core 6.0.0-SNAPSHOT                                 [2/7]
+[INFO]   from billy-core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ billy-core ---
+[INFO] Deleting /billy/billy-core/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ billy-core ---
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- compiler:3.10.0:compile (default-compile) @ billy-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 126 source files to /billy/billy-core/target/classes
+[INFO] /billy/billy-core/src/main/java/com/premiumminds/billy/core/services/builders/impl/AbstractBuilder.java: Some input files use unchecked or unsafe operations.
+[INFO] /billy/billy-core/src/main/java/com/premiumminds/billy/core/services/builders/impl/AbstractBuilder.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- license:4.1:format (format-headers) @ billy-core ---
+[INFO] Updating license headers...
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ billy-core ---
+[INFO] Copying 19 resources
+[INFO] 
+[INFO] --- compiler:3.10.0:testCompile (default-testCompile) @ billy-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 35 source files to /billy/billy-core/target/test-classes
+[INFO] /billy/billy-core/src/test/java/com/premiumminds/billy/core/test/fixtures/MockContextEntity.java: Some input files use unchecked or unsafe operations.
+[INFO] /billy/billy-core/src/test/java/com/premiumminds/billy/core/test/fixtures/MockContextEntity.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ billy-core ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.premiumminds.billy.core.test.services.builders.TestBankAccountBuilder
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.277 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestBankAccountBuilder
+[ERROR] doTest  Time elapsed: 0.118 s  <<< ERROR!
+java.lang.ExceptionInInitializerError
+	at com.premiumminds.billy.core.test.services.builders.TestBankAccountBuilder.doTest(TestBankAccountBuilder.java:44)
+Caused by: javax.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+	at com.premiumminds.billy.core.test.services.builders.TestBankAccountBuilder.doTest(TestBankAccountBuilder.java:44)
+
+[INFO] Running com.premiumminds.billy.core.test.services.builders.TestCustomerBuilder
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.212 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestCustomerBuilder
+[ERROR] doTest  Time elapsed: 0.212 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+	at com.premiumminds.billy.core.test.services.builders.TestCustomerBuilder.doTest(TestCustomerBuilder.java:80)
+
+[INFO] Running com.premiumminds.billy.core.test.services.builders.TestPaymentBuilder
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in com.premiumminds.billy.core.test.services.builders.TestPaymentBuilder
+[INFO] Running com.premiumminds.billy.core.test.services.builders.TestShippingPointBuilder
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.018 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestShippingPointBuilder
+[ERROR] doTest  Time elapsed: 0.012 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+	at com.premiumminds.billy.core.test.services.builders.TestShippingPointBuilder.doTest(TestShippingPointBuilder.java:48)
+
+[INFO] Running com.premiumminds.billy.core.test.services.builders.TestContextBuilder
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestContextBuilder
+[ERROR] doTest  Time elapsed: 0.009 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+	at com.premiumminds.billy.core.test.services.builders.TestContextBuilder.doTest(TestContextBuilder.java:47)
+
+[INFO] Running com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceBuilder
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.275 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceBuilder
+[ERROR] doTest  Time elapsed: 0.266 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+	at com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceBuilder.doTest(TestGenericInvoiceBuilder.java:81)
+
+[INFO] Running com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceEntryBuilder
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.056 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceEntryBuilder
+[ERROR] doTest  Time elapsed: 0.04 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+	at com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceEntryBuilder.doTest(TestGenericInvoiceEntryBuilder.java:70)
+
+[INFO] Running com.premiumminds.billy.core.test.services.builders.TestAddressBuilder
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestAddressBuilder
+[ERROR] doTest  Time elapsed: 0.006 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+	at com.premiumminds.billy.core.test.services.builders.TestAddressBuilder.doTest(TestAddressBuilder.java:42)
+
+[INFO] Running com.premiumminds.billy.core.test.services.builders.TestProductBuilder
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestProductBuilder
+[ERROR] doTest  Time elapsed: 0.008 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+	at com.premiumminds.billy.core.test.services.builders.TestProductBuilder.doTest(TestProductBuilder.java:52)
+
+[INFO] Running com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations
+[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.091 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations
+[ERROR] operationsTest  Time elapsed: 0.027 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+	at com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations.getBuilder(TestGenericInvoiceOperations.java:228)
+	at com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations.operationsTest(TestGenericInvoiceOperations.java:121)
+
+[ERROR] manyEntriesTest  Time elapsed: 0.014 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+	at com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations.getBuilder(TestGenericInvoiceOperations.java:228)
+	at com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations.manyEntriesTest(TestGenericInvoiceOperations.java:144)
+
+[ERROR] testRoundingValues  Time elapsed: 0.021 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+	at com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations.getBuilder(TestGenericInvoiceOperations.java:228)
+	at com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations.testRoundingValues(TestGenericInvoiceOperations.java:187)
+
+[ERROR] simpleOperationsTest  Time elapsed: 0.021 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+	at com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations.getBuilder(TestGenericInvoiceOperations.java:228)
+	at com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations.simpleOperationsTest(TestGenericInvoiceOperations.java:93)
+
+[INFO] Running com.premiumminds.billy.core.test.services.builders.TestTicketBuilder
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.017 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestTicketBuilder
+[ERROR] doTest  Time elapsed: 0.01 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+	at com.premiumminds.billy.core.test.services.builders.TestTicketBuilder.doTest(TestTicketBuilder.java:42)
+
+[INFO] Running com.premiumminds.billy.core.test.services.builders.TestSupplierBuilder
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestSupplierBuilder
+[ERROR] doTest  Time elapsed: 0.008 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+	at com.premiumminds.billy.core.test.services.builders.TestSupplierBuilder.doTest(TestSupplierBuilder.java:70)
+
+[INFO] Running com.premiumminds.billy.core.test.services.builders.TestApplicationBuilder
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.024 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestApplicationBuilder
+[ERROR] doTest  Time elapsed: 0.013 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+	at com.premiumminds.billy.core.test.services.builders.TestApplicationBuilder.doTest(TestApplicationBuilder.java:60)
+
+[INFO] Running com.premiumminds.billy.core.test.services.builders.TestTaxBuilder
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.014 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestTaxBuilder
+[ERROR] doTestFlat  Time elapsed: 0.007 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+	at com.premiumminds.billy.core.test.services.builders.TestTaxBuilder.doTestFlat(TestTaxBuilder.java:56)
+
+[INFO] Running com.premiumminds.billy.core.test.services.builders.TestBusinessBuilder
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.081 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestBusinessBuilder
+[ERROR] doTest  Time elapsed: 0.071 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+	at com.premiumminds.billy.core.test.services.builders.TestBusinessBuilder.doTest(TestBusinessBuilder.java:67)
+
+[INFO] Running com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceEntryOperations
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.03 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceEntryOperations
+[ERROR] testOperations  Time elapsed: 0.017 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+	at com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceEntryOperations.getEntryEntityBuilder(TestGenericInvoiceEntryOperations.java:166)
+	at com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceEntryOperations.setUp(TestGenericInvoiceEntryOperations.java:77)
+
+[INFO] Running com.premiumminds.billy.core.test.services.builders.TestContactBuilder
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.023 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestContactBuilder
+[ERROR] doTest  Time elapsed: 0.009 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+	at com.premiumminds.billy.core.test.services.builders.TestContactBuilder.doTest(TestContactBuilder.java:43)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   TestAddressBuilder.doTest:42 » NoClassDefFound Could not initialize class com....
+[ERROR]   TestApplicationBuilder.doTest:60 » NoClassDefFound Could not initialize class ...
+[ERROR]   TestBankAccountBuilder.doTest:44 » ExceptionInInitializer
+[ERROR]   TestBusinessBuilder.doTest:67 » NoClassDefFound Could not initialize class com...
+[ERROR]   TestContactBuilder.doTest:43 » NoClassDefFound Could not initialize class com....
+[ERROR]   TestContextBuilder.doTest:47 » NoClassDefFound Could not initialize class com....
+[ERROR]   TestCustomerBuilder.doTest:80 » NoClassDefFound Could not initialize class com...
+[ERROR]   TestGenericInvoiceBuilder.doTest:81 » NoClassDefFound Could not initialize cla...
+[ERROR]   TestGenericInvoiceEntryBuilder.doTest:70 » NoClassDefFound Could not initializ...
+[ERROR]   TestGenericInvoiceEntryOperations.setUp:77->getEntryEntityBuilder:166 » NoClassDefFound
+[ERROR]   TestGenericInvoiceOperations.manyEntriesTest:144->getBuilder:228 » NoClassDefFound
+[ERROR]   TestGenericInvoiceOperations.operationsTest:121->getBuilder:228 » NoClassDefFound
+[ERROR]   TestGenericInvoiceOperations.simpleOperationsTest:93->getBuilder:228 » NoClassDefFound
+[ERROR]   TestGenericInvoiceOperations.testRoundingValues:187->getBuilder:228 » NoClassDefFound
+[ERROR]   TestProductBuilder.doTest:52 » NoClassDefFound Could not initialize class com....
+[ERROR]   TestShippingPointBuilder.doTest:48 » NoClassDefFound Could not initialize clas...
+[ERROR]   TestSupplierBuilder.doTest:70 » NoClassDefFound Could not initialize class com...
+[ERROR]   TestTaxBuilder.doTestFlat:56 » NoClassDefFound Could not initialize class com....
+[ERROR]   TestTicketBuilder.doTest:42 » NoClassDefFound Could not initialize class com.p...
+[INFO] 
+[ERROR] Tests run: 20, Failures: 0, Errors: 19, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for billy 6.0.0-SNAPSHOT:
+[INFO] 
+[INFO] billy .............................................. SUCCESS [  1.066 s]
+[INFO] billy core ......................................... FAILURE [ 10.155 s]
+[INFO] billy core JPA ..................................... SKIPPED
+[INFO] billy GIN .......................................... SKIPPED
+[INFO] billy portugal (PT Pack) ........................... SKIPPED
+[INFO] billy spain (ES Pack) .............................. SKIPPED
+[INFO] billy france (FR Pack) ............................. SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.480 s
+[INFO] Finished at: 2026-01-05T06:00:11Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 4 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.0
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.22.2
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING]  * com.mycila:license-maven-plugin:4.1
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project billy-core: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /billy/billy-core/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :billy-core
+
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested

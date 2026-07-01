@@ -1,0 +1,79 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------< org.openpdfsign:openpdfsign >---------------------
+[INFO] Building openpdfsign 0.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ openpdfsign ---
+[INFO] Deleting /open-pdf-sign/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ openpdfsign ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ openpdfsign ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 9 source files to /open-pdf-sign/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ openpdfsign ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ openpdfsign ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 3 source files to /open-pdf-sign/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ openpdfsign ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.openpdfsign.ConfigurationTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.164 s - in org.openpdfsign.ConfigurationTest
+[INFO] Running org.openpdfsign.SignerTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.998 s <<< FAILURE! - in org.openpdfsign.SignerTest
+[ERROR] testSignPdf  Time elapsed: 0.998 s  <<< ERROR!
+java.lang.NoSuchMethodError: 'void eu.europa.esig.dss.pdf.pdfbox.PdfBoxSignatureService.checkDocumentPermissions(eu.europa.esig.dss.pdf.PdfDocumentReader)'
+	at org.openpdfsign.SignerTest.testSignPdf(SignerTest.java:43)
+
+[INFO] Running org.openpdfsign.KeyStoreLoaderTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.17 s - in org.openpdfsign.KeyStoreLoaderTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   SignerTest.testSignPdf:43 » NoSuchMethod 'void eu.europa.esig.dss.pdf.pdfbox.P...
+[INFO] 
+[ERROR] Tests run: 5, Failures: 0, Errors: 1, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.423 s
+[INFO] Finished at: 2026-01-05T05:07:20Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 3 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.8.1
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.22.2
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project openpdfsign: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /open-pdf-sign/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested

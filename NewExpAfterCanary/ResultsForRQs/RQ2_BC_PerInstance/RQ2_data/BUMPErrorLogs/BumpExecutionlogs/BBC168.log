@@ -1,0 +1,1629 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 5 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 5 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Google Cloud Pub/Sub Lite Parent                                   [pom]
+[INFO] proto-google-cloud-pubsublite-v1                                   [jar]
+[INFO] grpc-google-cloud-pubsublite-v1                                    [jar]
+[INFO] Google Cloud Pub/Sub Lite                                          [jar]
+[INFO] Pub/Sub Lite IO                                                    [jar]
+[INFO] 
+[INFO] ----------< com.google.cloud:google-cloud-pubsublite-parent >-----------
+[INFO] Building Google Cloud Pub/Sub Lite Parent 1.2.1-SNAPSHOT           [1/5]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ google-cloud-pubsublite-parent ---
+[INFO] Deleting /java-pubsublite/target
+[INFO] 
+[INFO] --- flatten:1.2.7:clean (flatten.clean) @ google-cloud-pubsublite-parent ---
+[INFO] Deleting /java-pubsublite/.flattened-pom.xml
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce) @ google-cloud-pubsublite-parent ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: META-INF/versions/*/module-info
+[INFO] 
+[INFO] --- checkstyle:3.1.2:check (checkstyle) @ google-cloud-pubsublite-parent ---
+[INFO] Starting audit...
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- jacoco:0.8.7:prepare-agent (default) @ google-cloud-pubsublite-parent ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/java-pubsublite/target/jacoco.exec
+[INFO] 
+[INFO] --- build-helper:3.2.0:add-resource (add-main-proto-resources) @ google-cloud-pubsublite-parent ---
+[INFO] 
+[INFO] --- flatten:1.2.7:flatten (flatten) @ google-cloud-pubsublite-parent ---
+[INFO] Generating flattened POM of project com.google.cloud:google-cloud-pubsublite-parent:pom:1.2.1-SNAPSHOT...
+[INFO] 
+[INFO] --- build-helper:3.2.0:add-test-resource (add-test-proto-resources) @ google-cloud-pubsublite-parent ---
+[INFO] 
+[INFO] --- animal-sniffer:1.20:check (java8) @ google-cloud-pubsublite-parent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- jacoco:0.8.7:report (report) @ google-cloud-pubsublite-parent ---
+[INFO] Skipping JaCoCo execution due to missing execution data file.
+[INFO] 
+[INFO] --------< com.google.api.grpc:proto-google-cloud-pubsublite-v1 >--------
+[INFO] Building proto-google-cloud-pubsublite-v1 1.2.1-SNAPSHOT           [2/5]
+[INFO]   from proto-google-cloud-pubsublite-v1/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ proto-google-cloud-pubsublite-v1 ---
+[INFO] Deleting /java-pubsublite/proto-google-cloud-pubsublite-v1/target
+[INFO] 
+[INFO] --- flatten:1.2.7:clean (flatten.clean) @ proto-google-cloud-pubsublite-v1 ---
+[INFO] Deleting /java-pubsublite/proto-google-cloud-pubsublite-v1/.flattened-pom.xml
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce) @ proto-google-cloud-pubsublite-v1 ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: META-INF/versions/*/module-info
+[INFO] 
+[INFO] --- checkstyle:3.1.2:check (checkstyle) @ proto-google-cloud-pubsublite-v1 ---
+[INFO] 
+[INFO] --- jacoco:0.8.7:prepare-agent (default) @ proto-google-cloud-pubsublite-v1 ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/java-pubsublite/proto-google-cloud-pubsublite-v1/target/jacoco.exec
+[INFO] 
+[INFO] --- build-helper:3.2.0:add-resource (add-main-proto-resources) @ proto-google-cloud-pubsublite-v1 ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ proto-google-cloud-pubsublite-v1 ---
+[INFO] skip non existing resourceDirectory /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/resources
+[INFO] Copying 6 resources
+[INFO] 
+[INFO] --- flatten:1.2.7:flatten (flatten) @ proto-google-cloud-pubsublite-v1 ---
+[INFO] Generating flattened POM of project com.google.api.grpc:proto-google-cloud-pubsublite-v1:jar:1.2.1-SNAPSHOT...
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ proto-google-cloud-pubsublite-v1 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 150 source files to /java-pubsublite/proto-google-cloud-pubsublite-v1/target/classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[WARNING] [options] bootstrap class path not set in conjunction with -source 8
+[WARNING] No processor claimed any of these annotations: javax.annotation.Generated
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/PubSubMessage.java:[662,10] [UnusedVariable] The local variable 'from_bitField0_' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/PubSubMessage.java:[230,13] [MissingOverride] getAttributesCount implements method in PubSubMessageOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public int getAttributesCount() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/PubSubMessage.java:[253,6] [InlineMeSuggester] This deprecated API looks inlineable. If you'd like the body of the API to be inlined to its callers, please annotate it with @InlineMe.
+    (see https://errorprone.info/bugpattern/InlineMeSuggester)
+  Did you mean '@InlineMe(replacement = "this.getAttributesMap()")'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/PubSubMessage.java:[551,16] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'return this.equals(DEFAULT_INSTANCE) ? new Builder() : new Builder().mergeFrom(this);'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/PubSubMessage.java:[578,43] [MissingOverride] internalGetMapField overrides method in Builder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override @SuppressWarnings({"rawtypes"})'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/PubSubMessage.java:[588,43] [MissingOverride] internalGetMutableMapField overrides method in Builder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override @SuppressWarnings({"rawtypes"})'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/PubSubMessage.java:[720,16] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'if (Objects.equals(other, com.google.cloud.pubsublite.proto.PubSubMessage.getDefaultInstance()))' or 'if (other.equals(com.google.cloud.pubsublite.proto.PubSubMessage.getDefaultInstance()))'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/PubSubMessage.java:[722,25] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'if (!other.getKey().equals(com.google.protobuf.ByteString.EMPTY)) {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/PubSubMessage.java:[725,26] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'if (!other.getData().equals(com.google.protobuf.ByteString.EMPTY)) {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/PubSubMessage.java:[908,15] [MissingOverride] getAttributesCount implements method in PubSubMessageOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public int getAttributesCount() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/PubSubMessage.java:[931,8] [InlineMeSuggester] This deprecated API looks inlineable. If you'd like the body of the API to be inlined to its callers, please annotate it with @InlineMe.
+    (see https://errorprone.info/bugpattern/InlineMeSuggester)
+  Did you mean '@InlineMe(replacement = "this.getAttributesMap()")'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/PubSubMessage.java:[1068,19] [MissingOverride] hasEventTime implements method in PubSubMessageOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public boolean hasEventTime() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/PubSubMessage.java:[1082,41] [MissingOverride] getEventTime implements method in PubSubMessageOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public com.google.protobuf.Timestamp getEventTime() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/PubSubMessage.java:[1197,50] [MissingOverride] getEventTimeOrBuilder implements method in PubSubMessageOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public com.google.protobuf.TimestampOrBuilder getEventTimeOrBuilder() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/AttributeValues.java:[407,10] [UnusedVariable] The local variable 'from_bitField0_' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/AttributeValues.java:[148,13] [MissingOverride] getValuesCount implements method in AttributeValuesOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public int getValuesCount() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/AttributeValues.java:[163,40] [MissingOverride] getValues implements method in AttributeValuesOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public com.google.protobuf.ByteString getValues(int index) {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/AttributeValues.java:[325,16] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'return this.equals(DEFAULT_INSTANCE) ? new Builder() : new Builder().mergeFrom(this);'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/AttributeValues.java:[461,16] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'if (Objects.equals(other, com.google.cloud.pubsublite.proto.AttributeValues.getDefaultInstance()))' or 'if (other.equals(com.google.cloud.pubsublite.proto.AttributeValues.getDefaultInstance()))'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/AttributeValues.java:[525,58] [MissingOverride] getValuesList implements method in AttributeValuesOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public java.util.List<com.google.protobuf.ByteString> getValuesList() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/AttributeValues.java:[541,15] [MissingOverride] getValuesCount implements method in AttributeValuesOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public int getValuesCount() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/AttributeValues.java:[556,42] [MissingOverride] getValues implements method in AttributeValuesOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public com.google.protobuf.ByteString getValues(int index) {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/StreamingCommitCursorResponse.java:[168,30] [InlineMeSuggester] This deprecated API looks inlineable. If you'd like the body of the API to be inlined to its callers, please annotate it with @InlineMe.
+    (see https://errorprone.info/bugpattern/InlineMeSuggester)
+  Did you mean '@InlineMe(replacement = "RequestCase.forNumber(value)", imports = "com.google.cloud.pubsublite.proto.StreamingCommitCursorResponse.RequestCase")'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/StreamingCommitCursorResponse.java:[185,15] [MissingOverride] getNumber implements method in EnumLite; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public int getNumber() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/StreamingCommitCursorResponse.java:[190,21] [MissingOverride] getRequestCase implements method in StreamingCommitCursorResponseOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public RequestCase getRequestCase() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/StreamingCommitCursorResponse.java:[482,16] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'return this.equals(DEFAULT_INSTANCE) ? new Builder() : new Builder().mergeFrom(this);'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/StreamingCommitCursorResponse.java:[630,10] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'if (Objects.equals(other, com.google.cloud.pubsublite.proto.StreamingCommitCursorResponse.getDefaultInstance()))' or 'if (other.equals(com.google.cloud.pubsublite.proto.StreamingCommitCursorResponse.getDefaultInstance()))'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/StreamingCommitCursorResponse.java:[682,23] [MissingOverride] getRequestCase implements method in StreamingCommitCursorResponseOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public RequestCase getRequestCase() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/InitialCommitCursorResponse.java:[248,16] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'return this.equals(DEFAULT_INSTANCE) ? new Builder() : new Builder().mergeFrom(this);'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/InitialCommitCursorResponse.java:[378,10] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'if (Objects.equals(other, com.google.cloud.pubsublite.proto.InitialCommitCursorResponse.getDefaultInstance()))' or 'if (other.equals(com.google.cloud.pubsublite.proto.InitialCommitCursorResponse.getDefaultInstance()))'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SequencedCommitCursorResponse.java:[282,16] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'return this.equals(DEFAULT_INSTANCE) ? new Builder() : new Builder().mergeFrom(this);'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SequencedCommitCursorResponse.java:[416,10] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'if (Objects.equals(other, com.google.cloud.pubsublite.proto.SequencedCommitCursorResponse.getDefaultInstance()))' or 'if (other.equals(com.google.cloud.pubsublite.proto.SequencedCommitCursorResponse.getDefaultInstance()))'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Cursor.java:[279,16] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'return this.equals(DEFAULT_INSTANCE) ? new Builder() : new Builder().mergeFrom(this);'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Cursor.java:[410,16] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'if (Objects.equals(other, com.google.cloud.pubsublite.proto.Cursor.getDefaultInstance())) return this;' or 'if (other.equals(com.google.cloud.pubsublite.proto.Cursor.getDefaultInstance())) return this;'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SubscriptionName.java:[157,17] [EqualsGetClass] Prefer instanceof to getClass when implementing Object#equals.
+    (see https://errorprone.info/bugpattern/EqualsGetClass)
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SeekSubscriptionRequest.java:[213,21] [MissingOverride] getNumber implements method in ProtocolMessageEnum; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public final int getNumber() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SeekSubscriptionRequest.java:[227,30] [InlineMeSuggester] This deprecated API looks inlineable. If you'd like the body of the API to be inlined to its callers, please annotate it with @InlineMe.
+    (see https://errorprone.info/bugpattern/InlineMeSuggester)
+  Did you mean '@InlineMe(replacement = "NamedTarget.forNumber(value)", imports = "com.google.cloud.pubsublite.proto.SeekSubscriptionRequest.NamedTarget")'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SeekSubscriptionRequest.java:[232,7] [MissingSummary] A summary fragment is required; consider using the value of the @return block as a summary fragment instead.
+    (see https://google.github.io/styleguide/javaguide.html#s7.2-summary-fragment)
+  Did you mean '*Returns the enum associated with the given numeric wire value.'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SeekSubscriptionRequest.java:[254,29] [MissingOverride] findValueByNumber implements method in EnumLiteMap; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public NamedTarget findValueByNumber(int number) {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SeekSubscriptionRequest.java:[259,69] [MissingOverride] getValueDescriptor implements method in ProtocolMessageEnum; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public final com.google.protobuf.Descriptors.EnumValueDescriptor getValueDescriptor() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SeekSubscriptionRequest.java:[267,64] [MissingOverride] getDescriptorForType implements method in ProtocolMessageEnum; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public final com.google.protobuf.Descriptors.EnumDescriptor getDescriptorForType() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SeekSubscriptionRequest.java:[319,29] [InlineMeSuggester] This deprecated API looks inlineable. If you'd like the body of the API to be inlined to its callers, please annotate it with @InlineMe.
+    (see https://errorprone.info/bugpattern/InlineMeSuggester)
+  Did you mean '@InlineMe(replacement = "TargetCase.forNumber(value)", imports = "com.google.cloud.pubsublite.proto.SeekSubscriptionRequest.TargetCase")'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SeekSubscriptionRequest.java:[336,15] [MissingOverride] getNumber implements method in EnumLite; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public int getNumber() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SeekSubscriptionRequest.java:[341,20] [MissingOverride] getTargetCase implements method in SeekSubscriptionRequestOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public TargetCase getTargetCase() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SeekSubscriptionRequest.java:[410,17] [MissingOverride] hasNamedTarget implements method in SeekSubscriptionRequestOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public boolean hasNamedTarget() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SeekSubscriptionRequest.java:[424,13] [MissingOverride] getNamedTargetValue implements method in SeekSubscriptionRequestOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public int getNamedTargetValue() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SeekSubscriptionRequest.java:[441,79] [MissingOverride] getNamedTarget implements method in SeekSubscriptionRequestOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public com.google.cloud.pubsublite.proto.SeekSubscriptionRequest.NamedTarget getNamedTarget() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SeekSubscriptionRequest.java:[702,16] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'return this.equals(DEFAULT_INSTANCE) ? new Builder() : new Builder().mergeFrom(this);'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SeekSubscriptionRequest.java:[846,16] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'if (Objects.equals(other, com.google.cloud.pubsublite.proto.SeekSubscriptionRequest.getDefaultInstance()))' or 'if (other.equals(com.google.cloud.pubsublite.proto.SeekSubscriptionRequest.getDefaultInstance()))'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SeekSubscriptionRequest.java:[901,22] [MissingOverride] getTargetCase implements method in SeekSubscriptionRequestOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public TargetCase getTargetCase() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SeekSubscriptionRequest.java:[926,28] [MissingOverride] getName implements method in SeekSubscriptionRequestOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public java.lang.String getName() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SeekSubscriptionRequest.java:[950,42] [MissingOverride] getNameBytes implements method in SeekSubscriptionRequestOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public com.google.protobuf.ByteString getNameBytes() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/TimeTarget.java:[155,27] [InlineMeSuggester] This deprecated API looks inlineable. If you'd like the body of the API to be inlined to its callers, please annotate it with @InlineMe.
+    (see https://errorprone.info/bugpattern/InlineMeSuggester)
+  Did you mean '@InlineMe(replacement = "TimeCase.forNumber(value)", imports = "com.google.cloud.pubsublite.proto.TimeTarget.TimeCase")'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/TimeTarget.java:[172,15] [MissingOverride] getNumber implements method in EnumLite; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public int getNumber() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/TimeTarget.java:[177,18] [MissingOverride] getTimeCase implements method in TimeTargetOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public TimeCase getTimeCase() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/TimeTarget.java:[482,16] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'return this.equals(DEFAULT_INSTANCE) ? new Builder() : new Builder().mergeFrom(this);'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/TimeTarget.java:[628,16] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'if (Objects.equals(other, com.google.cloud.pubsublite.proto.TimeTarget.getDefaultInstance())) return this;' or 'if (other.equals(com.google.cloud.pubsublite.proto.TimeTarget.getDefaultInstance())) return this;'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/TimeTarget.java:[677,20] [MissingOverride] getTimeCase implements method in TimeTargetOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public TimeCase getTimeCase() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SequencedMessage.java:[513,16] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'return this.equals(DEFAULT_INSTANCE) ? new Builder() : new Builder().mergeFrom(this);'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SequencedMessage.java:[677,16] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'if (Objects.equals(other, com.google.cloud.pubsublite.proto.SequencedMessage.getDefaultInstance()))' or 'if (other.equals(com.google.cloud.pubsublite.proto.SequencedMessage.getDefaultInstance()))'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SequencedMessage.java:[738,19] [MissingOverride] hasCursor implements method in SequencedMessageOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public boolean hasCursor() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SequencedMessage.java:[752,52] [MissingOverride] getCursor implements method in SequencedMessageOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public com.google.cloud.pubsublite.proto.Cursor getCursor() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SequencedMessage.java:[871,61] [MissingOverride] getCursorOrBuilder implements method in SequencedMessageOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public com.google.cloud.pubsublite.proto.CursorOrBuilder getCursorOrBuilder() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SequencedMessage.java:[924,19] [MissingOverride] hasPublishTime implements method in SequencedMessageOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public boolean hasPublishTime() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SequencedMessage.java:[939,41] [MissingOverride] getPublishTime implements method in SequencedMessageOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public com.google.protobuf.Timestamp getPublishTime() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SequencedMessage.java:[1064,50] [MissingOverride] getPublishTimeOrBuilder implements method in SequencedMessageOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public com.google.protobuf.TimestampOrBuilder getPublishTimeOrBuilder() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SequencedMessage.java:[1117,19] [MissingOverride] hasMessage implements method in SequencedMessageOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public boolean hasMessage() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SequencedMessage.java:[1131,59] [MissingOverride] getMessage implements method in SequencedMessageOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public com.google.cloud.pubsublite.proto.PubSubMessage getMessage() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/SequencedMessage.java:[1251,68] [MissingOverride] getMessageOrBuilder implements method in SequencedMessageOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public com.google.cloud.pubsublite.proto.PubSubMessageOrBuilder getMessageOrBuilder() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Subscription.java:[351,23] [MissingOverride] getNumber implements method in ProtocolMessageEnum; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public final int getNumber() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Subscription.java:[365,40] [InlineMeSuggester] This deprecated API looks inlineable. If you'd like the body of the API to be inlined to its callers, please annotate it with @InlineMe.
+    (see https://errorprone.info/bugpattern/InlineMeSuggester)
+  Did you mean '@InlineMe(replacement = "DeliveryRequirement.forNumber(value)", imports = "com.google.cloud.pubsublite.proto.Subscription.DeliveryConfig.DeliveryRequirement")'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Subscription.java:[370,9] [MissingSummary] A summary fragment is required; consider using the value of the @return block as a summary fragment instead.
+    (see https://google.github.io/styleguide/javaguide.html#s7.2-summary-fragment)
+  Did you mean '*Returns the enum associated with the given numeric wire value.'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Subscription.java:[394,43] [MissingOverride] findValueByNumber implements method in EnumLiteMap; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public DeliveryRequirement findValueByNumber(int number) {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Subscription.java:[399,71] [MissingOverride] getValueDescriptor implements method in ProtocolMessageEnum; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public final com.google.protobuf.Descriptors.EnumValueDescriptor getValueDescriptor() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Subscription.java:[407,66] [MissingOverride] getDescriptorForType implements method in ProtocolMessageEnum; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public final com.google.protobuf.Descriptors.EnumDescriptor getDescriptorForType() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Subscription.java:[642,18] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'return this.equals(DEFAULT_INSTANCE) ? new Builder() : new Builder().mergeFrom(this);'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Subscription.java:[780,12] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'if (Objects.equals(other, com.google.cloud.pubsublite.proto.Subscription.DeliveryConfig.getDefaultInstance()))' or 'if (other.equals(com.google.cloud.pubsublite.proto.Subscription.DeliveryConfig.getDefaultInstance()))'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Subscription.java:[1307,16] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'return this.equals(DEFAULT_INSTANCE) ? new Builder() : new Builder().mergeFrom(this);'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Subscription.java:[1452,16] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'if (Objects.equals(other, com.google.cloud.pubsublite.proto.Subscription.getDefaultInstance())) return this;' or 'if (other.equals(com.google.cloud.pubsublite.proto.Subscription.getDefaultInstance())) return this;'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Subscription.java:[1507,28] [MissingOverride] getName implements method in SubscriptionOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public java.lang.String getName() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Subscription.java:[1531,42] [MissingOverride] getNameBytes implements method in SubscriptionOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public com.google.protobuf.ByteString getNameBytes() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Subscription.java:[1623,28] [MissingOverride] getTopic implements method in SubscriptionOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public java.lang.String getTopic() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Subscription.java:[1647,42] [MissingOverride] getTopicBytes implements method in SubscriptionOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public com.google.protobuf.ByteString getTopicBytes() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Subscription.java:[1742,19] [MissingOverride] hasDeliveryConfig implements method in SubscriptionOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public boolean hasDeliveryConfig() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Subscription.java:[1756,73] [MissingOverride] getDeliveryConfig implements method in SubscriptionOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public com.google.cloud.pubsublite.proto.Subscription.DeliveryConfig getDeliveryConfig() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Subscription.java:[1881,8] [MissingOverride] getDeliveryConfigOrBuilder implements method in SubscriptionOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public com.google.cloud.pubsublite.proto.Subscription.DeliveryConfigOrBuilder'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/InitialPublishRequest.java:[349,16] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'return this.equals(DEFAULT_INSTANCE) ? new Builder() : new Builder().mergeFrom(this);'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/InitialPublishRequest.java:[483,16] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'if (Objects.equals(other, com.google.cloud.pubsublite.proto.InitialPublishRequest.getDefaultInstance()))' or 'if (other.equals(com.google.cloud.pubsublite.proto.InitialPublishRequest.getDefaultInstance()))'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/InitialPublishRequest.java:[534,28] [MissingOverride] getTopic implements method in InitialPublishRequestOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public java.lang.String getTopic() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/InitialPublishRequest.java:[556,42] [MissingOverride] getTopicBytes implements method in InitialPublishRequestOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public com.google.protobuf.ByteString getTopicBytes() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/LocationName.java:[136,17] [EqualsGetClass] Prefer instanceof to getClass when implementing Object#equals.
+    (see https://errorprone.info/bugpattern/EqualsGetClass)
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Topic.java:[711,20] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'return this.equals(DEFAULT_INSTANCE) ? new Builder() : new Builder().mergeFrom(this);'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Topic.java:[855,14] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'if (Objects.equals(other, com.google.cloud.pubsublite.proto.Topic.PartitionConfig.Capacity' or 'if (other.equals(com.google.cloud.pubsublite.proto.Topic.PartitionConfig.Capacity'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Topic.java:[1081,34] [InlineMeSuggester] This deprecated API looks inlineable. If you'd like the body of the API to be inlined to its callers, please annotate it with @InlineMe.
+    (see https://errorprone.info/bugpattern/InlineMeSuggester)
+  Did you mean '@InlineMe(replacement = "DimensionCase.forNumber(value)", imports = "com.google.cloud.pubsublite.proto.Topic.PartitionConfig.DimensionCase")'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Topic.java:[1098,17] [MissingOverride] getNumber implements method in EnumLite; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public int getNumber() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Topic.java:[1103,25] [MissingOverride] getDimensionCase implements method in PartitionConfigOrBuilder; expected @Override
+    (see https://errorprone.info/bugpattern/MissingOverride)
+  Did you mean '@Override public DimensionCase getDimensionCase() {'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Topic.java:[1422,18] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'return this.equals(DEFAULT_INSTANCE) ? new Builder() : new Builder().mergeFrom(this);'?
+[WARNING] /java-pubsublite/proto-google-cloud-pubsublite-v1/src/main/java/com/google/cloud/pubsublite/proto/Topic.java:[1570,18] [ReferenceEquality] Comparison using reference equality instead of value equality
+    (see https://errorprone.info/bugpattern/ReferenceEquality)
+  Did you mean 'if (Objects.equals(other, com.google.cloud.pubsublite.proto.Topic.PartitionConfig.getDefaultInstance()))' or 'if (other.equals(com.google.cloud.pubsublite.proto.Topic.PartitionConfig.getDefaultInstance()))'?
+[INFO] 
+[INFO] --- build-helper:3.2.0:add-test-resource (add-test-proto-resources) @ proto-google-cloud-pubsublite-v1 ---
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ proto-google-cloud-pubsublite-v1 ---
+[INFO] skip non existing resourceDirectory /java-pubsublite/proto-google-cloud-pubsublite-v1/src/test/resources
+[INFO] skip non existing resourceDirectory /java-pubsublite/proto-google-cloud-pubsublite-v1/src/test/proto
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ proto-google-cloud-pubsublite-v1 ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- animal-sniffer:1.20:check (java8) @ proto-google-cloud-pubsublite-v1 ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- surefire:3.0.0-M5:test (default-test) @ proto-google-cloud-pubsublite-v1 ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jacoco:0.8.7:report (report) @ proto-google-cloud-pubsublite-v1 ---
+[INFO] Skipping JaCoCo execution due to missing execution data file.
+[INFO] 
+[INFO] --------< com.google.api.grpc:grpc-google-cloud-pubsublite-v1 >---------
+[INFO] Building grpc-google-cloud-pubsublite-v1 1.2.1-SNAPSHOT            [3/5]
+[INFO]   from grpc-google-cloud-pubsublite-v1/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ grpc-google-cloud-pubsublite-v1 ---
+[INFO] Deleting /java-pubsublite/grpc-google-cloud-pubsublite-v1/target
+[INFO] 
+[INFO] --- flatten:1.2.7:clean (flatten.clean) @ grpc-google-cloud-pubsublite-v1 ---
+[INFO] Deleting /java-pubsublite/grpc-google-cloud-pubsublite-v1/.flattened-pom.xml
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce) @ grpc-google-cloud-pubsublite-v1 ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: META-INF/versions/*/module-info
+[INFO] 
+[INFO] --- checkstyle:3.1.2:check (checkstyle) @ grpc-google-cloud-pubsublite-v1 ---
+[INFO] 
+[INFO] --- jacoco:0.8.7:prepare-agent (default) @ grpc-google-cloud-pubsublite-v1 ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/java-pubsublite/grpc-google-cloud-pubsublite-v1/target/jacoco.exec
+[INFO] 
+[INFO] --- build-helper:3.2.0:add-resource (add-main-proto-resources) @ grpc-google-cloud-pubsublite-v1 ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ grpc-google-cloud-pubsublite-v1 ---
+[INFO] skip non existing resourceDirectory /java-pubsublite/grpc-google-cloud-pubsublite-v1/src/main/resources
+[INFO] skip non existing resourceDirectory /java-pubsublite/grpc-google-cloud-pubsublite-v1/src/main/proto
+[INFO] 
+[INFO] --- flatten:1.2.7:flatten (flatten) @ grpc-google-cloud-pubsublite-v1 ---
+[INFO] Generating flattened POM of project com.google.api.grpc:grpc-google-cloud-pubsublite-v1:jar:1.2.1-SNAPSHOT...
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ grpc-google-cloud-pubsublite-v1 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /java-pubsublite/grpc-google-cloud-pubsublite-v1/target/classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[WARNING] [options] bootstrap class path not set in conjunction with -source 8
+[WARNING] No processor claimed any of these annotations: javax.annotation.Generated,io.grpc.stub.annotations.RpcMethod
+[INFO] 
+[INFO] --- build-helper:3.2.0:add-test-resource (add-test-proto-resources) @ grpc-google-cloud-pubsublite-v1 ---
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ grpc-google-cloud-pubsublite-v1 ---
+[INFO] skip non existing resourceDirectory /java-pubsublite/grpc-google-cloud-pubsublite-v1/src/test/resources
+[INFO] skip non existing resourceDirectory /java-pubsublite/grpc-google-cloud-pubsublite-v1/src/test/proto
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ grpc-google-cloud-pubsublite-v1 ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- animal-sniffer:1.20:check (java8) @ grpc-google-cloud-pubsublite-v1 ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- surefire:3.0.0-M5:test (default-test) @ grpc-google-cloud-pubsublite-v1 ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jacoco:0.8.7:report (report) @ grpc-google-cloud-pubsublite-v1 ---
+[INFO] Skipping JaCoCo execution due to missing execution data file.
+[INFO] 
+[INFO] --------------< com.google.cloud:google-cloud-pubsublite >--------------
+[INFO] Building Google Cloud Pub/Sub Lite 1.2.1-SNAPSHOT                  [4/5]
+[INFO]   from google-cloud-pubsublite/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ google-cloud-pubsublite ---
+[INFO] Deleting /java-pubsublite/google-cloud-pubsublite/target
+[INFO] 
+[INFO] --- flatten:1.2.7:clean (flatten.clean) @ google-cloud-pubsublite ---
+[INFO] Deleting /java-pubsublite/google-cloud-pubsublite/.flattened-pom.xml
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce) @ google-cloud-pubsublite ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: META-INF/versions/*/module-info
+[WARNING] Rule 0: org.apache.maven.plugins.enforcer.RequireUpperBoundDeps warned with message:
+Failed while enforcing RequireUpperBoundDeps. The error(s) are [
+Require upper bound dependencies error for com.google.flogger:flogger-system-backend:0.6 paths to dependency are:
++-com.google.cloud:google-cloud-pubsublite:1.2.1-SNAPSHOT
+  +-com.google.flogger:flogger-system-backend:0.6
+and
++-com.google.cloud:google-cloud-pubsublite:1.2.1-SNAPSHOT
+  +-com.google.flogger:google-extensions:0.7.1
+    +-com.google.flogger:flogger-system-backend:0.7.1
+]
+[INFO] 
+[INFO] --- checkstyle:3.1.2:check (checkstyle) @ google-cloud-pubsublite ---
+[INFO] Starting audit...
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- jacoco:0.8.7:prepare-agent (default) @ google-cloud-pubsublite ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/java-pubsublite/google-cloud-pubsublite/target/jacoco.exec
+[INFO] 
+[INFO] --- build-helper:3.2.0:add-resource (add-main-proto-resources) @ google-cloud-pubsublite ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ google-cloud-pubsublite ---
+[INFO] skip non existing resourceDirectory /java-pubsublite/google-cloud-pubsublite/src/main/resources
+[INFO] skip non existing resourceDirectory /java-pubsublite/google-cloud-pubsublite/src/main/proto
+[INFO] 
+[INFO] --- flatten:1.2.7:flatten (flatten) @ google-cloud-pubsublite ---
+[INFO] Generating flattened POM of project com.google.cloud:google-cloud-pubsublite:jar:1.2.1-SNAPSHOT...
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ google-cloud-pubsublite ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 174 source files to /java-pubsublite/google-cloud-pubsublite/target/classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/grpc-core-1.40.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/grpc-api-1.40.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/guava-30.1-android.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/error_prone_annotations-2.4.0.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/perfmark-api-0.23.0.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/failureaccess-1.0.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/jsr305-3.0.2.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/checker-compat-qual-2.5.5.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/j2objc-annotations-1.3.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/gson-2.8.6.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/annotations-4.1.1.4.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/animal-sniffer-annotations-1.19.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/grpc-context-1.40.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/grpc-auth-1.40.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/grpc-grpclb-1.40.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/grpc-protobuf-1.40.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/grpc-stub-1.40.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/protobuf-java-util-3.17.2.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/proto-google-common-protos-2.0.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/protobuf-java-3.17.2.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/conscrypt-openjdk-uber-2.5.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/google-auth-library-oauth2-http-0.22.2.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/grpc-netty-shaded-1.40.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/grpc-core-1.40.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/grpc-protobuf-lite-1.40.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/grpc-api-1.40.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/google-http-client-jackson2-1.38.0.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/google-http-client-1.38.0.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/opencensus-contrib-http-util-0.24.0.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/guava-30.1-android.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/google-auth-library-credentials-0.22.2.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/error_prone_annotations-2.4.0.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/jsr305-3.0.2.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/failureaccess-1.0.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/checker-compat-qual-2.5.5.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/j2objc-annotations-1.3.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/auto-value-annotations-1.7.4.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/perfmark-api-0.23.0.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/opencensus-api-0.24.0.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/grpc-context-1.40.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/gson-2.8.6.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/annotations-4.1.1.4.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/animal-sniffer-annotations-1.19.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/httpclient-4.5.13.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/httpcore-4.4.13.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/jackson-core-2.11.3.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/commons-logging-1.2.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/commons-codec-1.11.jar": no such file or directory
+[WARNING] [options] bootstrap class path not set in conjunction with -source 8
+[WARNING] No processor claimed any of these annotations: com.google.api.core.BetaApi,com.google.auto.value.AutoOneOf,com.google.auto.value.AutoValue.Builder,com.google.errorprone.annotations.concurrent.LockMethod,com.google.errorprone.annotations.CheckReturnValue,com.google.errorprone.annotations.concurrent.GuardedBy,javax.annotation.concurrent.ThreadSafe,javax.annotation.concurrent.GuardedBy,com.google.errorprone.annotations.concurrent.UnlockMethod,javax.annotation.ParametersAreNonnullByDefault,javax.annotation.Generated,com.google.auto.value.AutoValue,com.google.common.annotations.VisibleForTesting,javax.annotation.Nullable
+[WARNING] No processor claimed any of these annotations: javax.annotation.Generated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/v1/stub/SubscriberServiceStubSettings.java:[254,41] [unchecked] build() in com.google.cloud.pubsublite.v1.stub.SubscriberServiceStubSettings.Builder overrides <B>build() in com.google.api.gax.rpc.StubSettings.Builder
+  return type requires unchecked conversion from SubscriberServiceStubSettings to StubSettings<B>
+  where B is a type-variable:
+    B extends StubSettings<B> declared in method <B>build()
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/v1/stub/SubscriberServiceStubSettings.java:[240,11] [static] static method should be qualified by type name, Builder, instead of by an expression
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/internal/ExtractStatus.java:[84,38] [overloads] <I#1,O>rethrowAsRuntime(StatusFunction<I#1,O>) in ExtractStatus is potentially ambiguous with <I#2>rethrowAsRuntime(StatusConsumer<I#2>) in ExtractStatus
+  where I#1,O,I#2 are type-variables:
+    I#1 extends Object declared in method <I#1,O>rethrowAsRuntime(StatusFunction<I#1,O>)
+    O extends Object declared in method <I#1,O>rethrowAsRuntime(StatusFunction<I#1,O>)
+    I#2 extends Object declared in method <I#2>rethrowAsRuntime(StatusConsumer<I#2>)
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/internal/CheckedApiException.java:[28,7] [serial] serializable class CheckedApiException has no definition of serialVersionUID
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/internal/wire/ServiceClients.java:[48,10] [deprecation] setExecutorProvider(ExecutorProvider) in Builder has been deprecated
+  where B,SettingsT are type-variables:
+    B extends Builder<SettingsT,B> declared in class Builder
+    SettingsT extends ClientSettings<SettingsT> declared in class Builder
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/cloudpubsub/SubscriberSettings.java:[197,19] [dep-ann] deprecated item is not annotated with @Deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/SubscriptionPath.java:[32,16] [serial] serializable class SubscriptionPath has no definition of serialVersionUID
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/v1/SubscriberServiceSettings.java:[127,17] [unchecked] toBuilder() in SubscriberServiceSettings overrides <B>toBuilder() in ClientSettings
+  return type requires unchecked conversion from com.google.cloud.pubsublite.v1.SubscriberServiceSettings.Builder to B
+  where B,SettingsT are type-variables:
+    B extends com.google.api.gax.rpc.ClientSettings.Builder<SettingsT,B> declared in method <B>toBuilder()
+    SettingsT extends ClientSettings<SettingsT> declared in class ClientSettings
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/v1/SubscriberServiceSettings.java:[169,11] [static] static method should be qualified by type name, Builder, instead of by an expression
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/v1/PartitionAssignmentServiceSettings.java:[130,17] [unchecked] toBuilder() in PartitionAssignmentServiceSettings overrides <B>toBuilder() in ClientSettings
+  return type requires unchecked conversion from com.google.cloud.pubsublite.v1.PartitionAssignmentServiceSettings.Builder to B
+  where B,SettingsT are type-variables:
+    B extends com.google.api.gax.rpc.ClientSettings.Builder<SettingsT,B> declared in method <B>toBuilder()
+    SettingsT extends ClientSettings<SettingsT> declared in class ClientSettings
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/v1/PartitionAssignmentServiceSettings.java:[173,11] [static] static method should be qualified by type name, Builder, instead of by an expression
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/v1/stub/PartitionAssignmentServiceStubSettings.java:[259,50] [unchecked] build() in com.google.cloud.pubsublite.v1.stub.PartitionAssignmentServiceStubSettings.Builder overrides <B>build() in com.google.api.gax.rpc.StubSettings.Builder
+  return type requires unchecked conversion from PartitionAssignmentServiceStubSettings to StubSettings<B>
+  where B is a type-variable:
+    B extends StubSettings<B> declared in method <B>build()
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/v1/stub/PartitionAssignmentServiceStubSettings.java:[244,11] [static] static method should be qualified by type name, Builder, instead of by an expression
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/v1/CursorServiceSettings.java:[148,17] [unchecked] toBuilder() in CursorServiceSettings overrides <B>toBuilder() in ClientSettings
+  return type requires unchecked conversion from com.google.cloud.pubsublite.v1.CursorServiceSettings.Builder to B
+  where B,SettingsT are type-variables:
+    B extends com.google.api.gax.rpc.ClientSettings.Builder<SettingsT,B> declared in method <B>toBuilder()
+    SettingsT extends ClientSettings<SettingsT> declared in class ClientSettings
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/v1/CursorServiceSettings.java:[190,11] [static] static method should be qualified by type name, Builder, instead of by an expression
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/v1/stub/CursorServiceStubSettings.java:[421,37] [unchecked] build() in com.google.cloud.pubsublite.v1.stub.CursorServiceStubSettings.Builder overrides <B>build() in com.google.api.gax.rpc.StubSettings.Builder
+  return type requires unchecked conversion from CursorServiceStubSettings to StubSettings<B>
+  where B is a type-variable:
+    B extends StubSettings<B> declared in method <B>build()
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/v1/stub/CursorServiceStubSettings.java:[390,11] [static] static method should be qualified by type name, Builder, instead of by an expression
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/Offset.java:[24,16] [serial] serializable class Offset has no definition of serialVersionUID
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/ProjectIdOrNumber.java:[23,16] [serial] serializable class ProjectIdOrNumber has no definition of serialVersionUID
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/CloudRegionOrZone.java:[24,16] [serial] serializable class CloudRegionOrZone has no definition of serialVersionUID
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/SubscriptionName.java:[27,16] [serial] serializable class SubscriptionName has no definition of serialVersionUID
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/LocationPath.java:[28,16] [serial] serializable class LocationPath has no definition of serialVersionUID
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/ProjectId.java:[26,16] [serial] serializable class ProjectId has no definition of serialVersionUID
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/ProjectNumber.java:[31,16] [serial] serializable class ProjectNumber has no definition of serialVersionUID
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/ProjectPath.java:[27,16] [serial] serializable class ProjectPath has no definition of serialVersionUID
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/TopicPath.java:[32,16] [serial] serializable class TopicPath has no definition of serialVersionUID
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/TopicName.java:[27,16] [serial] serializable class TopicName has no definition of serialVersionUID
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/v1/PublisherServiceSettings.java:[127,17] [unchecked] toBuilder() in PublisherServiceSettings overrides <B>toBuilder() in ClientSettings
+  return type requires unchecked conversion from com.google.cloud.pubsublite.v1.PublisherServiceSettings.Builder to B
+  where B,SettingsT are type-variables:
+    B extends com.google.api.gax.rpc.ClientSettings.Builder<SettingsT,B> declared in method <B>toBuilder()
+    SettingsT extends ClientSettings<SettingsT> declared in class ClientSettings
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/v1/PublisherServiceSettings.java:[169,11] [static] static method should be qualified by type name, Builder, instead of by an expression
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/v1/stub/PublisherServiceStubSettings.java:[252,40] [unchecked] build() in com.google.cloud.pubsublite.v1.stub.PublisherServiceStubSettings.Builder overrides <B>build() in com.google.api.gax.rpc.StubSettings.Builder
+  return type requires unchecked conversion from PublisherServiceStubSettings to StubSettings<B>
+  where B is a type-variable:
+    B extends StubSettings<B> declared in method <B>build()
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/v1/stub/PublisherServiceStubSettings.java:[238,11] [static] static method should be qualified by type name, Builder, instead of by an expression
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/internal/wire/ConnectedCommitter.java:[21] [try] auto-closeable resource ConnectedCommitter has a member method close() that could throw InterruptedException
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/internal/wire/BatchPublisher.java:[22] [try] auto-closeable resource BatchPublisher has a member method close() that could throw InterruptedException
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/internal/wire/ConnectedSubscriber.java:[21] [try] auto-closeable resource ConnectedSubscriber has a member method close() that could throw InterruptedException
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/v1/stub/AdminServiceStubSettings.java:[1148,36] [unchecked] build() in com.google.cloud.pubsublite.v1.stub.AdminServiceStubSettings.Builder overrides <B>build() in com.google.api.gax.rpc.StubSettings.Builder
+  return type requires unchecked conversion from AdminServiceStubSettings to StubSettings<B>
+  where B is a type-variable:
+    B extends StubSettings<B> declared in method <B>build()
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/v1/stub/AdminServiceStubSettings.java:[1014,11] [static] static method should be qualified by type name, Builder, instead of by an expression
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/v1/AdminServiceSettings.java:[273,17] [unchecked] toBuilder() in AdminServiceSettings overrides <B>toBuilder() in ClientSettings
+  return type requires unchecked conversion from com.google.cloud.pubsublite.v1.AdminServiceSettings.Builder to B
+  where B,SettingsT are type-variables:
+    B extends com.google.api.gax.rpc.ClientSettings.Builder<SettingsT,B> declared in method <B>toBuilder()
+    SettingsT extends ClientSettings<SettingsT> declared in class ClientSettings
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/v1/AdminServiceSettings.java:[315,11] [static] static method should be qualified by type name, Builder, instead of by an expression
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/v1/stub/TopicStatsServiceStubSettings.java:[335,41] [unchecked] build() in com.google.cloud.pubsublite.v1.stub.TopicStatsServiceStubSettings.Builder overrides <B>build() in com.google.api.gax.rpc.StubSettings.Builder
+  return type requires unchecked conversion from TopicStatsServiceStubSettings to StubSettings<B>
+  where B is a type-variable:
+    B extends StubSettings<B> declared in method <B>build()
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/v1/stub/TopicStatsServiceStubSettings.java:[308,11] [static] static method should be qualified by type name, Builder, instead of by an expression
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/SeekTarget.java:[25,16] [serial] serializable class SeekTarget has no definition of serialVersionUID
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/ReservationPath.java:[33,16] [serial] serializable class ReservationPath has no definition of serialVersionUID
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/ReservationName.java:[27,16] [serial] serializable class ReservationName has no definition of serialVersionUID
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/internal/PullSubscriber.java:[24,7] [try] auto-closeable resource PullSubscriber<T> has a member method close() that could throw InterruptedException
+  where T is a type-variable:
+    T extends Object declared in interface PullSubscriber
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/v1/TopicStatsServiceSettings.java:[143,17] [unchecked] toBuilder() in TopicStatsServiceSettings overrides <B>toBuilder() in ClientSettings
+  return type requires unchecked conversion from com.google.cloud.pubsublite.v1.TopicStatsServiceSettings.Builder to B
+  where B,SettingsT are type-variables:
+    B extends com.google.api.gax.rpc.ClientSettings.Builder<SettingsT,B> declared in method <B>toBuilder()
+    SettingsT extends ClientSettings<SettingsT> declared in class ClientSettings
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/v1/TopicStatsServiceSettings.java:[185,11] [static] static method should be qualified by type name, Builder, instead of by an expression
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/main/java/com/google/cloud/pubsublite/internal/wire/ConnectedAssigner.java:[19,7] [try] auto-closeable resource ConnectedAssigner has a member method close() that could throw InterruptedException
+[INFO] 
+[INFO] --- build-helper:3.2.0:add-test-resource (add-test-proto-resources) @ google-cloud-pubsublite ---
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ google-cloud-pubsublite ---
+[INFO] Copying 1 resource
+[INFO] skip non existing resourceDirectory /java-pubsublite/google-cloud-pubsublite/src/test/proto
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ google-cloud-pubsublite ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 61 source files to /java-pubsublite/google-cloud-pubsublite/target/test-classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/grpc-core-1.40.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/grpc-api-1.40.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/guava-30.1-android.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/error_prone_annotations-2.4.0.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/perfmark-api-0.23.0.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/failureaccess-1.0.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/jsr305-3.0.2.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/checker-compat-qual-2.5.5.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/j2objc-annotations-1.3.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/gson-2.8.6.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/annotations-4.1.1.4.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/animal-sniffer-annotations-1.19.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-netty-shaded/1.40.1/grpc-context-1.40.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/grpc-auth-1.40.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/grpc-grpclb-1.40.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/grpc-protobuf-1.40.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/grpc-stub-1.40.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/protobuf-java-util-3.17.2.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/proto-google-common-protos-2.0.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/protobuf-java-3.17.2.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/conscrypt-openjdk-uber-2.5.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/google-auth-library-oauth2-http-0.22.2.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/grpc-netty-shaded-1.40.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/grpc-core-1.40.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/grpc-protobuf-lite-1.40.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/grpc-api-1.40.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/google-http-client-jackson2-1.38.0.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/google-http-client-1.38.0.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/opencensus-contrib-http-util-0.24.0.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/guava-30.1-android.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/google-auth-library-credentials-0.22.2.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/error_prone_annotations-2.4.0.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/jsr305-3.0.2.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/failureaccess-1.0.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/checker-compat-qual-2.5.5.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/j2objc-annotations-1.3.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/auto-value-annotations-1.7.4.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/perfmark-api-0.23.0.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/opencensus-api-0.24.0.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/grpc-context-1.40.1.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/gson-2.8.6.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/annotations-4.1.1.4.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/animal-sniffer-annotations-1.19.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/httpclient-4.5.13.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/httpcore-4.4.13.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/jackson-core-2.11.3.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/commons-logging-1.2.jar": no such file or directory
+[WARNING] [path] bad path element "/root/.m2/repository/io/grpc/grpc-alts/1.40.1/commons-codec-1.11.jar": no such file or directory
+[WARNING] [options] bootstrap class path not set in conjunction with -source 8
+[WARNING] No processor claimed any of these annotations: org.junit.AfterClass,com.google.api.core.BetaApi,org.junit.BeforeClass,org.mockito.Mock,com.google.errorprone.annotations.concurrent.GuardedBy,org.junit.runner.RunWith,org.junit.Test,org.mockito.Captor,javax.annotation.Generated,org.junit.Rule,org.junit.After,org.mockito.Spy,org.junit.Before
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/BatchPublisherImplTest.java:[95,4] [deprecation] initMocks(Object) in MockitoAnnotations has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/v1/CursorServiceClientTest.java:[107,16] [deprecation] bidiStreamingCall(ApiStreamObserver<ResponseT>) in BidiStreamingCallable has been deprecated
+  where ResponseT,RequestT are type-variables:
+    ResponseT extends Object declared in class BidiStreamingCallable
+    RequestT extends Object declared in class BidiStreamingCallable
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/v1/CursorServiceClientTest.java:[128,16] [deprecation] bidiStreamingCall(ApiStreamObserver<ResponseT>) in BidiStreamingCallable has been deprecated
+  where ResponseT,RequestT are type-variables:
+    ResponseT extends Object declared in class BidiStreamingCallable
+    RequestT extends Object declared in class BidiStreamingCallable
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/cloudpubsub/internal/WrappingPublisherTest.java:[59,4] [deprecation] initMocks(Object) in MockitoAnnotations has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/SubscriberBuilderTest.java:[46,4] [deprecation] initMocks(Object) in MockitoAnnotations has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/it/ITVPCNegativeTest.java:[122,60] [deprecation] setScale(int) in Builder has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/SubscriberImplTest.java:[103,4] [deprecation] initMocks(Object) in MockitoAnnotations has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/v1/PartitionAssignmentServiceClientTest.java:[96,16] [deprecation] bidiStreamingCall(ApiStreamObserver<ResponseT>) in BidiStreamingCallable has been deprecated
+  where ResponseT,RequestT are type-variables:
+    ResponseT extends Object declared in class BidiStreamingCallable
+    RequestT extends Object declared in class BidiStreamingCallable
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/v1/PartitionAssignmentServiceClientTest.java:[117,16] [deprecation] bidiStreamingCall(ApiStreamObserver<ResponseT>) in BidiStreamingCallable has been deprecated
+  where ResponseT,RequestT are type-variables:
+    ResponseT extends Object declared in class BidiStreamingCallable
+    RequestT extends Object declared in class BidiStreamingCallable
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/DefaultRoutingPolicyTest.java:[44,43] [unchecked] unchecked conversion
+  required: Map<String,Double>
+  found:    Map
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/CursorClientImplTest.java:[112,4] [deprecation] initMocks(Object) in MockitoAnnotations has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/v1/PublisherServiceClientTest.java:[92,16] [deprecation] bidiStreamingCall(ApiStreamObserver<ResponseT>) in BidiStreamingCallable has been deprecated
+  where ResponseT,RequestT are type-variables:
+    ResponseT extends Object declared in class BidiStreamingCallable
+    RequestT extends Object declared in class BidiStreamingCallable
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/v1/PublisherServiceClientTest.java:[112,16] [deprecation] bidiStreamingCall(ApiStreamObserver<ResponseT>) in BidiStreamingCallable has been deprecated
+  where ResponseT,RequestT are type-variables:
+    ResponseT extends Object declared in class BidiStreamingCallable
+    RequestT extends Object declared in class BidiStreamingCallable
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/CommitterImplTest.java:[92,4] [deprecation] initMocks(Object) in MockitoAnnotations has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/CommitterImplTest.java:[109,4] [deprecation] verifyZeroInteractions(Object...) in Mockito has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/ConnectedSubscriberImplTest.java:[100,4] [deprecation] initMocks(Object) in MockitoAnnotations has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/PartitionCountWatchingPublisherTest.java:[71,4] [deprecation] initMocks(Object) in MockitoAnnotations has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/cloudpubsub/internal/AssigningSubscriberTest.java:[73,4] [deprecation] initMocks(Object) in MockitoAnnotations has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/ConnectedCommitterImplTest.java:[91,4] [deprecation] initMocks(Object) in MockitoAnnotations has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/ConnectedCommitterImplTest.java:[142,28] [try] auto-closeable resource ConnectedCommitter has a member method close() that could throw InterruptedException
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/ConnectedCommitterImplTest.java:[149,28] [try] auto-closeable resource ConnectedCommitter has a member method close() that could throw InterruptedException
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/ConnectedCommitterImplTest.java:[161,28] [try] auto-closeable resource ConnectedCommitter has a member method close() that could throw InterruptedException
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/v1/SubscriberServiceClientTest.java:[93,16] [deprecation] bidiStreamingCall(ApiStreamObserver<ResponseT>) in BidiStreamingCallable has been deprecated
+  where ResponseT,RequestT are type-variables:
+    ResponseT extends Object declared in class BidiStreamingCallable
+    RequestT extends Object declared in class BidiStreamingCallable
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/v1/SubscriberServiceClientTest.java:[114,16] [deprecation] bidiStreamingCall(ApiStreamObserver<ResponseT>) in BidiStreamingCallable has been deprecated
+  where ResponseT,RequestT are type-variables:
+    ResponseT extends Object declared in class BidiStreamingCallable
+    RequestT extends Object declared in class BidiStreamingCallable
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/cloudpubsub/PublisherSettingsTest.java:[61,4] [deprecation] initMocks(Object) in MockitoAnnotations has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/TopicStatsClientImplTest.java:[149,4] [deprecation] initMocks(Object) in MockitoAnnotations has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/RoutingPublisherTest.java:[59,4] [deprecation] initMocks(Object) in MockitoAnnotations has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/PublisherImplTest.java:[99,4] [deprecation] initMocks(Object) in MockitoAnnotations has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/PublisherImplTest.java:[134,4] [deprecation] verifyZeroInteractions(Object...) in Mockito has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/PublisherImplTest.java:[187,4] [deprecation] verifyZeroInteractions(Object...) in Mockito has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/PublisherImplTest.java:[188,4] [deprecation] verifyZeroInteractions(Object...) in Mockito has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/PublisherImplTest.java:[370,52] [unchecked] unchecked cast
+  required: Collection<PubSubMessage>
+  found:    Iterable<CAP#1>
+  where CAP#1 is a fresh type-variable:
+    CAP#1 extends Object from capture of ? extends Object
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/ConnectedAssignerImplTest.java:[84,22] [deprecation] initMocks(Object) in MockitoAnnotations has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/ConnectedAssignerImplTest.java:[131,27] [try] auto-closeable resource ConnectedAssigner has a member method close() that could throw InterruptedException
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/ConnectedAssignerImplTest.java:[138,27] [try] auto-closeable resource ConnectedAssigner has a member method close() that could throw InterruptedException
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/ConnectedAssignerImplTest.java:[148,9] [unchecked] unchecked generic array creation for varargs parameter of type ClientStream<PartitionAssignmentRequest>[]
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/ConnectedAssignerImplTest.java:[149,9] [unchecked] unchecked generic array creation for varargs parameter of type ResponseObserver<PartitionAssignment>[]
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/AssignerImplTest.java:[88,22] [deprecation] initMocks(Object) in MockitoAnnotations has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/BatchingCommitterTest.java:[54,4] [deprecation] initMocks(Object) in MockitoAnnotations has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/PartitionCountWatcherImplTest.java:[57,4] [deprecation] initMocks(Object) in MockitoAnnotations has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/SinglePartitionPublisherTest.java:[59,4] [deprecation] initMocks(Object) in MockitoAnnotations has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/AdminClientImplTest.java:[166,4] [deprecation] initMocks(Object) in MockitoAnnotations has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/cloudpubsub/internal/AckSetTrackerImplTest.java:[65,4] [deprecation] initMocks(Object) in MockitoAnnotations has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/cloudpubsub/internal/SinglePartitionSubscriberTest.java:[92,22] [deprecation] initMocks(Object) in MockitoAnnotations has been deprecated
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/cloudpubsub/internal/SinglePartitionSubscriberTest.java:[192,4] [rawtypes] found raw type: SettableApiFuture
+  missing type arguments for generic class SettableApiFuture<V>
+  where V is a type-variable:
+    V extends Object declared in class SettableApiFuture
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/cloudpubsub/internal/SinglePartitionSubscriberTest.java:[193,32] [unchecked] unchecked call to set(V) as a member of the raw type SettableApiFuture
+  where V is a type-variable:
+    V extends Object declared in class SettableApiFuture
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/cloudpubsub/MessageTransformsTest.java:[164,12] [unchecked] unchecked conversion
+  required: MessageTransformer<SequencedMessage,PubsubMessage>
+  found:    MessageTransformer
+[WARNING] /java-pubsublite/google-cloud-pubsublite/src/test/java/com/google/cloud/pubsublite/internal/wire/BatchPublisherImplTest.java:[154,28] [try] auto-closeable resource publisher is never referenced in body of corresponding try statement
+[INFO] 
+[INFO] --- animal-sniffer:1.20:check (java8) @ google-cloud-pubsublite ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- surefire:3.0.0-M5:test (default-test) @ google-cloud-pubsublite ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.google.cloud.pubsublite.v1.SubscriberServiceClientTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.693 s - in com.google.cloud.pubsublite.v1.SubscriberServiceClientTest
+[INFO] Running com.google.cloud.pubsublite.v1.CursorServiceClientTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.265 s - in com.google.cloud.pubsublite.v1.CursorServiceClientTest
+[INFO] Running com.google.cloud.pubsublite.v1.TopicStatsServiceClientTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 s - in com.google.cloud.pubsublite.v1.TopicStatsServiceClientTest
+[INFO] Running com.google.cloud.pubsublite.v1.PublisherServiceClientTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in com.google.cloud.pubsublite.v1.PublisherServiceClientTest
+[INFO] Running com.google.cloud.pubsublite.v1.PartitionAssignmentServiceClientTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.064 s - in com.google.cloud.pubsublite.v1.PartitionAssignmentServiceClientTest
+[INFO] Running com.google.cloud.pubsublite.v1.AdminServiceClientTest
+[INFO] Tests run: 68, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.886 s - in com.google.cloud.pubsublite.v1.AdminServiceClientTest
+[INFO] Running com.google.cloud.pubsublite.MessageMetadataTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s - in com.google.cloud.pubsublite.MessageMetadataTest
+[INFO] Running com.google.cloud.pubsublite.cloudpubsub.MessageTransformsTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.867 s - in com.google.cloud.pubsublite.cloudpubsub.MessageTransformsTest
+[INFO] Running com.google.cloud.pubsublite.cloudpubsub.SubscriberSettingsTest
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.47 s <<< FAILURE! - in com.google.cloud.pubsublite.cloudpubsub.SubscriberSettingsTest
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.SubscriberSettingsTest.testSettingsWithoutPartitons  Time elapsed: 0.209 s  <<< ERROR!
+java.lang.ExceptionInInitializerError
+	at com.google.cloud.pubsublite.cloudpubsub.SubscriberSettingsTest.testSettingsWithoutPartitons(SubscriberSettingsTest.java:72)
+Caused by: java.lang.IllegalStateException: 
+No logging platforms found:
+com.google.common.flogger.backend.system.DefaultPlatform: java.lang.NoSuchMethodError: 'java.lang.Object com.google.common.flogger.util.StaticMethodCaller.callGetterFromSystemProperty(java.lang.String, java.lang.Class)'
+	at com.google.cloud.pubsublite.cloudpubsub.SubscriberSettingsTest.testSettingsWithoutPartitons(SubscriberSettingsTest.java:72)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.SubscriberSettingsTest.testSettingsWithPartitons  Time elapsed: 0.257 s  <<< ERROR!
+com.google.api.gax.rpc.ApiException: 
+	at com.google.cloud.pubsublite.cloudpubsub.SubscriberSettingsTest.testSettingsWithPartitons(SubscriberSettingsTest.java:57)
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.google.common.flogger.backend.Platform$LazyHolder
+	at com.google.cloud.pubsublite.cloudpubsub.SubscriberSettingsTest.testSettingsWithPartitons(SubscriberSettingsTest.java:57)
+
+[INFO] Running com.google.cloud.pubsublite.cloudpubsub.PublisherSettingsTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.379 s <<< FAILURE! - in com.google.cloud.pubsublite.cloudpubsub.PublisherSettingsTest
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.PublisherSettingsTest.testSettings  Time elapsed: 0.376 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.ProxyService
+	at com.google.cloud.pubsublite.cloudpubsub.PublisherSettingsTest.testSettings(PublisherSettingsTest.java:71)
+
+[INFO] Running com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest
+[ERROR] Tests run: 8, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 0.214 s <<< FAILURE! - in com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest.onSubscriberResetWaitsForAckSetTracker  Time elapsed: 0.199 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.ProxyService
+	at com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest.setUp(SinglePartitionSubscriberTest.java:94)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest.multiMessageAck  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriber
+	at com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest.setUp(SinglePartitionSubscriberTest.java:94)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest.singleMessageNackHandlerFailedFuture  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriber
+	at com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest.setUp(SinglePartitionSubscriberTest.java:94)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest.singleMessageNackHandlerSuccessFuture  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriber
+	at com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest.setUp(SinglePartitionSubscriberTest.java:94)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest.singleMessageNackAfterShutdownNoNackHandler  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriber
+	at com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest.setUp(SinglePartitionSubscriberTest.java:94)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest.ackSetTrackerFailure  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriber
+	at com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest.setUp(SinglePartitionSubscriberTest.java:94)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest.wireSubscriberFailure  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriber
+	at com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest.setUp(SinglePartitionSubscriberTest.java:94)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest.singleMessageAck  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriber
+	at com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest.setUp(SinglePartitionSubscriberTest.java:94)
+
+[INFO] Running com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest
+[ERROR] Tests run: 8, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 0.112 s <<< FAILURE! - in com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest.startStop  Time elapsed: 0.103 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.ProxyService
+	at com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest.setUp(AssigningSubscriberTest.java:80)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest.assignmentHandlerReentrantSafe  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriber
+	at com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest.setUp(AssigningSubscriberTest.java:80)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest.stopStopsSubs  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriber
+	at com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest.setUp(AssigningSubscriberTest.java:80)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest.createAndEvict  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriber
+	at com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest.setUp(AssigningSubscriberTest.java:80)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest.assignerErrorFailsSubs  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriber
+	at com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest.setUp(AssigningSubscriberTest.java:80)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest.failedCreate  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriber
+	at com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest.setUp(AssigningSubscriberTest.java:80)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest.createSubscribers  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriber
+	at com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest.setUp(AssigningSubscriberTest.java:80)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest.assignmentHandlerFailure  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriber
+	at com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest.setUp(AssigningSubscriberTest.java:80)
+
+[INFO] Running com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest
+[ERROR] Tests run: 8, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 0.066 s <<< FAILURE! - in com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.waitUntilCommittedDiscardsPendingAcks  Time elapsed: 0.063 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.ProxyService
+	at com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.setUp(AckSetTrackerImplTest.java:66)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.waitUntilCommittedDiscardsPendingAcks  Time elapsed: 0.063 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.tearDown(AckSetTrackerImplTest.java:73)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.ackAfterShutdown  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImpl
+	at com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.setUp(AckSetTrackerImplTest.java:66)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.ackAfterShutdown  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.tearDown(AckSetTrackerImplTest.java:73)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.trackAndAggregateAcks  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImpl
+	at com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.setUp(AckSetTrackerImplTest.java:66)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.trackAndAggregateAcks  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.tearDown(AckSetTrackerImplTest.java:73)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.duplicateAckFails  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImpl
+	at com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.setUp(AckSetTrackerImplTest.java:66)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.duplicateAckFails  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.tearDown(AckSetTrackerImplTest.java:73)
+
+[INFO] Running com.google.cloud.pubsublite.cloudpubsub.internal.WrappingPublisherTest
+[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.062 s <<< FAILURE! - in com.google.cloud.pubsublite.cloudpubsub.internal.WrappingPublisherTest
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.WrappingPublisherTest.validPublish  Time elapsed: 0.059 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.WrappingPublisher
+	at com.google.cloud.pubsublite.cloudpubsub.internal.WrappingPublisherTest.setUp(WrappingPublisherTest.java:60)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.WrappingPublisherTest.validPublish  Time elapsed: 0.059 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.google.cloud.pubsublite.cloudpubsub.internal.WrappingPublisherTest.tearDown(WrappingPublisherTest.java:69)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.WrappingPublisherTest.badTimestampCannotBeTransformed  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.WrappingPublisher
+	at com.google.cloud.pubsublite.cloudpubsub.internal.WrappingPublisherTest.setUp(WrappingPublisherTest.java:60)
+
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.WrappingPublisherTest.badTimestampCannotBeTransformed  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.google.cloud.pubsublite.cloudpubsub.internal.WrappingPublisherTest.tearDown(WrappingPublisherTest.java:69)
+
+[INFO] Running com.google.cloud.pubsublite.internal.TopicStatsClientSettingsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s - in com.google.cloud.pubsublite.internal.TopicStatsClientSettingsTest
+[INFO] Running com.google.cloud.pubsublite.internal.wire.CommitterImplTest
+[ERROR] Tests run: 8, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 0.065 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.CommitterImplTest
+[ERROR] com.google.cloud.pubsublite.internal.wire.CommitterImplTest.construct_CallsFactoryNew  Time elapsed: 0.053 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.ProxyService
+	at com.google.cloud.pubsublite.internal.wire.CommitterImplTest.setUp(CommitterImplTest.java:100)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.CommitterImplTest.waitUntilEmptyReturnsOnShutdown  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.CommitterImpl
+	at com.google.cloud.pubsublite.internal.wire.CommitterImplTest.setUp(CommitterImplTest.java:100)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.CommitterImplTest.responseMoreThanSentError  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.CommitterImpl
+	at com.google.cloud.pubsublite.internal.wire.CommitterImplTest.setUp(CommitterImplTest.java:100)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.CommitterImplTest.stopWaitsForCommit  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.CommitterImpl
+	at com.google.cloud.pubsublite.internal.wire.CommitterImplTest.setUp(CommitterImplTest.java:100)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.CommitterImplTest.waitUntilEmptyReturnsWhenEmpty  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.CommitterImpl
+	at com.google.cloud.pubsublite.internal.wire.CommitterImplTest.setUp(CommitterImplTest.java:100)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.CommitterImplTest.waitUntilEmptyThrowsOnPermanentError  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.CommitterImpl
+	at com.google.cloud.pubsublite.internal.wire.CommitterImplTest.setUp(CommitterImplTest.java:100)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.CommitterImplTest.stopInCommitCallback  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.CommitterImpl
+	at com.google.cloud.pubsublite.internal.wire.CommitterImplTest.setUp(CommitterImplTest.java:100)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.CommitterImplTest.multipleSentCompletedInOrder  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.CommitterImpl
+	at com.google.cloud.pubsublite.internal.wire.CommitterImplTest.setUp(CommitterImplTest.java:100)
+
+[INFO] Running com.google.cloud.pubsublite.internal.wire.PublisherImplTest
+[ERROR] Tests run: 10, Failures: 0, Errors: 10, Skipped: 0, Time elapsed: 0.052 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.PublisherImplTest
+[ERROR] com.google.cloud.pubsublite.internal.wire.PublisherImplTest.construct_CallsFactoryNew  Time elapsed: 0.042 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.ProxyService
+	at com.google.cloud.pubsublite.internal.wire.PublisherImplTest.setUp(PublisherImplTest.java:113)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.PublisherImplTest.publishAfterError_IsError  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PublisherImpl
+	at com.google.cloud.pubsublite.internal.wire.PublisherImplTest.setUp(PublisherImplTest.java:113)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.PublisherImplTest.cancelOutstandingPublishes_terminatesFutures  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PublisherImpl
+	at com.google.cloud.pubsublite.internal.wire.PublisherImplTest.setUp(PublisherImplTest.java:113)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.PublisherImplTest.retryableError_RebatchesProperly  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PublisherImpl
+	at com.google.cloud.pubsublite.internal.wire.PublisherImplTest.setUp(PublisherImplTest.java:113)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.PublisherImplTest.construct_FlushSendsBatched  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PublisherImpl
+	at com.google.cloud.pubsublite.internal.wire.PublisherImplTest.setUp(PublisherImplTest.java:113)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.PublisherImplTest.multipleBatches_Ok  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PublisherImpl
+	at com.google.cloud.pubsublite.internal.wire.PublisherImplTest.setUp(PublisherImplTest.java:113)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.PublisherImplTest.invalidOffsetSequence_SetsPermanentException  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PublisherImpl
+	at com.google.cloud.pubsublite.internal.wire.PublisherImplTest.setUp(PublisherImplTest.java:113)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.PublisherImplTest.construct_CloseSendsBatched  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PublisherImpl
+	at com.google.cloud.pubsublite.internal.wire.PublisherImplTest.setUp(PublisherImplTest.java:113)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.PublisherImplTest.retryableError_RecreatesAndRetriesAll  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PublisherImpl
+	at com.google.cloud.pubsublite.internal.wire.PublisherImplTest.setUp(PublisherImplTest.java:113)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.PublisherImplTest.publishBeforeStart_IsPermanentError  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PublisherImpl
+	at com.google.cloud.pubsublite.internal.wire.PublisherImplTest.setUp(PublisherImplTest.java:113)
+
+[INFO] Running com.google.cloud.pubsublite.internal.wire.PublisherBuilderTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.PublisherBuilderTest
+[ERROR] com.google.cloud.pubsublite.internal.wire.PublisherBuilderTest.testBuilder  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PublisherImpl
+	at com.google.cloud.pubsublite.internal.wire.PublisherBuilderTest.testBuilder(PublisherBuilderTest.java:50)
+
+[INFO] Running com.google.cloud.pubsublite.internal.wire.PubsubContextTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in com.google.cloud.pubsublite.internal.wire.PubsubContextTest
+[INFO] Running com.google.cloud.pubsublite.internal.wire.VersionsTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in com.google.cloud.pubsublite.internal.wire.VersionsTest
+[INFO] Running com.google.cloud.pubsublite.internal.wire.CommitStateTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in com.google.cloud.pubsublite.internal.wire.CommitStateTest
+[INFO] Running com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest
+[ERROR] Tests run: 7, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.06 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest
+[ERROR] com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.responseAfterClose_Dropped  Time elapsed: 0.044 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.common.flogger.backend.Platform$LazyHolder
+	at com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.initialize(BatchPublisherImplTest.java:203)
+	at com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.responseAfterClose_Dropped(BatchPublisherImplTest.java:208)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.duplicateInitial_Abort  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.BatchPublisherImpl
+	at com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.initialize(BatchPublisherImplTest.java:203)
+	at com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.duplicateInitial_Abort(BatchPublisherImplTest.java:217)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.offsetResponseOutOfOrder_Exception  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.BatchPublisherImpl
+	at com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.initialize(BatchPublisherImplTest.java:203)
+	at com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.offsetResponseOutOfOrder_Exception(BatchPublisherImplTest.java:266)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.construct_SendsInitialThenError  Time elapsed: 0.007 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.BatchPublisherImpl
+	at com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.construct_SendsInitialThenError(BatchPublisherImplTest.java:171)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.construct_SendsInitialThenResponse  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.BatchPublisherImpl
+	at com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.construct_SendsInitialThenResponse(BatchPublisherImplTest.java:155)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.construct_SendsMessagePublishResponseError  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.BatchPublisherImpl
+	at com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.construct_SendsMessagePublishResponseError(BatchPublisherImplTest.java:181)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.offsetResponseInOrder_Ok  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.BatchPublisherImpl
+	at com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.initialize(BatchPublisherImplTest.java:203)
+	at com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.offsetResponseInOrder_Ok(BatchPublisherImplTest.java:234)
+
+[INFO] Running com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImplTest
+[ERROR] Tests run: 7, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImplTest
+[ERROR] com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImplTest.commitResponseProxied  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.SingleConnection
+	at com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImplTest.initialize(ConnectedCommitterImplTest.java:176)
+	at com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImplTest.commitResponseProxied(ConnectedCommitterImplTest.java:210)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImplTest.responseAfterClose_Dropped  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImpl
+	at com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImplTest.initialize(ConnectedCommitterImplTest.java:176)
+	at com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImplTest.responseAfterClose_Dropped(ConnectedCommitterImplTest.java:182)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImplTest.duplicateInitial_Abort  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImpl
+	at com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImplTest.initialize(ConnectedCommitterImplTest.java:176)
+	at com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImplTest.duplicateInitial_Abort(ConnectedCommitterImplTest.java:191)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImplTest.construct_SendsCommitResponseError  Time elapsed: 0.006 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImpl
+	at com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImplTest.construct_SendsCommitResponseError(ConnectedCommitterImplTest.java:162)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImplTest.construct_SendsInitialThenError  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImpl
+	at com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImplTest.construct_SendsInitialThenError(ConnectedCommitterImplTest.java:150)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImplTest.construct_SendsInitialThenResponse  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImpl
+	at com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImplTest.construct_SendsInitialThenResponse(ConnectedCommitterImplTest.java:143)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImplTest.commitRequestProxied  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImpl
+	at com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImplTest.initialize(ConnectedCommitterImplTest.java:176)
+	at com.google.cloud.pubsublite.internal.wire.ConnectedCommitterImplTest.commitRequestProxied(ConnectedCommitterImplTest.java:201)
+
+[INFO] Running com.google.cloud.pubsublite.internal.wire.ConnectedAssignerImplTest
+[ERROR] Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.ConnectedAssignerImplTest
+[ERROR] com.google.cloud.pubsublite.internal.wire.ConnectedAssignerImplTest.ackRequestProxied  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.SingleConnection
+	at com.google.cloud.pubsublite.internal.wire.ConnectedAssignerImplTest.initialize(ConnectedAssignerImplTest.java:146)
+	at com.google.cloud.pubsublite.internal.wire.ConnectedAssignerImplTest.ackRequestProxied(ConnectedAssignerImplTest.java:163)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.ConnectedAssignerImplTest.construct_SendsInitialThenError  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ConnectedAssignerImpl
+	at com.google.cloud.pubsublite.internal.wire.ConnectedAssignerImplTest.construct_SendsInitialThenError(ConnectedAssignerImplTest.java:139)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.ConnectedAssignerImplTest.assignmentResponseBeforeAckAborts  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ConnectedAssignerImpl
+	at com.google.cloud.pubsublite.internal.wire.ConnectedAssignerImplTest.initialize(ConnectedAssignerImplTest.java:146)
+	at com.google.cloud.pubsublite.internal.wire.ConnectedAssignerImplTest.assignmentResponseBeforeAckAborts(ConnectedAssignerImplTest.java:174)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.ConnectedAssignerImplTest.construct_SendsInitialThenResponse  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ConnectedAssignerImpl
+	at com.google.cloud.pubsublite.internal.wire.ConnectedAssignerImplTest.construct_SendsInitialThenResponse(ConnectedAssignerImplTest.java:132)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.ConnectedAssignerImplTest.assignmentResponseProxied  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ConnectedAssignerImpl
+	at com.google.cloud.pubsublite.internal.wire.ConnectedAssignerImplTest.initialize(ConnectedAssignerImplTest.java:146)
+	at com.google.cloud.pubsublite.internal.wire.ConnectedAssignerImplTest.assignmentResponseProxied(ConnectedAssignerImplTest.java:183)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.ConnectedAssignerImplTest.ackAfterClose_Dropped  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ConnectedAssignerImpl
+	at com.google.cloud.pubsublite.internal.wire.ConnectedAssignerImplTest.initialize(ConnectedAssignerImplTest.java:146)
+	at com.google.cloud.pubsublite.internal.wire.ConnectedAssignerImplTest.ackAfterClose_Dropped(ConnectedAssignerImplTest.java:154)
+
+[INFO] Running com.google.cloud.pubsublite.internal.wire.CommitterSettingsTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.CommitterSettingsTest
+[ERROR] com.google.cloud.pubsublite.internal.wire.CommitterSettingsTest.testBuilder  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ApiExceptionCommitter
+	at com.google.cloud.pubsublite.internal.wire.CommitterSettingsTest.testBuilder(CommitterSettingsTest.java:47)
+
+[INFO] Running com.google.cloud.pubsublite.internal.wire.SerialBatcherTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in com.google.cloud.pubsublite.internal.wire.SerialBatcherTest
+[INFO] Running com.google.cloud.pubsublite.internal.wire.FlowControlBatcherTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in com.google.cloud.pubsublite.internal.wire.FlowControlBatcherTest
+[INFO] Running com.google.cloud.pubsublite.internal.wire.AssignerSettingsTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.033 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.AssignerSettingsTest
+[ERROR] com.google.cloud.pubsublite.internal.wire.AssignerSettingsTest.testBuilder  Time elapsed: 0.006 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.AssignerSettings
+	at com.google.cloud.pubsublite.internal.wire.AssignerSettingsTest.testBuilder(AssignerSettingsTest.java:36)
+
+[INFO] Running com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisherTest
+[ERROR] Tests run: 11, Failures: 0, Errors: 11, Skipped: 0, Time elapsed: 0.213 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisherTest
+[ERROR] com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisherTest.testDecreaseIgnored  Time elapsed: 0.181 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.ProxyService
+	at com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisherTest.setUp(PartitionCountWatchingPublisherTest.java:93)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisherTest.testChildPublisherFailure  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisher
+	at com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisherTest.setUp(PartitionCountWatchingPublisherTest.java:93)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisherTest.testIncreaseSucceeds  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisher
+	at com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisherTest.setUp(PartitionCountWatchingPublisherTest.java:93)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisherTest.testFlush  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisher
+	at com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisherTest.setUp(PartitionCountWatchingPublisherTest.java:93)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisherTest.testStopWorksProperly  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisher
+	at com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisherTest.setUp(PartitionCountWatchingPublisherTest.java:93)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisherTest.testPublishWithBadRouting  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisher
+	at com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisherTest.setUp(PartitionCountWatchingPublisherTest.java:93)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisherTest.testPublishWithKey  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisher
+	at com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisherTest.setUp(PartitionCountWatchingPublisherTest.java:93)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisherTest.testNoopConfigUpdate  Time elapsed: 0.006 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisher
+	at com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisherTest.setUp(PartitionCountWatchingPublisherTest.java:93)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisherTest.testCancelOutstandingPublishes  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisher
+	at com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisherTest.setUp(PartitionCountWatchingPublisherTest.java:93)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisherTest.testStopAfterIncrease  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisher
+	at com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisherTest.setUp(PartitionCountWatchingPublisherTest.java:93)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisherTest.testPublishWithoutKey  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisher
+	at com.google.cloud.pubsublite.internal.wire.PartitionCountWatchingPublisherTest.setUp(PartitionCountWatchingPublisherTest.java:93)
+
+[INFO] Running com.google.cloud.pubsublite.internal.wire.SinglePartitionPublisherTest
+[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.061 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.SinglePartitionPublisherTest
+[ERROR] com.google.cloud.pubsublite.internal.wire.SinglePartitionPublisherTest.flushFlushesUnderlying  Time elapsed: 0.058 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.ProxyService
+	at com.google.cloud.pubsublite.internal.wire.SinglePartitionPublisherTest.setUp(SinglePartitionPublisherTest.java:80)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.SinglePartitionPublisherTest.publishResultTransformed  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.SinglePartitionPublisher
+	at com.google.cloud.pubsublite.internal.wire.SinglePartitionPublisherTest.setUp(SinglePartitionPublisherTest.java:80)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.SinglePartitionPublisherTest.cancelOutstandingCancelsUnderlyingPublishes  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.SinglePartitionPublisher
+	at com.google.cloud.pubsublite.internal.wire.SinglePartitionPublisherTest.setUp(SinglePartitionPublisherTest.java:80)
+
+[INFO] Running com.google.cloud.pubsublite.internal.wire.SubscriberBuilderTest
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.02 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.SubscriberBuilderTest
+[ERROR] com.google.cloud.pubsublite.internal.wire.SubscriberBuilderTest.testBuilder_omitOptionalFields  Time elapsed: 0.018 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.ProxyService
+	at com.google.cloud.pubsublite.internal.wire.SubscriberBuilderTest.testBuilder_omitOptionalFields(SubscriberBuilderTest.java:83)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.SubscriberBuilderTest.testBuilder_setAll  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.SubscriberImpl
+	at com.google.cloud.pubsublite.internal.wire.SubscriberBuilderTest.testBuilder_setAll(SubscriberBuilderTest.java:65)
+
+[INFO] Running com.google.cloud.pubsublite.internal.wire.BatchingCommitterTest
+[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.025 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.BatchingCommitterTest
+[ERROR] com.google.cloud.pubsublite.internal.wire.BatchingCommitterTest.waitUntilEmptyFlushes  Time elapsed: 0.023 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.ProxyService
+	at com.google.cloud.pubsublite.internal.wire.BatchingCommitterTest.setUp(BatchingCommitterTest.java:61)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.BatchingCommitterTest.batchesRequests  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.BatchingCommitter
+	at com.google.cloud.pubsublite.internal.wire.BatchingCommitterTest.setUp(BatchingCommitterTest.java:61)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.BatchingCommitterTest.shutdownFlushes  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.BatchingCommitter
+	at com.google.cloud.pubsublite.internal.wire.BatchingCommitterTest.setUp(BatchingCommitterTest.java:61)
+
+[INFO] Running com.google.cloud.pubsublite.internal.wire.SubscriberImplTest
+[ERROR] Tests run: 12, Failures: 0, Errors: 12, Skipped: 0, Time elapsed: 0.063 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.SubscriberImplTest
+[ERROR] com.google.cloud.pubsublite.internal.wire.SubscriberImplTest.invalidFlowThrows  Time elapsed: 0.042 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.SubscriberImpl
+	at com.google.cloud.pubsublite.internal.wire.SubscriberImplTest.setUp(SubscriberImplTest.java:117)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.SubscriberImplTest.messagesEmpty_IsError  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.SubscriberImpl
+	at com.google.cloud.pubsublite.internal.wire.SubscriberImplTest.setUp(SubscriberImplTest.java:117)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.SubscriberImplTest.messageBatchesOutOfOrder_IsError  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.SubscriberImpl
+	at com.google.cloud.pubsublite.internal.wire.SubscriberImplTest.setUp(SubscriberImplTest.java:117)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.SubscriberImplTest.anyFlowAllowedAndProxies  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.SubscriberImpl
+	at com.google.cloud.pubsublite.internal.wire.SubscriberImplTest.setUp(SubscriberImplTest.java:117)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.SubscriberImplTest.reinitialize_handlesResetFailure  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.SubscriberImpl
+	at com.google.cloud.pubsublite.internal.wire.SubscriberImplTest.setUp(SubscriberImplTest.java:117)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.SubscriberImplTest.reinitialize_reconnectsToNextOffset  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.SubscriberImpl
+	at com.google.cloud.pubsublite.internal.wire.SubscriberImplTest.setUp(SubscriberImplTest.java:117)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.SubscriberImplTest.messagesOrdered_Ok  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.SubscriberImpl
+	at com.google.cloud.pubsublite.internal.wire.SubscriberImplTest.setUp(SubscriberImplTest.java:117)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.SubscriberImplTest.messageResponseSubtracts  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.SubscriberImpl
+	at com.google.cloud.pubsublite.internal.wire.SubscriberImplTest.setUp(SubscriberImplTest.java:117)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.SubscriberImplTest.reinitialize_handlesSuccessfulReset  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.SubscriberImpl
+	at com.google.cloud.pubsublite.internal.wire.SubscriberImplTest.setUp(SubscriberImplTest.java:117)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.SubscriberImplTest.messagesUnordered_IsError  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.SubscriberImpl
+	at com.google.cloud.pubsublite.internal.wire.SubscriberImplTest.setUp(SubscriberImplTest.java:117)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.SubscriberImplTest.reinitialize_handlesIgnoredReset  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.SubscriberImpl
+	at com.google.cloud.pubsublite.internal.wire.SubscriberImplTest.setUp(SubscriberImplTest.java:117)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.SubscriberImplTest.batchesFlowControlRequests  Time elapsed: 0.006 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.SubscriberImpl
+	at com.google.cloud.pubsublite.internal.wire.SubscriberImplTest.setUp(SubscriberImplTest.java:117)
+
+[INFO] Running com.google.cloud.pubsublite.internal.wire.ResetSignalTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in com.google.cloud.pubsublite.internal.wire.ResetSignalTest
+[INFO] Running com.google.cloud.pubsublite.internal.wire.RoutingPublisherTest
+[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.046 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.RoutingPublisherTest
+[ERROR] com.google.cloud.pubsublite.internal.wire.RoutingPublisherTest.cancelOutstandingCancelsAll  Time elapsed: 0.043 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.ProxyService
+	at com.google.cloud.pubsublite.internal.wire.RoutingPublisherTest.setUp(RoutingPublisherTest.java:60)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.RoutingPublisherTest.publishInvalidRoute  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.RoutingPublisher
+	at com.google.cloud.pubsublite.internal.wire.RoutingPublisherTest.setUp(RoutingPublisherTest.java:60)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.RoutingPublisherTest.publishValidRoute  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.RoutingPublisher
+	at com.google.cloud.pubsublite.internal.wire.RoutingPublisherTest.setUp(RoutingPublisherTest.java:60)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.RoutingPublisherTest.flushFlushesAll  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.RoutingPublisher
+	at com.google.cloud.pubsublite.internal.wire.RoutingPublisherTest.setUp(RoutingPublisherTest.java:60)
+
+[INFO] Running com.google.cloud.pubsublite.internal.wire.PartitionCountWatcherImplTest
+[ERROR] Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.PartitionCountWatcherImplTest
+[ERROR] com.google.cloud.pubsublite.internal.wire.PartitionCountWatcherImplTest.testFirstCallFails  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.common.flogger.backend.Platform$LazyHolder
+	at com.google.cloud.pubsublite.internal.wire.PartitionCountWatcherImplTest.setUp(PartitionCountWatcherImplTest.java:60)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.PartitionCountWatcherImplTest.testFailuresAfterFirstSuccessIgnored  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PartitionCountWatcherImpl
+	at com.google.cloud.pubsublite.internal.wire.PartitionCountWatcherImplTest.setUp(PartitionCountWatcherImplTest.java:60)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.PartitionCountWatcherImplTest.testStopStopsAlarm  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PartitionCountWatcherImpl
+	at com.google.cloud.pubsublite.internal.wire.PartitionCountWatcherImplTest.setUp(PartitionCountWatcherImplTest.java:60)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.PartitionCountWatcherImplTest.testHandlerCalledOnUpdates  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PartitionCountWatcherImpl
+	at com.google.cloud.pubsublite.internal.wire.PartitionCountWatcherImplTest.setUp(PartitionCountWatcherImplTest.java:60)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.PartitionCountWatcherImplTest.testCallsHandlerOnStart  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PartitionCountWatcherImpl
+	at com.google.cloud.pubsublite.internal.wire.PartitionCountWatcherImplTest.setUp(PartitionCountWatcherImplTest.java:60)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.PartitionCountWatcherImplTest.testConsumerExcepts  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.PartitionCountWatcherImpl
+	at com.google.cloud.pubsublite.internal.wire.PartitionCountWatcherImplTest.setUp(PartitionCountWatcherImplTest.java:60)
+
+[INFO] Running com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest
+[ERROR] Tests run: 11, Failures: 0, Errors: 11, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest
+[ERROR] com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.emptyMessagesResponse_Abort  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.SingleConnection
+	at com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.initialize(ConnectedSubscriberImplTest.java:199)
+	at com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.emptyMessagesResponse_Abort(ConnectedSubscriberImplTest.java:230)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.allowFlowRequest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImpl
+	at com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.initialize(ConnectedSubscriberImplTest.java:199)
+	at com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.allowFlowRequest(ConnectedSubscriberImplTest.java:271)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.seekResponse_Aborts  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImpl
+	at com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.initialize(ConnectedSubscriberImplTest.java:199)
+	at com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.seekResponse_Aborts(ConnectedSubscriberImplTest.java:280)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.responseAfterClose_Dropped  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImpl
+	at com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.initialize(ConnectedSubscriberImplTest.java:199)
+	at com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.responseAfterClose_Dropped(ConnectedSubscriberImplTest.java:204)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.duplicateInitial_Abort  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImpl
+	at com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.initialize(ConnectedSubscriberImplTest.java:199)
+	at com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.duplicateInitial_Abort(ConnectedSubscriberImplTest.java:220)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.construct_SendsMessageResponseError  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImpl
+	at com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.construct_SendsMessageResponseError(ConnectedSubscriberImplTest.java:170)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.validMessagesResponse  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImpl
+	at com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.initialize(ConnectedSubscriberImplTest.java:199)
+	at com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.validMessagesResponse(ConnectedSubscriberImplTest.java:259)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.construct_SendsInitialThenError  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImpl
+	at com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.construct_SendsInitialThenError(ConnectedSubscriberImplTest.java:159)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.construct_SendsInitialThenResponse  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImpl
+	at com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.construct_SendsInitialThenResponse(ConnectedSubscriberImplTest.java:152)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.construct_SendsSeekResponseError  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImpl
+	at com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.construct_SendsSeekResponseError(ConnectedSubscriberImplTest.java:183)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.outOfOrderMessagesResponse_Abort  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImpl
+	at com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.initialize(ConnectedSubscriberImplTest.java:199)
+	at com.google.cloud.pubsublite.internal.wire.ConnectedSubscriberImplTest.outOfOrderMessagesResponse_Abort(ConnectedSubscriberImplTest.java:248)
+
+[INFO] Running com.google.cloud.pubsublite.internal.wire.AssignerImplTest
+[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.063 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.AssignerImplTest
+[ERROR] com.google.cloud.pubsublite.internal.wire.AssignerImplTest.construct_CallsFactoryNew  Time elapsed: 0.06 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.ProxyService
+	at com.google.cloud.pubsublite.internal.wire.AssignerImplTest.setUp(AssignerImplTest.java:96)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.AssignerImplTest.responseObserverFailure_Fails  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.AssignerImpl
+	at com.google.cloud.pubsublite.internal.wire.AssignerImplTest.setUp(AssignerImplTest.java:96)
+
+[ERROR] com.google.cloud.pubsublite.internal.wire.AssignerImplTest.delivery_CallsReceiver  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.AssignerImpl
+	at com.google.cloud.pubsublite.internal.wire.AssignerImplTest.setUp(AssignerImplTest.java:96)
+
+[INFO] Running com.google.cloud.pubsublite.internal.CloseableMonitorTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in com.google.cloud.pubsublite.internal.CloseableMonitorTest
+[INFO] Running com.google.cloud.pubsublite.internal.CursorClientSettingsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.google.cloud.pubsublite.internal.CursorClientSettingsTest
+[INFO] Running com.google.cloud.pubsublite.internal.BlockingPullSubscriberImplTest
+[ERROR] Tests run: 9, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.135 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.BlockingPullSubscriberImplTest
+[ERROR] com.google.cloud.pubsublite.internal.BlockingPullSubscriberImplTest.closeStops  Time elapsed: 0.05 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.common.flogger.backend.Platform$LazyHolder
+	at com.google.cloud.pubsublite.internal.BlockingPullSubscriberImplTest.closeStops(BlockingPullSubscriberImplTest.java:103)
+
+[INFO] Running com.google.cloud.pubsublite.internal.DefaultRoutingPolicyTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 s - in com.google.cloud.pubsublite.internal.DefaultRoutingPolicyTest
+[INFO] Running com.google.cloud.pubsublite.internal.CursorClientImplTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.13 s - in com.google.cloud.pubsublite.internal.CursorClientImplTest
+[INFO] Running com.google.cloud.pubsublite.internal.BufferingPullSubscriberTest
+[ERROR] Tests run: 6, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.039 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.BufferingPullSubscriberTest
+[ERROR] com.google.cloud.pubsublite.internal.BufferingPullSubscriberTest.closeStops  Time elapsed: 0.02 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ApiServiceUtils
+	at com.google.cloud.pubsublite.internal.BufferingPullSubscriberTest.closeStops(BufferingPullSubscriberTest.java:144)
+
+[INFO] Running com.google.cloud.pubsublite.internal.AdminClientImplTest
+[INFO] Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.425 s - in com.google.cloud.pubsublite.internal.AdminClientImplTest
+[INFO] Running com.google.cloud.pubsublite.internal.TopicStatsClientImplTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s - in com.google.cloud.pubsublite.internal.TopicStatsClientImplTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   PublisherSettingsTest.testSettings:71 » NoClassDefFound Could not initialize c...
+[ERROR]   SubscriberSettingsTest.testSettingsWithPartitons:57 » Api 
+[ERROR]   SubscriberSettingsTest.testSettingsWithoutPartitons:72 » ExceptionInInitializer
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.ackAfterShutdown
+[ERROR]   Run 1: AckSetTrackerImplTest.setUp:66 NoClassDefFound Could not initialize class com....
+[ERROR]   Run 2: AckSetTrackerImplTest.tearDown:73 NullPointer
+[INFO] 
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.duplicateAckFails
+[ERROR]   Run 1: AckSetTrackerImplTest.setUp:66 NoClassDefFound Could not initialize class com....
+[ERROR]   Run 2: AckSetTrackerImplTest.tearDown:73 NullPointer
+[INFO] 
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.trackAndAggregateAcks
+[ERROR]   Run 1: AckSetTrackerImplTest.setUp:66 NoClassDefFound Could not initialize class com....
+[ERROR]   Run 2: AckSetTrackerImplTest.tearDown:73 NullPointer
+[INFO] 
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.waitUntilCommittedDiscardsPendingAcks
+[ERROR]   Run 1: AckSetTrackerImplTest.setUp:66 NoClassDefFound Could not initialize class com....
+[ERROR]   Run 2: AckSetTrackerImplTest.tearDown:73 NullPointer
+[INFO] 
+[ERROR]   AssigningSubscriberTest.setUp:80 NoClassDefFound Could not initialize class co...
+[ERROR]   AssigningSubscriberTest.setUp:80 NoClassDefFound Could not initialize class co...
+[ERROR]   AssigningSubscriberTest.setUp:80 NoClassDefFound Could not initialize class co...
+[ERROR]   AssigningSubscriberTest.setUp:80 NoClassDefFound Could not initialize class co...
+[ERROR]   AssigningSubscriberTest.setUp:80 NoClassDefFound Could not initialize class co...
+[ERROR]   AssigningSubscriberTest.setUp:80 NoClassDefFound Could not initialize class co...
+[ERROR]   AssigningSubscriberTest.setUp:80 NoClassDefFound Could not initialize class co...
+[ERROR]   AssigningSubscriberTest.setUp:80 NoClassDefFound Could not initialize class co...
+[ERROR]   SinglePartitionSubscriberTest.setUp:94 NoClassDefFound Could not initialize cl...
+[ERROR]   SinglePartitionSubscriberTest.setUp:94 NoClassDefFound Could not initialize cl...
+[ERROR]   SinglePartitionSubscriberTest.setUp:94 NoClassDefFound Could not initialize cl...
+[ERROR]   SinglePartitionSubscriberTest.setUp:94 NoClassDefFound Could not initialize cl...
+[ERROR]   SinglePartitionSubscriberTest.setUp:94 NoClassDefFound Could not initialize cl...
+[ERROR]   SinglePartitionSubscriberTest.setUp:94 NoClassDefFound Could not initialize cl...
+[ERROR]   SinglePartitionSubscriberTest.setUp:94 NoClassDefFound Could not initialize cl...
+[ERROR]   SinglePartitionSubscriberTest.setUp:94 NoClassDefFound Could not initialize cl...
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.WrappingPublisherTest.badTimestampCannotBeTransformed
+[ERROR]   Run 1: WrappingPublisherTest.setUp:60 NoClassDefFound Could not initialize class com....
+[ERROR]   Run 2: WrappingPublisherTest.tearDown:69 NullPointer
+[INFO] 
+[ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.WrappingPublisherTest.validPublish
+[ERROR]   Run 1: WrappingPublisherTest.setUp:60 NoClassDefFound Could not initialize class com....
+[ERROR]   Run 2: WrappingPublisherTest.tearDown:69 NullPointer
+[INFO] 
+[ERROR]   BlockingPullSubscriberImplTest.closeStops:103 » NoClassDefFound Could not init...
+[ERROR]   BufferingPullSubscriberTest.closeStops:144 » NoClassDefFound Could not initial...
+[ERROR]   AssignerImplTest.setUp:96 NoClassDefFound Could not initialize class com.googl...
+[ERROR]   AssignerImplTest.setUp:96 NoClassDefFound Could not initialize class com.googl...
+[ERROR]   AssignerImplTest.setUp:96 NoClassDefFound Could not initialize class com.googl...
+[ERROR]   AssignerSettingsTest.testBuilder:36 NoClassDefFound Could not initialize class...
+[ERROR]   BatchPublisherImplTest.construct_SendsInitialThenError:171 » NoClassDefFound C...
+[ERROR]   BatchPublisherImplTest.construct_SendsInitialThenResponse:155 » NoClassDefFound
+[ERROR]   BatchPublisherImplTest.construct_SendsMessagePublishResponseError:181 » NoClassDefFound
+[ERROR]   BatchPublisherImplTest.duplicateInitial_Abort:217->initialize:203 » NoClassDefFound
+[ERROR]   BatchPublisherImplTest.offsetResponseInOrder_Ok:234->initialize:203 » NoClassDefFound
+[ERROR]   BatchPublisherImplTest.offsetResponseOutOfOrder_Exception:266->initialize:203 » NoClassDefFound
+[ERROR]   BatchPublisherImplTest.responseAfterClose_Dropped:208->initialize:203 » NoClassDefFound
+[ERROR]   BatchingCommitterTest.setUp:61 NoClassDefFound Could not initialize class com....
+[ERROR]   BatchingCommitterTest.setUp:61 NoClassDefFound Could not initialize class com....
+[ERROR]   BatchingCommitterTest.setUp:61 NoClassDefFound Could not initialize class com....
+[ERROR]   CommitterImplTest.setUp:100 NoClassDefFound Could not initialize class com.goo...
+[ERROR]   CommitterImplTest.setUp:100 NoClassDefFound Could not initialize class com.goo...
+[ERROR]   CommitterImplTest.setUp:100 NoClassDefFound Could not initialize class com.goo...
+[ERROR]   CommitterImplTest.setUp:100 NoClassDefFound Could not initialize class com.goo...
+[ERROR]   CommitterImplTest.setUp:100 NoClassDefFound Could not initialize class com.goo...
+[ERROR]   CommitterImplTest.setUp:100 NoClassDefFound Could not initialize class com.goo...
+[ERROR]   CommitterImplTest.setUp:100 NoClassDefFound Could not initialize class com.goo...
+[ERROR]   CommitterImplTest.setUp:100 NoClassDefFound Could not initialize class com.goo...
+[ERROR]   CommitterSettingsTest.testBuilder:47 » NoClassDefFound Could not initialize cl...
+[ERROR]   ConnectedAssignerImplTest.ackAfterClose_Dropped:154->initialize:146 » NoClassDefFound
+[ERROR]   ConnectedAssignerImplTest.ackRequestProxied:163->initialize:146 » NoClassDefFound
+[ERROR]   ConnectedAssignerImplTest.assignmentResponseBeforeAckAborts:174->initialize:146 » NoClassDefFound
+[ERROR]   ConnectedAssignerImplTest.assignmentResponseProxied:183->initialize:146 » NoClassDefFound
+[ERROR]   ConnectedAssignerImplTest.construct_SendsInitialThenError:139 » NoClassDefFound
+[ERROR]   ConnectedAssignerImplTest.construct_SendsInitialThenResponse:132 » NoClassDefFound
+[ERROR]   ConnectedCommitterImplTest.commitRequestProxied:201->initialize:176 » NoClassDefFound
+[ERROR]   ConnectedCommitterImplTest.commitResponseProxied:210->initialize:176 » NoClassDefFound
+[ERROR]   ConnectedCommitterImplTest.construct_SendsCommitResponseError:162 » NoClassDefFound
+[ERROR]   ConnectedCommitterImplTest.construct_SendsInitialThenError:150 » NoClassDefFound
+[ERROR]   ConnectedCommitterImplTest.construct_SendsInitialThenResponse:143 » NoClassDefFound
+[ERROR]   ConnectedCommitterImplTest.duplicateInitial_Abort:191->initialize:176 » NoClassDefFound
+[ERROR]   ConnectedCommitterImplTest.responseAfterClose_Dropped:182->initialize:176 » NoClassDefFound
+[ERROR]   ConnectedSubscriberImplTest.allowFlowRequest:271->initialize:199 » NoClassDefFound
+[ERROR]   ConnectedSubscriberImplTest.construct_SendsInitialThenError:159 » NoClassDefFound
+[ERROR]   ConnectedSubscriberImplTest.construct_SendsInitialThenResponse:152 » NoClassDefFound
+[ERROR]   ConnectedSubscriberImplTest.construct_SendsMessageResponseError:170 » NoClassDefFound
+[ERROR]   ConnectedSubscriberImplTest.construct_SendsSeekResponseError:183 » NoClassDefFound
+[ERROR]   ConnectedSubscriberImplTest.duplicateInitial_Abort:220->initialize:199 » NoClassDefFound
+[ERROR]   ConnectedSubscriberImplTest.emptyMessagesResponse_Abort:230->initialize:199 » NoClassDefFound
+[ERROR]   ConnectedSubscriberImplTest.outOfOrderMessagesResponse_Abort:248->initialize:199 » NoClassDefFound
+[ERROR]   ConnectedSubscriberImplTest.responseAfterClose_Dropped:204->initialize:199 » NoClassDefFound
+[ERROR]   ConnectedSubscriberImplTest.seekResponse_Aborts:280->initialize:199 » NoClassDefFound
+[ERROR]   ConnectedSubscriberImplTest.validMessagesResponse:259->initialize:199 » NoClassDefFound
+[ERROR]   PartitionCountWatcherImplTest.setUp:60 » NoClassDefFound Could not initialize ...
+[ERROR]   PartitionCountWatcherImplTest.setUp:60 » NoClassDefFound Could not initialize ...
+[ERROR]   PartitionCountWatcherImplTest.setUp:60 » NoClassDefFound Could not initialize ...
+[ERROR]   PartitionCountWatcherImplTest.setUp:60 » NoClassDefFound Could not initialize ...
+[ERROR]   PartitionCountWatcherImplTest.setUp:60 » NoClassDefFound Could not initialize ...
+[ERROR]   PartitionCountWatcherImplTest.setUp:60 » NoClassDefFound Could not initialize ...
+[ERROR]   PartitionCountWatchingPublisherTest.setUp:93 NoClassDefFound Could not initial...
+[ERROR]   PartitionCountWatchingPublisherTest.setUp:93 NoClassDefFound Could not initial...
+[ERROR]   PartitionCountWatchingPublisherTest.setUp:93 NoClassDefFound Could not initial...
+[ERROR]   PartitionCountWatchingPublisherTest.setUp:93 NoClassDefFound Could not initial...
+[ERROR]   PartitionCountWatchingPublisherTest.setUp:93 NoClassDefFound Could not initial...
+[ERROR]   PartitionCountWatchingPublisherTest.setUp:93 NoClassDefFound Could not initial...
+[ERROR]   PartitionCountWatchingPublisherTest.setUp:93 NoClassDefFound Could not initial...
+[ERROR]   PartitionCountWatchingPublisherTest.setUp:93 NoClassDefFound Could not initial...
+[ERROR]   PartitionCountWatchingPublisherTest.setUp:93 NoClassDefFound Could not initial...
+[ERROR]   PartitionCountWatchingPublisherTest.setUp:93 NoClassDefFound Could not initial...
+[ERROR]   PartitionCountWatchingPublisherTest.setUp:93 NoClassDefFound Could not initial...
+[ERROR]   PublisherBuilderTest.testBuilder:50 » NoClassDefFound Could not initialize cla...
+[ERROR]   PublisherImplTest.setUp:113 NoClassDefFound Could not initialize class com.goo...
+[ERROR]   PublisherImplTest.setUp:113 NoClassDefFound Could not initialize class com.goo...
+[ERROR]   PublisherImplTest.setUp:113 NoClassDefFound Could not initialize class com.goo...
+[ERROR]   PublisherImplTest.setUp:113 NoClassDefFound Could not initialize class com.goo...
+[ERROR]   PublisherImplTest.setUp:113 NoClassDefFound Could not initialize class com.goo...
+[ERROR]   PublisherImplTest.setUp:113 NoClassDefFound Could not initialize class com.goo...
+[ERROR]   PublisherImplTest.setUp:113 NoClassDefFound Could not initialize class com.goo...
+[ERROR]   PublisherImplTest.setUp:113 NoClassDefFound Could not initialize class com.goo...
+[ERROR]   PublisherImplTest.setUp:113 NoClassDefFound Could not initialize class com.goo...
+[ERROR]   PublisherImplTest.setUp:113 NoClassDefFound Could not initialize class com.goo...
+[ERROR]   RoutingPublisherTest.setUp:60 NoClassDefFound Could not initialize class com.g...
+[ERROR]   RoutingPublisherTest.setUp:60 NoClassDefFound Could not initialize class com.g...
+[ERROR]   RoutingPublisherTest.setUp:60 NoClassDefFound Could not initialize class com.g...
+[ERROR]   RoutingPublisherTest.setUp:60 NoClassDefFound Could not initialize class com.g...
+[ERROR]   SinglePartitionPublisherTest.setUp:80 » NoClassDefFound Could not initialize c...
+[ERROR]   SinglePartitionPublisherTest.setUp:80 » NoClassDefFound Could not initialize c...
+[ERROR]   SinglePartitionPublisherTest.setUp:80 » NoClassDefFound Could not initialize c...
+[ERROR]   SubscriberBuilderTest.testBuilder_omitOptionalFields:83 » NoClassDefFound Coul...
+[ERROR]   SubscriberBuilderTest.testBuilder_setAll:65 » NoClassDefFound Could not initia...
+[ERROR]   SubscriberImplTest.setUp:117 NoClassDefFound Could not initialize class com.go...
+[ERROR]   SubscriberImplTest.setUp:117 NoClassDefFound Could not initialize class com.go...
+[ERROR]   SubscriberImplTest.setUp:117 NoClassDefFound Could not initialize class com.go...
+[ERROR]   SubscriberImplTest.setUp:117 NoClassDefFound Could not initialize class com.go...
+[ERROR]   SubscriberImplTest.setUp:117 NoClassDefFound Could not initialize class com.go...
+[ERROR]   SubscriberImplTest.setUp:117 NoClassDefFound Could not initialize class com.go...
+[ERROR]   SubscriberImplTest.setUp:117 NoClassDefFound Could not initialize class com.go...
+[ERROR]   SubscriberImplTest.setUp:117 NoClassDefFound Could not initialize class com.go...
+[ERROR]   SubscriberImplTest.setUp:117 NoClassDefFound Could not initialize class com.go...
+[ERROR]   SubscriberImplTest.setUp:117 NoClassDefFound Could not initialize class com.go...
+[ERROR]   SubscriberImplTest.setUp:117 NoClassDefFound Could not initialize class com.go...
+[ERROR]   SubscriberImplTest.setUp:117 NoClassDefFound Could not initialize class com.go...
+[INFO] 
+[ERROR] Tests run: 331, Failures: 0, Errors: 123, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Google Cloud Pub/Sub Lite Parent 1.2.1-SNAPSHOT .... SUCCESS [  4.333 s]
+[INFO] proto-google-cloud-pubsublite-v1 1.2.1-SNAPSHOT .... SUCCESS [ 20.021 s]
+[INFO] grpc-google-cloud-pubsublite-v1 1.2.1-SNAPSHOT ..... SUCCESS [  7.643 s]
+[INFO] Google Cloud Pub/Sub Lite 1.2.1-SNAPSHOT ........... FAILURE [ 35.436 s]
+[INFO] Pub/Sub Lite IO 0.21.1-SNAPSHOT .................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:09 min
+[INFO] Finished at: 2026-01-05T05:57:49Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 9 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-checkstyle-plugin:3.1.2
+[WARNING]  * org.jacoco:jacoco-maven-plugin:0.8.7
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.8.1
+[WARNING]  * org.codehaus.mojo:flatten-maven-plugin:1.2.7
+[WARNING]  * org.codehaus.mojo:build-helper-maven-plugin:3.2.0
+[WARNING]  * org.codehaus.mojo:animal-sniffer-maven-plugin:1.20
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M3
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project google-cloud-pubsublite: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /java-pubsublite/google-cloud-pubsublite/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :google-cloud-pubsublite
+
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested

@@ -1,0 +1,207 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< edu.jiangxin.apktoolbox:ApkToolBoxGUI >----------------
+[INFO] Building ApkToolBoxGUI 1.0.1
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ ApkToolBoxGUI ---
+[INFO] Deleting /ApkToolBoxGUI/target
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default-prepare-agent) @ ApkToolBoxGUI ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/ApkToolBoxGUI/target/jacoco.exec
+[INFO] 
+[INFO] --- templating:1.0.0:filter-sources (filter-src) @ ApkToolBoxGUI ---
+[INFO] Coping files with filtering to temporary directory.
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copied 1 files to output directory: /ApkToolBoxGUI/target/generated-sources/java-templates
+[INFO] Source directory: /ApkToolBoxGUI/target/generated-sources/java-templates added.
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ ApkToolBoxGUI ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 6 resources
+[INFO] 
+[INFO] --- compiler:3.10.0:compile (default-compile) @ ApkToolBoxGUI ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 105 source files to /ApkToolBoxGUI/target/classes
+[WARNING] /ApkToolBoxGUI/src/main/java/edu/jiangxin/apktoolbox/swing/extend/filepanel/FilePanel.java:[130,55] unchecked cast
+  required: java.util.List<java.io.File>
+  found:    java.lang.Object
+[WARNING] /ApkToolBoxGUI/src/main/java/edu/jiangxin/apktoolbox/swing/extend/FileListPanel.java:[119,46] unchecked cast
+  required: java.util.List<java.io.File>
+  found:    java.lang.Object
+[WARNING] /ApkToolBoxGUI/src/main/java/edu/jiangxin/apktoolbox/file/duplicate/DuplicateFilesTableModel.java:[8,14] unchecked method invocation: constructor <init> in class javax.swing.table.DefaultTableModel is applied to given types
+  required: java.util.Vector<? extends java.util.Vector>,java.util.Vector<?>
+  found: java.util.Vector,java.util.Vector
+[WARNING] /ApkToolBoxGUI/src/main/java/edu/jiangxin/apktoolbox/file/duplicate/DuplicateFilesTableModel.java:[8,15] unchecked conversion
+  required: java.util.Vector<? extends java.util.Vector>
+  found:    java.util.Vector
+[WARNING] /ApkToolBoxGUI/src/main/java/edu/jiangxin/apktoolbox/main/MainFrame.java:[304,81] java.awt.Event in java.awt has been deprecated
+[WARNING] /ApkToolBoxGUI/src/main/java/edu/jiangxin/apktoolbox/main/MainFrame.java:[331,84] java.awt.Event in java.awt has been deprecated
+[WARNING] /ApkToolBoxGUI/src/main/java/edu/jiangxin/apktoolbox/main/MainFrame.java:[363,35] unchecked conversion
+  required: java.lang.Class<edu.jiangxin.apktoolbox.swing.extend.EasyPanel>
+  found:    java.lang.Class
+[WARNING] /ApkToolBoxGUI/src/main/java/edu/jiangxin/apktoolbox/main/MainFrame.java:[388,39] newInstance() in java.lang.Class has been deprecated
+[WARNING] /ApkToolBoxGUI/src/main/java/edu/jiangxin/apktoolbox/reverse/ApkSignerPanel.java:[302,53] getText() in javax.swing.JPasswordField has been deprecated
+[WARNING] /ApkToolBoxGUI/src/main/java/edu/jiangxin/apktoolbox/reverse/ApkSignerPanel.java:[324,47] getText() in javax.swing.JPasswordField has been deprecated
+[WARNING] /ApkToolBoxGUI/src/main/java/edu/jiangxin/apktoolbox/swing/treetable/MyTreeTableCellEditor.java:[31,81] getModifiers() in java.awt.event.InputEvent has been deprecated
+[WARNING] /ApkToolBoxGUI/src/main/java/edu/jiangxin/apktoolbox/convert/time/TimeConvertPanel.java:[255,30] unchecked call to JComboBox(E[]) as a member of the raw type javax.swing.JComboBox
+[WARNING] /ApkToolBoxGUI/src/main/java/edu/jiangxin/apktoolbox/convert/time/TimeConvertPanel.java:[261,31] unchecked call to JComboBox(E[]) as a member of the raw type javax.swing.JComboBox
+[WARNING] /ApkToolBoxGUI/src/main/java/edu/jiangxin/apktoolbox/utils/FileUtils.java:[58,80] ROUND_HALF_UP in java.math.BigDecimal has been deprecated
+[WARNING] /ApkToolBoxGUI/src/main/java/edu/jiangxin/apktoolbox/utils/FileUtils.java:[58,17] divide(java.math.BigDecimal,int,int) in java.math.BigDecimal has been deprecated
+[WARNING] /ApkToolBoxGUI/src/main/java/edu/jiangxin/apktoolbox/file/zhconvert/ZhConvertPanel.java:[102,25] unchecked call to addItem(E) as a member of the raw type javax.swing.JComboBox
+[WARNING] /ApkToolBoxGUI/src/main/java/edu/jiangxin/apktoolbox/file/zhconvert/ZhConvertPanel.java:[103,25] unchecked call to addItem(E) as a member of the raw type javax.swing.JComboBox
+[WARNING] /ApkToolBoxGUI/src/main/java/edu/jiangxin/apktoolbox/file/zhconvert/ZhConvertPanel.java:[211,34] unchecked call to setListData(E[]) as a member of the raw type javax.swing.JList
+[INFO] 
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ ApkToolBoxGUI ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 169 resources
+[INFO] 
+[INFO] --- compiler:3.10.0:testCompile (default-testCompile) @ ApkToolBoxGUI ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /ApkToolBoxGUI/target/test-classes
+[INFO] 
+[INFO] --- surefire:3.0.0-M5:test (default-test) @ ApkToolBoxGUI ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running edu.jiangxin.apktoolbox.convert.color.ColorUtilsTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.162 s - in edu.jiangxin.apktoolbox.convert.color.ColorUtilsTest
+[INFO] Running edu.jiangxin.encode.EncoderConvertTest
+[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.691 s <<< FAILURE! - in edu.jiangxin.encode.EncoderConvertTest
+[ERROR] edu.jiangxin.encode.EncoderConvertTest.testEncodeDir  Time elapsed: 0.684 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.impl.ThreadContextDataInjector
+	at edu.jiangxin.encode.EncoderConvertTest.testEncodeDir(EncoderConvertTest.java:53)
+
+[ERROR] edu.jiangxin.encode.EncoderConvertTest.testEncodeFile  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+	at edu.jiangxin.encode.EncoderConvertTest.testEncodeFile(EncoderConvertTest.java:39)
+
+[ERROR] edu.jiangxin.encode.EncoderConvertTest.testDetectEncode01  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class edu.jiangxin.apktoolbox.file.core.EncoderDetector
+	at edu.jiangxin.encode.EncoderConvertTest.testDetectEncode01(EncoderConvertTest.java:27)
+
+[ERROR] edu.jiangxin.encode.EncoderConvertTest.testDetectEncode02  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class edu.jiangxin.apktoolbox.file.core.EncoderDetector
+	at edu.jiangxin.encode.EncoderConvertTest.testDetectEncode02(EncoderConvertTest.java:33)
+
+[INFO] Running edu.jiangxin.common.FileUtilsTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in edu.jiangxin.common.FileUtilsTest
+[INFO] Running edu.jiangxin.common.OsPatternConvertTest
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.031 s <<< FAILURE! - in edu.jiangxin.common.OsPatternConvertTest
+[ERROR] edu.jiangxin.common.OsPatternConvertTest.testXxx2Xxx  Time elapsed: 0.023 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+	at edu.jiangxin.common.OsPatternConvertTest.testXxx2Xxx(OsPatternConvertTest.java:23)
+
+[ERROR] edu.jiangxin.common.OsPatternConvertTest.testOsDirConvert  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class edu.jiangxin.apktoolbox.file.core.OsPatternConvert
+	at edu.jiangxin.common.OsPatternConvertTest.testOsDirConvert(OsPatternConvertTest.java:34)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   OsPatternConvertTest.testOsDirConvert:34 NoClassDefFound Could not initialize ...
+[ERROR]   OsPatternConvertTest.testXxx2Xxx:23 » NoClassDefFound Could not initialize cla...
+[ERROR]   EncoderConvertTest.testDetectEncode01:27 NoClassDefFound Could not initialize ...
+[ERROR]   EncoderConvertTest.testDetectEncode02:33 NoClassDefFound Could not initialize ...
+[ERROR]   EncoderConvertTest.testEncodeDir:53 » NoClassDefFound Could not initialize cla...
+[ERROR]   EncoderConvertTest.testEncodeFile:39 » NoClassDefFound Could not initialize cl...
+[INFO] 
+[ERROR] Tests run: 13, Failures: 0, Errors: 6, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.711 s
+[INFO] Finished at: 2026-01-05T05:30:23Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 5 plugin(s)
+[WARNING] 
+[WARNING]  * org.codehaus.mojo:templating-maven-plugin:1.0.0
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.2.0
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.0
+[WARNING]  * org.jacoco:jacoco-maven-plugin:0.8.8
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project ApkToolBoxGUI: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /ApkToolBoxGUI/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ERROR StatusLogger Unable to create Lookup for ctx
+ java.lang.NoClassDefFoundError: org/apache/logging/log4j/util/ServiceLoaderUtil
+	at org.apache.logging.log4j.core.impl.ThreadContextDataInjector.getServiceProviders(ThreadContextDataInjector.java:77)
+	at org.apache.logging.log4j.core.impl.ThreadContextDataInjector.<clinit>(ThreadContextDataInjector.java:64)
+	at org.apache.logging.log4j.core.impl.ThreadContextDataInjector$ForCopyOnWriteThreadContextMap.<init>(ThreadContextDataInjector.java:211)
+	at org.apache.logging.log4j.core.impl.ContextDataInjectorFactory.createDefaultInjector(ContextDataInjectorFactory.java:94)
+	at org.apache.logging.log4j.core.impl.ContextDataInjectorFactory.createInjector(ContextDataInjectorFactory.java:71)
+	at org.apache.logging.log4j.core.lookup.ContextMapLookup.<init>(ContextMapLookup.java:34)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.apache.logging.log4j.core.util.ReflectionUtil.instantiate(ReflectionUtil.java:189)
+	at org.apache.logging.log4j.core.lookup.Interpolator.<init>(Interpolator.java:86)
+	at org.apache.logging.log4j.core.lookup.Interpolator.<init>(Interpolator.java:105)
+	at org.apache.logging.log4j.core.config.AbstractConfiguration.<init>(AbstractConfiguration.java:135)
+	at org.apache.logging.log4j.core.config.NullConfiguration.<init>(NullConfiguration.java:32)
+	at org.apache.logging.log4j.core.LoggerContext.<clinit>(LoggerContext.java:74)
+	at org.apache.logging.log4j.core.selector.ClassLoaderContextSelector.createContext(ClassLoaderContextSelector.java:254)
+	at org.apache.logging.log4j.core.selector.ClassLoaderContextSelector.locateContext(ClassLoaderContextSelector.java:218)
+	at org.apache.logging.log4j.core.selector.ClassLoaderContextSelector.getContext(ClassLoaderContextSelector.java:140)
+	at org.apache.logging.log4j.core.selector.ClassLoaderContextSelector.getContext(ClassLoaderContextSelector.java:123)
+	at org.apache.logging.log4j.core.impl.Log4jContextFactory.getContext(Log4jContextFactory.java:230)
+	at org.apache.logging.log4j.core.impl.Log4jContextFactory.getContext(Log4jContextFactory.java:47)
+	at org.apache.logging.log4j.LogManager.getContext(LogManager.java:176)
+	at org.apache.logging.log4j.LogManager.getLogger(LogManager.java:666)
+	at edu.jiangxin.apktoolbox.file.core.EncoderDetector.<clinit>(EncoderDetector.java:26)
+	at edu.jiangxin.encode.EncoderConvertTest.testEncodeDir(EncoderConvertTest.java:53)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+Caused by: java.lang.ClassNotFoundException: org.apache.logging.log4j.util.ServiceLoaderUtil
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	... 54 more

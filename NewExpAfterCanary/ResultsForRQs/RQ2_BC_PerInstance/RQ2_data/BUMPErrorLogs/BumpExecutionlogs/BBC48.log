@@ -1,0 +1,639 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 5 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 5 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] GAX (Google Api eXtensions) for Java (Parent)                      [pom]
+[INFO] GAX (Google Api eXtensions) for Java (Core)                        [jar]
+[INFO] GAX (Google Api eXtensions) for Java (gRPC)                        [jar]
+[INFO] GAX (Google Api eXtensions) for Java (HTTP JSON)                   [jar]
+[INFO] GAX (Google Api eXtensions) for Java (BOM)                         [pom]
+[INFO] 
+[INFO] ---------------------< com.google.api:gax-parent >----------------------
+[INFO] Building GAX (Google Api eXtensions) for Java (Parent) 2.20.1      [1/5]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ gax-parent ---
+[INFO] Deleting /gax-java/target
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce) @ gax-parent ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: META-INF/versions/*/module-info
+[INFO] 
+[INFO] --- checkstyle:3.2.0:check (checkstyle) @ gax-parent ---
+[INFO] Starting audit...
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- fmt:2.9:check (default) @ gax-parent ---
+[INFO] Skipping format check: project uses 'pom' packaging
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default) @ gax-parent ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/gax-java/target/jacoco.exec
+[INFO] 
+[INFO] --- build-helper:3.3.0:add-resource (add-main-proto-resources) @ gax-parent ---
+[INFO] 
+[INFO] --- build-helper:3.3.0:add-test-resource (add-test-proto-resources) @ gax-parent ---
+[INFO] 
+[INFO] --- animal-sniffer:1.22:check (java8) @ gax-parent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- jacoco:0.8.8:report (report) @ gax-parent ---
+[INFO] Skipping JaCoCo execution due to missing execution data file.
+[INFO] 
+[INFO] -------------------------< com.google.api:gax >-------------------------
+[INFO] Building GAX (Google Api eXtensions) for Java (Core) 2.20.1        [2/5]
+[INFO]   from gax/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ gax ---
+[INFO] Deleting /gax-java/gax/target
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce) @ gax ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: META-INF/versions/*/module-info
+[INFO] 
+[INFO] --- checkstyle:3.2.0:check (checkstyle) @ gax ---
+[INFO] Starting audit...
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- fmt:2.9:check (default) @ gax ---
+[INFO] Processed 100 files (0 non-complying).
+[INFO] Processed 200 files (0 non-complying).
+[INFO] Processed 300 files (0 non-complying).
+[INFO] Processed 306 files (0 non-complying).
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default) @ gax ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/gax-java/gax/target/jacoco.exec
+[INFO] 
+[INFO] --- build-helper:3.3.0:add-resource (add-main-proto-resources) @ gax ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ gax ---
+[INFO] Copying 3 resources
+[INFO] skip non existing resourceDirectory /gax-java/gax/src/main/proto
+[INFO] The encoding used to copy filtered properties files have not been set. This means that the same encoding will be used to copy filtered properties files as when copying other filtered resources. This might not be what you want! Run your build with --debug to see which files might be affected. Read more at https://maven.apache.org/plugins/maven-resources-plugin/examples/filtering-properties-files.html
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ gax ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 199 source files to /gax-java/gax/target/classes
+[WARNING] /gax-java/gax/src/main/java/com/google/api/gax/rpc/internal/QuotaProjectIdHidingCredentials.java:[32,34] com.google.api.client.util.Beta in com.google.api.client.util has been deprecated
+[WARNING] /gax-java/gax/src/main/java/com/google/api/gax/rpc/internal/QuotaProjectIdHidingCredentials.java:[32,34] com.google.api.client.util.Beta in com.google.api.client.util has been deprecated
+[WARNING] /gax-java/gax/src/main/java/com/google/api/gax/rpc/internal/QuotaProjectIdHidingCredentials.java:[32,34] com.google.api.client.util.Beta in com.google.api.client.util has been deprecated
+[WARNING] /gax-java/gax/src/main/java/com/google/api/gax/rpc/internal/QuotaProjectIdHidingCredentials.java:[32,34] com.google.api.client.util.Beta in com.google.api.client.util has been deprecated
+[WARNING] /gax-java/gax/src/main/java/com/google/api/gax/rpc/ClientContext.java:[182,33] needsExecutor() in com.google.api.gax.rpc.TransportChannelProvider has been deprecated
+[WARNING] /gax-java/gax/src/main/java/com/google/api/gax/rpc/ClientContext.java:[182,61] getExecutorProvider() in com.google.api.gax.rpc.StubSettings has been deprecated
+[WARNING] /gax-java/gax/src/main/java/com/google/api/gax/rpc/ClientContext.java:[183,58] withExecutor(java.util.concurrent.ScheduledExecutorService) in com.google.api.gax.rpc.TransportChannelProvider has been deprecated
+[WARNING] /gax-java/gax/src/main/java/com/google/api/gax/tracing/BaseApiTracer.java:[84,15] attemptStarted(int) in com.google.api.gax.tracing.ApiTracer has been deprecated
+[WARNING] /gax-java/gax/src/main/java/com/google/api/gax/retrying/ExponentialRetryAlgorithm.java:[254,39] isJittered() in com.google.api.gax.retrying.RetrySettings has been deprecated
+[WARNING] /gax-java/gax/src/main/java/com/google/api/gax/rpc/internal/QuotaProjectIdHidingCredentials.java:[46,2] com.google.api.client.util.Beta in com.google.api.client.util has been deprecated
+[WARNING] /gax-java/gax/src/main/java/com/google/api/gax/rpc/internal/QuotaProjectIdHidingCredentials.java:[46,2] com.google.api.client.util.Beta in com.google.api.client.util has been deprecated
+[WARNING] /gax-java/gax/src/main/java/com/google/api/gax/rpc/internal/QuotaProjectIdHidingCredentials.java:[46,2] com.google.api.client.util.Beta in com.google.api.client.util has been deprecated
+[WARNING] /gax-java/gax/src/main/java/com/google/api/gax/rpc/internal/QuotaProjectIdHidingCredentials.java:[46,2] com.google.api.client.util.Beta in com.google.api.client.util has been deprecated
+[WARNING] /gax-java/gax/src/main/java/com/google/api/gax/rpc/internal/ApiCallContextOptions.java:[77,27] unchecked cast
+  required: T
+  found:    java.lang.Object
+[WARNING] /gax-java/gax/src/main/java/com/google/api/gax/retrying/StreamingRetryAlgorithm.java:[78,31] createNextAttempt(java.lang.Throwable,ResponseT,com.google.api.gax.retrying.TimedAttemptSettings) in com.google.api.gax.retrying.RetryAlgorithm has been deprecated
+[WARNING] /gax-java/gax/src/main/java/com/google/api/gax/retrying/StreamingRetryAlgorithm.java:[123,18] shouldRetry(java.lang.Throwable,ResponseT,com.google.api.gax.retrying.TimedAttemptSettings) in com.google.api.gax.retrying.RetryAlgorithm has been deprecated
+[WARNING] /gax-java/gax/src/main/java/com/google/api/gax/rpc/FixedTransportChannelProvider.java:[61,40] withExecutor(java.util.concurrent.ScheduledExecutorService) in com.google.api.gax.rpc.TransportChannelProvider has been deprecated
+[WARNING] /gax-java/gax/src/main/java/com/google/api/gax/rpc/FixedTransportChannelProvider.java:[56,18] needsExecutor() in com.google.api.gax.rpc.TransportChannelProvider has been deprecated
+[WARNING] /gax-java/gax/src/main/java/com/google/api/gax/rpc/CheckingAttemptCallable.java:[81,11] attemptStarted(int) in com.google.api.gax.tracing.ApiTracer has been deprecated
+[WARNING] /gax-java/gax/target/generated-sources/annotations/com/google/api/gax/retrying/AutoValue_RetrySettings.java:[123,35] isJittered() in com.google.api.gax.retrying.RetrySettings has been deprecated
+[WARNING] /gax-java/gax/target/generated-sources/annotations/com/google/api/gax/retrying/AutoValue_RetrySettings.java:[259,34] setJittered(boolean) in com.google.api.gax.retrying.RetrySettings.Builder has been deprecated
+[WARNING] /gax-java/gax/target/generated-sources/annotations/com/google/api/gax/retrying/AutoValue_RetrySettings.java:[181,29] isJittered() in com.google.api.gax.retrying.RetrySettings has been deprecated
+[INFO] 
+[INFO] --- build-helper:3.3.0:add-test-resource (add-test-proto-resources) @ gax ---
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ gax ---
+[INFO] Copying 3 resources
+[INFO] skip non existing resourceDirectory /gax-java/gax/src/test/proto
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ gax ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 107 source files to /gax-java/gax/target/test-classes
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/tracing/OpencensusTracerFactoryTest.java:[48,34] io.opencensus.trace.unsafe.ContextUtils in io.opencensus.trace.unsafe has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/tracing/OpencensusTracerFactoryTest.java:[48,34] io.opencensus.trace.unsafe.ContextUtils in io.opencensus.trace.unsafe has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/tracing/OpencensusTracerFactoryTest.java:[48,34] io.opencensus.trace.unsafe.ContextUtils in io.opencensus.trace.unsafe has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/tracing/OpencensusTracerFactoryTest.java:[48,34] io.opencensus.trace.unsafe.ContextUtils in io.opencensus.trace.unsafe has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/batching/BatcherImplTest.java:[848,32] unchecked method invocation: method forClass in class org.mockito.ArgumentCaptor is applied to given types
+  required: java.lang.Class<S>
+  found: java.lang.Class<com.google.api.gax.rpc.ApiCallContext.Key>
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/batching/BatcherImplTest.java:[848,32] unchecked conversion
+  required: org.mockito.ArgumentCaptor<com.google.api.gax.rpc.ApiCallContext.Key<java.lang.Long>>
+  found:    org.mockito.ArgumentCaptor
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/PagedCallSettingsTest.java:[84,13] setJittered(boolean) in com.google.api.gax.retrying.RetrySettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/PagedCallSettingsTest.java:[117,13] setJittered(boolean) in com.google.api.gax.retrying.RetrySettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/ClientContextTest.java:[172,37] withPoolSize(int) in com.google.api.gax.rpc.TransportChannelProvider has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/ClientContextTest.java:[167,20] acceptsPoolSize() in com.google.api.gax.rpc.TransportChannelProvider has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/ClientContextTest.java:[135,37] withExecutor(java.util.concurrent.ScheduledExecutorService) in com.google.api.gax.rpc.TransportChannelProvider has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/ClientContextTest.java:[130,20] needsExecutor() in com.google.api.gax.rpc.TransportChannelProvider has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/ClientContextTest.java:[256,12] setExecutorProvider(com.google.api.gax.core.ExecutorProvider) in com.google.api.gax.rpc.ClientSettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/ClientContextTest.java:[326,12] setExecutorProvider(com.google.api.gax.core.ExecutorProvider) in com.google.api.gax.rpc.ClientSettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/ClientContextTest.java:[485,12] setExecutorProvider(com.google.api.gax.core.ExecutorProvider) in com.google.api.gax.rpc.ClientSettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/ClientContextTest.java:[520,12] setExecutorProvider(com.google.api.gax.core.ExecutorProvider) in com.google.api.gax.rpc.ClientSettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/ClientContextTest.java:[544,13] setExecutorProvider(com.google.api.gax.core.ExecutorProvider) in com.google.api.gax.rpc.ClientSettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/ClientContextTest.java:[567,13] setExecutorProvider(com.google.api.gax.core.ExecutorProvider) in com.google.api.gax.rpc.ClientSettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/ClientContextTest.java:[590,13] setExecutorProvider(com.google.api.gax.core.ExecutorProvider) in com.google.api.gax.rpc.ClientSettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/ClientContextTest.java:[755,12] setExecutorProvider(com.google.api.gax.core.ExecutorProvider) in com.google.api.gax.rpc.ClientSettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/ClientContextTest.java:[764,12] setExecutorProvider(com.google.api.gax.core.ExecutorProvider) in com.google.api.gax.rpc.ClientSettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/ServerStreamingCallSettingsTest.java:[75,13] setJittered(boolean) in com.google.api.gax.retrying.RetrySettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/ServerStreamingCallSettingsTest.java:[111,13] setJittered(boolean) in com.google.api.gax.retrying.RetrySettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/ClientSettingsTest.java:[112,29] getExecutorProvider() in com.google.api.gax.rpc.ClientSettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/ClientSettingsTest.java:[126,30] getExecutorProvider() in com.google.api.gax.rpc.ClientSettings has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/ClientSettingsTest.java:[127,34] getExecutorProvider() in com.google.api.gax.rpc.ClientSettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/ClientSettingsTest.java:[169,12] setExecutorProvider(com.google.api.gax.core.ExecutorProvider) in com.google.api.gax.rpc.ClientSettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/ClientSettingsTest.java:[180,29] getExecutorProvider() in com.google.api.gax.rpc.ClientSettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/ClientSettingsTest.java:[232,29] getExecutorProvider() in com.google.api.gax.rpc.ClientSettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/ClientSettingsTest.java:[235,29] getExecutorProvider() in com.google.api.gax.rpc.ClientSettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/ClientSettingsTest.java:[263,12] setExecutorProvider(com.google.api.gax.core.ExecutorProvider) in com.google.api.gax.rpc.ClientSettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/ClientSettingsTest.java:[276,32] getExecutorProvider() in com.google.api.gax.rpc.ClientSettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/OperationCallableImplTest.java:[100,11] setJittered(boolean) in com.google.api.gax.retrying.RetrySettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/BatchingCallSettingsTest.java:[94,13] setJittered(boolean) in com.google.api.gax.retrying.RetrySettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/BatchingCallSettingsTest.java:[138,13] setJittered(boolean) in com.google.api.gax.retrying.RetrySettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/UnaryCallSettingsTest.java:[86,13] setJittered(boolean) in com.google.api.gax.retrying.RetrySettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/UnaryCallSettingsTest.java:[123,13] setJittered(boolean) in com.google.api.gax.retrying.RetrySettings.Builder has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/WatchdogTest.java:[142,19] unchecked method invocation: method call in class com.google.api.gax.rpc.ServerStreamingCallable is applied to given types
+  required: RequestT,com.google.api.gax.rpc.ResponseObserver<ResponseT>
+  found: java.lang.String,com.google.api.gax.rpc.ResponseObserver
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/WatchdogTest.java:[142,31] unchecked conversion
+  required: com.google.api.gax.rpc.ResponseObserver<ResponseT>
+  found:    com.google.api.gax.rpc.ResponseObserver
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/WatchdogTest.java:[283,20] unchecked method invocation: method thenReturn in interface org.mockito.stubbing.OngoingStubbing is applied to given types
+  required: T
+  found: java.util.concurrent.ScheduledFuture
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/WatchdogTest.java:[283,21] unchecked conversion
+  required: T
+  found:    java.util.concurrent.ScheduledFuture
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/tracing/OpencensusTracerFactoryTest.java:[95,27] io.opencensus.trace.unsafe.ContextUtils in io.opencensus.trace.unsafe has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/tracing/OpencensusTracerFactoryTest.java:[132,27] io.opencensus.trace.unsafe.ContextUtils in io.opencensus.trace.unsafe has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/FixedTransportChannelProviderTest.java:[91,30] acceptsPoolSize() in com.google.api.gax.rpc.FixedTransportChannelProvider has been deprecated
+[WARNING] /gax-java/gax/src/test/java/com/google/api/gax/rpc/FixedTransportChannelProviderTest.java:[95,15] withPoolSize(int) in com.google.api.gax.rpc.FixedTransportChannelProvider has been deprecated
+[INFO] 
+[INFO] --- animal-sniffer:1.22:check (java8) @ gax ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- surefire:3.0.0-M7:test (default-test) @ gax ---
+[INFO] Using configured provider org.apache.maven.surefire.junitcore.JUnitCoreProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.google.api.gax.longrunning.OperationFuturesTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.226 s - in com.google.api.gax.longrunning.OperationFuturesTest
+[INFO] Running com.google.api.gax.core.GaxPropertiesTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in com.google.api.gax.core.GaxPropertiesTest
+[INFO] Running com.google.api.gax.core.DistributionTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in com.google.api.gax.core.DistributionTest
+[INFO] Running com.google.api.gax.core.GoogleCredentialsProviderTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.509 s - in com.google.api.gax.core.GoogleCredentialsProviderTest
+[INFO] Running com.google.api.gax.tracing.TracedBidiCallableTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.914 s - in com.google.api.gax.tracing.TracedBidiCallableTest
+[INFO] Running com.google.api.gax.tracing.TracedServerStreamingCallableTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.567 s - in com.google.api.gax.tracing.TracedServerStreamingCallableTest
+[INFO] Running com.google.api.gax.tracing.TracedOperationCallableTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.42 s - in com.google.api.gax.tracing.TracedOperationCallableTest
+[INFO] Running com.google.api.gax.tracing.OpencensusTracerFactoryTest
+[ERROR] Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.63 s <<< FAILURE! - in com.google.api.gax.tracing.OpencensusTracerFactoryTest
+[ERROR] com.google.api.gax.tracing.OpencensusTracerFactoryTest.testImplicitParentSpan  Time elapsed: 0.13 s  <<< FAILURE!
+Argument(s) are different! Wanted:
+internalTracer.spanBuilderWithExplicitParent(
+    <any string>,
+    same(Mock for Span, hashCode: 1504123887)
+);
+-> at com.google.api.gax.tracing.OpencensusTracerFactoryTest.testImplicitParentSpan(OpencensusTracerFactoryTest.java:106)
+Actual invocations have different arguments at position [1]:
+internalTracer.getCurrentSpan(
+    
+);
+-> at com.google.api.gax.tracing.OpencensusTracerFactory.newTracer(OpencensusTracerFactory.java:101)
+internalTracer.spanBuilderWithExplicitParent(
+    "FakeClient.FakeMethod",
+    null
+);
+-> at com.google.api.gax.tracing.OpencensusTracerFactory.newTracer(OpencensusTracerFactory.java:110)
+
+	at com.google.api.gax.tracing.OpencensusTracerFactoryTest.testImplicitParentSpan(OpencensusTracerFactoryTest.java:106)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junitcore.JUnitCore.run(JUnitCore.java:55)
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.createRequestAndRun(JUnitCoreWrapper.java:137)
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.executeEager(JUnitCoreWrapper.java:107)
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.execute(JUnitCoreWrapper.java:83)
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.execute(JUnitCoreWrapper.java:75)
+	at org.apache.maven.surefire.junitcore.JUnitCoreProvider.invoke(JUnitCoreProvider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
+
+[INFO] Running com.google.api.gax.tracing.TracedBatchingCallableTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.738 s - in com.google.api.gax.tracing.TracedBatchingCallableTest
+[INFO] Running com.google.api.gax.tracing.TracedCallableTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.183 s - in com.google.api.gax.tracing.TracedCallableTest
+[INFO] Running com.google.api.gax.tracing.OpencensusTracerTest
+[ERROR] Tests run: 12, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.071 s <<< FAILURE! - in com.google.api.gax.tracing.OpencensusTracerTest
+[ERROR] com.google.api.gax.tracing.OpencensusTracerTest.testLongRunningExample  Time elapsed: 0.01 s  <<< FAILURE!
+Argument(s) are different! Wanted:
+span.addAnnotation(
+    "Operation started",
+    {}
+);
+-> at com.google.api.gax.tracing.OpencensusTracerTest.testLongRunningExample(OpencensusTracerTest.java:158)
+Actual invocations have different arguments at positions [0, 1]:
+span.addAnnotation(
+    "Scheduling next poll",
+    {"delay ms" = AttributeValueLong{longValue=5}, "attempt" = AttributeValueLong{longValue=0}, "status" = AttributeValueString{stringValue=OK}}
+);
+-> at com.google.api.gax.tracing.OpencensusTracer.attemptFailed(OpencensusTracer.java:353)
+span.addAnnotation(
+    "Operation started"
+);
+-> at com.google.api.gax.tracing.OpencensusTracer.lroStartSucceeded(OpencensusTracer.java:290)
+span.addAnnotation(
+    "Polling completed",
+    {"attempt" = AttributeValueLong{longValue=1}}
+);
+-> at com.google.api.gax.tracing.OpencensusTracer.attemptSucceeded(OpencensusTracer.java:323)
+span.putAttributes(
+    {"attempt count" = AttributeValueLong{longValue=2}}
+);
+-> at com.google.api.gax.tracing.OpencensusTracer.operationSucceeded(OpencensusTracer.java:254)
+span.end(
+    
+);
+-> at com.google.api.gax.tracing.OpencensusTracer.operationSucceeded(OpencensusTracer.java:255)
+
+	at com.google.api.gax.tracing.OpencensusTracerTest.testLongRunningExample(OpencensusTracerTest.java:158)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junitcore.JUnitCore.run(JUnitCore.java:55)
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.createRequestAndRun(JUnitCoreWrapper.java:137)
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.executeEager(JUnitCoreWrapper.java:107)
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.execute(JUnitCoreWrapper.java:83)
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.execute(JUnitCoreWrapper.java:75)
+	at org.apache.maven.surefire.junitcore.JUnitCoreProvider.invoke(JUnitCoreProvider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
+
+[INFO] Running com.google.api.gax.tracing.TraceFinisherTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in com.google.api.gax.tracing.TraceFinisherTest
+[INFO] Running com.google.api.gax.tracing.TracedUnaryCallableTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in com.google.api.gax.tracing.TracedUnaryCallableTest
+[INFO] Running com.google.api.gax.tracing.TracedClientStreamingCallableTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in com.google.api.gax.tracing.TracedClientStreamingCallableTest
+[INFO] Running com.google.api.gax.batching.Semaphore64Test
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.636 s - in com.google.api.gax.batching.Semaphore64Test
+[INFO] Running com.google.api.gax.batching.DynamicFlowControlSettingsTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in com.google.api.gax.batching.DynamicFlowControlSettingsTest
+[INFO] Running com.google.api.gax.batching.FlowControllerTest
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.298 s - in com.google.api.gax.batching.FlowControllerTest
+[INFO] Running com.google.api.gax.batching.ThresholdBatcherTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.739 s - in com.google.api.gax.batching.ThresholdBatcherTest
+[INFO] Running com.google.api.gax.batching.FlowControlEventStatsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.google.api.gax.batching.FlowControlEventStatsTest
+[INFO] Running com.google.api.gax.batching.BatcherImplTest
+[ERROR] Tests run: 24, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 18.252 s <<< FAILURE! - in com.google.api.gax.batching.BatcherImplTest
+[ERROR] com.google.api.gax.batching.BatcherImplTest.testThrottlingBlocking  Time elapsed: 0.775 s  <<< FAILURE!
+org.mockito.exceptions.verification.TooFewActualInvocations: 
+
+apiCallContext.withOption(
+    <Capturing argument: Key>,
+    <Capturing argument: Long>
+);
+Wanted 1 time:
+-> at com.google.api.gax.batching.BatcherImplTest.testThrottlingBlocking(BatcherImplTest.java:897)
+But was 0 times.
+
+	at com.google.api.gax.batching.BatcherImplTest.testThrottlingBlocking(BatcherImplTest.java:897)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junitcore.JUnitCore.run(JUnitCore.java:55)
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.createRequestAndRun(JUnitCoreWrapper.java:137)
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.executeEager(JUnitCoreWrapper.java:107)
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.execute(JUnitCoreWrapper.java:83)
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.execute(JUnitCoreWrapper.java:75)
+	at org.apache.maven.surefire.junitcore.JUnitCoreProvider.invoke(JUnitCoreProvider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
+
+[INFO] Running com.google.api.gax.batching.BatchingCallSettingsTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in com.google.api.gax.batching.BatchingCallSettingsTest
+[INFO] Running com.google.api.gax.batching.BatcherStatsTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in com.google.api.gax.batching.BatcherStatsTest
+[INFO] Running com.google.api.gax.retrying.ExponentialRetryAlgorithmTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in com.google.api.gax.retrying.ExponentialRetryAlgorithmTest
+[INFO] Running com.google.api.gax.retrying.RetrySettingsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in com.google.api.gax.retrying.RetrySettingsTest
+[INFO] Running com.google.api.gax.retrying.NoopRetryingContextTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in com.google.api.gax.retrying.NoopRetryingContextTest
+[INFO] Running com.google.api.gax.retrying.BasicRetryingFutureTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.475 s - in com.google.api.gax.retrying.BasicRetryingFutureTest
+[INFO] Running com.google.api.gax.retrying.ScheduledRetryingExecutorTest
+[INFO] Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.737 s - in com.google.api.gax.retrying.ScheduledRetryingExecutorTest
+[INFO] Running com.google.api.gax.retrying.RetryAlgorithmTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.971 s - in com.google.api.gax.retrying.RetryAlgorithmTest
+[INFO] Running com.google.api.gax.retrying.DirectRetryingExecutorTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.219 s - in com.google.api.gax.retrying.DirectRetryingExecutorTest
+[INFO] Running com.google.api.gax.rpc.SpoolingCallableTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in com.google.api.gax.rpc.SpoolingCallableTest
+[INFO] Running com.google.api.gax.rpc.AuthCallableTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.676 s - in com.google.api.gax.rpc.AuthCallableTest
+[INFO] Running com.google.api.gax.rpc.ServerStreamTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.061 s - in com.google.api.gax.rpc.ServerStreamTest
+[INFO] Running com.google.api.gax.rpc.BatchingTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in com.google.api.gax.rpc.BatchingTest
+[INFO] Running com.google.api.gax.rpc.ApiClientHeaderProviderTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in com.google.api.gax.rpc.ApiClientHeaderProviderTest
+[INFO] Running com.google.api.gax.rpc.BatchTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in com.google.api.gax.rpc.BatchTest
+[INFO] Running com.google.api.gax.rpc.FixedTransportChannelProviderTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in com.google.api.gax.rpc.FixedTransportChannelProviderTest
+[INFO] Running com.google.api.gax.rpc.ServerStreamingAttemptCallableTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.446 s - in com.google.api.gax.rpc.ServerStreamingAttemptCallableTest
+[INFO] Running com.google.api.gax.rpc.PagedCallSettingsTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.611 s - in com.google.api.gax.rpc.PagedCallSettingsTest
+[INFO] Running com.google.api.gax.rpc.StreamingCallableTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.091 s - in com.google.api.gax.rpc.StreamingCallableTest
+[INFO] Running com.google.api.gax.rpc.UnaryCallableTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in com.google.api.gax.rpc.UnaryCallableTest
+[INFO] Running com.google.api.gax.rpc.WatchdogTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.356 s - in com.google.api.gax.rpc.WatchdogTest
+[INFO] Running com.google.api.gax.rpc.mtls.MtlsProviderTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.494 s - in com.google.api.gax.rpc.mtls.MtlsProviderTest
+[INFO] Running com.google.api.gax.rpc.ApiExceptionsTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in com.google.api.gax.rpc.ApiExceptionsTest
+[INFO] Running com.google.api.gax.rpc.OperationCallSettingsTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in com.google.api.gax.rpc.OperationCallSettingsTest
+[INFO] Running com.google.api.gax.rpc.BatcherFactoryTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in com.google.api.gax.rpc.BatcherFactoryTest
+[INFO] Running com.google.api.gax.rpc.ServerStreamingCallSettingsTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in com.google.api.gax.rpc.ServerStreamingCallSettingsTest
+[INFO] Running com.google.api.gax.rpc.BatchedRequestIssuerTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in com.google.api.gax.rpc.BatchedRequestIssuerTest
+[INFO] Running com.google.api.gax.rpc.ApiResultRetryAlgorithmTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.537 s - in com.google.api.gax.rpc.ApiResultRetryAlgorithmTest
+[INFO] Running com.google.api.gax.rpc.UnaryCallSettingsTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in com.google.api.gax.rpc.UnaryCallSettingsTest
+[INFO] Running com.google.api.gax.rpc.ErrorDetailsTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.358 s - in com.google.api.gax.rpc.ErrorDetailsTest
+[INFO] Running com.google.api.gax.rpc.BatchExecutorTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in com.google.api.gax.rpc.BatchExecutorTest
+[INFO] Running com.google.api.gax.rpc.ApiExceptionTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in com.google.api.gax.rpc.ApiExceptionTest
+[INFO] Running com.google.api.gax.rpc.ServerStreamingCallableTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.756 s - in com.google.api.gax.rpc.ServerStreamingCallableTest
+[INFO] Running com.google.api.gax.rpc.CallableTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.128 s - in com.google.api.gax.rpc.CallableTest
+[INFO] Running com.google.api.gax.rpc.AttemptCallableTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.68 s - in com.google.api.gax.rpc.AttemptCallableTest
+[INFO] Running com.google.api.gax.rpc.PagingTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.108 s - in com.google.api.gax.rpc.PagingTest
+[INFO] Running com.google.api.gax.rpc.RetryingTest
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.919 s - in com.google.api.gax.rpc.RetryingTest
+[INFO] Running com.google.api.gax.rpc.FirstElementCallableTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in com.google.api.gax.rpc.FirstElementCallableTest
+[INFO] Running com.google.api.gax.rpc.FixedWatchdogProviderTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.547 s - in com.google.api.gax.rpc.FixedWatchdogProviderTest
+[INFO] Running com.google.api.gax.rpc.RequestParamsBuilderTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.178 s - in com.google.api.gax.rpc.RequestParamsBuilderTest
+[INFO] Running com.google.api.gax.rpc.InstantiatingWatchdogProviderTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in com.google.api.gax.rpc.InstantiatingWatchdogProviderTest
+[INFO] Running com.google.api.gax.rpc.ApiExceptionFactoryTest
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in com.google.api.gax.rpc.ApiExceptionFactoryTest
+[INFO] Running com.google.api.gax.rpc.RequestUrlParamsEncoderTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.672 s - in com.google.api.gax.rpc.RequestUrlParamsEncoderTest
+[INFO] Running com.google.api.gax.rpc.TranslatingUnaryCallableTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in com.google.api.gax.rpc.TranslatingUnaryCallableTest
+[INFO] Running com.google.api.gax.rpc.CancellationTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.884 s - in com.google.api.gax.rpc.CancellationTest
+[INFO] Running com.google.api.gax.rpc.ClientContextTest
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.353 s - in com.google.api.gax.rpc.ClientContextTest
+[INFO] Running com.google.api.gax.rpc.internal.ApiCallContextOptionsTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in com.google.api.gax.rpc.internal.ApiCallContextOptionsTest
+[INFO] Running com.google.api.gax.rpc.internal.HeadersTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in com.google.api.gax.rpc.internal.HeadersTest
+[INFO] Running com.google.api.gax.rpc.internal.QuotaProjectIdHidingCredentialsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in com.google.api.gax.rpc.internal.QuotaProjectIdHidingCredentialsTest
+[INFO] Running com.google.api.gax.rpc.PagedCallableTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in com.google.api.gax.rpc.PagedCallableTest
+[INFO] Running com.google.api.gax.rpc.BidiStreamingCallableTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in com.google.api.gax.rpc.BidiStreamingCallableTest
+[INFO] Running com.google.api.gax.rpc.BatchingCallableTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in com.google.api.gax.rpc.BatchingCallableTest
+[INFO] Running com.google.api.gax.rpc.OperationCallableImplTest
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.768 s - in com.google.api.gax.rpc.OperationCallableImplTest
+[INFO] Running com.google.api.gax.rpc.BatchedFutureTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in com.google.api.gax.rpc.BatchedFutureTest
+[INFO] Running com.google.api.gax.rpc.ClientSettingsTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.842 s - in com.google.api.gax.rpc.ClientSettingsTest
+[INFO] Running com.google.api.gax.rpc.FixedHeaderProviderTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in com.google.api.gax.rpc.FixedHeaderProviderTest
+[INFO] Running com.google.api.gax.rpc.BatchingCallSettingsTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.372 s - in com.google.api.gax.rpc.BatchingCallSettingsTest
+[INFO] Running com.google.api.gax.rpc.StreamingRetryAlgorithmTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.121 s - in com.google.api.gax.rpc.StreamingRetryAlgorithmTest
+[INFO] Running com.google.api.gax.rpc.CheckingAttemptCallableTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.098 s - in com.google.api.gax.rpc.CheckingAttemptCallableTest
+[INFO] Running com.google.api.gax.paging.PagesTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in com.google.api.gax.paging.PagesTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   BatcherImplTest.testThrottlingBlocking:897 
+apiCallContext.withOption(
+    <Capturing argument: Key>,
+    <Capturing argument: Long>
+);
+Wanted 1 time:
+-> at com.google.api.gax.batching.BatcherImplTest.testThrottlingBlocking(BatcherImplTest.java:897)
+But was 0 times.
+
+[ERROR]   OpencensusTracerFactoryTest.testImplicitParentSpan:106 
+Argument(s) are different! Wanted:
+internalTracer.spanBuilderWithExplicitParent(
+    <any string>,
+    same(Mock for Span, hashCode: 1504123887)
+);
+-> at com.google.api.gax.tracing.OpencensusTracerFactoryTest.testImplicitParentSpan(OpencensusTracerFactoryTest.java:106)
+Actual invocations have different arguments at position [1]:
+internalTracer.getCurrentSpan(
+    
+);
+-> at com.google.api.gax.tracing.OpencensusTracerFactory.newTracer(OpencensusTracerFactory.java:101)
+internalTracer.spanBuilderWithExplicitParent(
+    "FakeClient.FakeMethod",
+    null
+);
+-> at com.google.api.gax.tracing.OpencensusTracerFactory.newTracer(OpencensusTracerFactory.java:110)
+
+[ERROR]   OpencensusTracerTest.testLongRunningExample:158 
+Argument(s) are different! Wanted:
+span.addAnnotation(
+    "Operation started",
+    {}
+);
+-> at com.google.api.gax.tracing.OpencensusTracerTest.testLongRunningExample(OpencensusTracerTest.java:158)
+Actual invocations have different arguments at positions [0, 1]:
+span.addAnnotation(
+    "Scheduling next poll",
+    {"delay ms" = AttributeValueLong{longValue=5}, "attempt" = AttributeValueLong{longValue=0}, "status" = AttributeValueString{stringValue=OK}}
+);
+-> at com.google.api.gax.tracing.OpencensusTracer.attemptFailed(OpencensusTracer.java:353)
+span.addAnnotation(
+    "Operation started"
+);
+-> at com.google.api.gax.tracing.OpencensusTracer.lroStartSucceeded(OpencensusTracer.java:290)
+span.addAnnotation(
+    "Polling completed",
+    {"attempt" = AttributeValueLong{longValue=1}}
+);
+-> at com.google.api.gax.tracing.OpencensusTracer.attemptSucceeded(OpencensusTracer.java:323)
+span.putAttributes(
+    {"attempt count" = AttributeValueLong{longValue=2}}
+);
+-> at com.google.api.gax.tracing.OpencensusTracer.operationSucceeded(OpencensusTracer.java:254)
+span.end(
+    
+);
+-> at com.google.api.gax.tracing.OpencensusTracer.operationSucceeded(OpencensusTracer.java:255)
+
+[INFO] 
+[ERROR] Tests run: 529, Failures: 3, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] GAX (Google Api eXtensions) for Java (Parent) 2.20.1 SUCCESS [  3.039 s]
+[INFO] GAX (Google Api eXtensions) for Java (Core) 2.20.1 . FAILURE [01:19 min]
+[INFO] GAX (Google Api eXtensions) for Java (gRPC) 2.20.1 . SKIPPED
+[INFO] GAX (Google Api eXtensions) for Java (HTTP JSON) 0.105.1 SKIPPED
+[INFO] GAX (Google Api eXtensions) for Java (BOM) 2.20.1 .. SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:24 min
+[INFO] Finished at: 2026-01-05T04:03:44Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 8 plugin(s)
+[WARNING] 
+[WARNING]  * org.jacoco:jacoco-maven-plugin:0.8.8
+[WARNING]  * org.codehaus.mojo:build-helper-maven-plugin:3.3.0
+[WARNING]  * org.codehaus.mojo:animal-sniffer-maven-plugin:1.22
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.1.0
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7
+[WARNING]  * com.coveo:fmt-maven-plugin:2.9
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project gax: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /gax-java/gax/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :gax
+
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested

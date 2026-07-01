@@ -1,0 +1,1410 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Quarkus Micrometer Registry - Parent                               [pom]
+[INFO] Quarkus Micrometer Registry - Azure Monitor - Parent               [pom]
+[INFO] Quarkus Micrometer Registry - Azure Monitor - Runtime              [jar]
+[INFO] Quarkus Micrometer Registry - Azure Monitor - Deployment           [jar]
+[INFO] Quarkus Micrometer Registry - Datadog - Parent                     [pom]
+[INFO] Quarkus Micrometer Registry - Datadog - Runtime                    [jar]
+[INFO] Quarkus Micrometer Registry - Datadog - Deployment                 [jar]
+[INFO] Quarkus Micrometer Registry - JMX - Parent                         [pom]
+[INFO] Quarkus Micrometer Registry - JMX - Runtime                        [jar]
+[INFO] Quarkus Micrometer Registry - JMX - Deployment                     [jar]
+[INFO] Quarkus Micrometer Registry - New Relic - Parent                   [pom]
+[INFO] Quarkus Micrometer Registry - New Relic - Runtime                  [jar]
+[INFO] Quarkus Micrometer Registry - New Relic - Deployment               [jar]
+[INFO] Quarkus Micrometer Registry - SignalFX - Parent                    [pom]
+[INFO] Quarkus Micrometer Registry - SignalFX - Runtime                   [jar]
+[INFO] Quarkus Micrometer Registry - SignalFX - Deployment                [jar]
+[INFO] Quarkus Micrometer Registry - Stackdriver - Parent                 [pom]
+[INFO] Quarkus Micrometer Registry - Stackdriver - Runtime                [jar]
+[INFO] Quarkus Micrometer Registry - Stackdriver - Deployment             [jar]
+[INFO] Quarkus Micrometer Registry - StatsD - Parent                      [pom]
+[INFO] Quarkus Micrometer Registry - StatsD - Runtime                     [jar]
+[INFO] Quarkus Micrometer Registry - StatsD - Deployment                  [jar]
+[INFO] Quarkus Micrometer Registry - Documentation                        [jar]
+[INFO] Quarkus Micrometer Registry - Integration Test - Parent            [pom]
+[INFO] Quarkus Micrometer Registry - Integration Test - JMX               [jar]
+[INFO] Quarkus Micrometer Registry - Integration Test - Native            [jar]
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-parent >--
+[INFO] Building Quarkus Micrometer Registry - Parent 199-SNAPSHOT        [1/26]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-parent ---
+[INFO] Deleting /quarkus-micrometer-registry/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-parent ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-parent ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-parent ---
+[INFO] Executing: /bin/sh -c cd '/quarkus-micrometer-registry' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /quarkus-micrometer-registry
+[INFO] Storing buildNumber: UNKNOWN at timestamp: 1767583608192
+[INFO] Executing: /bin/sh -c cd '/quarkus-micrometer-registry' && 'git' 'symbolic-ref' 'HEAD'
+[INFO] Working directory: /quarkus-micrometer-registry
+[WARNING] Cannot get the branch information from the git repository: 
+Detecting the current branch failed: fatal: not a git repository (or any of the parent directories): .git
+
+[INFO] Executing: /bin/sh -c cd '/quarkus-micrometer-registry' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /quarkus-micrometer-registry
+[INFO] Storing scmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-parent ---
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-parent ---
+[INFO] Processed 0 files in 00:00.002 (Already Sorted: 0, Needed Sorting: 0)
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-azure-monitor-parent >--
+[INFO] Building Quarkus Micrometer Registry - Azure Monitor - Parent 199-SNAPSHOT [2/26]
+[INFO]   from micrometer-registry-azure-monitor/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-azure-monitor-parent ---
+[INFO] Deleting /quarkus-micrometer-registry/micrometer-registry-azure-monitor/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-azure-monitor-parent ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-azure-monitor-parent ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-azure-monitor-parent ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-azure-monitor-parent ---
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-azure-monitor-parent ---
+[INFO] Processed 0 files in 00:00.000 (Already Sorted: 0, Needed Sorting: 0)
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-azure-monitor >--
+[INFO] Building Quarkus Micrometer Registry - Azure Monitor - Runtime 199-SNAPSHOT [3/26]
+[INFO]   from micrometer-registry-azure-monitor/runtime/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-azure-monitor ---
+[INFO] Deleting /quarkus-micrometer-registry/micrometer-registry-azure-monitor/runtime/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-azure-monitor ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-azure-monitor ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-azure-monitor ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-azure-monitor ---
+[INFO] Processed 2 files in 1s10ms (Formatted: 0, Skipped: 0, Unchanged: 2, Failed: 0, Readonly: 0)
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-azure-monitor ---
+[INFO] Processed 2 files in 00:00.262 (Already Sorted: 2, Needed Sorting: 0)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ quarkus-micrometer-registry-azure-monitor ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ quarkus-micrometer-registry-azure-monitor ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 2 source files with javac [debug deprecation release 11] to target/classes
+[INFO] 
+[INFO] --- quarkus-bootstrap:1.13.7.Final:extension-descriptor (default) @ quarkus-micrometer-registry-azure-monitor ---
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quarkus-micrometer-registry-azure-monitor ---
+[INFO] skip non existing resourceDirectory /quarkus-micrometer-registry/micrometer-registry-azure-monitor/runtime/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ quarkus-micrometer-registry-azure-monitor ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ quarkus-micrometer-registry-azure-monitor ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-azure-monitor-deployment >--
+[INFO] Building Quarkus Micrometer Registry - Azure Monitor - Deployment 199-SNAPSHOT [4/26]
+[INFO]   from micrometer-registry-azure-monitor/deployment/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-azure-monitor-deployment ---
+[INFO] Deleting /quarkus-micrometer-registry/micrometer-registry-azure-monitor/deployment/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-azure-monitor-deployment ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-azure-monitor-deployment ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-azure-monitor-deployment ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-azure-monitor-deployment ---
+[INFO] Processed 4 files in 246ms (Formatted: 0, Skipped: 0, Unchanged: 4, Failed: 0, Readonly: 0)
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-azure-monitor-deployment ---
+[INFO] Processed 4 files in 00:00.092 (Already Sorted: 4, Needed Sorting: 0)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ quarkus-micrometer-registry-azure-monitor-deployment ---
+[INFO] skip non existing resourceDirectory /quarkus-micrometer-registry/micrometer-registry-azure-monitor/deployment/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ quarkus-micrometer-registry-azure-monitor-deployment ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 1 source file with javac [debug deprecation release 11] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quarkus-micrometer-registry-azure-monitor-deployment ---
+[INFO] Copying 1 resource from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ quarkus-micrometer-registry-azure-monitor-deployment ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 3 source files with javac [debug deprecation release 11] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ quarkus-micrometer-registry-azure-monitor-deployment ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running io.quarkiverse.micrometer.registry.azuremonitor.deployment.AzureMonitorEnabledInvalidTest
+2026-01-05 03:27:03,460 ERROR [io.qua.mic.run.exp.ConfigAdapter] (main) quarkus.micrometer.export.azuremonitor.instrumentation-key is required
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.102 s -- in io.quarkiverse.micrometer.registry.azuremonitor.deployment.AzureMonitorEnabledInvalidTest
+[INFO] Running io.quarkiverse.micrometer.registry.azuremonitor.deployment.AzureMonitorEnabledTest
+2026-01-05 03:27:05,925 INFO  [io.mic.cor.ins.pus.PushMeterRegistry] (main) publishing metrics for AzureMonitorMeterRegistry every 1m
+2026-01-05 03:27:06,213 INFO  [io.quarkus] (main) Quarkus 1.13.7.Final on JVM started in 3.291s. Listening on: http://localhost:8081
+2026-01-05 03:27:06,213 INFO  [io.quarkus] (main) Profile test activated. 
+2026-01-05 03:27:06,213 INFO  [io.quarkus] (main) Installed features: [cdi, micrometer]
+2026-01-05 03:27:06,662 INFO  [io.quarkus] (main) Quarkus stopped in 0.423s
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.982 s -- in io.quarkiverse.micrometer.registry.azuremonitor.deployment.AzureMonitorEnabledTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-datadog-parent >--
+[INFO] Building Quarkus Micrometer Registry - Datadog - Parent 199-SNAPSHOT [5/26]
+[INFO]   from micrometer-registry-datadog/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-datadog-parent ---
+[INFO] Deleting /quarkus-micrometer-registry/micrometer-registry-datadog/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-datadog-parent ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-datadog-parent ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-datadog-parent ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-datadog-parent ---
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-datadog-parent ---
+[INFO] Processed 0 files in 00:00.000 (Already Sorted: 0, Needed Sorting: 0)
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-datadog >--
+[INFO] Building Quarkus Micrometer Registry - Datadog - Runtime 199-SNAPSHOT [6/26]
+[INFO]   from micrometer-registry-datadog/runtime/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-datadog ---
+[INFO] Deleting /quarkus-micrometer-registry/micrometer-registry-datadog/runtime/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-datadog ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-datadog ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-datadog ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-datadog ---
+[INFO] Processed 2 files in 151ms (Formatted: 0, Skipped: 0, Unchanged: 2, Failed: 0, Readonly: 0)
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-datadog ---
+[INFO] Processed 2 files in 00:00.052 (Already Sorted: 2, Needed Sorting: 0)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ quarkus-micrometer-registry-datadog ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ quarkus-micrometer-registry-datadog ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 2 source files with javac [debug deprecation release 11] to target/classes
+[INFO] 
+[INFO] --- quarkus-bootstrap:1.13.7.Final:extension-descriptor (default) @ quarkus-micrometer-registry-datadog ---
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quarkus-micrometer-registry-datadog ---
+[INFO] skip non existing resourceDirectory /quarkus-micrometer-registry/micrometer-registry-datadog/runtime/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ quarkus-micrometer-registry-datadog ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ quarkus-micrometer-registry-datadog ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-datadog-deployment >--
+[INFO] Building Quarkus Micrometer Registry - Datadog - Deployment 199-SNAPSHOT [7/26]
+[INFO]   from micrometer-registry-datadog/deployment/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-datadog-deployment ---
+[INFO] Deleting /quarkus-micrometer-registry/micrometer-registry-datadog/deployment/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-datadog-deployment ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-datadog-deployment ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-datadog-deployment ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-datadog-deployment ---
+[INFO] Processed 3 files in 89ms (Formatted: 0, Skipped: 0, Unchanged: 3, Failed: 0, Readonly: 0)
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-datadog-deployment ---
+[INFO] Processed 3 files in 00:00.076 (Already Sorted: 3, Needed Sorting: 0)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ quarkus-micrometer-registry-datadog-deployment ---
+[INFO] skip non existing resourceDirectory /quarkus-micrometer-registry/micrometer-registry-datadog/deployment/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ quarkus-micrometer-registry-datadog-deployment ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 1 source file with javac [debug deprecation release 11] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quarkus-micrometer-registry-datadog-deployment ---
+[INFO] Copying 1 resource from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ quarkus-micrometer-registry-datadog-deployment ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 2 source files with javac [debug deprecation release 11] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ quarkus-micrometer-registry-datadog-deployment ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running io.quarkiverse.micrometer.registry.datadog.deployment.DatadogEnabledTest
+2026-01-05 03:27:24,423 INFO  [io.quarkus] (main) Quarkus 1.13.7.Final on JVM started in 0.612s. Listening on: http://localhost:8081
+2026-01-05 03:27:24,430 INFO  [io.quarkus] (main) Profile test activated. 
+2026-01-05 03:27:24,431 INFO  [io.quarkus] (main) Installed features: [cdi, micrometer]
+2026-01-05 03:27:24,665 INFO  [io.quarkus] (main) Quarkus stopped in 0.188s
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.103 s -- in io.quarkiverse.micrometer.registry.datadog.deployment.DatadogEnabledTest
+[INFO] Running io.quarkiverse.micrometer.registry.datadog.deployment.DatadogEnabledInvalidTest
+2026-01-05 03:27:25,944 ERROR [io.qua.mic.run.exp.ConfigAdapter] (main) quarkus.micrometer.export.datadog.api-key is required
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.306 s -- in io.quarkiverse.micrometer.registry.datadog.deployment.DatadogEnabledInvalidTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-jmx-parent >--
+[INFO] Building Quarkus Micrometer Registry - JMX - Parent 199-SNAPSHOT  [8/26]
+[INFO]   from micrometer-registry-jmx/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-jmx-parent ---
+[INFO] Deleting /quarkus-micrometer-registry/micrometer-registry-jmx/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-jmx-parent ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-jmx-parent ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-jmx-parent ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-jmx-parent ---
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-jmx-parent ---
+[INFO] Processed 0 files in 00:00.001 (Already Sorted: 0, Needed Sorting: 0)
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-jmx >--
+[INFO] Building Quarkus Micrometer Registry - JMX - Runtime 199-SNAPSHOT [9/26]
+[INFO]   from micrometer-registry-jmx/runtime/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-jmx ---
+[INFO] Deleting /quarkus-micrometer-registry/micrometer-registry-jmx/runtime/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-jmx ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-jmx ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-jmx ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-jmx ---
+[INFO] Processed 2 files in 71ms (Formatted: 0, Skipped: 0, Unchanged: 2, Failed: 0, Readonly: 0)
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-jmx ---
+[INFO] Processed 2 files in 00:00.049 (Already Sorted: 2, Needed Sorting: 0)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ quarkus-micrometer-registry-jmx ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ quarkus-micrometer-registry-jmx ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 2 source files with javac [debug deprecation release 11] to target/classes
+[INFO] 
+[INFO] --- quarkus-bootstrap:1.13.7.Final:extension-descriptor (default) @ quarkus-micrometer-registry-jmx ---
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quarkus-micrometer-registry-jmx ---
+[INFO] skip non existing resourceDirectory /quarkus-micrometer-registry/micrometer-registry-jmx/runtime/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ quarkus-micrometer-registry-jmx ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ quarkus-micrometer-registry-jmx ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-jmx-deployment >--
+[INFO] Building Quarkus Micrometer Registry - JMX - Deployment 199-SNAPSHOT [10/26]
+[INFO]   from micrometer-registry-jmx/deployment/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-jmx-deployment ---
+[INFO] Deleting /quarkus-micrometer-registry/micrometer-registry-jmx/deployment/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-jmx-deployment ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-jmx-deployment ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-jmx-deployment ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-jmx-deployment ---
+[INFO] Processed 2 files in 76ms (Formatted: 0, Skipped: 0, Unchanged: 2, Failed: 0, Readonly: 0)
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-jmx-deployment ---
+[INFO] Processed 2 files in 00:00.058 (Already Sorted: 2, Needed Sorting: 0)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ quarkus-micrometer-registry-jmx-deployment ---
+[INFO] skip non existing resourceDirectory /quarkus-micrometer-registry/micrometer-registry-jmx/deployment/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ quarkus-micrometer-registry-jmx-deployment ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 1 source file with javac [debug deprecation release 11] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quarkus-micrometer-registry-jmx-deployment ---
+[INFO] Copying 1 resource from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ quarkus-micrometer-registry-jmx-deployment ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 1 source file with javac [debug deprecation release 11] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ quarkus-micrometer-registry-jmx-deployment ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running io.quarkiverse.micrometer.registry.jmx.deployment.JmxEnabledTest
+2026-01-05 03:27:36,152 INFO  [io.quarkus] (main) Quarkus 1.13.7.Final on JVM started in 0.788s. Listening on: http://localhost:8081
+2026-01-05 03:27:36,158 INFO  [io.quarkus] (main) Profile test activated. 
+2026-01-05 03:27:36,159 INFO  [io.quarkus] (main) Installed features: [cdi, micrometer]
+2026-01-05 03:27:36,333 INFO  [io.quarkus] (main) Quarkus stopped in 0.130s
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.745 s -- in io.quarkiverse.micrometer.registry.jmx.deployment.JmxEnabledTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-newrelic-parent >--
+[INFO] Building Quarkus Micrometer Registry - New Relic - Parent 199-SNAPSHOT [11/26]
+[INFO]   from micrometer-registry-newrelic/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-newrelic-parent ---
+[INFO] Deleting /quarkus-micrometer-registry/micrometer-registry-newrelic/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-newrelic-parent ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-newrelic-parent ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-newrelic-parent ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-newrelic-parent ---
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-newrelic-parent ---
+[INFO] Processed 0 files in 00:00.000 (Already Sorted: 0, Needed Sorting: 0)
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-newrelic >--
+[INFO] Building Quarkus Micrometer Registry - New Relic - Runtime 199-SNAPSHOT [12/26]
+[INFO]   from micrometer-registry-newrelic/runtime/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-newrelic ---
+[INFO] Deleting /quarkus-micrometer-registry/micrometer-registry-newrelic/runtime/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-newrelic ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-newrelic ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-newrelic ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-newrelic ---
+[INFO] Processed 2 files in 88ms (Formatted: 0, Skipped: 0, Unchanged: 2, Failed: 0, Readonly: 0)
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-newrelic ---
+[INFO] Processed 2 files in 00:00.079 (Already Sorted: 2, Needed Sorting: 0)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ quarkus-micrometer-registry-newrelic ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ quarkus-micrometer-registry-newrelic ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 2 source files with javac [debug deprecation release 11] to target/classes
+[INFO] 
+[INFO] --- quarkus-bootstrap:1.13.7.Final:extension-descriptor (default) @ quarkus-micrometer-registry-newrelic ---
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quarkus-micrometer-registry-newrelic ---
+[INFO] skip non existing resourceDirectory /quarkus-micrometer-registry/micrometer-registry-newrelic/runtime/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ quarkus-micrometer-registry-newrelic ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ quarkus-micrometer-registry-newrelic ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-newrelic-deployment >--
+[INFO] Building Quarkus Micrometer Registry - New Relic - Deployment 199-SNAPSHOT [13/26]
+[INFO]   from micrometer-registry-newrelic/deployment/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-newrelic-deployment ---
+[INFO] Deleting /quarkus-micrometer-registry/micrometer-registry-newrelic/deployment/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-newrelic-deployment ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-newrelic-deployment ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-newrelic-deployment ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-newrelic-deployment ---
+[INFO] Processed 3 files in 92ms (Formatted: 0, Skipped: 0, Unchanged: 3, Failed: 0, Readonly: 0)
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-newrelic-deployment ---
+[INFO] Processed 3 files in 00:00.098 (Already Sorted: 3, Needed Sorting: 0)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ quarkus-micrometer-registry-newrelic-deployment ---
+[INFO] skip non existing resourceDirectory /quarkus-micrometer-registry/micrometer-registry-newrelic/deployment/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ quarkus-micrometer-registry-newrelic-deployment ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 1 source file with javac [debug deprecation release 11] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quarkus-micrometer-registry-newrelic-deployment ---
+[INFO] Copying 1 resource from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ quarkus-micrometer-registry-newrelic-deployment ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 2 source files with javac [debug deprecation release 11] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ quarkus-micrometer-registry-newrelic-deployment ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running io.quarkiverse.micrometer.registry.newrelic.deployment.NewRelicEnabledTest
+2026-01-05 03:27:46,250 INFO  [io.quarkus] (main) Quarkus 1.13.7.Final on JVM started in 0.614s. Listening on: http://localhost:8081
+2026-01-05 03:27:46,256 INFO  [io.quarkus] (main) Profile test activated. 
+2026-01-05 03:27:46,256 INFO  [io.quarkus] (main) Installed features: [cdi, micrometer]
+2026-01-05 03:27:46,506 INFO  [io.quarkus] (main) Quarkus stopped in 0.206s
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.551 s -- in io.quarkiverse.micrometer.registry.newrelic.deployment.NewRelicEnabledTest
+[INFO] Running io.quarkiverse.micrometer.registry.newrelic.deployment.NewRelicEnabledInvalidTest
+2026-01-05 03:27:47,820 ERROR [io.qua.mic.run.exp.ConfigAdapter] (main) quarkus.micrometer.export.newrelic.api-key is required
+2026-01-05 03:27:47,822 ERROR [io.qua.mic.run.exp.ConfigAdapter] (main) quarkus.micrometer.export.newrelic.account-id is required
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.338 s -- in io.quarkiverse.micrometer.registry.newrelic.deployment.NewRelicEnabledInvalidTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-signalfx-parent >--
+[INFO] Building Quarkus Micrometer Registry - SignalFX - Parent 199-SNAPSHOT [14/26]
+[INFO]   from micrometer-registry-signalfx/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-signalfx-parent ---
+[INFO] Deleting /quarkus-micrometer-registry/micrometer-registry-signalfx/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-signalfx-parent ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-signalfx-parent ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-signalfx-parent ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-signalfx-parent ---
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-signalfx-parent ---
+[INFO] Processed 0 files in 00:00.000 (Already Sorted: 0, Needed Sorting: 0)
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-signalfx >--
+[INFO] Building Quarkus Micrometer Registry - SignalFX - Runtime 199-SNAPSHOT [15/26]
+[INFO]   from micrometer-registry-signalfx/runtime/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-signalfx ---
+[INFO] Deleting /quarkus-micrometer-registry/micrometer-registry-signalfx/runtime/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-signalfx ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-signalfx ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-signalfx ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-signalfx ---
+[INFO] Processed 2 files in 69ms (Formatted: 0, Skipped: 0, Unchanged: 2, Failed: 0, Readonly: 0)
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-signalfx ---
+[INFO] Processed 2 files in 00:00.067 (Already Sorted: 2, Needed Sorting: 0)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ quarkus-micrometer-registry-signalfx ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ quarkus-micrometer-registry-signalfx ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 2 source files with javac [debug deprecation release 11] to target/classes
+[INFO] 
+[INFO] --- quarkus-bootstrap:1.13.7.Final:extension-descriptor (default) @ quarkus-micrometer-registry-signalfx ---
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quarkus-micrometer-registry-signalfx ---
+[INFO] skip non existing resourceDirectory /quarkus-micrometer-registry/micrometer-registry-signalfx/runtime/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ quarkus-micrometer-registry-signalfx ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ quarkus-micrometer-registry-signalfx ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-signalfx-deployment >--
+[INFO] Building Quarkus Micrometer Registry - SignalFX - Deployment 199-SNAPSHOT [16/26]
+[INFO]   from micrometer-registry-signalfx/deployment/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-signalfx-deployment ---
+[INFO] Deleting /quarkus-micrometer-registry/micrometer-registry-signalfx/deployment/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-signalfx-deployment ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-signalfx-deployment ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-signalfx-deployment ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-signalfx-deployment ---
+[INFO] Processed 5 files in 105ms (Formatted: 0, Skipped: 0, Unchanged: 5, Failed: 0, Readonly: 0)
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-signalfx-deployment ---
+[INFO] Processed 5 files in 00:00.097 (Already Sorted: 5, Needed Sorting: 0)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ quarkus-micrometer-registry-signalfx-deployment ---
+[INFO] skip non existing resourceDirectory /quarkus-micrometer-registry/micrometer-registry-signalfx/deployment/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ quarkus-micrometer-registry-signalfx-deployment ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 1 source file with javac [debug deprecation release 11] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quarkus-micrometer-registry-signalfx-deployment ---
+[INFO] Copying 1 resource from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ quarkus-micrometer-registry-signalfx-deployment ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 4 source files with javac [debug deprecation release 11] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ quarkus-micrometer-registry-signalfx-deployment ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running io.quarkiverse.micrometer.registry.signalfx.deployment.SignalFxEnabledTest
+2026-01-05 03:27:57,486 INFO  [io.mic.cor.ins.pus.PushMeterRegistry] (main) publishing metrics for SignalFxMeterRegistry every 10s
+2026-01-05 03:27:57,728 INFO  [io.quarkus] (main) Quarkus 1.13.7.Final on JVM started in 0.806s. Listening on: http://localhost:8081
+2026-01-05 03:27:57,729 INFO  [io.quarkus] (main) Profile test activated. 
+2026-01-05 03:27:57,729 INFO  [io.quarkus] (main) Installed features: [cdi, micrometer]
+2026-01-05 03:27:58,420 WARN  [io.mic.sig.SignalFxMeterRegistry] (main) failed to send metrics: Unable to send datapoints
+2026-01-05 03:27:58,449 INFO  [io.quarkus] (main) Quarkus stopped in 0.676s
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.721 s -- in io.quarkiverse.micrometer.registry.signalfx.deployment.SignalFxEnabledTest
+[INFO] Running io.quarkiverse.micrometer.registry.signalfx.deployment.SignalFxEnabledInvalidTest
+2026-01-05 03:28:00,005 ERROR [io.qua.mic.run.exp.ConfigAdapter] (main) quarkus.micrometer.export.signalfx.access-token is required
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.609 s -- in io.quarkiverse.micrometer.registry.signalfx.deployment.SignalFxEnabledInvalidTest
+[INFO] Running io.quarkiverse.micrometer.registry.signalfx.deployment.SignalFxEnabledInvalidUriTest
+2026-01-05 03:28:01,109 ERROR [io.qua.mic.run.exp.ConfigAdapter] (main) quarkus.micrometer.export.signalfx.uri is malformed: java.lang.IllegalArgumentException: URI is not absolute
+	at java.base/java.net.URL.fromURI(URL.java:692)
+	at java.base/java.net.URI.toURL(URI.java:1116)
+	at io.micrometer.core.instrument.config.validate.PropertyValidator.getUrlString(PropertyValidator.java:107)
+	at io.micrometer.signalfx.SignalFxConfig.lambda$uri$0(SignalFxConfig.java:53)
+	at io.micrometer.core.instrument.config.validate.Validated$Valid.flatMap(Validated.java:231)
+	at io.micrometer.signalfx.SignalFxConfig.uri(SignalFxConfig.java:53)
+	at io.micrometer.core.instrument.config.MeterRegistryConfigValidator.lambda$check$3(MeterRegistryConfigValidator.java:57)
+	at java.base/java.util.function.Function.lambda$andThen$1(Function.java:88)
+	at io.micrometer.core.instrument.config.MeterRegistryConfigValidator.lambda$checkAll$0(MeterRegistryConfigValidator.java:35)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:913)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.reduce(ReferencePipeline.java:553)
+	at io.micrometer.core.instrument.config.MeterRegistryConfigValidator.checkAll(MeterRegistryConfigValidator.java:37)
+	at io.micrometer.signalfx.SignalFxConfig.validate(SignalFxConfig.java:77)
+	at io.quarkus.micrometer.runtime.export.ConfigAdapter.validate(ConfigAdapter.java:37)
+	at io.quarkiverse.micrometer.registry.signalfx.SignalFxMeterRegistryProvider.configure(SignalFxMeterRegistryProvider.java:32)
+	at io.quarkiverse.micrometer.registry.signalfx.SignalFxMeterRegistryProvider_ProducerMethod_configure_156b21d8329bc3b61807f229c37c866009e233ce_Bean.create(SignalFxMeterRegistryProvider_ProducerMethod_configure_156b21d8329bc3b61807f229c37c866009e233ce_Bean.zig:244)
+	at io.quarkiverse.micrometer.registry.signalfx.SignalFxMeterRegistryProvider_ProducerMethod_configure_156b21d8329bc3b61807f229c37c866009e233ce_Bean.create(SignalFxMeterRegistryProvider_ProducerMethod_configure_156b21d8329bc3b61807f229c37c866009e233ce_Bean.zig:259)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:96)
+	at io.quarkus.arc.impl.AbstractSharedContext.access$000(AbstractSharedContext.java:14)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:29)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:26)
+	at io.quarkus.arc.impl.LazyValue.get(LazyValue.java:26)
+	at io.quarkus.arc.impl.ComputingCache.computeIfAbsent(ComputingCache.java:69)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:26)
+	at io.quarkiverse.micrometer.registry.signalfx.SignalFxMeterRegistryProvider_ProducerMethod_configure_156b21d8329bc3b61807f229c37c866009e233ce_Bean.get(SignalFxMeterRegistryProvider_ProducerMethod_configure_156b21d8329bc3b61807f229c37c866009e233ce_Bean.zig:291)
+	at io.quarkiverse.micrometer.registry.signalfx.SignalFxMeterRegistryProvider_ProducerMethod_configure_156b21d8329bc3b61807f229c37c866009e233ce_Bean.get(SignalFxMeterRegistryProvider_ProducerMethod_configure_156b21d8329bc3b61807f229c37c866009e233ce_Bean.zig:307)
+	at io.quarkiverse.micrometer.registry.signalfx.SignalFxMeterRegistryProvider_ProducerMethod_registry_0a5c6a1ffc0c7d631694f1c0b0aa4dd26bc02216_Bean.create(SignalFxMeterRegistryProvider_ProducerMethod_registry_0a5c6a1ffc0c7d631694f1c0b0aa4dd26bc02216_Bean.zig:195)
+	at io.quarkiverse.micrometer.registry.signalfx.SignalFxMeterRegistryProvider_ProducerMethod_registry_0a5c6a1ffc0c7d631694f1c0b0aa4dd26bc02216_Bean.create(SignalFxMeterRegistryProvider_ProducerMethod_registry_0a5c6a1ffc0c7d631694f1c0b0aa4dd26bc02216_Bean.zig:238)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:96)
+	at io.quarkus.arc.impl.AbstractSharedContext.access$000(AbstractSharedContext.java:14)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:29)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:26)
+	at io.quarkus.arc.impl.LazyValue.get(LazyValue.java:26)
+	at io.quarkus.arc.impl.ComputingCache.computeIfAbsent(ComputingCache.java:69)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:26)
+	at io.quarkiverse.micrometer.registry.signalfx.SignalFxMeterRegistryProvider_ProducerMethod_registry_0a5c6a1ffc0c7d631694f1c0b0aa4dd26bc02216_Bean.get(SignalFxMeterRegistryProvider_ProducerMethod_registry_0a5c6a1ffc0c7d631694f1c0b0aa4dd26bc02216_Bean.zig:270)
+	at io.quarkiverse.micrometer.registry.signalfx.SignalFxMeterRegistryProvider_ProducerMethod_registry_0a5c6a1ffc0c7d631694f1c0b0aa4dd26bc02216_Bean.get(SignalFxMeterRegistryProvider_ProducerMethod_registry_0a5c6a1ffc0c7d631694f1c0b0aa4dd26bc02216_Bean.zig:286)
+	at io.quarkus.arc.impl.ArcContainerImpl.beanInstanceHandle(ArcContainerImpl.java:430)
+	at io.quarkus.arc.impl.ArcContainerImpl.beanInstanceHandle(ArcContainerImpl.java:443)
+	at io.quarkus.arc.impl.BeanManagerImpl.getReference(BeanManagerImpl.java:59)
+	at io.quarkus.micrometer.runtime.MicrometerRecorder.configureRegistries(MicrometerRecorder.java:95)
+	at io.quarkus.deployment.steps.MicrometerProcessor$configureRegistry-2125003310.deploy_0(MicrometerProcessor$configureRegistry-2125003310.zig:127)
+	at io.quarkus.deployment.steps.MicrometerProcessor$configureRegistry-2125003310.deploy(MicrometerProcessor$configureRegistry-2125003310.zig:40)
+	at io.quarkus.runner.ApplicationImpl.doStart(ApplicationImpl.zig:488)
+	at io.quarkus.runtime.Application.start(Application.java:90)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at io.quarkus.runner.bootstrap.StartupActionImpl.run(StartupActionImpl.java:212)
+	at io.quarkus.test.QuarkusUnitTest.beforeAll(QuarkusUnitTest.java:460)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeBeforeAllCallbacks$8(ClassBasedTestDescriptor.java:368)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeBeforeAllCallbacks(ClassBasedTestDescriptor.java:368)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.before(ClassBasedTestDescriptor.java:192)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.before(ClassBasedTestDescriptor.java:78)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:136)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:75)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.069 s -- in io.quarkiverse.micrometer.registry.signalfx.deployment.SignalFxEnabledInvalidUriTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-stackdriver-parent >--
+[INFO] Building Quarkus Micrometer Registry - Stackdriver - Parent 199-SNAPSHOT [17/26]
+[INFO]   from micrometer-registry-stackdriver/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-stackdriver-parent ---
+[INFO] Deleting /quarkus-micrometer-registry/micrometer-registry-stackdriver/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-stackdriver-parent ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-stackdriver-parent ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-stackdriver-parent ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-stackdriver-parent ---
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-stackdriver-parent ---
+[INFO] Processed 0 files in 00:00.001 (Already Sorted: 0, Needed Sorting: 0)
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-stackdriver >--
+[INFO] Building Quarkus Micrometer Registry - Stackdriver - Runtime 199-SNAPSHOT [18/26]
+[INFO]   from micrometer-registry-stackdriver/runtime/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-stackdriver ---
+[INFO] Deleting /quarkus-micrometer-registry/micrometer-registry-stackdriver/runtime/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-stackdriver ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-stackdriver ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-stackdriver ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-stackdriver ---
+[INFO] Processed 2 files in 89ms (Formatted: 0, Skipped: 0, Unchanged: 2, Failed: 0, Readonly: 0)
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-stackdriver ---
+[INFO] Processed 2 files in 00:00.076 (Already Sorted: 2, Needed Sorting: 0)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ quarkus-micrometer-registry-stackdriver ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ quarkus-micrometer-registry-stackdriver ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 2 source files with javac [debug deprecation release 11] to target/classes
+[INFO] 
+[INFO] --- quarkus-bootstrap:1.13.7.Final:extension-descriptor (default) @ quarkus-micrometer-registry-stackdriver ---
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quarkus-micrometer-registry-stackdriver ---
+[INFO] skip non existing resourceDirectory /quarkus-micrometer-registry/micrometer-registry-stackdriver/runtime/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ quarkus-micrometer-registry-stackdriver ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ quarkus-micrometer-registry-stackdriver ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-stackdriver-deployment >--
+[INFO] Building Quarkus Micrometer Registry - Stackdriver - Deployment 199-SNAPSHOT [19/26]
+[INFO]   from micrometer-registry-stackdriver/deployment/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-stackdriver-deployment ---
+[INFO] Deleting /quarkus-micrometer-registry/micrometer-registry-stackdriver/deployment/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-stackdriver-deployment ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-stackdriver-deployment ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-stackdriver-deployment ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-stackdriver-deployment ---
+[INFO] Processed 4 files in 99ms (Formatted: 0, Skipped: 0, Unchanged: 4, Failed: 0, Readonly: 0)
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-stackdriver-deployment ---
+[INFO] Processed 4 files in 00:00.083 (Already Sorted: 4, Needed Sorting: 0)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ quarkus-micrometer-registry-stackdriver-deployment ---
+[INFO] skip non existing resourceDirectory /quarkus-micrometer-registry/micrometer-registry-stackdriver/deployment/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ quarkus-micrometer-registry-stackdriver-deployment ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 1 source file with javac [debug deprecation release 11] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quarkus-micrometer-registry-stackdriver-deployment ---
+[INFO] Copying 1 resource from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ quarkus-micrometer-registry-stackdriver-deployment ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 3 source files with javac [debug deprecation release 11] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ quarkus-micrometer-registry-stackdriver-deployment ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running io.quarkiverse.micrometer.registry.stackdriver.deployment.StackdriverEnabledInvalidTest
+2026-01-05 03:28:11,851 ERROR [io.qua.mic.run.exp.ConfigAdapter] (main) quarkus.micrometer.export.stackdriver.project-id is required
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.210 s -- in io.quarkiverse.micrometer.registry.stackdriver.deployment.StackdriverEnabledInvalidTest
+[INFO] Running io.quarkiverse.micrometer.registry.stackdriver.deployment.StackdriverEnabledTest
+2026-01-05 03:28:13,605 INFO  [io.quarkus] (main) Quarkus 1.13.7.Final on JVM started in 2.207s. Listening on: http://localhost:8081
+2026-01-05 03:28:13,607 INFO  [io.quarkus] (main) Profile test activated. 
+2026-01-05 03:28:13,607 INFO  [io.quarkus] (main) Installed features: [cdi, micrometer]
+2026-01-05 03:28:13,811 INFO  [io.quarkus] (main) Quarkus stopped in 0.180s
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.867 s -- in io.quarkiverse.micrometer.registry.stackdriver.deployment.StackdriverEnabledTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-statsd-parent >--
+[INFO] Building Quarkus Micrometer Registry - StatsD - Parent 199-SNAPSHOT [20/26]
+[INFO]   from micrometer-registry-statsd/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-statsd-parent ---
+[INFO] Deleting /quarkus-micrometer-registry/micrometer-registry-statsd/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-statsd-parent ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-statsd-parent ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-statsd-parent ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-statsd-parent ---
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-statsd-parent ---
+[INFO] Processed 0 files in 00:00.001 (Already Sorted: 0, Needed Sorting: 0)
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-statsd >--
+[INFO] Building Quarkus Micrometer Registry - StatsD - Runtime 199-SNAPSHOT [21/26]
+[INFO]   from micrometer-registry-statsd/runtime/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-statsd ---
+[INFO] Deleting /quarkus-micrometer-registry/micrometer-registry-statsd/runtime/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-statsd ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-statsd ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-statsd ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-statsd ---
+[INFO] Processed 2 files in 86ms (Formatted: 0, Skipped: 0, Unchanged: 2, Failed: 0, Readonly: 0)
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-statsd ---
+[INFO] Processed 2 files in 00:00.057 (Already Sorted: 2, Needed Sorting: 0)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ quarkus-micrometer-registry-statsd ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ quarkus-micrometer-registry-statsd ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 2 source files with javac [debug deprecation release 11] to target/classes
+[INFO] 
+[INFO] --- quarkus-bootstrap:1.13.7.Final:extension-descriptor (default) @ quarkus-micrometer-registry-statsd ---
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quarkus-micrometer-registry-statsd ---
+[INFO] skip non existing resourceDirectory /quarkus-micrometer-registry/micrometer-registry-statsd/runtime/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ quarkus-micrometer-registry-statsd ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ quarkus-micrometer-registry-statsd ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-statsd-deployment >--
+[INFO] Building Quarkus Micrometer Registry - StatsD - Deployment 199-SNAPSHOT [22/26]
+[INFO]   from micrometer-registry-statsd/deployment/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-statsd-deployment ---
+[INFO] Deleting /quarkus-micrometer-registry/micrometer-registry-statsd/deployment/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-statsd-deployment ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-statsd-deployment ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-statsd-deployment ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-statsd-deployment ---
+[INFO] Processed 2 files in 114ms (Formatted: 0, Skipped: 0, Unchanged: 2, Failed: 0, Readonly: 0)
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-statsd-deployment ---
+[INFO] Processed 2 files in 00:00.080 (Already Sorted: 2, Needed Sorting: 0)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ quarkus-micrometer-registry-statsd-deployment ---
+[INFO] skip non existing resourceDirectory /quarkus-micrometer-registry/micrometer-registry-statsd/deployment/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ quarkus-micrometer-registry-statsd-deployment ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 1 source file with javac [debug deprecation release 11] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quarkus-micrometer-registry-statsd-deployment ---
+[INFO] Copying 1 resource from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ quarkus-micrometer-registry-statsd-deployment ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 1 source file with javac [debug deprecation release 11] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ quarkus-micrometer-registry-statsd-deployment ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running io.quarkiverse.micrometer.registry.statsd.deployment.StatsdEnabledTest
+2026-01-05 03:28:23,441 INFO  [io.quarkus] (main) Quarkus 1.13.7.Final on JVM started in 0.654s. Listening on: http://localhost:8081
+2026-01-05 03:28:23,448 INFO  [io.quarkus] (main) Profile test activated. 
+2026-01-05 03:28:23,448 INFO  [io.quarkus] (main) Installed features: [cdi, micrometer]
+2026-01-05 03:28:23,722 INFO  [io.quarkus] (main) Quarkus stopped in 0.221s
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.206 s -- in io.quarkiverse.micrometer.registry.statsd.deployment.StatsdEnabledTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-docs >--
+[INFO] Building Quarkus Micrometer Registry - Documentation 199-SNAPSHOT [23/26]
+[INFO]   from docs/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-docs ---
+[INFO] Deleting /quarkus-micrometer-registry/docs/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-docs ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-docs ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-docs ---
+[INFO] 
+[INFO] --- yaml-properties:1.1.3:read-project-properties (default) @ quarkus-micrometer-registry-docs ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-docs ---
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-docs ---
+[INFO] Processed 0 files in 00:00.002 (Already Sorted: 0, Needed Sorting: 0)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ quarkus-micrometer-registry-docs ---
+[INFO] skip non existing resourceDirectory /quarkus-micrometer-registry/docs/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ quarkus-micrometer-registry-docs ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quarkus-micrometer-registry-docs ---
+[INFO] skip non existing resourceDirectory /quarkus-micrometer-registry/docs/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ quarkus-micrometer-registry-docs ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ quarkus-micrometer-registry-docs ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-it-parent >--
+[INFO] Building Quarkus Micrometer Registry - Integration Test - Parent 199-SNAPSHOT [24/26]
+[INFO]   from integration-tests/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-it-parent ---
+[INFO] Deleting /quarkus-micrometer-registry/integration-tests/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-it-parent ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-it-parent ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-it-parent ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-it-parent ---
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-it-parent ---
+[INFO] Processed 0 files in 00:00.001 (Already Sorted: 0, Needed Sorting: 0)
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-it-jmx >--
+[INFO] Building Quarkus Micrometer Registry - Integration Test - JMX 199-SNAPSHOT [25/26]
+[INFO]   from integration-tests/micrometer-jmx/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-it-jmx ---
+[INFO] Deleting /quarkus-micrometer-registry/integration-tests/micrometer-jmx/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-it-jmx ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-it-jmx ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-it-jmx ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-it-jmx ---
+[INFO] Processed 3 files in 123ms (Formatted: 0, Skipped: 0, Unchanged: 3, Failed: 0, Readonly: 0)
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-it-jmx ---
+[INFO] Processed 3 files in 00:00.249 (Already Sorted: 3, Needed Sorting: 0)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ quarkus-micrometer-registry-it-jmx ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ quarkus-micrometer-registry-it-jmx ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 2 source files with javac [debug deprecation release 11] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quarkus-micrometer-registry-it-jmx ---
+[INFO] skip non existing resourceDirectory /quarkus-micrometer-registry/integration-tests/micrometer-jmx/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ quarkus-micrometer-registry-it-jmx ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 1 source file with javac [debug deprecation release 11] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ quarkus-micrometer-registry-it-jmx ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running io.quarkiverse.it.micrometer.jmx.JmxMetricsRegistryTest
+2026-01-05 03:28:35,426 INFO  [io.quarkus] (main) Quarkus 1.13.7.Final on JVM started in 4.680s. Listening on: http://localhost:8081
+2026-01-05 03:28:35,441 INFO  [io.quarkus] (main) Profile test activated. 
+2026-01-05 03:28:35,442 INFO  [io.quarkus] (main) Installed features: [cdi, micrometer, mutiny, smallrye-context-propagation, smallrye-reactive-messaging, smallrye-reactive-messaging-kafka, vertx, vertx-web]
+2026-01-05 03:28:38,010 ERROR [io.qua.ver.htt.run.QuarkusErrorHandler] (vert.x-eventloop-thread-11) HTTP Request to /message/fail failed, error id: 70bdc9a4-3000-4d24-82c7-e9adcd9ec069-1: java.lang.RuntimeException: Failed on purpose
+	at io.quarkiverse.it.micrometer.jmx.MessageResource.fail(MessageResource.java:34)
+	at io.quarkiverse.it.micrometer.jmx.MessageResource_RouteHandler_fail_bf588423db6f1c9530c090b0cd2d5eef7fe10510.invoke(MessageResource_RouteHandler_fail_bf588423db6f1c9530c090b0cd2d5eef7fe10510.zig:106)
+	at io.quarkus.vertx.web.runtime.RouteHandler.handle(RouteHandler.java:97)
+	at io.quarkus.vertx.web.runtime.RouteHandler.handle(RouteHandler.java:22)
+	at io.vertx.ext.web.impl.RouteState.handleContext(RouteState.java:1038)
+	at io.vertx.ext.web.impl.RoutingContextImplBase.iterateNext(RoutingContextImplBase.java:101)
+	at io.vertx.ext.web.impl.RoutingContextImpl.next(RoutingContextImpl.java:132)
+	at io.quarkus.vertx.http.runtime.VertxHttpRecorder$17.handle(VertxHttpRecorder.java:1129)
+	at io.quarkus.vertx.http.runtime.VertxHttpRecorder$17.handle(VertxHttpRecorder.java:1098)
+	at io.vertx.ext.web.impl.RouteState.handleContext(RouteState.java:1038)
+	at io.vertx.ext.web.impl.RoutingContextImplBase.iterateNext(RoutingContextImplBase.java:137)
+	at io.vertx.ext.web.impl.RoutingContextImpl.next(RoutingContextImpl.java:132)
+	at io.quarkus.vertx.http.runtime.VertxHttpRecorder$4.handle(VertxHttpRecorder.java:335)
+	at io.quarkus.vertx.http.runtime.VertxHttpRecorder$4.handle(VertxHttpRecorder.java:313)
+	at io.vertx.ext.web.impl.RouteState.handleContext(RouteState.java:1038)
+	at io.vertx.ext.web.impl.RoutingContextImplBase.iterateNext(RoutingContextImplBase.java:137)
+	at io.vertx.ext.web.impl.RoutingContextImpl.next(RoutingContextImpl.java:132)
+	at io.quarkus.micrometer.runtime.binder.vertx.VertxMeterFilter.handle(VertxMeterFilter.java:19)
+	at io.quarkus.micrometer.runtime.binder.vertx.VertxMeterFilter.handle(VertxMeterFilter.java:14)
+	at io.vertx.ext.web.impl.RouteState.handleContext(RouteState.java:1038)
+	at io.vertx.ext.web.impl.RoutingContextImplBase.iterateNext(RoutingContextImplBase.java:137)
+	at io.vertx.ext.web.impl.RoutingContextImpl.next(RoutingContextImpl.java:132)
+	at io.vertx.ext.web.impl.RouterImpl.handle(RouterImpl.java:54)
+	at io.vertx.ext.web.impl.RouterImpl.handle(RouterImpl.java:36)
+	at io.quarkus.vertx.http.runtime.VertxHttpRecorder$9.handle(VertxHttpRecorder.java:426)
+	at io.quarkus.vertx.http.runtime.VertxHttpRecorder$9.handle(VertxHttpRecorder.java:423)
+	at io.quarkus.vertx.http.runtime.VertxHttpRecorder$1.handle(VertxHttpRecorder.java:149)
+	at io.quarkus.vertx.http.runtime.VertxHttpRecorder$1.handle(VertxHttpRecorder.java:131)
+	at io.vertx.core.http.impl.WebSocketRequestHandler.handle(WebSocketRequestHandler.java:50)
+	at io.vertx.core.http.impl.WebSocketRequestHandler.handle(WebSocketRequestHandler.java:32)
+	at io.vertx.core.http.impl.Http1xServerConnection.handleMessage(Http1xServerConnection.java:136)
+	at io.vertx.core.impl.ContextImpl.executeTask(ContextImpl.java:366)
+	at io.vertx.core.impl.EventLoopContext.execute(EventLoopContext.java:43)
+	at io.vertx.core.impl.ContextImpl.executeFromIO(ContextImpl.java:229)
+	at io.vertx.core.net.impl.VertxHandler.channelRead(VertxHandler.java:164)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+	at io.netty.channel.ChannelInboundHandlerAdapter.channelRead(ChannelInboundHandlerAdapter.java:93)
+	at io.netty.handler.codec.http.websocketx.extensions.WebSocketServerExtensionHandler.channelRead(WebSocketServerExtensionHandler.java:101)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+	at io.vertx.core.http.impl.Http1xUpgradeToH2CHandler.channelRead(Http1xUpgradeToH2CHandler.java:109)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:324)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+	at io.vertx.core.http.impl.Http1xOrH2CHandler.end(Http1xOrH2CHandler.java:61)
+	at io.vertx.core.http.impl.Http1xOrH2CHandler.channelRead(Http1xOrH2CHandler.java:38)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+HTTP/1.1 200 OK
+content-length: 785
+
+metrics:name=httpServerConnections.env.test.registry.jmx.statistic.active
+metrics:name=httpServerConnections.env.test.registry.jmx.statistic.duration
+metrics:name=httpServerConnections.env.test.registry.jmx.statistic.max
+metrics:name=httpServerRequests.env.test.method.GET.outcome.SUCCESS.registry.jmx.status.200.uri./message/item/{id}
+metrics:name=httpServerRequests.env.test.method.GET.outcome.SUCCESS.registry.jmx.status.200.uri./message/ping
+metrics:name=httpServerBytesWritten.env.test.registry.jmx
+metrics:name=httpServerRequests.env.test.method.GET.outcome.SERVER_ERROR.registry.jmx.status.500.uri./message/fail
+metrics:name=httpServerBytesRead.env.test.registry.jmx
+metrics:name=httpServerRequests.env.test.method.GET.outcome.CLIENT_ERROR.registry.jmx.status.404.uri.NOT_FOUND
+
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.66 s -- in io.quarkiverse.it.micrometer.jmx.JmxMetricsRegistryTest
+2026-01-05 03:28:38,335 INFO  [io.quarkus] (main) Quarkus stopped in 0.178s
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-it-native >--
+[INFO] Building Quarkus Micrometer Registry - Integration Test - Native 199-SNAPSHOT [26/26]
+[INFO]   from integration-tests/micrometer-native/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-it-native ---
+[INFO] Deleting /quarkus-micrometer-registry/integration-tests/micrometer-native/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-it-native ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-it-native ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-it-native ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-it-native ---
+[INFO] Processed 3 files in 95ms (Formatted: 0, Skipped: 0, Unchanged: 3, Failed: 0, Readonly: 0)
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-it-native ---
+[INFO] Processed 3 files in 00:00.082 (Already Sorted: 3, Needed Sorting: 0)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ quarkus-micrometer-registry-it-native ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ quarkus-micrometer-registry-it-native ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 1 source file with javac [debug deprecation release 11] to target/classes
+[WARNING] /quarkus-micrometer-registry/integration-tests/micrometer-native/src/main/java/io/quarkiverse/it/micrometer/native_mode/MessageResource.java:[27,30] unchecked conversion
+  required: java.util.List<java.lang.String>
+  found:    java.util.ArrayList
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quarkus-micrometer-registry-it-native ---
+[INFO] skip non existing resourceDirectory /quarkus-micrometer-registry/integration-tests/micrometer-native/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ quarkus-micrometer-registry-it-native ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 2 source files with javac [debug deprecation release 11] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ quarkus-micrometer-registry-it-native ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running io.quarkiverse.it.micrometer.native_mode.NativeMeterRegistriesTest
+2026-01-05 03:28:49,176 INFO  [io.mic.dat.DatadogMeterRegistry] (main) An application key must be configured in order for unit information to be sent to Datadog.
+2026-01-05 03:28:49,179 INFO  [io.mic.cor.ins.pus.PushMeterRegistry] (main) publishing metrics for DatadogMeterRegistry every 1m
+2026-01-05 03:28:49,355 INFO  [io.mic.cor.ins.pus.PushMeterRegistry] (main) publishing metrics for NewRelicMeterRegistry every 1m
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 8.069 s <<< FAILURE! -- in io.quarkiverse.it.micrometer.native_mode.NativeMeterRegistriesTest
+[ERROR] io.quarkiverse.it.micrometer.native_mode.NativeMeterRegistriesTest.testRegistryInjection -- Time elapsed: 0.009 s <<< ERROR!
+java.lang.RuntimeException: java.lang.RuntimeException: Failed to start quarkus
+	at io.quarkus.test.junit.QuarkusTestExtension.throwBootFailureException(QuarkusTestExtension.java:674)
+	at io.quarkus.test.junit.QuarkusTestExtension.interceptTestClassConstructor(QuarkusTestExtension.java:747)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.api.extension.InvocationInterceptor.interceptTestClassConstructor(InvocationInterceptor.java:72)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:77)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestClassConstructor(ClassBasedTestDescriptor.java:342)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateTestClass(ClassBasedTestDescriptor.java:289)
+	at org.junit.jupiter.engine.descriptor.ClassTestDescriptor.instantiateTestClass(ClassTestDescriptor.java:79)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:267)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$2(ClassBasedTestDescriptor.java:259)
+	at java.base/java.util.Optional.orElseGet(Optional.java:369)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$3(ClassBasedTestDescriptor.java:258)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:101)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:100)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:65)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$1(NodeTestTask.java:111)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:111)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:79)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:75)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.lang.RuntimeException: Failed to start quarkus
+	at io.quarkus.runner.ApplicationImpl.doStart(ApplicationImpl.zig:686)
+	at io.quarkus.runtime.Application.start(Application.java:90)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at io.quarkus.runner.bootstrap.StartupActionImpl.run(StartupActionImpl.java:212)
+	at io.quarkus.test.junit.QuarkusTestExtension.doJavaStart(QuarkusTestExtension.java:331)
+	at io.quarkus.test.junit.QuarkusTestExtension.ensureStarted(QuarkusTestExtension.java:643)
+	at io.quarkus.test.junit.QuarkusTestExtension.beforeAll(QuarkusTestExtension.java:689)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeBeforeAllCallbacks$8(ClassBasedTestDescriptor.java:368)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeBeforeAllCallbacks(ClassBasedTestDescriptor.java:368)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.before(ClassBasedTestDescriptor.java:192)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.before(ClassBasedTestDescriptor.java:78)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:136)
+	... 35 more
+Caused by: java.lang.IllegalAccessError: class com.google.api.MetricDescriptor tried to access method 'com.google.protobuf.LazyStringArrayList com.google.protobuf.LazyStringArrayList.emptyList()' (com.google.api.MetricDescriptor and com.google.protobuf.LazyStringArrayList are in unnamed module of loader io.quarkus.bootstrap.classloading.QuarkusClassLoader @40a4afe7)
+	at com.google.api.MetricDescriptor.<init>(MetricDescriptor.java:2572)
+	at com.google.api.MetricDescriptor.<clinit>(MetricDescriptor.java:5520)
+	at com.google.cloud.monitoring.v3.stub.GrpcMetricServiceStub.<clinit>(GrpcMetricServiceStub.java:108)
+	at com.google.cloud.monitoring.v3.stub.MetricServiceStubSettings.createStub(MetricServiceStubSettings.java:192)
+	at com.google.cloud.monitoring.v3.MetricServiceClient.<init>(MetricServiceClient.java:157)
+	at com.google.cloud.monitoring.v3.MetricServiceClient.create(MetricServiceClient.java:138)
+	at io.micrometer.stackdriver.StackdriverMeterRegistry.start(StackdriverMeterRegistry.java:119)
+	at io.micrometer.stackdriver.StackdriverMeterRegistry.<init>(StackdriverMeterRegistry.java:105)
+	at io.micrometer.stackdriver.StackdriverMeterRegistry.<init>(StackdriverMeterRegistry.java:65)
+	at io.micrometer.stackdriver.StackdriverMeterRegistry$Builder.build(StackdriverMeterRegistry.java:279)
+	at io.quarkiverse.micrometer.registry.stackdriver.StackdriverMeterRegistryProvider.registry(StackdriverMeterRegistryProvider.java:58)
+	at io.quarkiverse.micrometer.registry.stackdriver.StackdriverMeterRegistryProvider_ProducerMethod_registry_e8b4c36ef3b19cbaad16963e8c4cd7e863030314_Bean.create(StackdriverMeterRegistryProvider_ProducerMethod_registry_e8b4c36ef3b19cbaad16963e8c4cd7e863030314_Bean.zig:223)
+	at io.quarkiverse.micrometer.registry.stackdriver.StackdriverMeterRegistryProvider_ProducerMethod_registry_e8b4c36ef3b19cbaad16963e8c4cd7e863030314_Bean.create(StackdriverMeterRegistryProvider_ProducerMethod_registry_e8b4c36ef3b19cbaad16963e8c4cd7e863030314_Bean.zig:238)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:96)
+	at io.quarkus.arc.impl.AbstractSharedContext.access$000(AbstractSharedContext.java:14)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:29)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:26)
+	at io.quarkus.arc.impl.LazyValue.get(LazyValue.java:26)
+	at io.quarkus.arc.impl.ComputingCache.computeIfAbsent(ComputingCache.java:69)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:26)
+	at io.quarkiverse.micrometer.registry.stackdriver.StackdriverMeterRegistryProvider_ProducerMethod_registry_e8b4c36ef3b19cbaad16963e8c4cd7e863030314_Bean.get(StackdriverMeterRegistryProvider_ProducerMethod_registry_e8b4c36ef3b19cbaad16963e8c4cd7e863030314_Bean.zig:270)
+	at io.quarkiverse.micrometer.registry.stackdriver.StackdriverMeterRegistryProvider_ProducerMethod_registry_e8b4c36ef3b19cbaad16963e8c4cd7e863030314_Bean.get(StackdriverMeterRegistryProvider_ProducerMethod_registry_e8b4c36ef3b19cbaad16963e8c4cd7e863030314_Bean.zig:286)
+	at io.quarkus.arc.impl.ArcContainerImpl.beanInstanceHandle(ArcContainerImpl.java:430)
+	at io.quarkus.arc.impl.ArcContainerImpl.beanInstanceHandle(ArcContainerImpl.java:443)
+	at io.quarkus.arc.impl.BeanManagerImpl.getReference(BeanManagerImpl.java:59)
+	at io.quarkus.micrometer.runtime.MicrometerRecorder.configureRegistries(MicrometerRecorder.java:95)
+	at io.quarkus.deployment.steps.MicrometerProcessor$configureRegistry-2125003310.deploy_0(MicrometerProcessor$configureRegistry-2125003310.zig:229)
+	at io.quarkus.deployment.steps.MicrometerProcessor$configureRegistry-2125003310.deploy(MicrometerProcessor$configureRegistry-2125003310.zig:40)
+	at io.quarkus.runner.ApplicationImpl.doStart(ApplicationImpl.zig:587)
+	... 50 more
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   NativeMeterRegistriesTest.testRegistryInjection » Runtime java.lang.RuntimeException: Failed to start quarkus
+[INFO] 
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Quarkus Micrometer Registry - Parent 199-SNAPSHOT:
+[INFO] 
+[INFO] Quarkus Micrometer Registry - Parent ............... SUCCESS [  1.923 s]
+[INFO] Quarkus Micrometer Registry - Azure Monitor - Parent SUCCESS [  0.028 s]
+[INFO] Quarkus Micrometer Registry - Azure Monitor - Runtime SUCCESS [  5.310 s]
+[INFO] Quarkus Micrometer Registry - Azure Monitor - Deployment SUCCESS [ 20.559 s]
+[INFO] Quarkus Micrometer Registry - Datadog - Parent ..... SUCCESS [  0.068 s]
+[INFO] Quarkus Micrometer Registry - Datadog - Runtime .... SUCCESS [  1.412 s]
+[INFO] Quarkus Micrometer Registry - Datadog - Deployment . SUCCESS [  9.722 s]
+[INFO] Quarkus Micrometer Registry - JMX - Parent ......... SUCCESS [  0.074 s]
+[INFO] Quarkus Micrometer Registry - JMX - Runtime ........ SUCCESS [  1.089 s]
+[INFO] Quarkus Micrometer Registry - JMX - Deployment ..... SUCCESS [  9.193 s]
+[INFO] Quarkus Micrometer Registry - New Relic - Parent ... SUCCESS [  0.048 s]
+[INFO] Quarkus Micrometer Registry - New Relic - Runtime .. SUCCESS [  1.454 s]
+[INFO] Quarkus Micrometer Registry - New Relic - Deployment SUCCESS [ 10.015 s]
+[INFO] Quarkus Micrometer Registry - SignalFX - Parent .... SUCCESS [  0.023 s]
+[INFO] Quarkus Micrometer Registry - SignalFX - Runtime ... SUCCESS [  1.289 s]
+[INFO] Quarkus Micrometer Registry - SignalFX - Deployment  SUCCESS [ 11.991 s]
+[INFO] Quarkus Micrometer Registry - Stackdriver - Parent . SUCCESS [  0.050 s]
+[INFO] Quarkus Micrometer Registry - Stackdriver - Runtime  SUCCESS [  1.752 s]
+[INFO] Quarkus Micrometer Registry - Stackdriver - Deployment SUCCESS [ 10.846 s]
+[INFO] Quarkus Micrometer Registry - StatsD - Parent ...... SUCCESS [  0.025 s]
+[INFO] Quarkus Micrometer Registry - StatsD - Runtime ..... SUCCESS [  1.025 s]
+[INFO] Quarkus Micrometer Registry - StatsD - Deployment .. SUCCESS [  8.885 s]
+[INFO] Quarkus Micrometer Registry - Documentation ........ SUCCESS [  0.413 s]
+[INFO] Quarkus Micrometer Registry - Integration Test - Parent SUCCESS [  0.075 s]
+[INFO] Quarkus Micrometer Registry - Integration Test - JMX SUCCESS [ 14.100 s]
+[INFO] Quarkus Micrometer Registry - Integration Test - Native FAILURE [ 11.146 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:03 min
+[INFO] Finished at: 2026-01-05T03:28:49Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 2 plugin(s)
+[WARNING] 
+[WARNING]  * it.ozimov:yaml-properties-maven-plugin:1.1.3
+[WARNING]  * io.quarkus:quarkus-bootstrap-maven-plugin:1.13.7.Final
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.1.2:test (default-test) on project quarkus-micrometer-registry-it-native: 
+[ERROR] 
+[ERROR] Please refer to /quarkus-micrometer-registry/integration-tests/micrometer-native/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :quarkus-micrometer-registry-it-native
+
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.github.os72.protobuf351.UnsafeUtil (file:/root/.m2/repository/com/signalfx/public/signalfx-java/1.0.5/signalfx-java-1.0.5.jar) to field java.nio.Buffer.address
+WARNING: Please consider reporting this to the maintainers of com.github.os72.protobuf351.UnsafeUtil
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release

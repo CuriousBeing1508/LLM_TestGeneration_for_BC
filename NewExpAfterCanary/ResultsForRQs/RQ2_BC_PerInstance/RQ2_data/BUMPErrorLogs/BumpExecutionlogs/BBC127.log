@@ -1,0 +1,438 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------------< oripa:oripa >-----------------------------
+[INFO] Building oripa 1.54
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ oripa ---
+[INFO] Deleting /oripa/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ oripa ---
+[INFO] Copying 24 resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ oripa ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 395 source files to /oripa/target/classes
+[INFO] /oripa/src/main/java/oripa/persistence/dao/AbstractFileDAO.java: Some input files use unchecked or unsafe operations.
+[INFO] /oripa/src/main/java/oripa/persistence/dao/AbstractFileDAO.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ oripa ---
+[INFO] Copying 4 resources
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ oripa ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 37 source files to /oripa/target/test-classes
+[INFO] /oripa/src/test/java/oripa/domain/paint/outline/OutlineAdderTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /oripa/src/test/java/oripa/domain/paint/outline/OutlineAdderTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ oripa ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running oripa.value.OriLineTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 s - in oripa.value.OriLineTest
+[INFO] Running oripa.persistence.foldformat.GeometryTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.089 s <<< FAILURE! - in oripa.persistence.foldformat.GeometryTest
+[ERROR] testSortByAngle  Time elapsed: 0.089 s  <<< ERROR!
+java.lang.NoSuchFieldError: EMPTY_BYTE_ARRAY
+	at oripa.persistence.foldformat.GeometryTest.testSortByAngle(GeometryTest.java:45)
+
+[INFO] Running oripa.persistence.foldformat.CreasePatternElementConverterTest
+[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in oripa.persistence.foldformat.CreasePatternElementConverterTest
+[ERROR] testToVerticesCoords  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+	at oripa.persistence.foldformat.CreasePatternElementConverterTest.testToVerticesCoords(CreasePatternElementConverterTest.java:73)
+
+[ERROR] testToFacesVertices  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class oripa.persistence.foldformat.CreasePatternElementConverter
+	at oripa.persistence.foldformat.CreasePatternElementConverterTest.testToFacesVertices(CreasePatternElementConverterTest.java:115)
+
+[ERROR] testToEdgesAssignment  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class oripa.persistence.foldformat.CreasePatternElementConverter
+	at oripa.persistence.foldformat.CreasePatternElementConverterTest.testToEdgesAssignment(CreasePatternElementConverterTest.java:105)
+
+[ERROR] testToEdgesVertices  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class oripa.persistence.foldformat.CreasePatternElementConverter
+	at oripa.persistence.foldformat.CreasePatternElementConverterTest.testToEdgesVertices(CreasePatternElementConverterTest.java:91)
+
+[INFO] Running oripa.domain.cptool.OverlappingLineExtractorTest
+[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in oripa.domain.cptool.OverlappingLineExtractorTest
+[ERROR] testExtract_ofSpecifiedLine  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+	at oripa.domain.cptool.OverlappingLineExtractorTest.testExtract_ofSpecifiedLine(OverlappingLineExtractorTest.java:82)
+
+[ERROR] testExtract_all  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class oripa.domain.cptool.OverlappingLineExtractor
+	at oripa.domain.cptool.OverlappingLineExtractorTest.testExtract_all(OverlappingLineExtractorTest.java:46)
+
+[ERROR] testExtract_all_verticals  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class oripa.domain.cptool.OverlappingLineExtractor
+	at oripa.domain.cptool.OverlappingLineExtractorTest.testExtract_all_verticals(OverlappingLineExtractorTest.java:62)
+
+[INFO] Running oripa.domain.cptool.LineAdderTest
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in oripa.domain.cptool.LineAdderTest
+[ERROR] testAddLine  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+	at oripa.domain.cptool.LineAdderTest.testAddLine(LineAdderTest.java:49)
+
+[ERROR] testAddAll  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class oripa.domain.cptool.LineAdder
+	at oripa.domain.cptool.LineAdderTest.testAddAll(LineAdderTest.java:69)
+
+[INFO] Running oripa.domain.cptool.ElementRemoverTest
+[ERROR] Tests run: 7, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.018 s <<< FAILURE! - in oripa.domain.cptool.ElementRemoverTest
+[ERROR] testRemoveVertex_shouldNotBeRemoved_notParallel  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+	at oripa.domain.cptool.ElementRemoverTest.testRemoveVertex_shouldNotBeRemoved_notParallel(ElementRemoverTest.java:92)
+
+[ERROR] testRemoveLines  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class oripa.domain.cptool.ElementRemover
+	at oripa.domain.cptool.ElementRemoverTest.testRemoveLines(ElementRemoverTest.java:151)
+
+[ERROR] testRemoveMeaninglessVertices  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class oripa.domain.cptool.ElementRemover
+	at oripa.domain.cptool.ElementRemoverTest.testRemoveMeaninglessVertices(ElementRemoverTest.java:127)
+
+[ERROR] testRemoveVertex_shouldNotBeRemoved_differentType  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class oripa.domain.cptool.ElementRemover
+	at oripa.domain.cptool.ElementRemoverTest.testRemoveVertex_shouldNotBeRemoved_differentType(ElementRemoverTest.java:108)
+
+[ERROR] testRemoveSelectedLines  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class oripa.domain.cptool.ElementRemover
+	at oripa.domain.cptool.ElementRemoverTest.testRemoveSelectedLines(ElementRemoverTest.java:177)
+
+[ERROR] testRemoveVertex_shouldBeRemoved  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class oripa.domain.cptool.ElementRemover
+	at oripa.domain.cptool.ElementRemoverTest.testRemoveVertex_shouldBeRemoved(ElementRemoverTest.java:76)
+
+[ERROR] testRemoveLine  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class oripa.domain.cptool.ElementRemover
+	at oripa.domain.cptool.ElementRemoverTest.testRemoveLine(ElementRemoverTest.java:53)
+
+[INFO] Running oripa.domain.cptool.LineMirrorTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in oripa.domain.cptool.LineMirrorTest
+[INFO] Running oripa.domain.cptool.LineDividerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in oripa.domain.cptool.LineDividerTest
+[INFO] Running oripa.domain.cptool.LineTypeChangerTest
+[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.012 s <<< FAILURE! - in oripa.domain.cptool.LineTypeChangerTest
+[ERROR] testAlterLineType_changeables  Time elapsed: 0.006 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class oripa.domain.cptool.ElementRemover
+	at oripa.domain.cptool.LineTypeChangerTest.testAlterLineType_changeables(LineTypeChangerTest.java:43)
+
+[ERROR] testAlterLineType_delete  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class oripa.domain.cptool.ElementRemover
+	at oripa.domain.cptool.LineTypeChangerTest.testAlterLineType_delete(LineTypeChangerTest.java:96)
+
+[ERROR] testAlterLineType_flip  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class oripa.domain.cptool.ElementRemover
+	at oripa.domain.cptool.LineTypeChangerTest.testAlterLineType_flip(LineTypeChangerTest.java:110)
+
+[ERROR] testAlterLineTypes_delete  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class oripa.domain.cptool.ElementRemover
+	at oripa.domain.cptool.LineTypeChangerTest.testAlterLineTypes_delete(LineTypeChangerTest.java:145)
+
+[INFO] Running oripa.domain.fold.subface.FacesToCreasePatternConverterTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.452 s <<< FAILURE! - in oripa.domain.fold.subface.FacesToCreasePatternConverterTest
+[ERROR] testConvertToCreasePattern  Time elapsed: 0.451 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class oripa.domain.cptool.LineAdder
+
+[INFO] Running oripa.domain.fold.subface.SplitFacesToSubFacesConverterTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in oripa.domain.fold.subface.SplitFacesToSubFacesConverterTest
+[ERROR] testConvertToSubFaces  Time elapsed: 0.009 s  <<< ERROR!
+org.mockito.exceptions.misusing.UnfinishedMockingSessionException: 
+
+Unfinished mocking session detected.
+Previous MockitoSession was not concluded with 'finishMocking()'.
+For examples of correct usage see javadoc for MockitoSession class.
+
+[INFO] Running oripa.domain.fold.subface.SubFacesFactoryTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in oripa.domain.fold.subface.SubFacesFactoryTest
+[ERROR] testCreateSubFaces  Time elapsed: 0 s  <<< ERROR!
+org.mockito.exceptions.misusing.UnfinishedMockingSessionException: 
+
+Unfinished mocking session detected.
+Previous MockitoSession was not concluded with 'finishMocking()'.
+For examples of correct usage see javadoc for MockitoSession class.
+
+[INFO] Running oripa.domain.fold.subface.ParentFacesCollectorTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in oripa.domain.fold.subface.ParentFacesCollectorTest
+[ERROR] testCollect  Time elapsed: 0 s  <<< ERROR!
+org.mockito.exceptions.misusing.UnfinishedMockingSessionException: 
+
+Unfinished mocking session detected.
+Previous MockitoSession was not concluded with 'finishMocking()'.
+For examples of correct usage see javadoc for MockitoSession class.
+
+[INFO] Running oripa.domain.fold.halfedge.OriVertexTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in oripa.domain.fold.halfedge.OriVertexTest
+[ERROR] testAddEdge  Time elapsed: 0 s  <<< ERROR!
+org.mockito.exceptions.misusing.UnfinishedMockingSessionException: 
+
+Unfinished mocking session detected.
+Previous MockitoSession was not concluded with 'finishMocking()'.
+For examples of correct usage see javadoc for MockitoSession class.
+
+[INFO] Running oripa.domain.fold.halfedge.OriFaceTest
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in oripa.domain.fold.halfedge.OriFaceTest
+[ERROR] testIsOnFaceInclusively  Time elapsed: 0 s  <<< ERROR!
+org.mockito.exceptions.misusing.UnfinishedMockingSessionException: 
+
+Unfinished mocking session detected.
+Previous MockitoSession was not concluded with 'finishMocking()'.
+For examples of correct usage see javadoc for MockitoSession class.
+
+[ERROR] testIsOnFaceExclusively  Time elapsed: 0 s  <<< ERROR!
+org.mockito.exceptions.misusing.UnfinishedMockingSessionException: 
+
+Unfinished mocking session detected.
+Previous MockitoSession was not concluded with 'finishMocking()'.
+For examples of correct usage see javadoc for MockitoSession class.
+
+[INFO] Running oripa.domain.fold.foldability.KawasakiTheoremTest
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.274 s <<< FAILURE! - in oripa.domain.fold.foldability.KawasakiTheoremTest
+[ERROR] testHolds_wrongShape  Time elapsed: 0.263 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+	at oripa.domain.fold.foldability.KawasakiTheoremTest.testHolds_wrongShape(KawasakiTheoremTest.java:46)
+
+[ERROR] testHolds_birdFoot  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class oripa.domain.fold.foldability.KawasakiTheorem
+	at oripa.domain.fold.foldability.KawasakiTheoremTest.testHolds_birdFoot(KawasakiTheoremTest.java:38)
+
+[INFO] Running oripa.domain.fold.foldability.GeneralizedBLBLemmaTest
+[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in oripa.domain.fold.foldability.GeneralizedBLBLemmaTest
+[ERROR] testHolds_equalAngles  Time elapsed: 0 s  <<< ERROR!
+org.mockito.exceptions.misusing.UnfinishedMockingSessionException: 
+
+Unfinished mocking session detected.
+Previous MockitoSession was not concluded with 'finishMocking()'.
+For examples of correct usage see javadoc for MockitoSession class.
+
+[ERROR] testHolds_45deg_135deg  Time elapsed: 0 s  <<< ERROR!
+org.mockito.exceptions.misusing.UnfinishedMockingSessionException: 
+
+Unfinished mocking session detected.
+Previous MockitoSession was not concluded with 'finishMocking()'.
+For examples of correct usage see javadoc for MockitoSession class.
+
+[ERROR] testHolds_birdFoot  Time elapsed: 0 s  <<< ERROR!
+org.mockito.exceptions.misusing.UnfinishedMockingSessionException: 
+
+Unfinished mocking session detected.
+Previous MockitoSession was not concluded with 'finishMocking()'.
+For examples of correct usage see javadoc for MockitoSession class.
+
+[ERROR] testHolds_twoSequences  Time elapsed: 0 s  <<< ERROR!
+org.mockito.exceptions.misusing.UnfinishedMockingSessionException: 
+
+Unfinished mocking session detected.
+Previous MockitoSession was not concluded with 'finishMocking()'.
+For examples of correct usage see javadoc for MockitoSession class.
+
+[INFO] Running oripa.domain.fold.foldability.MaekawaTheoremTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in oripa.domain.fold.foldability.MaekawaTheoremTest
+[ERROR] testHolds_birdFoot  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+	at oripa.domain.fold.foldability.MaekawaTheoremTest.testHolds_birdFoot(MaekawaTheoremTest.java:39)
+
+[INFO] Running oripa.domain.paint.CreasePatternUndoManagerTest
+[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in oripa.domain.paint.CreasePatternUndoManagerTest
+[ERROR] testRedo  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+	at oripa.domain.paint.CreasePatternUndoManagerTest.<clinit>(CreasePatternUndoManagerTest.java:39)
+
+[ERROR] testUndo  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class oripa.domain.paint.CreasePatternUndoManagerTest
+
+[ERROR] testDiscardingOldRedo  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class oripa.domain.paint.CreasePatternUndoManagerTest
+
+[INFO] Running oripa.domain.paint.outline.OutlineAdderTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in oripa.domain.paint.outline.OutlineAdderTest
+[ERROR] testAddOutlines  Time elapsed: 0 s  <<< ERROR!
+org.mockito.exceptions.misusing.UnfinishedMockingSessionException: 
+
+Unfinished mocking session detected.
+Previous MockitoSession was not concluded with 'finishMocking()'.
+For examples of correct usage see javadoc for MockitoSession class.
+
+[INFO] Running oripa.domain.paint.outline.IsOutsideOfTempOutlineLoopTest
+[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in oripa.domain.paint.outline.IsOutsideOfTempOutlineLoopTest
+[ERROR] testExecute_outside_fix_v145  Time elapsed: 0.001 s  <<< ERROR!
+org.mockito.exceptions.misusing.UnfinishedMockingSessionException: 
+
+Unfinished mocking session detected.
+Previous MockitoSession was not concluded with 'finishMocking()'.
+For examples of correct usage see javadoc for MockitoSession class.
+
+[ERROR] testExecute_outside  Time elapsed: 0 s  <<< ERROR!
+org.mockito.exceptions.misusing.UnfinishedMockingSessionException: 
+
+Unfinished mocking session detected.
+Previous MockitoSession was not concluded with 'finishMocking()'.
+For examples of correct usage see javadoc for MockitoSession class.
+
+[ERROR] testExecute_inside  Time elapsed: 0 s  <<< ERROR!
+org.mockito.exceptions.misusing.UnfinishedMockingSessionException: 
+
+Unfinished mocking session detected.
+Previous MockitoSession was not concluded with 'finishMocking()'.
+For examples of correct usage see javadoc for MockitoSession class.
+
+[INFO] Running oripa.domain.paint.outline.CloseTempOutlineTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in oripa.domain.paint.outline.CloseTempOutlineTest
+[ERROR] testExecute  Time elapsed: 0.001 s  <<< ERROR!
+org.mockito.exceptions.misusing.UnfinishedMockingSessionException: 
+
+Unfinished mocking session detected.
+Previous MockitoSession was not concluded with 'finishMocking()'.
+For examples of correct usage see javadoc for MockitoSession class.
+
+[INFO] Running oripa.domain.paint.outline.OutsideLineRemoverTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in oripa.domain.paint.outline.OutsideLineRemoverTest
+[ERROR] testRemoveLinesOutsideOfOutlines  Time elapsed: 0.001 s  <<< ERROR!
+org.mockito.exceptions.misusing.UnfinishedMockingSessionException: 
+
+Unfinished mocking session detected.
+Previous MockitoSession was not concluded with 'finishMocking()'.
+For examples of correct usage see javadoc for MockitoSession class.
+
+[INFO] Running oripa.domain.creasepattern.VerticesManagerTest
+target: (0.0, 0.0)
+(0.0, 0.0)
+target: (12.5, 0.0)
+(12.5, 0.0)
+target: (12.5, 12.5)
+(12.5, 12.5)
+target: (-200.1, -200.1)
+(-200.1, -200.1)
+target: (200.1, 200.1)
+(200.1, 200.1)
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in oripa.domain.creasepattern.VerticesManagerTest
+[INFO] Running oripa.domain.creasepattern.CreasePatternTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in oripa.domain.creasepattern.CreasePatternTest
+[INFO] Running oripa.doc.OptionParserTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oripa.doc.OptionParserTest
+[INFO] Running oripa.doc.PropertyTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 s - in oripa.doc.PropertyTest
+[INFO] Running oripa.gui.bind.binder.ButtonBinderTest
+[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in oripa.gui.bind.binder.ButtonBinderTest
+[ERROR] testCreate  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+	at oripa.gui.bind.binder.ButtonBinderTest.testCreate(ButtonBinderTest.java:21)
+
+[INFO] Running oripa.gui.bind.ButtonFactoryTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.252 s <<< FAILURE! - in oripa.gui.bind.ButtonFactoryTest
+[ERROR] test  Time elapsed: 0.252 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+	at oripa.gui.bind.ButtonFactoryTest.assertButtonCreated(ButtonFactoryTest.java:65)
+	at oripa.gui.bind.ButtonFactoryTest.test(ButtonFactoryTest.java:31)
+
+[INFO] Running oripa.gui.bind.state.LocalPaintBoundStateFactoryTest
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.873 s <<< FAILURE! - in oripa.gui.bind.state.LocalPaintBoundStateFactoryTest
+[ERROR] errorOccurs  Time elapsed: 0.817 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+	at oripa.gui.bind.state.LocalPaintBoundStateFactoryTest$CreateWithErrorListenerTests.errorOccurs(LocalPaintBoundStateFactoryTest.java:36)
+
+[ERROR] noErrors  Time elapsed: 0.051 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+	at oripa.gui.bind.state.LocalPaintBoundStateFactoryTest$CreateWithErrorListenerTests.noErrors(LocalPaintBoundStateFactoryTest.java:91)
+
+[INFO] Running oripa.gui.bind.state.EditModeStateManagerTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in oripa.gui.bind.state.EditModeStateManagerTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   ElementRemoverTest.testRemoveLine:53 NoClassDefFound Could not initialize clas...
+[ERROR]   ElementRemoverTest.testRemoveLines:151 NoClassDefFound Could not initialize cl...
+[ERROR]   ElementRemoverTest.testRemoveMeaninglessVertices:127 NoClassDefFound Could not...
+[ERROR]   ElementRemoverTest.testRemoveSelectedLines:177 NoClassDefFound Could not initi...
+[ERROR]   ElementRemoverTest.testRemoveVertex_shouldBeRemoved:76 NoClassDefFound Could n...
+[ERROR]   ElementRemoverTest.testRemoveVertex_shouldNotBeRemoved_differentType:108 NoClassDefFound
+[ERROR]   ElementRemoverTest.testRemoveVertex_shouldNotBeRemoved_notParallel:92 » NoClassDefFound
+[ERROR]   LineAdderTest.testAddAll:69 NoClassDefFound Could not initialize class oripa.d...
+[ERROR]   LineAdderTest.testAddLine:49 » NoClassDefFound Could not initialize class org....
+[ERROR]   LineTypeChangerTest.testAlterLineType_changeables:43 » NoClassDefFound Could n...
+[ERROR]   LineTypeChangerTest.testAlterLineType_delete:96 » NoClassDefFound Could not in...
+[ERROR]   LineTypeChangerTest.testAlterLineType_flip:110 » NoClassDefFound Could not ini...
+[ERROR]   LineTypeChangerTest.testAlterLineTypes_delete:145 » NoClassDefFound Could not ...
+[ERROR]   OverlappingLineExtractorTest.testExtract_all:46 NoClassDefFound Could not init...
+[ERROR]   OverlappingLineExtractorTest.testExtract_all_verticals:62 NoClassDefFound Coul...
+[ERROR]   OverlappingLineExtractorTest.testExtract_ofSpecifiedLine:82 » NoClassDefFound ...
+[ERROR]   GeneralizedBLBLemmaTest.testHolds_45deg_135deg » UnfinishedMockingSession 
+Unf...
+[ERROR]   GeneralizedBLBLemmaTest.testHolds_birdFoot » UnfinishedMockingSession 
+Unfinis...
+[ERROR]   GeneralizedBLBLemmaTest.testHolds_equalAngles » UnfinishedMockingSession 
+Unfi...
+[ERROR]   GeneralizedBLBLemmaTest.testHolds_twoSequences » UnfinishedMockingSession 
+Unf...
+[ERROR]   KawasakiTheoremTest.testHolds_birdFoot:38 NoClassDefFound Could not initialize...
+[ERROR]   KawasakiTheoremTest.testHolds_wrongShape:46 » NoClassDefFound Could not initia...
+[ERROR]   MaekawaTheoremTest.testHolds_birdFoot:39 » NoClassDefFound Could not initializ...
+[ERROR]   OriFaceTest.testIsOnFaceExclusively » UnfinishedMockingSession 
+Unfinished moc...
+[ERROR]   OriFaceTest.testIsOnFaceInclusively » UnfinishedMockingSession 
+Unfinished moc...
+[ERROR]   OriVertexTest.testAddEdge » UnfinishedMockingSession 
+Unfinished mocking sessi...
+[ERROR]   FacesToCreasePatternConverterTest.testConvertToCreasePattern » NoClassDefFound
+[ERROR]   ParentFacesCollectorTest.testCollect » UnfinishedMockingSession 
+Unfinished mo...
+[ERROR]   SplitFacesToSubFacesConverterTest.testConvertToSubFaces » UnfinishedMockingSession
+[ERROR]   SubFacesFactoryTest.testCreateSubFaces » UnfinishedMockingSession 
+Unfinished ...
+[ERROR]   CreasePatternUndoManagerTest.testDiscardingOldRedo » NoClassDefFound Could not...
+[ERROR]   CreasePatternUndoManagerTest.<clinit>:39 » NoClassDefFound Could not initializ...
+[ERROR]   CreasePatternUndoManagerTest.testUndo » NoClassDefFound Could not initialize c...
+[ERROR]   CloseTempOutlineTest.testExecute » UnfinishedMockingSession 
+Unfinished mockin...
+[ERROR]   IsOutsideOfTempOutlineLoopTest.testExecute_inside » UnfinishedMockingSession 
+...
+[ERROR]   IsOutsideOfTempOutlineLoopTest.testExecute_outside » UnfinishedMockingSession ...
+[ERROR]   IsOutsideOfTempOutlineLoopTest.testExecute_outside_fix_v145 » UnfinishedMockingSession
+[ERROR]   OutlineAdderTest.testAddOutlines » UnfinishedMockingSession 
+Unfinished mockin...
+[ERROR]   OutsideLineRemoverTest.testRemoveLinesOutsideOfOutlines » UnfinishedMockingSession
+[ERROR]   ButtonFactoryTest.test:31->assertButtonCreated:65 » NoClassDefFound Could not ...
+[ERROR]   ButtonBinderTest.testCreate:21 » NoClassDefFound Could not initialize class or...
+[ERROR]   LocalPaintBoundStateFactoryTest$CreateWithErrorListenerTests.errorOccurs:36 » NoClassDefFound
+[ERROR]   LocalPaintBoundStateFactoryTest$CreateWithErrorListenerTests.noErrors:91 » NoClassDefFound
+[ERROR]   CreasePatternElementConverterTest.testToEdgesAssignment:105 NoClassDefFound Co...
+[ERROR]   CreasePatternElementConverterTest.testToEdgesVertices:91 NoClassDefFound Could...
+[ERROR]   CreasePatternElementConverterTest.testToFacesVertices:115 NoClassDefFound Coul...
+[ERROR]   CreasePatternElementConverterTest.testToVerticesCoords:73 » NoClassDefFound Co...
+[ERROR]   GeometryTest.testSortByAngle:45 » NoSuchField EMPTY_BYTE_ARRAY
+[INFO] 
+[ERROR] Tests run: 67, Failures: 0, Errors: 48, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:51 min
+[INFO] Finished at: 2026-01-05T05:21:22Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 3 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.8.1
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.22.2
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project oripa: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /oripa/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested

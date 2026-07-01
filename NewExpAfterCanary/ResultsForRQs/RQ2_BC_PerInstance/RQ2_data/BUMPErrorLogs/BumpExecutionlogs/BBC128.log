@@ -1,0 +1,887 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] missinglink                                                        [pom]
+[INFO] missinglink-core                                                   [jar]
+[INFO] missinglink-benchmarks                                             [jar]
+[INFO] missinglink-maven-plugin                                  [maven-plugin]
+[INFO] 
+[INFO] -------------------< com.spotify:missinglink-parent >-------------------
+[INFO] Building missinglink 0.2.10-SNAPSHOT                               [1/4]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ missinglink-parent ---
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce) @ missinglink-parent ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.dependency.RequireUpperBoundDeps passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven) @ missinglink-parent ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] 
+[INFO] --- jacoco:0.8.10:prepare-agent (default) @ missinglink-parent ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.10/org.jacoco.agent-0.8.10-runtime.jar=destfile=/missinglink/target/jacoco.exec
+[INFO] 
+[INFO] --- license:1.20:check-file-header (check-file-header) @ missinglink-parent ---
+[WARNING] No file to scan.
+[INFO] 
+[INFO] 
+[INFO] --- fmt:2.9.1:format (default) @ missinglink-parent ---
+[INFO] Skipping format check: project uses 'pom' packaging
+[INFO] 
+[INFO] --- jacoco:0.8.10:report (report) @ missinglink-parent ---
+[INFO] Skipping JaCoCo execution due to missing execution data file.
+[INFO] 
+[INFO] --------------------< com.spotify:missinglink-core >--------------------
+[INFO] Building missinglink-core 0.2.10-SNAPSHOT                          [2/4]
+[INFO]   from core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ missinglink-core ---
+[INFO] Deleting /missinglink/core/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce) @ missinglink-core ---
+[INFO] Rule 1: org.apache.maven.enforcer.rules.dependency.RequireUpperBoundDeps passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven) @ missinglink-core ---
+[INFO] 
+[INFO] --- jacoco:0.8.10:prepare-agent (default) @ missinglink-core ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.10/org.jacoco.agent-0.8.10-runtime.jar=destfile=/missinglink/core/target/jacoco.exec
+[INFO] 
+[INFO] --- license:1.20:check-file-header (check-file-header) @ missinglink-core ---
+[INFO] Will search files to update from root /missinglink/core/src/main/java
+[INFO] Will search files to update from root /missinglink/core/src/test/java
+[INFO] Scan 38 files header done in 510.75ms.
+[INFO] All files are up-to-date.
+[INFO] 
+[INFO] --- fmt:2.9.1:format (default) @ missinglink-core ---
+[INFO] File '/missinglink/core/src/main/java/com' is a directory. Skipping.
+[INFO] File '/missinglink/core/src/main/java/com/spotify' is a directory. Skipping.
+[INFO] File '/missinglink/core/src/main/java' is a directory. Skipping.
+[INFO] File '/missinglink/core/src/main/java/com/spotify/missinglink' is a directory. Skipping.
+[INFO] File '/missinglink/core/src/main/java/com/spotify/missinglink/datamodel' is a directory. Skipping.
+[INFO] File '/missinglink/core/src/test/java/com/spotify' is a directory. Skipping.
+[INFO] File '/missinglink/core/src/test/java/com/spotify/missinglink/nested' is a directory. Skipping.
+[INFO] File '/missinglink/core/src/test/java/com/spotify/missinglink' is a directory. Skipping.
+[INFO] File '/missinglink/core/src/test/java/com' is a directory. Skipping.
+[INFO] File '/missinglink/core/src/test/java' is a directory. Skipping.
+[INFO] File '/missinglink/core/src/test/java/com/spotify/missinglink/datamodel' is a directory. Skipping.
+[INFO] Processed 38 files (0 reformatted).
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ missinglink-core ---
+[INFO] skip non existing resourceDirectory /missinglink/core/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ missinglink-core ---
+[INFO] Compiling 26 source files with javac [debug release 8] to target/classes
+[WARNING] No processor claimed any of these annotations: io.norberg.automatter.AutoMatter
+[WARNING] No processor claimed any of these annotations: javax.annotation.Generated,io.norberg.automatter.AutoMatter.Generated,io.norberg.automatter.AutoMatter.Field
+[WARNING] /missinglink/core/src/main/java/com/spotify/missinglink/Java9ModuleLoader.java:[62,13] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /missinglink/core/src/main/java/com/spotify/missinglink/Java9ModuleLoader.java:[63,68] unchecked call to getMethod(java.lang.String,java.lang.Class<?>...) as a member of the raw type java.lang.Class
+[WARNING] /missinglink/core/src/main/java/com/spotify/missinglink/Java9ModuleLoader.java:[64,13] found raw type: java.util.Set
+  missing type arguments for generic class java.util.Set<E>
+[WARNING] /missinglink/core/src/main/java/com/spotify/missinglink/Java9ModuleLoader.java:[65,44] unchecked call to getMethod(java.lang.String,java.lang.Class<?>...) as a member of the raw type java.lang.Class
+[WARNING] /missinglink/core/src/main/java/com/spotify/missinglink/Java9ModuleLoader.java:[66,13] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /missinglink/core/src/main/java/com/spotify/missinglink/Java9ModuleLoader.java:[67,13] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /missinglink/core/src/main/java/com/spotify/missinglink/Java9ModuleLoader.java:[70,43] unchecked call to getMethod(java.lang.String,java.lang.Class<?>...) as a member of the raw type java.lang.Class
+[WARNING] /missinglink/core/src/main/java/com/spotify/missinglink/Java9ModuleLoader.java:[73,55] unchecked call to getMethod(java.lang.String,java.lang.Class<?>...) as a member of the raw type java.lang.Class
+[WARNING] /missinglink/core/src/main/java/com/spotify/missinglink/Java9ModuleLoader.java:[78,60] unchecked call to getMethod(java.lang.String,java.lang.Class<?>...) as a member of the raw type java.lang.Class
+[WARNING] /missinglink/core/src/main/java/com/spotify/missinglink/Java9ModuleLoader.java:[78,75] unchecked cast
+  required: java.util.stream.Stream<java.lang.String>
+  found:    java.lang.Object
+[WARNING] /missinglink/core/src/main/java/com/spotify/missinglink/Java9ModuleLoader.java:[85,48] unchecked call to getMethod(java.lang.String,java.lang.Class<?>...) as a member of the raw type java.lang.Class
+[WARNING] /missinglink/core/src/main/java/com/spotify/missinglink/Java9ModuleLoader.java:[85,77] unchecked cast
+  required: java.util.Optional<java.io.InputStream>
+  found:    java.lang.Object
+[WARNING] /missinglink/core/src/main/java/com/spotify/missinglink/Java9ModuleLoader.java:[99,40] unchecked call to getMethod(java.lang.String,java.lang.Class<?>...) as a member of the raw type java.lang.Class
+[WARNING] /missinglink/core/src/main/java/com/spotify/missinglink/MissingLinkException.java:[42,8] serializable class com.spotify.missinglink.MissingLinkException has no definition of serialVersionUID
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ missinglink-core ---
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ missinglink-core ---
+[INFO] Compiling 12 source files with javac [debug release 8] to target/test-classes
+[WARNING] No processor claimed any of these annotations: org.junit.Test,org.junit.Before,org.junit.After
+[WARNING] /missinglink/core/src/test/java/com/spotify/missinglink/ArtifactLoaderTest.java:[131,18] serializable class com.spotify.missinglink.ArtifactLoaderTest.ExampleClassWithInterfaces has no definition of serialVersionUID
+[WARNING] /missinglink/core/src/test/java/com/spotify/missinglink/TypeDescriptorTest.java:[112,17] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /missinglink/core/src/test/java/com/spotify/missinglink/TypeDescriptorTest.java:[126,28] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ missinglink-core ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.spotify.missinglink.ArtifactLoaderTest
+[WARNING] Tests run: 13, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 2.095 s - in com.spotify.missinglink.ArtifactLoaderTest
+[INFO] Running com.spotify.missinglink.ReachableTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in com.spotify.missinglink.ReachableTest
+[INFO] Running com.spotify.missinglink.PrettyPrinterTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.spotify.missinglink.PrettyPrinterTest
+[INFO] Running com.spotify.missinglink.FeatureTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.67 s - in com.spotify.missinglink.FeatureTest
+[INFO] Running com.spotify.missinglink.TypeDescriptorTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in com.spotify.missinglink.TypeDescriptorTest
+[INFO] Running com.spotify.missinglink.ConflictCheckerTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in com.spotify.missinglink.ConflictCheckerTest
+[INFO] Running com.spotify.missinglink.datamodel.MethodDescriptorsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.spotify.missinglink.datamodel.MethodDescriptorsTest
+[INFO] Running com.spotify.missinglink.ClassLoaderTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s - in com.spotify.missinglink.ClassLoaderTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[WARNING] Tests run: 53, Failures: 0, Errors: 0, Skipped: 1
+[INFO] 
+[INFO] 
+[INFO] --- jacoco:0.8.10:report (report) @ missinglink-core ---
+[INFO] Loading execution data file /missinglink/core/target/jacoco.exec
+[INFO] Analyzed bundle 'missinglink-core' with 20 classes
+[INFO] 
+[INFO] -----------------< com.spotify:missinglink-benchmarks >-----------------
+[INFO] Building missinglink-benchmarks 0.2.10-SNAPSHOT                    [3/4]
+[INFO]   from benchmarks/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ missinglink-benchmarks ---
+[INFO] Deleting /missinglink/benchmarks/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce) @ missinglink-benchmarks ---
+[INFO] Rule 1: org.apache.maven.enforcer.rules.dependency.RequireUpperBoundDeps passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven) @ missinglink-benchmarks ---
+[INFO] 
+[INFO] --- jacoco:0.8.10:prepare-agent (default) @ missinglink-benchmarks ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.10/org.jacoco.agent-0.8.10-runtime.jar=destfile=/missinglink/benchmarks/target/jacoco.exec
+[INFO] 
+[INFO] --- license:1.20:check-file-header (check-file-header) @ missinglink-benchmarks ---
+[INFO] Will search files to update from root /missinglink/benchmarks/src/main/java
+[INFO] Scan 1 file header done in 15.599ms.
+[INFO] All files are up-to-date.
+[INFO] 
+[INFO] --- fmt:2.9.1:format (default) @ missinglink-benchmarks ---
+[WARNING] Test source directory '/missinglink/benchmarks/src/test/java' does not exist, ignoring.
+[INFO] File '/missinglink/benchmarks/src/main/java/com/spotify/missinglink' is a directory. Skipping.
+[INFO] File '/missinglink/benchmarks/src/main/java/com/spotify/missinglink/benchmarks' is a directory. Skipping.
+[INFO] File '/missinglink/benchmarks/src/main/java/com' is a directory. Skipping.
+[INFO] File '/missinglink/benchmarks/src/main/java' is a directory. Skipping.
+[INFO] File '/missinglink/benchmarks/src/main/java/com/spotify' is a directory. Skipping.
+[INFO] Processed 1 files (0 reformatted).
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ missinglink-benchmarks ---
+[INFO] skip non existing resourceDirectory /missinglink/benchmarks/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ missinglink-benchmarks ---
+[INFO] Compiling 1 source file with javac [debug release 8] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ missinglink-benchmarks ---
+[INFO] skip non existing resourceDirectory /missinglink/benchmarks/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ missinglink-benchmarks ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ missinglink-benchmarks ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jacoco:0.8.10:report (report) @ missinglink-benchmarks ---
+[INFO] Skipping JaCoCo execution due to missing execution data file.
+[INFO] 
+[INFO] ----------------< com.spotify:missinglink-maven-plugin >----------------
+[INFO] Building missinglink-maven-plugin 0.2.10-SNAPSHOT                  [4/4]
+[INFO]   from maven-plugin/pom.xml
+[INFO] ----------------------------[ maven-plugin ]----------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ missinglink-maven-plugin ---
+[INFO] Deleting /missinglink/maven-plugin/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce) @ missinglink-maven-plugin ---
+[INFO] Rule 1: org.apache.maven.enforcer.rules.dependency.RequireUpperBoundDeps passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven) @ missinglink-maven-plugin ---
+[INFO] 
+[INFO] --- jacoco:0.8.10:prepare-agent (default) @ missinglink-maven-plugin ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.10/org.jacoco.agent-0.8.10-runtime.jar=destfile=/missinglink/maven-plugin/target/jacoco.exec
+[INFO] 
+[INFO] --- license:1.20:check-file-header (check-file-header) @ missinglink-maven-plugin ---
+[INFO] Will search files to update from root /missinglink/maven-plugin/src/main/java
+[INFO] Will search files to update from root /missinglink/maven-plugin/src/test/java
+[INFO] Scan 6 files header done in 364.233ms.
+[INFO] All files are up-to-date.
+[INFO] 
+[INFO] --- fmt:2.9.1:format (default) @ missinglink-maven-plugin ---
+[INFO] File '/missinglink/maven-plugin/src/main/java/com/spotify' is a directory. Skipping.
+[INFO] File '/missinglink/maven-plugin/src/main/java/com/spotify/missinglink' is a directory. Skipping.
+[INFO] File '/missinglink/maven-plugin/src/main/java' is a directory. Skipping.
+[INFO] File '/missinglink/maven-plugin/src/main/java/com/spotify/missinglink/maven' is a directory. Skipping.
+[INFO] File '/missinglink/maven-plugin/src/main/java/com' is a directory. Skipping.
+[INFO] File '/missinglink/maven-plugin/src/test/java/com/spotify/missinglink/maven' is a directory. Skipping.
+[INFO] File '/missinglink/maven-plugin/src/test/java/com' is a directory. Skipping.
+[INFO] File '/missinglink/maven-plugin/src/test/java/com/spotify' is a directory. Skipping.
+[INFO] File '/missinglink/maven-plugin/src/test/java' is a directory. Skipping.
+[INFO] File '/missinglink/maven-plugin/src/test/java/com/spotify/missinglink' is a directory. Skipping.
+[INFO] Processed 6 files (0 reformatted).
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ missinglink-maven-plugin ---
+[INFO] skip non existing resourceDirectory /missinglink/maven-plugin/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ missinglink-maven-plugin ---
+[INFO] Compiling 4 source files with javac [debug release 8] to target/classes
+[WARNING] No processor claimed any of these annotations: org.apache.maven.plugins.annotations.Mojo,org.apache.maven.plugins.annotations.Parameter
+[WARNING] /missinglink/maven-plugin/src/main/java/com/spotify/missinglink/maven/CheckMojo.java:[616,23] propagate(java.lang.Throwable) in com.google.common.base.Throwables has been deprecated
+[WARNING] /missinglink/maven-plugin/src/main/java/com/spotify/missinglink/maven/CheckMojo.java:[682,23] propagate(java.lang.Throwable) in com.google.common.base.Throwables has been deprecated
+[INFO] 
+[INFO] --- plugin:3.9.0:descriptor (default-descriptor) @ missinglink-maven-plugin ---
+[WARNING] 
+
+Some dependencies of Maven Plugins are expected to be in provided scope.
+Please make sure that dependencies listed below declared in POM
+have set '<scope>provided</scope>' as well.
+
+The following dependencies are in wrong scope:
+ * org.apache.maven:maven-plugin-api:jar:3.9.0:compile
+ * org.apache.maven:maven-model:jar:3.9.0:compile
+ * org.apache.maven:maven-core:jar:3.9.0:compile
+ * org.apache.maven:maven-settings:jar:3.9.0:compile
+ * org.apache.maven:maven-settings-builder:jar:3.9.0:compile
+ * org.apache.maven:maven-builder-support:jar:3.9.0:compile
+ * org.apache.maven:maven-repository-metadata:jar:3.9.0:compile
+ * org.apache.maven:maven-model-builder:jar:3.9.0:compile
+ * org.apache.maven:maven-resolver-provider:jar:3.9.0:compile
+ * org.apache.maven:maven-artifact:jar:3.9.0:compile
+
+
+
+[INFO] Using 'UTF-8' encoding to read mojo source files.
+[INFO] java-annotations mojo extractor found 1 mojo descriptor.
+[INFO] 
+[INFO] --- plugin:3.9.0:helpmojo (help-descriptor) @ missinglink-maven-plugin ---
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ missinglink-maven-plugin ---
+[INFO] skip non existing resourceDirectory /missinglink/maven-plugin/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ missinglink-maven-plugin ---
+[INFO] Compiling 2 source files with javac [debug release 8] to target/test-classes
+[WARNING] No processor claimed any of these annotations: org.junit.Test,org.junit.Rule,org.junit.Before
+[WARNING] /missinglink/maven-plugin/src/test/java/com/spotify/missinglink/maven/CheckMojoTest.java:[285,20] found raw type: com.google.common.collect.ImmutableList
+  missing type arguments for generic class com.google.common.collect.ImmutableList<E>
+[WARNING] /missinglink/maven-plugin/src/test/java/com/spotify/missinglink/maven/CheckMojoTest.java:[287,34] unchecked method invocation: method check in class com.spotify.missinglink.ConflictChecker is applied to given types
+  required: com.spotify.missinglink.datamodel.Artifact,java.util.List<com.spotify.missinglink.datamodel.Artifact>,java.util.List<com.spotify.missinglink.datamodel.Artifact>
+  found: com.spotify.missinglink.datamodel.Artifact,com.google.common.collect.ImmutableList,java.util.List<com.spotify.missinglink.datamodel.Artifact>
+[WARNING] /missinglink/maven-plugin/src/test/java/com/spotify/missinglink/maven/CheckMojoTest.java:[287,71] unchecked conversion
+  required: java.util.List<com.spotify.missinglink.datamodel.Artifact>
+  found:    com.google.common.collect.ImmutableList
+[WARNING] /missinglink/maven-plugin/src/test/java/com/spotify/missinglink/maven/CheckMojoTest.java:[289,15] unchecked method invocation: method assertThat in class org.assertj.core.api.Assertions is applied to given types
+  required: java.util.List<? extends ELEMENT>
+  found: com.google.common.collect.ImmutableList
+[WARNING] /missinglink/maven-plugin/src/test/java/com/spotify/missinglink/maven/CheckMojoTest.java:[289,32] unchecked conversion
+  required: java.util.List<? extends ELEMENT>
+  found:    com.google.common.collect.ImmutableList
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ missinglink-maven-plugin ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.spotify.missinglink.maven.CheckMojoTest
+[ERROR] Tests run: 14, Failures: 0, Errors: 14, Skipped: 0, Time elapsed: 0.161 s <<< FAILURE! - in com.spotify.missinglink.maven.CheckMojoTest
+[ERROR] com.spotify.missinglink.maven.CheckMojoTest.testCustomBootstrapPath  Time elapsed: 0.029 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/codehaus/plexus/util/xml/XmlStreamReader
+	at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+	at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:250)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:260)
+	at org.junit.runners.BlockJUnit4ClassRunner$2.runReflectiveCall(BlockJUnit4ClassRunner.java:309)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	... 30 more
+
+[ERROR] com.spotify.missinglink.maven.CheckMojoTest.shouldCheckProvidedIfConfigured  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/codehaus/plexus/util/xml/XmlStreamReader
+	at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+	at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:250)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:260)
+	at org.junit.runners.BlockJUnit4ClassRunner$2.runReflectiveCall(BlockJUnit4ClassRunner.java:309)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	... 30 more
+
+[ERROR] com.spotify.missinglink.maven.CheckMojoTest.testTargetDestinationPackages  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/codehaus/plexus/util/xml/XmlStreamReader
+	at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+	at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:250)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:260)
+	at org.junit.runners.BlockJUnit4ClassRunner$2.runReflectiveCall(BlockJUnit4ClassRunner.java:309)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	... 30 more
+
+[ERROR] com.spotify.missinglink.maven.CheckMojoTest.doesNotFailOnConflictByDefault  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/codehaus/plexus/util/xml/XmlStreamReader
+	at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+	at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:250)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:260)
+	at org.junit.runners.BlockJUnit4ClassRunner$2.runReflectiveCall(BlockJUnit4ClassRunner.java:309)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	... 30 more
+
+[ERROR] com.spotify.missinglink.maven.CheckMojoTest.testSkip  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/codehaus/plexus/util/xml/XmlStreamReader
+	at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+	at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:250)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:260)
+	at org.junit.runners.BlockJUnit4ClassRunner$2.runReflectiveCall(BlockJUnit4ClassRunner.java:309)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	... 30 more
+
+[ERROR] com.spotify.missinglink.maven.CheckMojoTest.noConflictsFound  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/codehaus/plexus/util/xml/XmlStreamReader
+	at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+	at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:250)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:260)
+	at org.junit.runners.BlockJUnit4ClassRunner$2.runReflectiveCall(BlockJUnit4ClassRunner.java:309)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	... 30 more
+
+[ERROR] com.spotify.missinglink.maven.CheckMojoTest.testTargetSourcePackages  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/codehaus/plexus/util/xml/XmlStreamReader
+	at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+	at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:250)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:260)
+	at org.junit.runners.BlockJUnit4ClassRunner$2.runReflectiveCall(BlockJUnit4ClassRunner.java:309)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	... 30 more
+
+[ERROR] com.spotify.missinglink.maven.CheckMojoTest.testIgnoreDestinationPackages  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/codehaus/plexus/util/xml/XmlStreamReader
+	at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+	at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:250)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:260)
+	at org.junit.runners.BlockJUnit4ClassRunner$2.runReflectiveCall(BlockJUnit4ClassRunner.java:309)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	... 30 more
+
+[ERROR] com.spotify.missinglink.maven.CheckMojoTest.testBadValuesForIncludeCategories  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/codehaus/plexus/util/xml/XmlStreamReader
+	at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+	at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:250)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:260)
+	at org.junit.runners.BlockJUnit4ClassRunner$2.runReflectiveCall(BlockJUnit4ClassRunner.java:309)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	... 30 more
+
+[ERROR] com.spotify.missinglink.maven.CheckMojoTest.failsOnConflictWhenOptionIsSet  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/codehaus/plexus/util/xml/XmlStreamReader
+	at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+	at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:250)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:260)
+	at org.junit.runners.BlockJUnit4ClassRunner$2.runReflectiveCall(BlockJUnit4ClassRunner.java:309)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	... 30 more
+
+[ERROR] com.spotify.missinglink.maven.CheckMojoTest.testIncludeCategoriesActuallyFilters  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/codehaus/plexus/util/xml/XmlStreamReader
+	at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+	at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:250)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:260)
+	at org.junit.runners.BlockJUnit4ClassRunner$2.runReflectiveCall(BlockJUnit4ClassRunner.java:309)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	... 30 more
+
+[ERROR] com.spotify.missinglink.maven.CheckMojoTest.shouldIgnoreProvidedByDefault  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/codehaus/plexus/util/xml/XmlStreamReader
+	at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+	at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:250)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:260)
+	at org.junit.runners.BlockJUnit4ClassRunner$2.runReflectiveCall(BlockJUnit4ClassRunner.java:309)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	... 30 more
+
+[ERROR] com.spotify.missinglink.maven.CheckMojoTest.testIgnoreSourcePackages  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/codehaus/plexus/util/xml/XmlStreamReader
+	at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+	at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:250)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:260)
+	at org.junit.runners.BlockJUnit4ClassRunner$2.runReflectiveCall(BlockJUnit4ClassRunner.java:309)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	... 30 more
+
+[ERROR] com.spotify.missinglink.maven.CheckMojoTest.testExcludeArtifacts  Time elapsed: 0.006 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/codehaus/plexus/util/xml/XmlStreamReader
+	at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+	at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:250)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:260)
+	at org.junit.runners.BlockJUnit4ClassRunner$2.runReflectiveCall(BlockJUnit4ClassRunner.java:309)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	... 30 more
+
+[INFO] Running com.spotify.missinglink.maven.MavenArtifactNameTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in com.spotify.missinglink.maven.MavenArtifactNameTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader
+[ERROR]   CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader
+[ERROR]   CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader
+[ERROR]   CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader
+[ERROR]   CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader
+[ERROR]   CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader
+[ERROR]   CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader
+[ERROR]   CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader
+[ERROR]   CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader
+[ERROR]   CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader
+[ERROR]   CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader
+[ERROR]   CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader
+[ERROR]   CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader
+[ERROR]   CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader
+[INFO] 
+[ERROR] Tests run: 15, Failures: 0, Errors: 14, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for missinglink 0.2.10-SNAPSHOT:
+[INFO] 
+[INFO] missinglink ........................................ SUCCESS [  2.352 s]
+[INFO] missinglink-core ................................... SUCCESS [ 19.053 s]
+[INFO] missinglink-benchmarks ............................. SUCCESS [  0.848 s]
+[INFO] missinglink-maven-plugin ........................... FAILURE [  5.435 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  27.888 s
+[INFO] Finished at: 2026-01-05T05:21:53Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 4 plugin(s)
+[WARNING] 
+[WARNING]  * org.jacoco:jacoco-maven-plugin:0.8.10
+[WARNING]  * com.coveo:fmt-maven-plugin:2.9.1
+[WARNING]  * org.codehaus.mojo:license-maven-plugin:1.20
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project missinglink-maven-plugin: 
+[ERROR] 
+[ERROR] Please refer to /missinglink/maven-plugin/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :missinglink-maven-plugin
+
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested

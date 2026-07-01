@@ -1,0 +1,423 @@
+
+Step 1: Loading detected CSV...
+  Detected CSV: 137 rows | 32 unique instances | 3 models | 3 variants
+
+Step 2: Loading BUMP CSV...
+  BUMP CSV: 89 instances
+  Total unique error types in BUMP: 56
+  Common error types (n>=2): 24
+    MojoFailureException                                n=88
+    NoClassDefFoundError                                n=35
+    ClassNotFoundException                              n=30
+    SocketTimeoutException                              n=15
+    ClassCastException                                  n=10
+    AssertionError                                      n=10
+    RuntimeException                                    n=8
+    ExceptionInInitializerError                         n=8
+    UnsupportedClassVersionError                        n=8
+    BeanInstantiationException                          n=8
+    NoSuchMethodError                                   n=8
+    AssertionFailedError                                n=7
+    UnsupportedOperationException                       n=6
+    InvalidClassException                               n=6
+    ProcessingException                                 n=4
+    AbstractMethodError                                 n=4
+    SocketException                                     n=4
+    IllegalArgumentException                            n=3
+    IOException                                         n=3
+    Exception                                           n=3
+    JSONConverterException                              n=2
+    ParseException                                      n=2
+    ScriptBuilderException                              n=2
+    APIException                                        n=2
+  Rare error types (n<2): 32
+    StopException                                       n=1
+    ValidationException                                 n=1
+    ExtendedScriptException                             n=1
+    KryoException                                       n=1
+    EcmaError                                           n=1
+    JavaScriptException                                 n=1
+    ArchiverException                                   n=1
+    NoSuchFileException                                 n=1
+    JSONException                                       n=1
+    InvocationTargetException                           n=1
+    RuntimeSshException                                 n=1
+    JSchException                                       n=1
+    ForbiddenClassException                             n=1
+    construct_SendsSeekResponseError                    n=1
+    offsetResponseOutOfOrder_Exception                  n=1
+    ApiException                                        n=1
+    construct_SendsMessageResponseError                 n=1
+    construct_SendsMessagePublishResponseError          n=1
+    InterruptedException                                n=1
+    construct_SendsCommitResponseError                  n=1
+    construct_SendsInitialThenError                     n=1
+    IllegalStateException                               n=1
+    NullPointerException                                n=1
+    sendWithReadError                                   n=1
+    sendWithIOError                                     n=1
+    sendWithCloseError                                  n=1
+    addWithTimeoutError                                 n=1
+    MojoExecutionException                              n=1
+    SurefireBooterForkException                         n=1
+    XmlPullParserException                              n=1
+    JdbcSQLSyntaxErrorException                         n=1
+    CommandAcceptanceException                          n=1
+
+Step 3: Finding novel error types...
+
+  Novel error types (in LLM but not in BUMP at all): 19
+    testExecuteException                                triggered in 1 rows
+    testMainRunsWithoutException                        triggered in 1 rows
+    test_extractSoundType_withInvalidInput_returnsNullAndLogsError  triggered in 1 rows
+    test_getBytes_invalidObject_throwsHecException      triggered in 1 rows
+    test_getConfiguration_createNewFileIOException      triggered in 1 rows
+    test_getDurationInMilliseconds_withNullFile_throwsNullPointerException  triggered in 1 rows
+    test_handleGetRequest_DaoThrowsException            triggered in 1 rows
+    test_handleRequestWithIOException                   triggered in 2 rows
+    test_handleRequest_daoThrowsException               triggered in 1 rows
+    test_judgeFile_NonExistentFile_ReturnsNullAndLogsError  triggered in 1 rows
+    test_logException                                   triggered in 2 rows
+    test_main_noException                               triggered in 1 rows
+    test_main_nullArgs_noException                      triggered in 1 rows
+    test_main_withEmptyArgs_executesWithoutException    triggered in 1 rows
+    test_main_withNullArgs_executesWithoutException     triggered in 1 rows
+    test_save_withInvalidPath_throwsException           triggered in 1 rows
+    test_setPhysicalPropertiesError                     triggered in 1 rows
+    test_unzipFiles_withIOException                     triggered in 1 rows
+    test_waitToFinishCalculationWithInterruptedException  triggered in 1 rows
+
+Step 4: Building detail table...
+  Sanity check passed: every row has exactly one classification.
+  Detail table saved → /Volumes/Rachna-HD/RQResultsForPaper/RQ3/analysis1_error_type_detail_v7.csv
+  Detail table shape: (523, 12)
+
+Step 5: Building summary table...
+  Summary table saved → /Volumes/Rachna-HD/RQResultsForPaper/RQ3/analysis1_error_type_summary_v7.csv
+
+Step 6: Generating report...
+
+================================================================================
+GROUP 1: DETECTED (4 error types)
+  LLM correctly detected at least one instance of this error type.
+================================================================================
+
+  MojoFailureException
+    BUMP instances : 88
+    Detected (any) : 31 (29% best rate)
+    GPT-4o best    : 26
+    Qwen best      : 19
+    GPT-OSS best   : 10
+    Detected IDs   : BBC02, BBC03, BBC06, BBC07, BBC101, BBC103, BBC115, BBC131, BBC132, BBC136, BBC137, BBC143, BBC146, BBC147, BBC150, BBC162, BBC165, BBC167, BBC17, BBC27, BBC33, BBC36, BBC42, BBC45, BBC49, BBC50, BBC54, BBC56, BBC63, BBC72, BBC73
+
+  NoClassDefFoundError
+    BUMP instances : 35
+    Detected (any) : 19 (45% best rate)
+    GPT-4o best    : 16
+    Qwen best      : 14
+    GPT-OSS best   : 9
+    Detected IDs   : BBC02, BBC03, BBC06, BBC132, BBC146, BBC147, BBC150, BBC165, BBC17, BBC27, BBC33, BBC36, BBC42, BBC49, BBC50, BBC54, BBC56, BBC72, BBC73
+
+  ClassNotFoundException
+    BUMP instances : 30
+    Detected (any) : 15 (40% best rate)
+    GPT-4o best    : 12
+    Qwen best      : 10
+    GPT-OSS best   : 5
+    Detected IDs   : BBC02, BBC03, BBC06, BBC146, BBC147, BBC150, BBC165, BBC27, BBC33, BBC36, BBC42, BBC50, BBC54, BBC56, BBC73
+
+  NoSuchMethodError
+    BUMP instances : 8
+    Detected (any) : 5 (62% best rate)
+    GPT-4o best    : 5
+    Qwen best      : 4
+    GPT-OSS best   : 4
+    Detected IDs   : BBC132, BBC137, BBC17, BBC49, BBC72
+
+================================================================================
+GROUP 2: MISMATCHED ONLY (6 error types)
+  LLM triggered this error type but for different instances than BUMP.
+  These are real Java exception types that exist in BUMP, but LLM
+  triggered them for wrong instances (not the ground truth instance).
+================================================================================
+
+  AssertionError
+    BUMP instances         : 10
+    Unique wrong instances : 4
+    Mismatched IDs         : BBC06, BBC165, BBC17, BBC36
+
+  AssertionFailedError
+    BUMP instances         : 7
+    Unique wrong instances : 9
+    Mismatched IDs         : BBC103, BBC131, BBC136, BBC162, BBC167, BBC45, BBC63, BBC72, BBC73
+
+  Exception
+    BUMP instances         : 3
+    Unique wrong instances : 7
+    Mismatched IDs         : BBC06, BBC115, BBC132, BBC165, BBC17, BBC36, BBC49
+
+  IllegalArgumentException
+    BUMP instances         : 3
+    Unique wrong instances : 3
+    Mismatched IDs         : BBC132, BBC36, BBC49
+
+  NullPointerException
+    BUMP instances         : 1
+    Unique wrong instances : 1
+    Mismatched IDs         : BBC115
+
+  InvocationTargetException
+    BUMP instances         : 1
+    Unique wrong instances : 5
+    Mismatched IDs         : BBC06, BBC132, BBC165, BBC36, BBC49
+
+================================================================================
+GROUP 3: MISSED ONLY (15 error types)
+  BUMP has these error types but LLM never triggered them in any test.
+================================================================================
+
+  ClassCastException
+    BUMP instances : 10
+    Total missed   : 15 (LLM never triggered this error type)
+
+  ExceptionInInitializerError
+    BUMP instances : 8
+    Total missed   : 6 (LLM never triggered this error type)
+
+  RuntimeException
+    BUMP instances : 8
+    Total missed   : 6 (LLM never triggered this error type)
+
+  UnsupportedOperationException
+    BUMP instances : 6
+    Total missed   : 6 (LLM never triggered this error type)
+
+  InvalidClassException
+    BUMP instances : 6
+    Total missed   : 6 (LLM never triggered this error type)
+
+  IOException
+    BUMP instances : 3
+    Total missed   : 13 (LLM never triggered this error type)
+
+  APIException
+    BUMP instances : 2
+    Total missed   : 12 (LLM never triggered this error type)
+
+  JSchException
+    BUMP instances : 1
+    Total missed   : 1 (LLM never triggered this error type)
+
+  addWithTimeoutError
+    BUMP instances : 1
+    Total missed   : 3 (LLM never triggered this error type)
+
+  sendWithCloseError
+    BUMP instances : 1
+    Total missed   : 3 (LLM never triggered this error type)
+
+  sendWithIOError
+    BUMP instances : 1
+    Total missed   : 3 (LLM never triggered this error type)
+
+  sendWithReadError
+    BUMP instances : 1
+    Total missed   : 3 (LLM never triggered this error type)
+
+  ArchiverException
+    BUMP instances : 1
+    Total missed   : 3 (LLM never triggered this error type)
+
+  JSONException
+    BUMP instances : 1
+    Total missed   : 1 (LLM never triggered this error type)
+
+  RuntimeSshException
+    BUMP instances : 1
+    Total missed   : 1 (LLM never triggered this error type)
+
+================================================================================
+GROUP 4: ZERO SIGNAL (31 error types)
+  LLM had zero contact with these instances (no passing tests generated).
+================================================================================
+  SocketTimeoutException                              n=15
+  UnsupportedClassVersionError                        n=8
+  BeanInstantiationException                          n=8
+  ProcessingException                                 n=4
+  SocketException                                     n=4
+  AbstractMethodError                                 n=4
+  ParseException                                      n=2
+  ScriptBuilderException                              n=2
+  JSONConverterException                              n=2
+  JavaScriptException                                 n=1
+  ApiException                                        n=1
+  ValidationException                                 n=1
+  XmlPullParserException                              n=1
+  construct_SendsCommitResponseError                  n=1
+  construct_SendsInitialThenError                     n=1
+  construct_SendsMessageResponseError                 n=1
+  SurefireBooterForkException                         n=1
+  construct_SendsSeekResponseError                    n=1
+  offsetResponseOutOfOrder_Exception                  n=1
+  construct_SendsMessagePublishResponseError          n=1
+  StopException                                       n=1
+  CommandAcceptanceException                          n=1
+  JdbcSQLSyntaxErrorException                         n=1
+  KryoException                                       n=1
+  NoSuchFileException                                 n=1
+  MojoExecutionException                              n=1
+  InterruptedException                                n=1
+  IllegalStateException                               n=1
+  ForbiddenClassException                             n=1
+  ExtendedScriptException                             n=1
+  EcmaError                                           n=1
+
+================================================================================
+GROUP 5: NOVEL (not in BUMP at all) (19 error types)
+  LLM generated these error types but they do not exist anywhere in BUMP.
+  These are typically test method names or internal exceptions that
+  LLM generated as side effects, not real breaking change signals.
+================================================================================
+
+  test_judgeFile_NonExistentFile_ReturnsNullAndLogsError
+    Total rows triggered : 1
+    Instance IDs         : BBC150
+
+  test_unzipFiles_withIOException
+    Total rows triggered : 1
+    Instance IDs         : BBC49
+
+  test_setPhysicalPropertiesError
+    Total rows triggered : 1
+    Instance IDs         : BBC72
+
+  test_save_withInvalidPath_throwsException
+    Total rows triggered : 1
+    Instance IDs         : BBC72
+
+  test_main_withNullArgs_executesWithoutException
+    Total rows triggered : 1
+    Instance IDs         : BBC72
+
+  test_main_withEmptyArgs_executesWithoutException
+    Total rows triggered : 1
+    Instance IDs         : BBC72
+
+  test_main_nullArgs_noException
+    Total rows triggered : 1
+    Instance IDs         : BBC73
+
+  test_main_noException
+    Total rows triggered : 1
+    Instance IDs         : BBC73
+
+  test_logException
+    Total rows triggered : 2
+    Instance IDs         : BBC165, BBC17
+
+  test_extractSoundType_withInvalidInput_returnsNullAndLogsError
+    Total rows triggered : 1
+    Instance IDs         : BBC165
+
+  test_handleRequest_daoThrowsException
+    Total rows triggered : 1
+    Instance IDs         : BBC17
+
+  test_handleRequestWithIOException
+    Total rows triggered : 2
+    Instance IDs         : BBC36, BBC49
+
+  test_handleGetRequest_DaoThrowsException
+    Total rows triggered : 1
+    Instance IDs         : BBC165
+
+  test_getDurationInMilliseconds_withNullFile_throwsNullPointerException
+    Total rows triggered : 1
+    Instance IDs         : BBC132
+
+  test_getConfiguration_createNewFileIOException
+    Total rows triggered : 1
+    Instance IDs         : BBC150
+
+  test_getBytes_invalidObject_throwsHecException
+    Total rows triggered : 1
+    Instance IDs         : BBC42
+
+  testMainRunsWithoutException
+    Total rows triggered : 1
+    Instance IDs         : BBC72
+
+  testExecuteException
+    Total rows triggered : 1
+    Instance IDs         : BBC73
+
+  test_waitToFinishCalculationWithInterruptedException
+    Total rows triggered : 1
+    Instance IDs         : BBC72
+
+================================================================================
+PER MODEL-VARIANT BREAKDOWN (detected error types only)
+================================================================================
+
+  MojoFailureException  (BUMP n=88)
+  Model           Variant      Detected   Missed   Mismatched    Rate%  Detected IDs
+  --------------- ---------- ---------- -------- ------------ --------  ----------------------------------------
+  GPT-4o          Minimal            16        1            0       18  BBC02, BBC06, BBC07, BBC132, BBC137, BBC146, BBC150, BBC165, BBC17, BBC27, BBC36, BBC42, BBC49, BBC50, BBC72, BBC73
+  GPT-4o          Method             13        0            0       14  BBC06, BBC101, BBC132, BBC146, BBC147, BBC150, BBC165, BBC17, BBC27, BBC33, BBC49, BBC72, BBC73
+  GPT-4o          Class              26        1            0       29  BBC03, BBC06, BBC07, BBC101, BBC103, BBC131, BBC132, BBC136, BBC146, BBC147, BBC150, BBC162, BBC165, BBC167, BBC17, BBC27, BBC33, BBC36, BBC42, BBC45, BBC49, BBC50, BBC54, BBC63, BBC72, BBC73
+  Qwen-480B       Minimal            17        1            0       19  BBC03, BBC06, BBC07, BBC101, BBC131, BBC132, BBC143, BBC150, BBC165, BBC167, BBC17, BBC27, BBC36, BBC49, BBC54, BBC72, BBC73
+  Qwen-480B       Method             19        1            0       21  BBC06, BBC07, BBC103, BBC115, BBC131, BBC132, BBC136, BBC146, BBC147, BBC150, BBC165, BBC167, BBC17, BBC27, BBC33, BBC36, BBC49, BBC72, BBC73
+  Qwen-480B       Class              18        2            0       20  BBC06, BBC07, BBC131, BBC132, BBC146, BBC150, BBC162, BBC165, BBC17, BBC33, BBC36, BBC42, BBC49, BBC50, BBC54, BBC56, BBC72, BBC73
+  GPT-OSS-120b    Minimal             3        1            0        3  BBC49, BBC72, BBC73
+  GPT-OSS-120b    Method              8        0            0        9  BBC06, BBC132, BBC165, BBC17, BBC36, BBC49, BBC72, BBC73
+  GPT-OSS-120b    Class              10        0            0       11  BBC06, BBC07, BBC132, BBC146, BBC165, BBC17, BBC36, BBC49, BBC72, BBC73
+
+  NoClassDefFoundError  (BUMP n=35)
+  Model           Variant      Detected   Missed   Mismatched    Rate%  Detected IDs
+  --------------- ---------- ---------- -------- ------------ --------  ----------------------------------------
+  GPT-4o          Minimal            11        3            0       31  BBC02, BBC06, BBC146, BBC150, BBC165, BBC27, BBC36, BBC42, BBC50, BBC72, BBC73
+  GPT-4o          Method             11        1            0       31  BBC06, BBC132, BBC146, BBC147, BBC150, BBC165, BBC17, BBC27, BBC49, BBC72, BBC73
+  GPT-4o          Class              16        1            0       45  BBC03, BBC06, BBC132, BBC146, BBC150, BBC165, BBC17, BBC27, BBC33, BBC36, BBC42, BBC49, BBC50, BBC54, BBC72, BBC73
+  Qwen-480B       Minimal            11        2            0       31  BBC03, BBC06, BBC132, BBC150, BBC165, BBC17, BBC27, BBC36, BBC49, BBC72, BBC73
+  Qwen-480B       Method             13        0            0       37  BBC06, BBC132, BBC146, BBC147, BBC150, BBC165, BBC17, BBC27, BBC33, BBC36, BBC49, BBC72, BBC73
+  Qwen-480B       Class              14        2            0       40  BBC06, BBC132, BBC146, BBC150, BBC165, BBC17, BBC33, BBC36, BBC42, BBC49, BBC50, BBC56, BBC72, BBC73
+  GPT-OSS-120b    Minimal             2        1            0        5  BBC72, BBC73
+  GPT-OSS-120b    Method              8        0            0       22  BBC06, BBC132, BBC165, BBC17, BBC36, BBC49, BBC72, BBC73
+  GPT-OSS-120b    Class               9        0            0       25  BBC06, BBC132, BBC146, BBC165, BBC17, BBC36, BBC49, BBC72, BBC73
+
+  ClassNotFoundException  (BUMP n=30)
+  Model           Variant      Detected   Missed   Mismatched    Rate%  Detected IDs
+  --------------- ---------- ---------- -------- ------------ --------  ----------------------------------------
+  GPT-4o          Minimal            10        0            0       33  BBC02, BBC06, BBC146, BBC150, BBC165, BBC27, BBC36, BBC42, BBC50, BBC73
+  GPT-4o          Method              7        1            0       23  BBC06, BBC146, BBC147, BBC150, BBC165, BBC27, BBC73
+  GPT-4o          Class              12        1            0       40  BBC03, BBC06, BBC146, BBC150, BBC165, BBC27, BBC33, BBC36, BBC42, BBC50, BBC54, BBC73
+  Qwen-480B       Minimal             7        2            0       23  BBC03, BBC06, BBC150, BBC165, BBC27, BBC36, BBC73
+  Qwen-480B       Method              9        0            0       30  BBC06, BBC146, BBC147, BBC150, BBC165, BBC27, BBC33, BBC36, BBC73
+  Qwen-480B       Class              10        2            0       33  BBC06, BBC146, BBC150, BBC165, BBC33, BBC36, BBC42, BBC50, BBC56, BBC73
+  GPT-OSS-120b    Minimal             1        0            0        3  BBC73
+  GPT-OSS-120b    Method              4        0            0       13  BBC06, BBC165, BBC36, BBC73
+  GPT-OSS-120b    Class               5        0            0       16  BBC06, BBC146, BBC165, BBC36, BBC73
+
+  NoSuchMethodError  (BUMP n=8)
+  Model           Variant      Detected   Missed   Mismatched    Rate%  Detected IDs
+  --------------- ---------- ---------- -------- ------------ --------  ----------------------------------------
+  GPT-4o          Minimal             5        0            0       62  BBC132, BBC137, BBC17, BBC49, BBC72
+  GPT-4o          Method              4        0            0       50  BBC132, BBC17, BBC49, BBC72
+  GPT-4o          Class               4        0            0       50  BBC132, BBC17, BBC49, BBC72
+  Qwen-480B       Minimal             4        0            0       50  BBC132, BBC17, BBC49, BBC72
+  Qwen-480B       Method              4        0            0       50  BBC132, BBC17, BBC49, BBC72
+  Qwen-480B       Class               4        0            0       50  BBC132, BBC17, BBC49, BBC72
+  GPT-OSS-120b    Minimal             2        0            0       25  BBC49, BBC72
+  GPT-OSS-120b    Method              4        0            0       50  BBC132, BBC17, BBC49, BBC72
+  GPT-OSS-120b    Class               4        0            0       50  BBC132, BBC17, BBC49, BBC72
+
+================================================================================
+OVERALL STATS
+================================================================================
+  Total unique error types in BUMP    : 56
+  Novel error types (not in BUMP)     : 19
+  Error types with any detection      : 4
+  Error types with zero detection     : 52
+    of which mismatched only          : 6
+    of which missed only              : 15
+    of which zero signal              : 31

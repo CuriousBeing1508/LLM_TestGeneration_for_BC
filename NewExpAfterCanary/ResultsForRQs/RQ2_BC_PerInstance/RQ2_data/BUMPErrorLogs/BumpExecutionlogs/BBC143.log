@@ -1,0 +1,97 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for edu.ksu.ome.lti:lti-launch:jar:1.5.0-SNAPSHOT
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.apache.logging.log4j:log4j-core:jar -> duplicate declaration of version (?) @ line 316, column 17
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ---------------------< edu.ksu.ome.lti:lti-launch >---------------------
+[INFO] Building LTI Launch 1.5.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ lti-launch ---
+[INFO] Deleting /lti-launch/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven) @ lti-launch ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ lti-launch ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ lti-launch ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 18 source files to /lti-launch/target/classes
+[INFO] /lti-launch/src/main/java/edu/ksu/lti/launch/spring/config/LtiLaunchSecurityConfig.java: /lti-launch/src/main/java/edu/ksu/lti/launch/spring/config/LtiLaunchSecurityConfig.java uses or overrides a deprecated API.
+[INFO] /lti-launch/src/main/java/edu/ksu/lti/launch/spring/config/LtiLaunchSecurityConfig.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ lti-launch ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ lti-launch ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 5 source files to /lti-launch/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.19.1:test (default-test) @ lti-launch ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running edu.ksu.lti.launch.test.SpringContextITest
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.555 sec <<< FAILURE! - in edu.ksu.lti.launch.test.SpringContextITest
+testSpringContext(edu.ksu.lti.launch.test.SpringContextITest)  Time elapsed: 0.003 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: org/springframework/web/util/pattern/PathPatternParser
+Caused by: java.lang.ClassNotFoundException: org.springframework.web.util.pattern.PathPatternParser
+
+
+Results :
+
+Tests in error: 
+  SpringContextITest.testSpringContext » NoClassDefFound org/springframework/web...
+
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.280 s
+[INFO] Finished at: 2026-01-05T05:27:08Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 4 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.8.1
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.19.1
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M3
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project lti-launch: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /lti-launch/target/surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+Jan 05, 2026 5:27:07 AM org.springframework.test.context.web.WebTestContextBootstrapper getDefaultTestExecutionListenerClassNames
+INFO: Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+Jan 05, 2026 5:27:07 AM org.springframework.test.context.web.WebTestContextBootstrapper instantiateListeners
+INFO: Could not instantiate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/TransactionDefinition]
+Jan 05, 2026 5:27:07 AM org.springframework.test.context.web.WebTestContextBootstrapper instantiateListeners
+INFO: Could not instantiate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+Jan 05, 2026 5:27:07 AM org.springframework.test.context.web.WebTestContextBootstrapper getTestExecutionListeners
+INFO: Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@71d44a3, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7b98f307, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4802796d]
+Jan 05, 2026 5:27:07 AM org.springframework.web.context.support.GenericWebApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.web.context.support.GenericWebApplicationContext@7a8c8dcf: startup date [Mon Jan 05 05:27:07 GMT 2026]; root of context hierarchy
