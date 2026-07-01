@@ -411,9 +411,9 @@ def run_test_single_module(image_tag: str, custom_id: str, test_root: str,
                 if tests_run > 0:
                     success = (failures == 0 and errors == 0)
                     if success:
-                        log_lines.append(f"[✓] PASS")
+                        log_lines.append(f"PASS")
                     else:
-                        log_lines.append(f"[✗] FAIL - Breaking change detected")
+                        log_lines.append(f" FAIL - Breaking change detected")
                 else:
                     log_lines.append(f"[?] WARNING - 0 tests ran")
             else:

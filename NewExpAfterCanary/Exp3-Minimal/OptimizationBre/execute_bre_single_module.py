@@ -711,7 +711,7 @@ def main():
         safe_print(f"[CLEANUP] Done\n")
 
     safe_print(f"\n{'='*80}")
-    safe_print(f"✓ COMPLETE - SINGLE-MODULE")
+    safe_print(f" COMPLETE - SINGLE-MODULE")
     safe_print(f"Processed: {processed_count}")
     safe_print(f"Pass: {success_count}")
     safe_print(f"Fail: {failure_count}")

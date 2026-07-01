@@ -748,7 +748,7 @@ def main():
     total_tests_compiled = sum(v["tests_in_compiled_files"] for v in test_counts.values())
 
     safe_print(f"\n{'='*80}")
-    safe_print(f"✓ PHASE 1 COMPLETE: COMPILATION WITH DYNAMIC WORKERS")
+    safe_print(f" PHASE 1 COMPLETE: COMPILATION WITH DYNAMIC WORKERS")
     safe_print(f"")
     safe_print(f"INSTANCES:")
     safe_print(f"  Total processed: {len(processed_instances)}")

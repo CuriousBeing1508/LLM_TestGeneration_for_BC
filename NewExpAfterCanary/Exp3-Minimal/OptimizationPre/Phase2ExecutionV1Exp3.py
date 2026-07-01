@@ -186,13 +186,13 @@ def cleanup_stale_containers():
             for name in container_names:
                 try:
                     subprocess.run(["docker", "rm", "-f", name], capture_output=True, timeout=10)
-                    safe_print(f"[CLEANUP]   ✓ Removed: {name}")
+                    safe_print(f"[CLEANUP]    Removed: {name}")
                     removed_count += 1
                 except Exception as e:
-                    safe_print(f"[CLEANUP]   ✗ Failed to remove {name}: {e}")
+                    safe_print(f"[CLEANUP]    Failed to remove {name}: {e}")
             safe_print(f"[CLEANUP] Successfully removed {removed_count}/{len(container_names)} container(s)")
         else:
-            safe_print(f"[CLEANUP] No stale containers found ✓")
+            safe_print(f"[CLEANUP] No stale containers found ")
     except Exception as e:
         safe_print(f"[CLEANUP] Warning: Could not check for stale containers: {e}")
 
@@ -405,50 +405,50 @@ def execute_compiled_test(image_tag: str, custom_id: str, test_root: str,
                         success = (failures == 0 and errors == 0)
                         if not success:
                             failure_type = "test_failure"
-                            log_lines.append("[RESULT] ✗ Test FAILED on PRE")
-                            safe_print("[RESULT] ✗ Test FAILED on PRE")
+                            log_lines.append("[RESULT]  Test FAILED on PRE")
+                            safe_print("[RESULT]  Test FAILED on PRE")
                         else:
-                            log_lines.append("[RESULT] ✓ Test PASSED on PRE")
-                            safe_print("[RESULT] ✓ Test PASSED on PRE")
+                            log_lines.append("[RESULT]  Test PASSED on PRE")
+                            safe_print("[RESULT]  Test PASSED on PRE")
                     else:
-                        log_lines.append("[RESULT] ✗ No tests ran")
-                        safe_print("[RESULT] ✗ No tests ran")
+                        log_lines.append("[RESULT]  No tests ran")
+                        safe_print("[RESULT]  No tests ran")
                         failure_type = "no_tests_ran"
                 else:
-                    log_lines.append("[RESULT] ✗ Could not parse test results")
-                    safe_print("[RESULT] ✗ Could not parse test results")
+                    log_lines.append("[RESULT]  Could not parse test results")
+                    safe_print("[RESULT]  Could not parse test results")
                     failure_type = "parse_error"
             else:
                 if "BUILD SUCCESS" in stdout and proc.returncode == 0:
                     success = True
-                    log_lines.append("[RESULT] ✓ Test PASSED (BUILD SUCCESS)")
-                    safe_print("[RESULT] ✓ Test PASSED (BUILD SUCCESS)")
+                    log_lines.append("[RESULT]  Test PASSED (BUILD SUCCESS)")
+                    safe_print("[RESULT]  Test PASSED (BUILD SUCCESS)")
                 else:
                     failure_type = "execution_failure"
-                    log_lines.append("[RESULT] ✗ Test did not execute")
-                    safe_print("[RESULT] ✗ Test did not execute")
+                    log_lines.append("[RESULT]  Test did not execute")
+                    safe_print("[RESULT]  Test did not execute")
                     
         except subprocess.TimeoutExpired:
             # === NEW: Force kill container on timeout ===
-            log_lines.append("[ERROR] ✗ Timeout (600s) - Force killing container")
-            safe_print("[ERROR] ✗ Timeout (600s) - Force killing container")
+            log_lines.append("[ERROR]  Timeout (600s) - Force killing container")
+            safe_print("[ERROR]  Timeout (600s) - Force killing container")
             try:
                 subprocess.run(["docker", "kill", container_name], capture_output=True, timeout=10)
                 subprocess.run(["docker", "rm", "-f", container_name], capture_output=True, timeout=10)
-                log_lines.append(f"[CLEANUP] ✓ Killed and removed container: {container_name}")
+                log_lines.append(f"[CLEANUP]  Killed and removed container: {container_name}")
             except Exception as cleanup_err:
-                log_lines.append(f"[CLEANUP] ✗ Failed to cleanup container: {cleanup_err}")
+                log_lines.append(f"[CLEANUP]  Failed to cleanup container: {cleanup_err}")
             failure_type = "timeout"
             success = False
         except Exception as e:
-            log_lines.append(f"[EXCEPTION] ✗ {e}")
-            safe_print(f"[EXCEPTION] ✗ {e}")
+            log_lines.append(f"[EXCEPTION]  {e}")
+            safe_print(f"[EXCEPTION]  {e}")
             # === NEW: Cleanup on exception ===
             try:
                 subprocess.run(["docker", "rm", "-f", container_name], capture_output=True, timeout=10)
-                log_lines.append(f"[CLEANUP] ✓ Removed container after exception: {container_name}")
+                log_lines.append(f"[CLEANUP]  Removed container after exception: {container_name}")
             except Exception as cleanup_err:
-                log_lines.append(f"[CLEANUP] ✗ Failed to cleanup container: {cleanup_err}")
+                log_lines.append(f"[CLEANUP]  Failed to cleanup container: {cleanup_err}")
             failure_type = "exception"
             success = False
         
@@ -651,12 +651,12 @@ def main():
 
                             with results_lock:
                                 if success:
-                                    safe_print(f"  → {java_file}... ✓ PASSED on PRE")
+                                    safe_print(f"  → {java_file}...  PASSED on PRE")
                                     exec_success_count += 1
                                     passed_tests.append(java_file)
                                     carry_forward_tests[custom_id]["passed"].append(java_file)
                                 else:
-                                    safe_print(f"  → {java_file}... ✗ FAILED ({failure_type})")
+                                    safe_print(f"  → {java_file}...  FAILED ({failure_type})")
                                     exec_failure_count += 1
                                     failed_tests.append(java_file)
                                     carry_forward_tests[custom_id]["failed"].append(java_file)
@@ -674,7 +674,7 @@ def main():
 
                         except Exception as exc:
                             with results_lock:
-                                safe_print(f"  → {java_file}... ✗ EXCEPTION: {exc}")
+                                safe_print(f"  → {java_file}...  EXCEPTION: {exc}")
                                 exec_failure_count += 1
                                 failed_tests.append(java_file)
                                 carry_forward_tests[custom_id]["failed"].append(java_file)
@@ -742,7 +742,7 @@ def main():
 
     # === FINAL SUMMARY ===
     safe_print(f"\n{'='*80}")
-    safe_print(f"✓ PHASE 2 COMPLETE: EXECUTION")
+    safe_print(f" PHASE 2 COMPLETE: EXECUTION")
     safe_print(f"")
     safe_print(f"INSTANCES:")
     safe_print(f"  Total processed: {len(processed_instances)}")

@@ -1,0 +1,714 @@
+[
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC01",
+    "GeneratedTestFileCount": 1,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC02",
+    "GeneratedTestFileCount": 2,
+    "CompiledTestFileCount": 1,
+    "TestCount": 1
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC03",
+    "GeneratedTestFileCount": 2,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC04",
+    "GeneratedTestFileCount": 51,
+    "CompiledTestFileCount": 6,
+    "TestCount": 6
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC05",
+    "GeneratedTestFileCount": 4,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC06",
+    "GeneratedTestFileCount": 238,
+    "CompiledTestFileCount": 24,
+    "TestCount": 24
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC07",
+    "GeneratedTestFileCount": 10,
+    "CompiledTestFileCount": 3,
+    "TestCount": 3
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC10",
+    "GeneratedTestFileCount": 163,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC16",
+    "GeneratedTestFileCount": 5,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC17",
+    "GeneratedTestFileCount": 234,
+    "CompiledTestFileCount": 23,
+    "TestCount": 23
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC22",
+    "GeneratedTestFileCount": 163,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC24",
+    "GeneratedTestFileCount": 7,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC26",
+    "GeneratedTestFileCount": 12,
+    "CompiledTestFileCount": 1,
+    "TestCount": 1
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC27",
+    "GeneratedTestFileCount": 304,
+    "CompiledTestFileCount": 37,
+    "TestCount": 48
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC31",
+    "GeneratedTestFileCount": 5,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC33",
+    "GeneratedTestFileCount": 82,
+    "CompiledTestFileCount": 41,
+    "TestCount": 41
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC35",
+    "GeneratedTestFileCount": 4,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC36",
+    "GeneratedTestFileCount": 234,
+    "CompiledTestFileCount": 26,
+    "TestCount": 30
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC41",
+    "GeneratedTestFileCount": 12,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC42",
+    "GeneratedTestFileCount": 13,
+    "CompiledTestFileCount": 1,
+    "TestCount": 1
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC44",
+    "GeneratedTestFileCount": 7,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC45",
+    "GeneratedTestFileCount": 39,
+    "CompiledTestFileCount": 4,
+    "TestCount": 6
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC48",
+    "GeneratedTestFileCount": 10,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC49",
+    "GeneratedTestFileCount": 238,
+    "CompiledTestFileCount": 24,
+    "TestCount": 26
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC50",
+    "GeneratedTestFileCount": 2,
+    "CompiledTestFileCount": 1,
+    "TestCount": 1
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC51",
+    "GeneratedTestFileCount": 1,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC52",
+    "GeneratedTestFileCount": 5,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC53",
+    "GeneratedTestFileCount": 4,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC54",
+    "GeneratedTestFileCount": 82,
+    "CompiledTestFileCount": 40,
+    "TestCount": 40
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC55",
+    "GeneratedTestFileCount": 1,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC56",
+    "GeneratedTestFileCount": 82,
+    "CompiledTestFileCount": 39,
+    "TestCount": 39
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC59",
+    "GeneratedTestFileCount": 7,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC60",
+    "GeneratedTestFileCount": 5,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC63",
+    "GeneratedTestFileCount": 39,
+    "CompiledTestFileCount": 10,
+    "TestCount": 10
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC64",
+    "GeneratedTestFileCount": 305,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC66",
+    "GeneratedTestFileCount": 12,
+    "CompiledTestFileCount": 1,
+    "TestCount": 1
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC70",
+    "GeneratedTestFileCount": 5,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC72",
+    "GeneratedTestFileCount": 540,
+    "CompiledTestFileCount": 213,
+    "TestCount": 213
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC73",
+    "GeneratedTestFileCount": 540,
+    "CompiledTestFileCount": 220,
+    "TestCount": 222
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC74",
+    "GeneratedTestFileCount": 29,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC78",
+    "GeneratedTestFileCount": 5,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC79",
+    "GeneratedTestFileCount": 82,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC80",
+    "GeneratedTestFileCount": 1,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC81",
+    "GeneratedTestFileCount": 4,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC82",
+    "GeneratedTestFileCount": 5,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC83",
+    "GeneratedTestFileCount": 82,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC88",
+    "GeneratedTestFileCount": 12,
+    "CompiledTestFileCount": 1,
+    "TestCount": 1
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC94",
+    "GeneratedTestFileCount": 1,
+    "CompiledTestFileCount": 1,
+    "TestCount": 1
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC97",
+    "GeneratedTestFileCount": 12,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC98",
+    "GeneratedTestFileCount": 12,
+    "CompiledTestFileCount": 1,
+    "TestCount": 1
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC99",
+    "GeneratedTestFileCount": 7,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC101",
+    "GeneratedTestFileCount": 633,
+    "CompiledTestFileCount": 119,
+    "TestCount": 210
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC103",
+    "GeneratedTestFileCount": 39,
+    "CompiledTestFileCount": 5,
+    "TestCount": 7
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC104",
+    "GeneratedTestFileCount": 4,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC106",
+    "GeneratedTestFileCount": 5,
+    "CompiledTestFileCount": 2,
+    "TestCount": 2
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC107",
+    "GeneratedTestFileCount": 4,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC111",
+    "GeneratedTestFileCount": 5,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC115",
+    "GeneratedTestFileCount": 20,
+    "CompiledTestFileCount": 4,
+    "TestCount": 4
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC118",
+    "GeneratedTestFileCount": 7,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC119",
+    "GeneratedTestFileCount": 5,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC121",
+    "GeneratedTestFileCount": 1,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC123",
+    "GeneratedTestFileCount": 7,
+    "CompiledTestFileCount": 1,
+    "TestCount": 1
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC124",
+    "GeneratedTestFileCount": 5,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC131",
+    "GeneratedTestFileCount": 39,
+    "CompiledTestFileCount": 8,
+    "TestCount": 8
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC132",
+    "GeneratedTestFileCount": 238,
+    "CompiledTestFileCount": 24,
+    "TestCount": 26
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC135",
+    "GeneratedTestFileCount": 12,
+    "CompiledTestFileCount": 1,
+    "TestCount": 1
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC136",
+    "GeneratedTestFileCount": 39,
+    "CompiledTestFileCount": 7,
+    "TestCount": 7
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC137",
+    "GeneratedTestFileCount": 7,
+    "CompiledTestFileCount": 1,
+    "TestCount": 1
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC143",
+    "GeneratedTestFileCount": 4,
+    "CompiledTestFileCount": 1,
+    "TestCount": 1
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC144",
+    "GeneratedTestFileCount": 29,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC145",
+    "GeneratedTestFileCount": 5,
+    "CompiledTestFileCount": 1,
+    "TestCount": 1
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC146",
+    "GeneratedTestFileCount": 304,
+    "CompiledTestFileCount": 33,
+    "TestCount": 43
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC147",
+    "GeneratedTestFileCount": 82,
+    "CompiledTestFileCount": 40,
+    "TestCount": 42
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC148",
+    "GeneratedTestFileCount": 12,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC150",
+    "GeneratedTestFileCount": 53,
+    "CompiledTestFileCount": 7,
+    "TestCount": 7
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC153",
+    "GeneratedTestFileCount": 7,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC155",
+    "GeneratedTestFileCount": 7,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC158",
+    "GeneratedTestFileCount": 12,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC162",
+    "GeneratedTestFileCount": 39,
+    "CompiledTestFileCount": 7,
+    "TestCount": 9
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC165",
+    "GeneratedTestFileCount": 238,
+    "CompiledTestFileCount": 26,
+    "TestCount": 28
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC167",
+    "GeneratedTestFileCount": 39,
+    "CompiledTestFileCount": 7,
+    "TestCount": 7
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC168",
+    "GeneratedTestFileCount": 124,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC170",
+    "GeneratedTestFileCount": 4,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC178",
+    "GeneratedTestFileCount": 12,
+    "CompiledTestFileCount": 1,
+    "TestCount": 1
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC179",
+    "GeneratedTestFileCount": 5,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC182",
+    "GeneratedTestFileCount": 5,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC184",
+    "GeneratedTestFileCount": 1,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC186",
+    "GeneratedTestFileCount": 4,
+    "CompiledTestFileCount": 0,
+    "TestCount": 0
+  },
+  {
+    "Model": "GPT4o",
+    "Context": "Minimal",
+    "Instance": "BBC187",
+    "GeneratedTestFileCount": 12,
+    "CompiledTestFileCount": 1,
+    "TestCount": 1
+  }
+]
