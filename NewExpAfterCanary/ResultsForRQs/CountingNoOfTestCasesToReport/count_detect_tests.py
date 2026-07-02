@@ -1,39 +1,13 @@
 """
-Counts @Test cases that got re-executed against the BREAKING commit, and how
-many of those detected the breaking change (failed or errored), per
-(model, context, instance).
+Counts test files/cases that DETECTED the breaking change when re-run against
+the breaking commit, per (model, context, instance).
 
-Source of truth: the raw *.log files under each run's bre/logs folder
-Each log ends with a line like:
-    Tests run: 1, Failures: 1, Errors: 0
-"DetectedBCTestCount" = Failures + Errors (a failure/error means the test
-caught the breaking change). "DetectedTestFileCount" counts how many log
-files (test files) had at least one detecting test, rather than summing
-individual @Test cases.
-
-If a log line has multiple "Tests run: ..." occurrences (surefire prints the
-per-class line, then a final summary line), the LAST occurrence in the file is
-used since it is the authoritative final summary.
-
-If an instance has no log files at all in bre/logs, it never got re-run
-against the breaking commit - its row is marked NOT_VALID instead of 0.
-
-This script only writes DetectedTestFileCount / DetectedBCTestCount. It does
-NOT touch ExecutedTestFileCount / ExecutedTestCount - those are written by
-count_executed_tests.py from the pre-stage results (bre/logs only covers the
-subset of instances carried forward from the pre stage, so it undercounts
-"executed" - see that script's docstring).
-
-This script:
-  1. Verifies the configured bre/logs folders exist (run verify_paths() first).
-  2. Writes one JSON file per (context, model) with one row per instance.
-  3. Adds DetectedTestFileCount / DetectedBCTestCount columns to the existing
-     test_count_aggregate.csv, without touching its other columns.
+Source of truth: each run's bre/transplant_results_breaking_single_module.json
+"results"[instance]["tests"]["failed"] 
 """
 import csv
 import json
 import re
-from collections import defaultdict
 from pathlib import Path
 
 import sys
@@ -49,37 +23,37 @@ CONTEXTS = {
     "Exp7LLMOutput": "Class",
 }
 
-# (context_dir, model_label) -> path to that run's bre/logs folder
-BRE_LOGS_DIRS = {
-    ("Exp3LLMOutput", "GPT4o"): PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/bre/logs",
-    ("Exp3LLMOutput", "GPTOSS"): PRIMARY_DRIVE / "GPTOSSResults/Exp3BatchResults/bre/logs",
-    ("Exp3LLMOutput", "Qwen3-coder"): PRIMARY_DRIVE / "Qwen480Results/Exp3BatchResults/bre/logs",
-    ("Exp6LLMOutput", "GPT4o"): PRIMARY_DRIVE / "GPTResults/Exp6BatchResults/bre/logs",
-    ("Exp6LLMOutput", "GPTOSS"): PRIMARY_DRIVE / "GPTOSSResults/Exp6BatchResults/bre/logs",
-    ("Exp6LLMOutput", "Qwen3-coder"): PRIMARY_DRIVE / "Qwen480Results/Exp6BatchResults/bre/logs",
+# (context_dir, model_label) -> path to that run's bre folder
+# (holds transplant_results_breaking_single_module.json)
+BRE_DIRS = {
+    ("Exp3LLMOutput", "GPT4o"): PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/bre",
+    ("Exp3LLMOutput", "GPTOSS"): PRIMARY_DRIVE / "GPTOSSResults/Exp3BatchResults/bre",
+    ("Exp3LLMOutput", "Qwen3-coder"): PRIMARY_DRIVE / "Qwen480Results/Exp3BatchResults/bre",
+    ("Exp6LLMOutput", "GPT4o"): PRIMARY_DRIVE / "GPTResults/Exp6BatchResults/bre",
+    ("Exp6LLMOutput", "GPTOSS"): PRIMARY_DRIVE / "GPTOSSResults/Exp6BatchResults/bre",
+    ("Exp6LLMOutput", "Qwen3-coder"): PRIMARY_DRIVE / "Qwen480Results/Exp6BatchResults/bre",
     # Exp7 GPT4o results live under "Exp7BatchResultsOp2", not "Exp7BatchResults"
-    ("Exp7LLMOutput", "GPT4o"): PRIMARY_DRIVE / "GPTResults/Exp7BatchResultsOp2/bre/logs",
-    ("Exp7LLMOutput", "GPTOSS"): PRIMARY_DRIVE / "GPTOSSResults/Exp7BatchResults/bre/logs",
-    ("Exp7LLMOutput", "Qwen3-coder"): PRIMARY_DRIVE / "Qwen480Results/Exp7BatchResults/bre/logs",
+    ("Exp7LLMOutput", "GPT4o"): PRIMARY_DRIVE / "GPTResults/Exp7BatchResultsOp2/bre",
+    ("Exp7LLMOutput", "GPTOSS"): PRIMARY_DRIVE / "GPTOSSResults/Exp7BatchResults/bre",
+    ("Exp7LLMOutput", "Qwen3-coder"): PRIMARY_DRIVE / "Qwen480Results/Exp7BatchResults/bre",
 }
 
 JSON_OUTPUT_DIR = Path(__file__).resolve().parent / "output" / "DetectedTestCount"
 AGGREGATE_CSV_PATH = Path(__file__).resolve().parent / "output" / "test_count_aggregate.csv"
 NOT_VALID = "NOT_VALID"
 TESTS_RUN_PATTERN = re.compile(r"Tests run:\s*(\d+),\s*Failures:\s*(\d+),\s*Errors:\s*(\d+)")
+NO_CASE_DATA_FALLBACK = 1  # convention for build_failure_without_test_execution / transplant_issue
 
 
 # ---------------------------------------------------------------------------
 # Step 0: sanity check the config before running anything else
 # ---------------------------------------------------------------------------
 def verify_paths():
-    """Print which bre/logs folders exist and how many .log files each has."""
-    for (context_dir, model_label), logs_dir in BRE_LOGS_DIRS.items():
-        if logs_dir.exists():
-            log_count = len(list(logs_dir.glob("*.log")))
-            print(f"{CONTEXTS[context_dir]:8} | {model_label:12} -> OK ({log_count} logs) | {logs_dir}")
-        else:
-            print(f"{CONTEXTS[context_dir]:8} | {model_label:12} -> MISSING | {logs_dir}")
+    """Print which bre folders have transplant_results_breaking_single_module.json."""
+    for (context_dir, model_label), bre_dir in BRE_DIRS.items():
+        json_path = bre_dir / "transplant_results_breaking_single_module.json"
+        tag = "OK" if json_path.exists() else "MISSING"
+        print(f"{CONTEXTS[context_dir]:8} | {model_label:12} -> {tag} | {json_path}")
 
     tag = "OK" if AGGREGATE_CSV_PATH.exists() else "MISSING"
     print(f"\nAggregate CSV to update -> {tag} | {AGGREGATE_CSV_PATH}")
@@ -92,68 +66,74 @@ def verify_paths():
 def load_instance_index(csv_path):
     with open(csv_path, "r", newline="", encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
-    index = defaultdict(set)
+    index = {}
     for row in rows:
-        index[(row["Model"], row["Context"])].add(row["Instance"])
+        index.setdefault((row["Model"], row["Context"]), set()).add(row["Instance"])
     return index
 
 
 # ---------------------------------------------------------------------------
-# Step 2: parse a single log file -> (tests_executed, tests_that_detected_bc)
+# Step 2: how many test cases one "failed" entry represents.
 # ---------------------------------------------------------------------------
-def parse_log_file(log_path):
-    text = log_path.read_text(encoding="utf-8", errors="ignore")
-    matches = TESTS_RUN_PATTERN.findall(text)
-    if not matches:
-        return 0, 0
-    tests_run, failures, errors = (int(x) for x in matches[-1])
-    return tests_run, failures + errors
+def count_detected_cases(failed_entry):
+    if failed_entry["result_type"] == "test_failure_breaking_change":
+        match = TESTS_RUN_PATTERN.search(failed_entry["failure_reason"])
+        if match:
+            _tests_run, failures, errors = (int(x) for x in match.groups())
+            return failures + errors, False
+        return NO_CASE_DATA_FALLBACK, True  # shouldn't happen - all verified parseable
+    return NO_CASE_DATA_FALLBACK, True
 
 
 # ---------------------------------------------------------------------------
-# Step 3: scan one bre/logs folder, summing per-file results by instance
-# (log filenames look like "BBC162_BBC162U1Test.java_breaking_single.log")
+# Step 3: scan one transplant_results_breaking_single_module.json -> per-
+# instance file/case counts. Every entry in "failed" counts as detected,
+# regardless of result_type (test_failure_breaking_change,
+# build_failure_without_test_execution, or transplant_issue).
 # ---------------------------------------------------------------------------
-def scan_logs_dir(logs_dir):
-    summary = defaultdict(lambda: {"executed": 0, "detected_bc": 0, "executed_files": 0, "detected_files": 0})
-    for log_path in logs_dir.glob("*.log"):
-        instance = log_path.name.split("_", 1)[0]
-        executed, detected_bc = parse_log_file(log_path)
-        summary[instance]["executed"] += executed
-        summary[instance]["detected_bc"] += detected_bc
-        if executed > 0:
-            summary[instance]["executed_files"] += 1
-        if detected_bc > 0:
-            summary[instance]["detected_files"] += 1
-    return summary
+def scan_transplant_results(bre_dir):
+    with open(bre_dir / "transplant_results_breaking_single_module.json", "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    summary = {}
+    fallback_count = 0
+    for instance, tdata in data["results"].items():
+        failed = tdata["tests"]["failed"]
+        case_total = 0
+        for entry in failed:
+            cases, used_fallback = count_detected_cases(entry)
+            case_total += cases
+            fallback_count += used_fallback
+        summary[instance] = {
+            "detected_files": len(failed),
+            "detected_cases": case_total,
+        }
+    return summary, fallback_count
 
 
 # ---------------------------------------------------------------------------
-# Step 4: build one row per known instance; NOT_VALID if it has no logs at all
+# Step 4: build one row per known instance; NOT_VALID if it never reached
+# the bre stage at all (not in transplant_results "results").
 # ---------------------------------------------------------------------------
-def build_rows(logs_summary, instances, model_label, context_label):
+def build_rows(transplant_summary, instances, model_label, context_label):
     rows = []
     for instance in sorted(instances):
-        if instance not in logs_summary:
+        if instance not in transplant_summary:
             rows.append({
                 "Model": model_label,
                 "Context": context_label,
                 "Instance": instance,
-                "ExecutedTestFileCount": NOT_VALID,
-                "ExecutedTestCount": NOT_VALID,
                 "DetectedTestFileCount": NOT_VALID,
                 "DetectedBCTestCount": NOT_VALID,
             })
         else:
-            s = logs_summary[instance]
+            s = transplant_summary[instance]
             rows.append({
                 "Model": model_label,
                 "Context": context_label,
                 "Instance": instance,
-                "ExecutedTestFileCount": s["executed_files"],
-                "ExecutedTestCount": s["executed"],
                 "DetectedTestFileCount": s["detected_files"],
-                "DetectedBCTestCount": s["detected_bc"],
+                "DetectedBCTestCount": s["detected_cases"],
             })
     return rows
 
@@ -206,22 +186,28 @@ def main():
     instance_index = load_instance_index(AGGREGATE_CSV_PATH)
 
     all_rows = []
-    for (context_dir, model_label), logs_dir in BRE_LOGS_DIRS.items():
-        if not logs_dir.exists():
-            print(f"Skipping missing logs dir: {logs_dir}")
+    total_fallback = 0
+    for (context_dir, model_label), bre_dir in BRE_DIRS.items():
+        json_path = bre_dir / "transplant_results_breaking_single_module.json"
+        if not json_path.exists():
+            print(f"Skipping missing bre dir: {bre_dir}")
             continue
 
         context_label = CONTEXTS[context_dir]
         instances = instance_index.get((model_label, context_label), set())
 
-        logs_summary = scan_logs_dir(logs_dir)
-        rows = build_rows(logs_summary, instances, model_label, context_label)
-        json_path = save_json(rows, context_dir, model_label)
-        print(f"Wrote {len(rows)} rows -> {json_path}")
+        transplant_summary, fallback_count = scan_transplant_results(bre_dir)
+        total_fallback += fallback_count
+        rows = build_rows(transplant_summary, instances, model_label, context_label)
+        json_path_out = save_json(rows, context_dir, model_label)
+        print(f"Wrote {len(rows)} rows ({fallback_count} files with no real case data, "
+              f"counted as {NO_CASE_DATA_FALLBACK}) -> {json_path_out}")
         all_rows.extend(rows)
 
     update_detection_columns_in_csv(all_rows, AGGREGATE_CSV_PATH)
-    print(f"Updated DetectedTestFileCount/DetectedBCTestCount columns -> {AGGREGATE_CSV_PATH}")
+    print(f"\nUpdated DetectedTestFileCount/DetectedBCTestCount columns -> {AGGREGATE_CSV_PATH}")
+    print(f"Total files counted via the no-case-data fallback (build_failure_without_test_execution "
+          f"/ transplant_issue): {total_fallback}")
 
 
 if __name__ == "__main__":

@@ -3,8 +3,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC01",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -12,8 +10,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC02",
-    "ExecutedTestFileCount": 1,
-    "ExecutedTestCount": 1,
     "DetectedTestFileCount": 1,
     "DetectedBCTestCount": 1
   },
@@ -21,8 +17,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC03",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -30,8 +24,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC04",
-    "ExecutedTestFileCount": 4,
-    "ExecutedTestCount": 4,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -39,8 +31,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC05",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -48,8 +38,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC06",
-    "ExecutedTestFileCount": 11,
-    "ExecutedTestCount": 11,
     "DetectedTestFileCount": 11,
     "DetectedBCTestCount": 11
   },
@@ -57,17 +45,13 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC07",
-    "ExecutedTestFileCount": 0,
-    "ExecutedTestCount": 0,
-    "DetectedTestFileCount": 0,
-    "DetectedBCTestCount": 0
+    "DetectedTestFileCount": 3,
+    "DetectedBCTestCount": 3
   },
   {
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC10",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -75,8 +59,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC101",
-    "ExecutedTestFileCount": 36,
-    "ExecutedTestCount": 50,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -84,8 +66,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC103",
-    "ExecutedTestFileCount": 4,
-    "ExecutedTestCount": 6,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -93,8 +73,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC104",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -102,8 +80,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC106",
-    "ExecutedTestFileCount": 2,
-    "ExecutedTestCount": 2,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -111,8 +87,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC107",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -120,8 +94,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC111",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -129,8 +101,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC115",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -138,8 +108,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC118",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -147,8 +115,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC119",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -156,8 +122,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC121",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -165,8 +129,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC123",
-    "ExecutedTestFileCount": 1,
-    "ExecutedTestCount": 1,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -174,8 +136,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC124",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -183,8 +143,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC131",
-    "ExecutedTestFileCount": 6,
-    "ExecutedTestCount": 6,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -192,8 +150,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC132",
-    "ExecutedTestFileCount": 11,
-    "ExecutedTestCount": 11,
     "DetectedTestFileCount": 11,
     "DetectedBCTestCount": 11
   },
@@ -201,8 +157,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC135",
-    "ExecutedTestFileCount": 1,
-    "ExecutedTestCount": 1,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -210,8 +164,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC136",
-    "ExecutedTestFileCount": 6,
-    "ExecutedTestCount": 6,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -219,8 +171,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC137",
-    "ExecutedTestFileCount": 1,
-    "ExecutedTestCount": 1,
     "DetectedTestFileCount": 1,
     "DetectedBCTestCount": 1
   },
@@ -228,8 +178,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC143",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -237,8 +185,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC144",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -246,26 +192,20 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC145",
-    "ExecutedTestFileCount": 0,
-    "ExecutedTestCount": 0,
-    "DetectedTestFileCount": 0,
-    "DetectedBCTestCount": 0
+    "DetectedTestFileCount": 1,
+    "DetectedBCTestCount": 1
   },
   {
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC146",
-    "ExecutedTestFileCount": 22,
-    "ExecutedTestCount": 28,
-    "DetectedTestFileCount": 1,
-    "DetectedBCTestCount": 3
+    "DetectedTestFileCount": 2,
+    "DetectedBCTestCount": 4
   },
   {
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC147",
-    "ExecutedTestFileCount": 30,
-    "ExecutedTestCount": 32,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -273,8 +213,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC148",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -282,8 +220,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC150",
-    "ExecutedTestFileCount": 5,
-    "ExecutedTestCount": 5,
     "DetectedTestFileCount": 5,
     "DetectedBCTestCount": 5
   },
@@ -291,8 +227,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC153",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -300,8 +234,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC155",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -309,8 +241,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC158",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -318,8 +248,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC16",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -327,8 +255,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC162",
-    "ExecutedTestFileCount": 5,
-    "ExecutedTestCount": 5,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -336,8 +262,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC165",
-    "ExecutedTestFileCount": 11,
-    "ExecutedTestCount": 11,
     "DetectedTestFileCount": 11,
     "DetectedBCTestCount": 11
   },
@@ -345,8 +269,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC167",
-    "ExecutedTestFileCount": 4,
-    "ExecutedTestCount": 4,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -354,8 +276,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC168",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -363,8 +283,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC17",
-    "ExecutedTestFileCount": 10,
-    "ExecutedTestCount": 10,
     "DetectedTestFileCount": 10,
     "DetectedBCTestCount": 10
   },
@@ -372,8 +290,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC170",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -381,8 +297,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC178",
-    "ExecutedTestFileCount": 1,
-    "ExecutedTestCount": 1,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -390,8 +304,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC179",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -399,8 +311,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC182",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -408,8 +318,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC184",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -417,8 +325,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC186",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -426,8 +332,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC187",
-    "ExecutedTestFileCount": 1,
-    "ExecutedTestCount": 1,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -435,8 +339,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC22",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -444,8 +346,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC24",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -453,8 +353,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC26",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -462,17 +360,13 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC27",
-    "ExecutedTestFileCount": 20,
-    "ExecutedTestCount": 27,
-    "DetectedTestFileCount": 2,
-    "DetectedBCTestCount": 4
+    "DetectedTestFileCount": 3,
+    "DetectedBCTestCount": 5
   },
   {
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC31",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -480,8 +374,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC33",
-    "ExecutedTestFileCount": 30,
-    "ExecutedTestCount": 30,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -489,8 +381,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC35",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -498,8 +388,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC36",
-    "ExecutedTestFileCount": 12,
-    "ExecutedTestCount": 12,
     "DetectedTestFileCount": 12,
     "DetectedBCTestCount": 12
   },
@@ -507,8 +395,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC41",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -516,8 +402,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC42",
-    "ExecutedTestFileCount": 1,
-    "ExecutedTestCount": 1,
     "DetectedTestFileCount": 1,
     "DetectedBCTestCount": 1
   },
@@ -525,8 +409,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC44",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -534,8 +416,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC45",
-    "ExecutedTestFileCount": 3,
-    "ExecutedTestCount": 5,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -543,8 +423,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC48",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -552,8 +430,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC49",
-    "ExecutedTestFileCount": 9,
-    "ExecutedTestCount": 9,
     "DetectedTestFileCount": 9,
     "DetectedBCTestCount": 9
   },
@@ -561,8 +437,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC50",
-    "ExecutedTestFileCount": 1,
-    "ExecutedTestCount": 1,
     "DetectedTestFileCount": 1,
     "DetectedBCTestCount": 1
   },
@@ -570,8 +444,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC51",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -579,8 +451,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC52",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -588,8 +458,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC53",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -597,8 +465,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC54",
-    "ExecutedTestFileCount": 30,
-    "ExecutedTestCount": 30,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -606,8 +472,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC55",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -615,8 +479,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC56",
-    "ExecutedTestFileCount": 29,
-    "ExecutedTestCount": 29,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -624,8 +486,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC59",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -633,8 +493,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC60",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -642,8 +500,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC63",
-    "ExecutedTestFileCount": 9,
-    "ExecutedTestCount": 9,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -651,8 +507,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC64",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -660,8 +514,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC66",
-    "ExecutedTestFileCount": 1,
-    "ExecutedTestCount": 1,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -669,8 +521,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC70",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -678,8 +528,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC72",
-    "ExecutedTestFileCount": 45,
-    "ExecutedTestCount": 45,
     "DetectedTestFileCount": 45,
     "DetectedBCTestCount": 45
   },
@@ -687,8 +535,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC73",
-    "ExecutedTestFileCount": 47,
-    "ExecutedTestCount": 47,
     "DetectedTestFileCount": 47,
     "DetectedBCTestCount": 47
   },
@@ -696,8 +542,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC74",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -705,8 +549,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC78",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -714,8 +556,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC79",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -723,8 +563,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC80",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -732,8 +570,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC81",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -741,8 +577,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC82",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -750,8 +584,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC83",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -759,8 +591,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC88",
-    "ExecutedTestFileCount": 1,
-    "ExecutedTestCount": 1,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -768,8 +598,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC94",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -777,8 +605,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC97",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -786,8 +612,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC98",
-    "ExecutedTestFileCount": 1,
-    "ExecutedTestCount": 1,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -795,8 +619,6 @@
     "Model": "GPT4o",
     "Context": "Minimal",
     "Instance": "BBC99",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   }

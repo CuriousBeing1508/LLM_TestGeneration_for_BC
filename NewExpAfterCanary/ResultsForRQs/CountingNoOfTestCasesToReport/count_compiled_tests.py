@@ -7,12 +7,6 @@ Phase1Compilationv1.py script. It already records, per instance:
   - files_compiled            -> how many of those compiled successfully
   - tests_in_generated_files  -> total @Test count across all generated files
   - tests_in_compiled_files   -> total @Test count across only the compiled files
-
-This script:
-  1. Verifies the configured compile_results_pre.json paths exist (run verify_paths() first).
-  2. Writes one JSON file per (context, model) with one row per instance.
-  3. Adds CompiledTestFileCount / CompiledTestCount columns to the existing
-     test_count_aggregate.csv
 """
 import csv
 import json

@@ -5,27 +5,14 @@ Source of truth here: pre/execute_results_pre.json's "execution_results"
 field - it records, per instance, every compiled test FILE that was run against
 the PRE (non-breaking) commit, split into "passed" / "failed" lists.
 
-"Executed" = executed AND passed on the pre (non-breaking) commit. A test that
-already fails on the unmodified baseline is a broken/flaky test, not a valid
-BC detector, and execute_results_pre.json's own "carry_forward_tests" only
-promotes an instance's PASSED tests to the breaking-commit re-run - failed
-pre-stage tests are dropped, never re-run. So "Executed" here only counts
-files in "passed", never "failed" (which is now the exclusive job of
-count_detect_tests.py: "executed AND failed [on the breaking commit]" =
-detected).
+"Executed" = executed AND passed on the pre (non-breaking) commit. 
 
 A file only counts as "executed" if BOTH:
   1. it's in "passed", and
-  2. its pre/logs/<instance>_<file>_execute.log has a genuine, parseable
+  2. its pre/logs/<instance>_<file>_execute.log has a parseable
      "Tests run: N, Failures: ..., Errors: ..." line (N is the test-case
      count for that file). Files that hit BUILD SUCCESS with no such line
-     (surefire silently found 0 tests) are excluded, not counted as 1 -
-     there's no evidence a @Test method actually ran.
-
-This script only touches ExecutedTestFileCount / ExecutedTestCount. It does
-NOT recompute DetectedTestFileCount / DetectedBCTestCount - those stay as
-already written by count_detect_tests.py (bre-stage is still the right
-source for "did re-running against the breaking commit catch it").
+     (surefire silently found 0 tests) are excluded.
 """
 import csv
 import json
@@ -97,8 +84,7 @@ def load_instance_index(csv_path):
 
 # ---------------------------------------------------------------------------
 # Step 2: how many test CASES ran for one test file, from its pre-stage log.
-# Returns None if there's no genuine "Tests run:" line - i.e. no confirmed
-# execution (do NOT count these; do not fall back to 1).
+# Returns None if there's no genuine "Tests run:" line.
 # ---------------------------------------------------------------------------
 def count_test_cases(logs_dir, instance, test_file):
     log_path = logs_dir / f"{instance}_{test_file}_execute.log"
@@ -116,8 +102,6 @@ def count_test_cases(logs_dir, instance, test_file):
 # Step 3: scan one execute_results_pre.json -> per-instance file/case counts.
 # Only counts files in "passed" (executed AND passed on the pre commit), and
 # only if their log has a confirmed "Tests run:" line. Files in "failed"
-# (whether a genuine test_failure or an execution_failure/timeout) are never
-# counted here - see module docstring.
 # ---------------------------------------------------------------------------
 def scan_pre_results(pre_dir):
     with open(pre_dir / "execute_results_pre.json", "r", encoding="utf-8") as f:

@@ -3,8 +3,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC01",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -12,8 +10,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC02",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -21,8 +17,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC03",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -30,8 +24,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC04",
-    "ExecutedTestFileCount": 22,
-    "ExecutedTestCount": 82,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -39,8 +31,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC05",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -48,26 +38,20 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC06",
-    "ExecutedTestFileCount": 74,
-    "ExecutedTestCount": 90,
-    "DetectedTestFileCount": 71,
-    "DetectedBCTestCount": 87
+    "DetectedTestFileCount": 75,
+    "DetectedBCTestCount": 97
   },
   {
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC07",
-    "ExecutedTestFileCount": 0,
-    "ExecutedTestCount": 0,
-    "DetectedTestFileCount": 0,
-    "DetectedBCTestCount": 0
+    "DetectedTestFileCount": 6,
+    "DetectedBCTestCount": 6
   },
   {
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC10",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -75,8 +59,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC101",
-    "ExecutedTestFileCount": 59,
-    "ExecutedTestCount": 153,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -84,8 +66,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC103",
-    "ExecutedTestFileCount": 3,
-    "ExecutedTestCount": 10,
     "DetectedTestFileCount": 1,
     "DetectedBCTestCount": 1
   },
@@ -93,8 +73,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC104",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -102,8 +80,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC106",
-    "ExecutedTestFileCount": 2,
-    "ExecutedTestCount": 4,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -111,8 +87,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC107",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -120,8 +94,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC111",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -129,8 +101,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC115",
-    "ExecutedTestFileCount": 3,
-    "ExecutedTestCount": 20,
     "DetectedTestFileCount": 1,
     "DetectedBCTestCount": 1
   },
@@ -138,8 +108,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC118",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -147,8 +115,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC119",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -156,8 +122,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC121",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -165,8 +129,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC123",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -174,8 +136,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC124",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -183,8 +143,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC131",
-    "ExecutedTestFileCount": 2,
-    "ExecutedTestCount": 2,
     "DetectedTestFileCount": 1,
     "DetectedBCTestCount": 1
   },
@@ -192,17 +150,13 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC132",
-    "ExecutedTestFileCount": 80,
-    "ExecutedTestCount": 113,
-    "DetectedTestFileCount": 80,
-    "DetectedBCTestCount": 113
+    "DetectedTestFileCount": 87,
+    "DetectedBCTestCount": 120
   },
   {
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC135",
-    "ExecutedTestFileCount": 1,
-    "ExecutedTestCount": 1,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -210,8 +164,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC136",
-    "ExecutedTestFileCount": 5,
-    "ExecutedTestCount": 11,
     "DetectedTestFileCount": 1,
     "DetectedBCTestCount": 1
   },
@@ -219,8 +171,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC137",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -228,8 +178,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC143",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -237,8 +185,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC144",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -246,17 +192,13 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC145",
-    "ExecutedTestFileCount": 0,
-    "ExecutedTestCount": 0,
-    "DetectedTestFileCount": 0,
-    "DetectedBCTestCount": 0
+    "DetectedTestFileCount": 2,
+    "DetectedBCTestCount": 2
   },
   {
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC146",
-    "ExecutedTestFileCount": 18,
-    "ExecutedTestCount": 39,
     "DetectedTestFileCount": 1,
     "DetectedBCTestCount": 1
   },
@@ -264,8 +206,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC147",
-    "ExecutedTestFileCount": 49,
-    "ExecutedTestCount": 91,
     "DetectedTestFileCount": 1,
     "DetectedBCTestCount": 1
   },
@@ -273,8 +213,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC148",
-    "ExecutedTestFileCount": 5,
-    "ExecutedTestCount": 5,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -282,8 +220,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC150",
-    "ExecutedTestFileCount": 4,
-    "ExecutedTestCount": 17,
     "DetectedTestFileCount": 4,
     "DetectedBCTestCount": 17
   },
@@ -291,8 +227,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC153",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -300,8 +234,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC155",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -309,8 +241,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC158",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -318,8 +248,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC16",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -327,8 +255,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC162",
-    "ExecutedTestFileCount": 5,
-    "ExecutedTestCount": 10,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -336,17 +262,13 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC165",
-    "ExecutedTestFileCount": 76,
-    "ExecutedTestCount": 102,
-    "DetectedTestFileCount": 75,
-    "DetectedBCTestCount": 101
+    "DetectedTestFileCount": 80,
+    "DetectedBCTestCount": 110
   },
   {
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC167",
-    "ExecutedTestFileCount": 4,
-    "ExecutedTestCount": 6,
     "DetectedTestFileCount": 2,
     "DetectedBCTestCount": 2
   },
@@ -354,8 +276,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC168",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -363,17 +283,13 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC17",
-    "ExecutedTestFileCount": 83,
-    "ExecutedTestCount": 91,
-    "DetectedTestFileCount": 83,
-    "DetectedBCTestCount": 91
+    "DetectedTestFileCount": 91,
+    "DetectedBCTestCount": 105
   },
   {
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC170",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -381,8 +297,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC178",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -390,8 +304,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC179",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -399,8 +311,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC182",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -408,8 +318,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC184",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -417,8 +325,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC186",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -426,8 +332,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC187",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -435,8 +339,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC22",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -444,8 +346,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC24",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -453,8 +353,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC26",
-    "ExecutedTestFileCount": 1,
-    "ExecutedTestCount": 1,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -462,8 +360,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC27",
-    "ExecutedTestFileCount": 15,
-    "ExecutedTestCount": 31,
     "DetectedTestFileCount": 1,
     "DetectedBCTestCount": 2
   },
@@ -471,8 +367,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC31",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -480,17 +374,13 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC33",
-    "ExecutedTestFileCount": 43,
-    "ExecutedTestCount": 92,
-    "DetectedTestFileCount": 1,
-    "DetectedBCTestCount": 1
+    "DetectedTestFileCount": 2,
+    "DetectedBCTestCount": 2
   },
   {
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC35",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -498,17 +388,13 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC36",
-    "ExecutedTestFileCount": 78,
-    "ExecutedTestCount": 92,
-    "DetectedTestFileCount": 77,
-    "DetectedBCTestCount": 91
+    "DetectedTestFileCount": 83,
+    "DetectedBCTestCount": 102
   },
   {
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC41",
-    "ExecutedTestFileCount": 4,
-    "ExecutedTestCount": 4,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -516,8 +402,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC42",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -525,8 +409,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC44",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -534,8 +416,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC45",
-    "ExecutedTestFileCount": 2,
-    "ExecutedTestCount": 4,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -543,8 +423,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC48",
-    "ExecutedTestFileCount": 1,
-    "ExecutedTestCount": 1,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -552,17 +430,13 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC49",
-    "ExecutedTestFileCount": 89,
-    "ExecutedTestCount": 127,
-    "DetectedTestFileCount": 89,
-    "DetectedBCTestCount": 127
+    "DetectedTestFileCount": 92,
+    "DetectedBCTestCount": 130
   },
   {
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC50",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -570,8 +444,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC51",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -579,8 +451,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC52",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -588,8 +458,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC53",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -597,8 +465,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC54",
-    "ExecutedTestFileCount": 42,
-    "ExecutedTestCount": 85,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -606,8 +472,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC55",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -615,8 +479,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC56",
-    "ExecutedTestFileCount": 46,
-    "ExecutedTestCount": 85,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -624,8 +486,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC59",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -633,8 +493,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC60",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -642,8 +500,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC63",
-    "ExecutedTestFileCount": 4,
-    "ExecutedTestCount": 12,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -651,8 +507,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC64",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -660,8 +514,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC66",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -669,8 +521,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC70",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -678,26 +528,20 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC72",
-    "ExecutedTestFileCount": 64,
-    "ExecutedTestCount": 72,
-    "DetectedTestFileCount": 62,
-    "DetectedBCTestCount": 70
+    "DetectedTestFileCount": 68,
+    "DetectedBCTestCount": 76
   },
   {
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC73",
-    "ExecutedTestFileCount": 63,
-    "ExecutedTestCount": 74,
-    "DetectedTestFileCount": 63,
-    "DetectedBCTestCount": 74
+    "DetectedTestFileCount": 72,
+    "DetectedBCTestCount": 85
   },
   {
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC74",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -705,8 +549,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC78",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -714,8 +556,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC79",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -723,8 +563,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC80",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -732,8 +570,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC81",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -741,8 +577,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC82",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -750,8 +584,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC83",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -759,8 +591,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC88",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -768,8 +598,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC94",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -777,8 +605,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC97",
-    "ExecutedTestFileCount": 2,
-    "ExecutedTestCount": 2,
     "DetectedTestFileCount": 0,
     "DetectedBCTestCount": 0
   },
@@ -786,8 +612,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC98",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   },
@@ -795,8 +619,6 @@
     "Model": "Qwen3-coder",
     "Context": "Method",
     "Instance": "BBC99",
-    "ExecutedTestFileCount": "NOT_VALID",
-    "ExecutedTestCount": "NOT_VALID",
     "DetectedTestFileCount": "NOT_VALID",
     "DetectedBCTestCount": "NOT_VALID"
   }
