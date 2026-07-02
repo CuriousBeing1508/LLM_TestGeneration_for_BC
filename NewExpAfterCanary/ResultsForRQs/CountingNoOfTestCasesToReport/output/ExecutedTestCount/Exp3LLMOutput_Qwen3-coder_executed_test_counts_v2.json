@@ -1,0 +1,625 @@
+[
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC01",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC02",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC03",
+    "ExecutedTestFileCount": 1,
+    "ExecutedTestCount": 3
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC04",
+    "ExecutedTestFileCount": 8,
+    "ExecutedTestCount": 14
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC05",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC06",
+    "ExecutedTestFileCount": 81,
+    "ExecutedTestCount": 83
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC07",
+    "ExecutedTestFileCount": 0,
+    "ExecutedTestCount": 0
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC10",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC101",
+    "ExecutedTestFileCount": 54,
+    "ExecutedTestCount": 123
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC103",
+    "ExecutedTestFileCount": 3,
+    "ExecutedTestCount": 7
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC104",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC106",
+    "ExecutedTestFileCount": 1,
+    "ExecutedTestCount": 3
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC107",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC111",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC115",
+    "ExecutedTestFileCount": 1,
+    "ExecutedTestCount": 1
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC118",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC119",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC121",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC123",
+    "ExecutedTestFileCount": 1,
+    "ExecutedTestCount": 1
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC124",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC131",
+    "ExecutedTestFileCount": 4,
+    "ExecutedTestCount": 7
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC132",
+    "ExecutedTestFileCount": 96,
+    "ExecutedTestCount": 104
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC135",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC136",
+    "ExecutedTestFileCount": 3,
+    "ExecutedTestCount": 5
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC137",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC143",
+    "ExecutedTestFileCount": 1,
+    "ExecutedTestCount": 1
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC144",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC145",
+    "ExecutedTestFileCount": 0,
+    "ExecutedTestCount": 0
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC146",
+    "ExecutedTestFileCount": 18,
+    "ExecutedTestCount": 34
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC147",
+    "ExecutedTestFileCount": 26,
+    "ExecutedTestCount": 54
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC148",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC150",
+    "ExecutedTestFileCount": 2,
+    "ExecutedTestCount": 2
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC153",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC155",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC158",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC16",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC162",
+    "ExecutedTestFileCount": 4,
+    "ExecutedTestCount": 6
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC165",
+    "ExecutedTestFileCount": 92,
+    "ExecutedTestCount": 99
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC167",
+    "ExecutedTestFileCount": 3,
+    "ExecutedTestCount": 3
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC168",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC17",
+    "ExecutedTestFileCount": 77,
+    "ExecutedTestCount": 78
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC170",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC178",
+    "ExecutedTestFileCount": 0,
+    "ExecutedTestCount": 0
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC179",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC182",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC184",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC186",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC187",
+    "ExecutedTestFileCount": 0,
+    "ExecutedTestCount": 0
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC22",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC24",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC26",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC27",
+    "ExecutedTestFileCount": 27,
+    "ExecutedTestCount": 54
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC31",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC33",
+    "ExecutedTestFileCount": 21,
+    "ExecutedTestCount": 52
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC35",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC36",
+    "ExecutedTestFileCount": 70,
+    "ExecutedTestCount": 71
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC41",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC42",
+    "ExecutedTestFileCount": 0,
+    "ExecutedTestCount": 0
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC44",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC45",
+    "ExecutedTestFileCount": 2,
+    "ExecutedTestCount": 4
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC48",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC49",
+    "ExecutedTestFileCount": 86,
+    "ExecutedTestCount": 90
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC50",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC51",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC52",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC53",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC54",
+    "ExecutedTestFileCount": 19,
+    "ExecutedTestCount": 51
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC55",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC56",
+    "ExecutedTestFileCount": 24,
+    "ExecutedTestCount": 51
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC59",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC60",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC63",
+    "ExecutedTestFileCount": 3,
+    "ExecutedTestCount": 7
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC64",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC66",
+    "ExecutedTestFileCount": 0,
+    "ExecutedTestCount": 0
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC70",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC72",
+    "ExecutedTestFileCount": 75,
+    "ExecutedTestCount": 84
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC73",
+    "ExecutedTestFileCount": 82,
+    "ExecutedTestCount": 88
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC74",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC78",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC79",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC80",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC81",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC82",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC83",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC88",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC94",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC97",
+    "ExecutedTestFileCount": 1,
+    "ExecutedTestCount": 1
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC98",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  },
+  {
+    "Model": "Qwen3-coder",
+    "Context": "Minimal",
+    "Instance": "BBC99",
+    "ExecutedTestFileCount": "NOT_VALID",
+    "ExecutedTestCount": "NOT_VALID"
+  }
+]

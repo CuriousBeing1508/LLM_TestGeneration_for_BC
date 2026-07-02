@@ -1,34 +1,35 @@
 """
-Counts @Test cases that got executed against the breaking commit, and how many
-of those detected the breaking change (failed or errored), per (model, context, instance).
+Counts @Test cases that actually got EXECUTED, per (model, context, instance).
 
-Source of truth: the raw *.log files under each run's bre/logs folder
-Each log ends with a line like:
-    Tests run: 1, Failures: 1, Errors: 0
-"ExecutedTestCount" = Tests run. "DetectedBCTestCount" = Failures + Errors
-(a failure/error means the test caught the breaking change).
-"ExecutedTestFileCount"/"DetectedTestFileCount" count how many log files
-(test files) had at least one executed/detecting test, rather than summing
-individual @Test cases.
+Source of truth here: pre/execute_results_pre.json's "execution_results"
+field - it records, per instance, every compiled test FILE that was run against
+the PRE (non-breaking) commit, split into "passed" / "failed" lists.
 
-If a log line has multiple "Tests run: ..." occurrences (surefire prints the
-per-class line, then a final summary line), the LAST occurrence in the file is
-used since it is the authoritative final summary.
+"Executed" = executed AND passed on the pre (non-breaking) commit. A test that
+already fails on the unmodified baseline is a broken/flaky test, not a valid
+BC detector, and execute_results_pre.json's own "carry_forward_tests" only
+promotes an instance's PASSED tests to the breaking-commit re-run - failed
+pre-stage tests are dropped, never re-run. So "Executed" here only counts
+files in "passed", never "failed" (which is now the exclusive job of
+count_detect_tests.py: "executed AND failed [on the breaking commit]" =
+detected).
 
-If an instance has no log files at all in bre/logs, it never got executed -
-its row is marked NOT_VALID instead of 0.
+A file only counts as "executed" if BOTH:
+  1. it's in "passed", and
+  2. its pre/logs/<instance>_<file>_execute.log has a genuine, parseable
+     "Tests run: N, Failures: ..., Errors: ..." line (N is the test-case
+     count for that file). Files that hit BUILD SUCCESS with no such line
+     (surefire silently found 0 tests) are excluded, not counted as 1 -
+     there's no evidence a @Test method actually ran.
 
-This script:
-  1. Verifies the configured bre/logs folders exist (run verify_paths() first).
-  2. Writes one JSON file per (context, model) with one row per instance.
-  3. Adds ExecutedTestFileCount / ExecutedTestCount / DetectedTestFileCount /
-     DetectedBCTestCount columns to the existing test_count_aggregate.csv,
-     without touching its existing columns.
+This script only touches ExecutedTestFileCount / ExecutedTestCount. It does
+NOT recompute DetectedTestFileCount / DetectedBCTestCount - those stay as
+already written by count_detect_tests.py (bre-stage is still the right
+source for "did re-running against the breaking commit catch it").
 """
 import csv
 import json
 import re
-from collections import defaultdict
 from pathlib import Path
 
 import sys
@@ -44,18 +45,19 @@ CONTEXTS = {
     "Exp7LLMOutput": "Class",
 }
 
-# (context_dir, model_label) -> path to that run's bre/logs folder
-BRE_LOGS_DIRS = {
-    ("Exp3LLMOutput", "GPT4o"): PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/bre/logs",
-    ("Exp3LLMOutput", "GPTOSS"): PRIMARY_DRIVE / "GPTOSSResults/Exp3BatchResults/bre/logs",
-    ("Exp3LLMOutput", "Qwen3-coder"): PRIMARY_DRIVE / "Qwen480Results/Exp3BatchResults/bre/logs",
-    ("Exp6LLMOutput", "GPT4o"): PRIMARY_DRIVE / "GPTResults/Exp6BatchResults/bre/logs",
-    ("Exp6LLMOutput", "GPTOSS"): PRIMARY_DRIVE / "GPTOSSResults/Exp6BatchResults/bre/logs",
-    ("Exp6LLMOutput", "Qwen3-coder"): PRIMARY_DRIVE / "Qwen480Results/Exp6BatchResults/bre/logs",
+# (context_dir, model_label) -> path to that run's "pre" folder
+# (holds execute_results_pre.json + logs/*_execute.log)
+PRE_DIRS = {
+    ("Exp3LLMOutput", "GPT4o"): PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre",
+    ("Exp3LLMOutput", "GPTOSS"): PRIMARY_DRIVE / "GPTOSSResults/Exp3BatchResults/pre",
+    ("Exp3LLMOutput", "Qwen3-coder"): PRIMARY_DRIVE / "Qwen480Results/Exp3BatchResults/pre",
+    ("Exp6LLMOutput", "GPT4o"): PRIMARY_DRIVE / "GPTResults/Exp6BatchResults/pre",
+    ("Exp6LLMOutput", "GPTOSS"): PRIMARY_DRIVE / "GPTOSSResults/Exp6BatchResults/pre",
+    ("Exp6LLMOutput", "Qwen3-coder"): PRIMARY_DRIVE / "Qwen480Results/Exp6BatchResults/pre",
     # Exp7 GPT4o results live under "Exp7BatchResultsOp2", not "Exp7BatchResults"
-    ("Exp7LLMOutput", "GPT4o"): PRIMARY_DRIVE / "GPTResults/Exp7BatchResultsOp2/bre/logs",
-    ("Exp7LLMOutput", "GPTOSS"): PRIMARY_DRIVE / "GPTOSSResults/Exp7BatchResults/bre/logs",
-    ("Exp7LLMOutput", "Qwen3-coder"): PRIMARY_DRIVE / "Qwen480Results/Exp7BatchResults/bre/logs",
+    ("Exp7LLMOutput", "GPT4o"): PRIMARY_DRIVE / "GPTResults/Exp7BatchResultsOp2/pre",
+    ("Exp7LLMOutput", "GPTOSS"): PRIMARY_DRIVE / "GPTOSSResults/Exp7BatchResults/pre",
+    ("Exp7LLMOutput", "Qwen3-coder"): PRIMARY_DRIVE / "Qwen480Results/Exp7BatchResults/pre",
 }
 
 JSON_OUTPUT_DIR = Path(__file__).resolve().parent / "output" / "ExecutedTestCount"
@@ -68,13 +70,13 @@ TESTS_RUN_PATTERN = re.compile(r"Tests run:\s*(\d+),\s*Failures:\s*(\d+),\s*Erro
 # Step 0: sanity check the config before running anything else
 # ---------------------------------------------------------------------------
 def verify_paths():
-    """Print which bre/logs folders exist and how many .log files each has."""
-    for (context_dir, model_label), logs_dir in BRE_LOGS_DIRS.items():
-        if logs_dir.exists():
-            log_count = len(list(logs_dir.glob("*.log")))
-            print(f"{CONTEXTS[context_dir]:8} | {model_label:12} -> OK ({log_count} logs) | {logs_dir}")
-        else:
-            print(f"{CONTEXTS[context_dir]:8} | {model_label:12} -> MISSING | {logs_dir}")
+    """Print which pre folders exist and whether execute_results_pre.json/logs are there."""
+    for (context_dir, model_label), pre_dir in PRE_DIRS.items():
+        json_path = pre_dir / "execute_results_pre.json"
+        logs_dir = pre_dir / "logs"
+        tag = "OK" if json_path.exists() and logs_dir.exists() else "MISSING"
+        log_count = len(list(logs_dir.glob("*_execute.log"))) if logs_dir.exists() else 0
+        print(f"{CONTEXTS[context_dir]:8} | {model_label:12} -> {tag} ({log_count} execute logs) | {pre_dir}")
 
     tag = "OK" if AGGREGATE_CSV_PATH.exists() else "MISSING"
     print(f"\nAggregate CSV to update -> {tag} | {AGGREGATE_CSV_PATH}")
@@ -87,68 +89,86 @@ def verify_paths():
 def load_instance_index(csv_path):
     with open(csv_path, "r", newline="", encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
-    index = defaultdict(set)
+    index = {}
     for row in rows:
-        index[(row["Model"], row["Context"])].add(row["Instance"])
+        index.setdefault((row["Model"], row["Context"]), set()).add(row["Instance"])
     return index
 
 
 # ---------------------------------------------------------------------------
-# Step 2: parse a single log file -> (tests_executed, tests_that_detected_bc)
+# Step 2: how many test CASES ran for one test file, from its pre-stage log.
+# Returns None if there's no genuine "Tests run:" line - i.e. no confirmed
+# execution (do NOT count these; do not fall back to 1).
 # ---------------------------------------------------------------------------
-def parse_log_file(log_path):
+def count_test_cases(logs_dir, instance, test_file):
+    log_path = logs_dir / f"{instance}_{test_file}_execute.log"
+    if not log_path.exists():
+        return None
     text = log_path.read_text(encoding="utf-8", errors="ignore")
     matches = TESTS_RUN_PATTERN.findall(text)
     if not matches:
-        return 0, 0
-    tests_run, failures, errors = (int(x) for x in matches[-1])
-    return tests_run, failures + errors
+        return None
+    tests_run, _failures, _errors = (int(x) for x in matches[-1])
+    return tests_run
 
 
 # ---------------------------------------------------------------------------
-# Step 3: scan one bre/logs folder, summing per-file results by instance
-# (log filenames look like "BBC162_BBC162U1Test.java_breaking_single.log")
+# Step 3: scan one execute_results_pre.json -> per-instance file/case counts.
+# Only counts files in "passed" (executed AND passed on the pre commit), and
+# only if their log has a confirmed "Tests run:" line. Files in "failed"
+# (whether a genuine test_failure or an execution_failure/timeout) are never
+# counted here - see module docstring.
 # ---------------------------------------------------------------------------
-def scan_logs_dir(logs_dir):
-    summary = defaultdict(lambda: {"executed": 0, "detected_bc": 0, "executed_files": 0, "detected_files": 0})
-    for log_path in logs_dir.glob("*.log"):
-        instance = log_path.name.split("_", 1)[0]
-        executed, detected_bc = parse_log_file(log_path)
-        summary[instance]["executed"] += executed
-        summary[instance]["detected_bc"] += detected_bc
-        if executed > 0:
-            summary[instance]["executed_files"] += 1
-        if detected_bc > 0:
-            summary[instance]["detected_files"] += 1
-    return summary
+def scan_pre_results(pre_dir):
+    with open(pre_dir / "execute_results_pre.json", "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    logs_dir = pre_dir / "logs"
+    execution_results = data["execution_results"]
+
+    summary = {}
+    excluded_no_confirmation = 0
+    for instance, idata in execution_results.items():
+        candidate_files = list(idata.get("passed", []))
+        file_count = 0
+        case_total = 0
+        for test_file in candidate_files:
+            cases = count_test_cases(logs_dir, instance, test_file)
+            if cases is None:
+                excluded_no_confirmation += 1
+                continue
+            file_count += 1
+            case_total += cases
+        summary[instance] = {
+            "executed_files": file_count,
+            "executed_cases": case_total,
+        }
+    return summary, excluded_no_confirmation
 
 
 # ---------------------------------------------------------------------------
-# Step 4: build one row per known instance; NOT_VALID if it has no logs at all
+# Step 4: build one row per known instance; NOT_VALID if it never reached
+# the pre-execution stage (e.g. 0 compiled files).
 # ---------------------------------------------------------------------------
-def build_rows(logs_summary, instances, model_label, context_label):
+def build_rows(pre_summary, instances, model_label, context_label):
     rows = []
     for instance in sorted(instances):
-        if instance not in logs_summary:
+        if instance not in pre_summary:
             rows.append({
                 "Model": model_label,
                 "Context": context_label,
                 "Instance": instance,
                 "ExecutedTestFileCount": NOT_VALID,
                 "ExecutedTestCount": NOT_VALID,
-                "DetectedTestFileCount": NOT_VALID,
-                "DetectedBCTestCount": NOT_VALID,
             })
         else:
-            s = logs_summary[instance]
+            s = pre_summary[instance]
             rows.append({
                 "Model": model_label,
                 "Context": context_label,
                 "Instance": instance,
                 "ExecutedTestFileCount": s["executed_files"],
-                "ExecutedTestCount": s["executed"],
-                "DetectedTestFileCount": s["detected_files"],
-                "DetectedBCTestCount": s["detected_bc"],
+                "ExecutedTestCount": s["executed_cases"],
             })
     return rows
 
@@ -158,31 +178,31 @@ def build_rows(logs_summary, instances, model_label, context_label):
 # ---------------------------------------------------------------------------
 def save_json(rows, context_dir, model_label):
     JSON_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    out_path = JSON_OUTPUT_DIR / f"{context_dir}_{model_label}_executed_test_counts.json"
+    out_path = JSON_OUTPUT_DIR / f"{context_dir}_{model_label}_executed_test_counts_v2.json"
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(rows, f, indent=2)
     return out_path
 
 
 # ---------------------------------------------------------------------------
-# Step 6: add ExecutedTestCount/DetectedBCTestCount columns to the existing
-# aggregate CSV, keyed by (Model, Context, Instance). Existing columns and
-# rows are preserved as-is.
+# Step 6: overwrite ONLY ExecutedTestFileCount/ExecutedTestCount in the
+# existing aggregate CSV, keyed by (Model, Context, Instance). All other
+# columns (including DetectedTestFileCount/DetectedBCTestCount) are untouched.
 # ---------------------------------------------------------------------------
-def add_execution_columns_to_csv(all_rows, csv_path):
+def update_execution_columns_in_csv(all_rows, csv_path):
     exec_by_key = {(r["Model"], r["Context"], r["Instance"]): r for r in all_rows}
 
     with open(csv_path, "r", newline="", encoding="utf-8") as f:
         existing_rows = list(csv.DictReader(f))
-
-    new_columns = ["ExecutedTestFileCount", "ExecutedTestCount", "DetectedTestFileCount", "DetectedBCTestCount"]
-    fieldnames = list(existing_rows[0].keys()) + new_columns
+        fieldnames = list(existing_rows[0].keys())
 
     for row in existing_rows:
         key = (row["Model"], row["Context"], row["Instance"])
         result = exec_by_key.get(key)
-        for column in new_columns:
-            row[column] = NOT_VALID if result is None else result[column]
+        if result is None:
+            continue
+        row["ExecutedTestFileCount"] = result["ExecutedTestFileCount"]
+        row["ExecutedTestCount"] = result["ExecutedTestCount"]
 
     with open(csv_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
@@ -197,22 +217,26 @@ def main():
     instance_index = load_instance_index(AGGREGATE_CSV_PATH)
 
     all_rows = []
-    for (context_dir, model_label), logs_dir in BRE_LOGS_DIRS.items():
-        if not logs_dir.exists():
-            print(f"Skipping missing logs dir: {logs_dir}")
+    total_excluded_no_confirmation = 0
+    for (context_dir, model_label), pre_dir in PRE_DIRS.items():
+        json_path = pre_dir / "execute_results_pre.json"
+        if not json_path.exists():
+            print(f"Skipping missing pre dir: {pre_dir}")
             continue
 
         context_label = CONTEXTS[context_dir]
         instances = instance_index.get((model_label, context_label), set())
 
-        logs_summary = scan_logs_dir(logs_dir)
-        rows = build_rows(logs_summary, instances, model_label, context_label)
-        json_path = save_json(rows, context_dir, model_label)
-        print(f"Wrote {len(rows)} rows -> {json_path}")
+        pre_summary, excluded_no_confirmation = scan_pre_results(pre_dir)
+        total_excluded_no_confirmation += excluded_no_confirmation
+        rows = build_rows(pre_summary, instances, model_label, context_label)
+        json_path_out = save_json(rows, context_dir, model_label)
+        print(f"Wrote {len(rows)} rows (excluded {excluded_no_confirmation} unconfirmed passes) -> {json_path_out}")
         all_rows.extend(rows)
 
-    add_execution_columns_to_csv(all_rows, AGGREGATE_CSV_PATH)
-    print(f"Added ExecutedTestFileCount/ExecutedTestCount/DetectedTestFileCount/DetectedBCTestCount columns -> {AGGREGATE_CSV_PATH}")
+    update_execution_columns_in_csv(all_rows, AGGREGATE_CSV_PATH)
+    print(f"\nUpdated ExecutedTestFileCount/ExecutedTestCount -> {AGGREGATE_CSV_PATH}")
+    print(f"Total excluded (no confirmed 'Tests run:' line): {total_excluded_no_confirmation}")
 
 
 if __name__ == "__main__":
