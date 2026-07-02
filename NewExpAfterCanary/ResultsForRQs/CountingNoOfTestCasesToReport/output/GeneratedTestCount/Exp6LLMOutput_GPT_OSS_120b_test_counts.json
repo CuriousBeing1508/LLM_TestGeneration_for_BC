@@ -12743,6 +12743,20 @@
     "Model": "GPTOSS",
     "Context": "Method",
     "Instance": "BBC146",
+    "TestFileName": "BBC146U43Test_prompt.txt",
+    "TestCount": 3
+  },
+  {
+    "Model": "GPTOSS",
+    "Context": "Method",
+    "Instance": "BBC146",
+    "TestFileName": "BBC146U44Test_prompt.txt",
+    "TestCount": 2
+  },
+  {
+    "Model": "GPTOSS",
+    "Context": "Method",
+    "Instance": "BBC146",
     "TestFileName": "BBC146U45Test_prompt.txt",
     "TestCount": 4
   },
