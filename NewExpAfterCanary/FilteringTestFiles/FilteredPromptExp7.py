@@ -43,7 +43,7 @@ def copy_non_matched_files(source_folder, destination_folder, matched_files):
     # Create destination folder if it doesn't exist
     if not os.path.exists(destination_folder):
         os.makedirs(destination_folder)
-        print(f"✓ Created destination folder: {destination_folder}\n")
+        print(f" Created destination folder: {destination_folder}\n")
     
     # Walk through all directories and subdirectories
     for dirpath, dirnames, filenames in os.walk(source_folder):
@@ -60,8 +60,10 @@ def copy_non_matched_files(source_folder, destination_folder, matched_files):
         if not os.path.exists(dest_dir):
             os.makedirs(dest_dir)
         
-        # Process each file
+        # Process each .txt file (skip non-prompt files like .DS_Store)
         for filename in filenames:
+            if not filename.endswith('.txt'):
+                continue
             total_files += 1
             source_file = os.path.join(dirpath, filename)
             dest_file = os.path.join(dest_dir, filename)
@@ -119,7 +121,7 @@ if __name__ == "__main__":
     # ==================== CONFIGURATION ====================
 
     # Input: CSV file from the previous scan script
-    csv_file = PRIMARY_DRIVE / "Exp7BatchResults/test_files_filter.csv"
+    csv_file = PRIMARY_DRIVE / "ConfigFiles"/ "test_files_filterExp7.csv"
     
     # Source folder (the original folder with all files)
     source_folder = PRIMARY_DRIVE / "GeneratedPromptsClientsExp7"

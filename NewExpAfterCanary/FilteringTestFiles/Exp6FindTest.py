@@ -13,7 +13,7 @@ def extract_focal_class(file_path):
         with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
             content = f.read()
             # Search for the pattern "Focal class FQN: <fully.qualified.name>"
-            match = re.search(r'Focal class FQN:\s*([^\s\n]+)', content)
+            match = re.search(r'Focal class FQN\s*:\s*([^\s\n]+)', content)
             if match:
                 return match.group(1).strip()
     except Exception as e:
@@ -98,7 +98,7 @@ def scan_all_folders(root_folder, output_csv):
 if __name__ == "__main__":
     # Configuration - Change these paths as needed. This script is filtering the test files from the prompt generation phase. Based on that, we need to remove identified files from Output and execution...
     root_folder = PRIMARY_DRIVE / "GeneratedPromptsExp6"  # Your main folder containing subfolders with txt files
-    output_csv = PRIMARY_DRIVE / "Exp6BatchResults/test_files_filter.csv"  # Output CSV file name
+    output_csv = PRIMARY_DRIVE / "ConfigFiles" / "test_files_filterExp6.csv" # Output CSV file name
     
     # Check if the root folder exists
     if not os.path.exists(root_folder):

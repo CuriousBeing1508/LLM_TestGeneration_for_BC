@@ -60,8 +60,10 @@ def copy_non_matched_files(source_folder, destination_folder, matched_files):
         if not os.path.exists(dest_dir):
             os.makedirs(dest_dir)
         
-        # Process each file
+        # Process each .txt file (skip non-prompt files like .DS_Store)
         for filename in filenames:
+            if not filename.endswith('.txt'):
+                continue
             total_files += 1
             source_file = os.path.join(dirpath, filename)
             dest_file = os.path.join(dest_dir, filename)
@@ -72,7 +74,7 @@ def copy_non_matched_files(source_folder, destination_folder, matched_files):
             # Check if this file is in the matched files list
             if normalized_source in matched_files:
                 skipped_count += 1
-                print(f"✗ SKIP: {relative_dir}/{filename} (matched in CSV)")
+                print(f" SKIP: {relative_dir}/{filename} (matched in CSV)")
             else:
                 # Copy the file
                 try:
@@ -118,7 +120,7 @@ def remove_empty_directories(root_folder):
 if __name__ == "__main__":
     # ==================== CONFIGURATION ====================
     # Input: CSV file from the previous scan script
-    csv_file = PRIMARY_DRIVE / "Exp3BatchResults/test_files_filter.csv"
+    csv_file = PRIMARY_DRIVE / "ConfigFiles"/ "test_files_filterExp3.csv"
     
     # Source folder (the original folder with all files)
     source_folder = PRIMARY_DRIVE / "GeneratedPromptsClientsExp3"

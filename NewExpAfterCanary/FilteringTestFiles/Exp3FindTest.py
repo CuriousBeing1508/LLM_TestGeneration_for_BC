@@ -3,6 +3,7 @@ import re
 import csv
 from pathlib import Path
 
+# This script fetches all Test class that needs to be excluded from the dataset to avoid data leakage or contamination. LLM should not see actual tests.
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from config import PRIMARY_DRIVE
@@ -13,7 +14,7 @@ def extract_focal_class(file_path):
         with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
             content = f.read()
             # Search for the pattern "Focal class FQN: <fully.qualified.name>"
-            match = re.search(r'Focal class FQN:\s*([^\s\n]+)', content)
+            match = re.search(r'Focal class FQN\s*:\s*([^\s\n]+)', content)
             if match:
                 return match.group(1).strip()
     except Exception as e:
@@ -78,7 +79,7 @@ def scan_all_folders(root_folder, output_csv):
             for row in results:
                 writer.writerow(row)
         
-        print(f"\n✓ Results saved to: {output_csv}")
+        print(f"\n Results saved to: {output_csv}")
         print("\nSample results:")
         for i, row in enumerate(results[:5], 1):
             print(f"  {i}. {row['folder_path']}/{row['filename']}")
@@ -98,7 +99,7 @@ def scan_all_folders(root_folder, output_csv):
 if __name__ == "__main__":
     # Configuration - Change these paths as needed
     root_folder = PRIMARY_DRIVE / "GeneratedPromptsClientsExp3"  # Your main folder containing subfolders with txt files
-    output_csv = PRIMARY_DRIVE / "Exp3BatchResults/test_files_filter.csv"  # Output CSV file name
+    output_csv = PRIMARY_DRIVE / "ConfigFiles"/ "test_files_filterExp3.csv"
     
     # Check if the root folder exists
     if not os.path.exists(root_folder):
