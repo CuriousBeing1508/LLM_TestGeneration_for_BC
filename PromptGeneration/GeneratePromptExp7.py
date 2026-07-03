@@ -270,7 +270,7 @@ public class {test_class_name} {{
  *
  * WHAT TO TEST: THE CLIENT'S USAGE CHAIN
  * ---------------------------------------------------------------------
- * The focal method (section 3) calls the library APIs listed in section 4.
+ * The focal method (section 3) calls the library APIs listed in section 2.
  * Your tests must replicate that same usage chain with concrete inputs and
  * then assert on the OBSERVABLE OUTPUT or SIDE EFFECT it produces.
  * Do NOT write tests that call each library API in isolation as a smoke test.

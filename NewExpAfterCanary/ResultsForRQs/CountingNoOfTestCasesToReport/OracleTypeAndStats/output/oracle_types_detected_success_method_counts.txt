@@ -1,0 +1,15 @@
+Total assert calls: 8737
+Distinct methods: 12
+
+assertTrue: 2552
+assertNotNull: 1833
+fail: 1718
+assertEquals: 1617
+assertDoesNotThrow: 318
+assertNull: 241
+assertNotSame: 194
+assertFalse: 102
+assertArrayEquals: 92
+assertThrows: 42
+assertSame: 14
+assertNotEquals: 14
