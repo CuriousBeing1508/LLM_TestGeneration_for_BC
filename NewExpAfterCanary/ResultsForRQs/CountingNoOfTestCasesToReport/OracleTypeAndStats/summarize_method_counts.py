@@ -10,8 +10,8 @@ from pathlib import Path
 OUTPUT_DIR = Path(__file__).resolve().parent / "output"
 
 INPUT_FILES = [
-    OUTPUT_DIR / "oracle_types_detected_success.json",
-    OUTPUT_DIR / "oracle_types_missed_h2.json",
+    OUTPUT_DIR / "success_cases" / "oracle_types_detected_success.json",
+    OUTPUT_DIR / "missed_cases" / "oracle_types_missed_h2.json",
 ]
 
 
@@ -43,7 +43,7 @@ def main():
             continue
         data = json.load(open(input_path, encoding="utf-8"))
         counts = count_methods(data)
-        out_path = OUTPUT_DIR / f"{input_path.stem}_method_counts.txt"
+        out_path = input_path.parent / f"{input_path.stem}_method_counts.txt"
         write_summary(counts, out_path)
         print(f"Wrote {out_path}")
 

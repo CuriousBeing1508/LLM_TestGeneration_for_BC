@@ -7,7 +7,12 @@ Layout on disk:
 Each .txt file holds one generated Java test class (inside a ```java fence).
 This script:
   1. Verifies the configured paths exist (run verify_paths() first).
-  2. Counts @Test per test class.
+  2. Counts @Test per test class - recognizing both a bare `@Test` (imported)
+     and a fully-qualified annotation (`@org.junit.Test`,
+     `@org.junit.jupiter.api.Test`, ...), which the model sometimes emits
+     instead of importing `Test`. Falls back to counting `public void
+     testXxx()`-named methods for JUnit-3-style classes (`extends TestCase`),
+     which use no annotation at all.
   3. Writes one JSON file per (context, model) with one row per test file.
   3. Aggregates those rows to one CSV with one row per (model, context, instance).
 """
@@ -41,7 +46,11 @@ MODEL_DIR_ALIASES = {
 }
 
 OUTPUT_DIR = Path(__file__).resolve().parent / "output"/ "GeneratedTestCount"
-TEST_ANNOTATION_PATTERN = re.compile(r"@Test\b")
+# matches @Test and qualified forms like @org.junit.Test / @org.junit.jupiter.api.Test,
+# but not @TestFactory/@ParameterizedTest (no word boundary right after "Test")
+TEST_ANNOTATION_PATTERN = re.compile(r"@(?:[\w.]*\.)?Test\b")
+JUNIT3_CLASS_PATTERN = re.compile(r"\bextends\s+TestCase\b")
+JUNIT3_METHOD_PATTERN = re.compile(r"\bpublic\s+void\s+test\w*\s*\(")
 
 
 # ---------------------------------------------------------------------------
@@ -72,7 +81,12 @@ def verify_paths():
 # ---------------------------------------------------------------------------
 def count_tests_in_file(file_path):
     text = file_path.read_text(encoding="utf-8", errors="ignore")
-    return len(TEST_ANNOTATION_PATTERN.findall(text))
+    annotation_count = len(TEST_ANNOTATION_PATTERN.findall(text))
+    if annotation_count > 0:
+        return annotation_count
+    if JUNIT3_CLASS_PATTERN.search(text):
+        return len(JUNIT3_METHOD_PATTERN.findall(text))
+    return 0
 
 
 # ---------------------------------------------------------------------------

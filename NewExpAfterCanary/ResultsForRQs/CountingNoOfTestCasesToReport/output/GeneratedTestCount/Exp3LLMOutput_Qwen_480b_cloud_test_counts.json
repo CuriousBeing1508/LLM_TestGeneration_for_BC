@@ -25624,7 +25624,7 @@
     "Context": "Minimal",
     "Instance": "BBC48",
     "TestFileName": "BBC48U117Test_prompt.txt",
-    "TestCount": 0
+    "TestCount": 1
   },
   {
     "Model": "Qwen3-coder",
@@ -25652,7 +25652,7 @@
     "Context": "Minimal",
     "Instance": "BBC48",
     "TestFileName": "BBC48U61Test_prompt.txt",
-    "TestCount": 0
+    "TestCount": 1
   },
   {
     "Model": "Qwen3-coder",

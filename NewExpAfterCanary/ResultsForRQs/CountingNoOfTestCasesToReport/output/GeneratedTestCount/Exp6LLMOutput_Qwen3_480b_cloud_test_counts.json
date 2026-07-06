@@ -15047,7 +15047,7 @@
     "Context": "Method",
     "Instance": "BBC165",
     "TestFileName": "BBC165U156Test_prompt.txt",
-    "TestCount": 0
+    "TestCount": 3
   },
   {
     "Model": "Qwen3-coder",
@@ -17567,7 +17567,7 @@
     "Context": "Method",
     "Instance": "BBC17",
     "TestFileName": "BBC17U115Test_prompt.txt",
-    "TestCount": 0
+    "TestCount": 2
   },
   {
     "Model": "Qwen3-coder",
@@ -18946,7 +18946,7 @@
     "Context": "Method",
     "Instance": "BBC17",
     "TestFileName": "BBC17U48Test_prompt.txt",
-    "TestCount": 0
+    "TestCount": 1
   },
   {
     "Model": "Qwen3-coder",
@@ -19366,7 +19366,7 @@
     "Context": "Method",
     "Instance": "BBC187",
     "TestFileName": "BBC187U0Test_prompt.txt",
-    "TestCount": 0
+    "TestCount": 3
   },
   {
     "Model": "Qwen3-coder",
@@ -24280,7 +24280,7 @@
     "Context": "Method",
     "Instance": "BBC36",
     "TestFileName": "BBC36U213Test_prompt.txt",
-    "TestCount": 0
+    "TestCount": 1
   },
   {
     "Model": "Qwen3-coder",
@@ -24686,7 +24686,7 @@
     "Context": "Method",
     "Instance": "BBC36",
     "TestFileName": "BBC36U269Test_prompt.txt",
-    "TestCount": 0
+    "TestCount": 1
   },
   {
     "Model": "Qwen3-coder",
@@ -27234,7 +27234,7 @@
     "Context": "Method",
     "Instance": "BBC49",
     "TestFileName": "BBC49U64Test_prompt.txt",
-    "TestCount": 0
+    "TestCount": 4
   },
   {
     "Model": "Qwen3-coder",
@@ -29341,7 +29341,7 @@
     "Context": "Method",
     "Instance": "BBC64",
     "TestFileName": "BBC64U14Test_prompt.txt",
-    "TestCount": 0
+    "TestCount": 3
   },
   {
     "Model": "Qwen3-coder",

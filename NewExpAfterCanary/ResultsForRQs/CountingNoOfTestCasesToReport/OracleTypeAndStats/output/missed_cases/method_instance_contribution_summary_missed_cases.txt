@@ -1,0 +1,70 @@
+=== Class / GPT4o ===
+  assertEquals: 1 instances
+  assertNotNull: 1 instances
+  fail: 1 instances
+
+=== Class / GPTOSS ===
+  assertFalse: 1 instances
+  assertNotNull: 1 instances
+  assertTrue: 1 instances
+  fail: 1 instances
+
+=== Class / Qwen3-coder ===
+  assertEquals: 3 instances
+  assertTrue: 3 instances
+  fail: 3 instances
+  assertNotNull: 2 instances
+  assertNull: 2 instances
+  assertArrayEquals: 1 instances
+  assertFalse: 1 instances
+  assertSame: 1 instances
+  assertDoesNotThrow: 1 instances
+
+=== Method / GPT4o ===
+  assertThrows: 6 instances
+  assertDoesNotThrow: 3 instances
+  assertEquals: 3 instances
+  assertFalse: 2 instances
+  assertTrue: 2 instances
+  fail: 2 instances
+  assertNotNull: 1 instances
+
+=== Method / GPTOSS ===
+  assertNotNull: 2 instances
+  assertTrue: 2 instances
+  assertEquals: 1 instances
+  assertSame: 1 instances
+  fail: 1 instances
+
+=== Method / Qwen3-coder ===
+  assertNotNull: 4 instances
+  assertTrue: 4 instances
+  assertDoesNotThrow: 2 instances
+  assertEquals: 2 instances
+  assertFalse: 2 instances
+  assertNull: 2 instances
+  assertSame: 1 instances
+  fail: 1 instances
+  assertArrayEquals: 1 instances
+
+=== Minimal / GPT4o ===
+  assertDoesNotThrow: 6 instances
+  assertTrue: 5 instances
+  fail: 5 instances
+  assertNotNull: 2 instances
+  assertEquals: 1 instances
+  assertFalse: 1 instances
+  assertNull: 1 instances
+  assertThrows: 1 instances
+
+=== Minimal / GPTOSS ===
+  assertEquals: 1 instances
+  assertFalse: 1 instances
+  assertTrue: 1 instances
+
+=== Minimal / Qwen3-coder ===
+  assertTrue: 3 instances
+  fail: 3 instances
+  assertNotNull: 1 instances
+  assertDoesNotThrow: 1 instances
+

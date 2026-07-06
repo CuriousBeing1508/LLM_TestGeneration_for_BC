@@ -1,0 +1,5432 @@
+{
+  "Minimal": {
+    "GPT4o": {
+      "BBC66": {
+        "oracle_methods_used": [
+          "assertDoesNotThrow"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertDoesNotThrow",
+            "predicate": "() -> {\n            consoleErrorChecker.checkForConsoleErrors();\n        }",
+            "message": null,
+            "line": 15
+          }
+        ],
+        "bump_bc_errors": "AssertionError",
+        "llm_detected_errors": null
+      },
+      "BBC88": {
+        "oracle_methods_used": [
+          "assertDoesNotThrow"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertDoesNotThrow",
+            "predicate": "() -> {\n            consoleErrorChecker.checkForConsoleErrors();\n        }",
+            "message": null,
+            "line": 15
+          }
+        ],
+        "bump_bc_errors": "AssertionError",
+        "llm_detected_errors": null
+      },
+      "BBC98": {
+        "oracle_methods_used": [
+          "assertTrue",
+          "fail"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": "\"Browser opened successfully.\"",
+            "line": 20
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Exception occurred: \" + e.getMessage()",
+            "line": 23
+          }
+        ],
+        "bump_bc_errors": "AssertionError",
+        "llm_detected_errors": null
+      },
+      "BBC101": {
+        "oracle_methods_used": [
+          "assertEquals",
+          "assertFalse",
+          "assertNotNull",
+          "assertNull",
+          "assertTrue",
+          "fail"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertEquals",
+            "predicate": "1000, tarOptions.getUid()",
+            "message": null,
+            "line": 18
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "-1, tarOptions.getUid()",
+            "message": null,
+            "line": 31
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0, tarOptions.getUid()",
+            "message": null,
+            "line": 44
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "zipArchiver.isCompress()",
+            "message": "\"Compression should be enabled\"",
+            "line": 22
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "zipArchiver.isCompress()",
+            "message": "\"Compression should be disabled\"",
+            "line": 28
+          },
+          {
+            "method": "assertNull",
+            "predicate": "comment",
+            "message": "\"The comment should be null by default\"",
+            "line": 21
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "result",
+            "message": "\"The default update mode should be false\"",
+            "line": 21
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "isCompressed",
+            "message": "\"The default compression state should be true\"",
+            "line": 21
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "comment, archiver.getComment()",
+            "message": "\"The comment should be set correctly\"",
+            "line": 19
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "comment, archiver.getComment()",
+            "message": "\"The comment should be set to an empty string\"",
+            "line": 34
+          },
+          {
+            "method": "assertNull",
+            "predicate": "archiver.getComment()",
+            "message": "\"The comment should be set to null\"",
+            "line": 48
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "expectedGid, tarOptions.getGid()",
+            "message": "\"The GID should be set correctly.\"",
+            "line": 18
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "manifest",
+            "message": "\"The default manifest should not be null\"",
+            "line": 15
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"An ArchiverException was not expected: \" + e.getMessage()",
+            "line": 20
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "result",
+            "message": "\"The default value of isFilesonly should be false\"",
+            "line": 21
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "expectedGroup, tarOptions.getGroup()",
+            "message": "\"The group should be set correctly\"",
+            "line": 19
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "resources",
+            "message": "\"ResourceIterator should not be null\"",
+            "line": 16
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "resources.hasNext()",
+            "message": "\"ResourceIterator should have no elements\"",
+            "line": 19
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"ArchiverException should not be thrown: \" + e.getMessage()",
+            "line": 21
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"ArchiverException was not expected: \" + e.getMessage()",
+            "line": 15
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected exception type: \" + e.getClass().getName()",
+            "line": 17
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"ArchiverException was not expected: \" + e.getMessage()",
+            "line": 20
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "result",
+            "message": "\"The result should not be null\"",
+            "line": 21
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "result instanceof java.io.BufferedInputStream",
+            "message": "\"The result should be an instance of BufferedInputStream\"",
+            "line": 22
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"IOException should not be thrown in nominal case: \" + e.getMessage()",
+            "line": 24
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected an IOException to be thrown due to invalid GZIP data\"",
+            "line": 36
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": "\"IOException should be thrown for invalid GZIP data\"",
+            "line": 38
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected an IOException to be thrown due to empty GZIP data\"",
+            "line": 50
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": "\"IOException should be thrown for empty GZIP data\"",
+            "line": 52
+          }
+        ],
+        "bump_bc_errors": "ArchiverException",
+        "llm_detected_errors": null
+      },
+      "BBC123": {
+        "oracle_methods_used": [
+          "assertTrue",
+          "fail"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": "\"newPAdESSignatureService executed without exceptions\"",
+            "line": 22
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"newPAdESSignatureService threw an unexpected exception: \" + e.getMessage()",
+            "line": 28
+          }
+        ],
+        "bump_bc_errors": "NoSuchMethodError",
+        "llm_detected_errors": null
+      },
+      "BBC135": {
+        "oracle_methods_used": [
+          "assertDoesNotThrow"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertDoesNotThrow",
+            "predicate": "() -> {\n            waiter.handleTimeout();\n        }",
+            "message": null,
+            "line": 15
+          }
+        ],
+        "bump_bc_errors": "AssertionError",
+        "llm_detected_errors": null
+      },
+      "BBC162": {
+        "oracle_methods_used": [
+          "assertDoesNotThrow",
+          "assertNotNull",
+          "assertTrue",
+          "fail"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertDoesNotThrow",
+            "predicate": "() -> {\n            capWarner.run();\n        }",
+            "message": null,
+            "line": 17
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "file.exists()",
+            "message": "\"The file should exist after persisting.\"",
+            "line": 31
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "file.length() > 0",
+            "message": "\"The file should not be empty after persisting.\"",
+            "line": 32
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Persist method threw an unexpected exception: \" + e.getMessage()",
+            "line": 34
+          },
+          {
+            "method": "assertDoesNotThrow",
+            "predicate": "() -> {\n            authHandler.logoutPerformed();\n            logger.info(\"Logout successful.\");\n        }",
+            "message": null,
+            "line": 17
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "false",
+            "message": "\"Exception should not be thrown\"",
+            "line": 20
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "retestId",
+            "message": "\"Retest ID should not be null\"",
+            "line": 27
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "retestId.matches(\"[0-9a-fA-F-]{36}\")",
+            "message": "\"Retest ID should be a valid UUID\"",
+            "line": 28
+          }
+        ],
+        "bump_bc_errors": "ClassCastException",
+        "llm_detected_errors": null
+      },
+      "BBC167": {
+        "oracle_methods_used": [
+          "assertThrows",
+          "assertTrue",
+          "fail"
+        ],
+        "assert_calls": [
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Exception should not be thrown: \" + e.getMessage()",
+            "line": 21
+          },
+          {
+            "method": "assertThrows",
+            "predicate": "RuntimeException.class, () -> {\n            handler.loginFailed();\n        }",
+            "message": null,
+            "line": 15
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Exception should not be thrown: \" + e.getMessage()",
+            "line": 21
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": "\"Logger.warn executed without exceptions.\"",
+            "line": 27
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"cap() method threw an unexpected exception: \" + e.getMessage()",
+            "line": 20
+          }
+        ],
+        "bump_bc_errors": "ClassCastException",
+        "llm_detected_errors": null
+      },
+      "BBC178": {
+        "oracle_methods_used": [
+          "assertDoesNotThrow"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertDoesNotThrow",
+            "predicate": "() -> consoleErrorChecker.checkForConsoleErrors()",
+            "message": null,
+            "line": 15
+          }
+        ],
+        "bump_bc_errors": "AssertionError",
+        "llm_detected_errors": null
+      },
+      "BBC187": {
+        "oracle_methods_used": [
+          "assertDoesNotThrow"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertDoesNotThrow",
+            "predicate": "() -> {\n            consoleErrorChecker.checkForConsoleErrors();\n        }",
+            "message": null,
+            "line": 15
+          }
+        ],
+        "bump_bc_errors": "AssertionError",
+        "llm_detected_errors": null
+      }
+    },
+    "Qwen3-coder": {
+      "BBC115": {
+        "oracle_methods_used": [
+          "assertNotNull",
+          "assertTrue",
+          "fail"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertNotNull",
+            "predicate": "result",
+            "message": null,
+            "line": 14
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "result.contains(\"mode\")",
+            "message": null,
+            "line": 15
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "result.contains(\"CHALLENGE\")",
+            "message": null,
+            "line": 16
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected exception in nominal case: \" + e.getMessage()",
+            "line": 18
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "result",
+            "message": null,
+            "line": 26
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected exception for null key\"",
+            "line": 36
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "e",
+            "message": null,
+            "line": 39
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "result",
+            "message": null,
+            "line": 47
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "result.contains(\"\\\"\\\"\")",
+            "message": null,
+            "line": 48
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "e",
+            "message": null,
+            "line": 51
+          }
+        ],
+        "bump_bc_errors": "JSONException",
+        "llm_detected_errors": null
+      },
+      "BBC123": {
+        "oracle_methods_used": [
+          "assertTrue",
+          "fail"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": "\"Method executed without exception\"",
+            "line": 27
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected exception thrown: \" + e.getMessage()",
+            "line": 31
+          }
+        ],
+        "bump_bc_errors": "NoSuchMethodError",
+        "llm_detected_errors": null
+      },
+      "BBC162": {
+        "oracle_methods_used": [
+          "assertDoesNotThrow",
+          "assertTrue",
+          "fail"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertDoesNotThrow",
+            "predicate": "() -> handler.logoutPerformed()",
+            "message": "\"logoutPerformed should not throw any exceptions\"",
+            "line": 12
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": "\"Logging should not throw an exception\"",
+            "line": 19
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"SLF4J API breaking change detected: \" + e.getMessage()",
+            "line": 22
+          }
+        ],
+        "bump_bc_errors": "ClassCastException",
+        "llm_detected_errors": null
+      }
+    },
+    "GPTOSS": {
+      "BBC101": {
+        "oracle_methods_used": [
+          "assertEquals",
+          "assertFalse",
+          "assertTrue"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertEquals",
+            "predicate": "0, uid",
+            "message": null,
+            "line": 13
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "12345, options.getUid()",
+            "message": null,
+            "line": 22
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0, options.getUid()",
+            "message": null,
+            "line": 25
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "-1, options.getUid()",
+            "message": null,
+            "line": 34
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "archiver.isIgnorePermissions()",
+            "message": "\"Default ignorePermissions should be false\"",
+            "line": 13
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver.isIgnorePermissions()",
+            "message": "\"ignorePermissions should be true after setting to true\"",
+            "line": 17
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "archiver.isIgnorePermissions()",
+            "message": "\"ignorePermissions should be false after setting to false\"",
+            "line": 21
+          }
+        ],
+        "bump_bc_errors": "ArchiverException",
+        "llm_detected_errors": null
+      }
+    }
+  },
+  "Method": {
+    "GPT4o": {
+      "BBC45": {
+        "oracle_methods_used": [
+          "assertDoesNotThrow",
+          "assertFalse",
+          "assertTrue"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertDoesNotThrow",
+            "predicate": "() -> {\n            handler.loginPerformed(\"dummyToken\");\n        }",
+            "message": null,
+            "line": 16
+          },
+          {
+            "method": "assertDoesNotThrow",
+            "predicate": "() -> {\n            handler.logoutPerformed();\n        }",
+            "message": null,
+            "line": 16
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "jsFilter.callBooleanJSFunction(\"testFunction\")",
+            "message": null,
+            "line": 60
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "jsFilter.callBooleanJSFunction(\"testFunction\")",
+            "message": null,
+            "line": 69
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "jsFilter.callBooleanJSFunction(\"testFunction\")",
+            "message": null,
+            "line": 78
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "jsFilter.callBooleanJSFunction(\"nonExistentFunction\")",
+            "message": null,
+            "line": 86
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": "\"The run method executed without exceptions.\"",
+            "line": 56
+          }
+        ],
+        "bump_bc_errors": "ClassCastException",
+        "llm_detected_errors": null
+      },
+      "BBC66": {
+        "oracle_methods_used": [
+          "assertThrows"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertThrows",
+            "predicate": "IllegalStateException.class, () -> waiter.handleTimeout(10, false)",
+            "message": null,
+            "line": 35
+          }
+        ],
+        "bump_bc_errors": "AssertionError",
+        "llm_detected_errors": null
+      },
+      "BBC98": {
+        "oracle_methods_used": [
+          "assertThrows"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertThrows",
+            "predicate": "IllegalStateException.class, () -> waiter.handleTimeout(10, false)",
+            "message": "TIMEOUT_ERROR_MESSAGE",
+            "line": 35
+          }
+        ],
+        "bump_bc_errors": "AssertionError",
+        "llm_detected_errors": null
+      },
+      "BBC115": {
+        "oracle_methods_used": [
+          "assertEquals",
+          "fail"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertEquals",
+            "predicate": "expectedOutput, builder.toString()",
+            "message": null,
+            "line": 81
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Exception should not have been thrown: \" + e.getMessage()",
+            "line": 84
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "expectedOutput, result",
+            "message": null,
+            "line": 27
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Exception should not be thrown: \" + e.getMessage()",
+            "line": 30
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "expectedResult, actualResult",
+            "message": null,
+            "line": 30
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Exception should not have been thrown: \" + e.getMessage()",
+            "line": 33
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Exception should have been thrown due to missing 'id'\"",
+            "line": 54
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"JSONObject[\\\"id\\\"] not found.\", e.getMessage()",
+            "message": null,
+            "line": 57
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Exception should have been thrown due to missing 'engine'\"",
+            "line": 78
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"JSONObject[\\\"engine\\\"] not found.\", e.getMessage()",
+            "message": null,
+            "line": 81
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "expectedOutput, output",
+            "message": null,
+            "line": 42
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Exception should not have been thrown: \" + e.getMessage()",
+            "line": 45
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "expectedOutput, result",
+            "message": null,
+            "line": 26
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Exception should not be thrown: \" + e.getMessage()",
+            "line": 29
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "expectedOutput, actualOutput",
+            "message": null,
+            "line": 27
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Exception should not have been thrown: \" + e.getMessage()",
+            "line": 30
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Exception should not be thrown: \" + e.getMessage()",
+            "line": 25
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "expectedOutput, result",
+            "message": null,
+            "line": 31
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "expectedOutput, result",
+            "message": null,
+            "line": 26
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Exception should not be thrown: \" + e.getMessage()",
+            "line": 29
+          }
+        ],
+        "bump_bc_errors": "JSONException",
+        "llm_detected_errors": null
+      },
+      "BBC135": {
+        "oracle_methods_used": [
+          "assertThrows"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertThrows",
+            "predicate": "IllegalStateException.class, executable",
+            "message": "TIMEOUT_ERROR_MESSAGE",
+            "line": 37
+          }
+        ],
+        "bump_bc_errors": "AssertionError",
+        "llm_detected_errors": null
+      },
+      "BBC162": {
+        "oracle_methods_used": [
+          "assertDoesNotThrow",
+          "assertEquals",
+          "assertNotNull"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertNotNull",
+            "predicate": "reader",
+            "message": null,
+            "line": 28
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "content, new String(buffer)",
+            "message": null,
+            "line": 31
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "reader",
+            "message": null,
+            "line": 41
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"\", readAll(reader)",
+            "message": null,
+            "line": 42
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "reader",
+            "message": null,
+            "line": 54
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"\", readAll(reader)",
+            "message": null,
+            "line": 55
+          },
+          {
+            "method": "assertDoesNotThrow",
+            "predicate": "() -> {\n            handler.logoutPerformed();\n        }",
+            "message": null,
+            "line": 16
+          }
+        ],
+        "bump_bc_errors": "ClassCastException",
+        "llm_detected_errors": null
+      },
+      "BBC167": {
+        "oracle_methods_used": [
+          "assertDoesNotThrow",
+          "assertEquals",
+          "assertFalse",
+          "assertThrows",
+          "assertTrue",
+          "fail"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertTrue",
+            "predicate": "result.isPresent()",
+            "message": null,
+            "line": 19
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "line, result.get().getLine()",
+            "message": null,
+            "line": 20
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "result.isPresent()",
+            "message": null,
+            "line": 30
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "line, result.get().getLine()",
+            "message": null,
+            "line": 31
+          },
+          {
+            "method": "assertDoesNotThrow",
+            "predicate": "() -> {\n            handler.loginPerformed(\"dummyToken\");\n        }",
+            "message": null,
+            "line": 16
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Failed to create corrupted zip file.\"",
+            "line": 53
+          },
+          {
+            "method": "assertThrows",
+            "predicate": "IOException.class, () -> {\n            try (java.util.zip.ZipFile zip = new java.util.zip.ZipFile(zipFile)) {\n                persistence.loadScreenshotsNow(zip);\n            }\n        }",
+            "message": null,
+            "line": 56
+          },
+          {
+            "method": "assertDoesNotThrow",
+            "predicate": "() -> {\n            handler.logoutPerformed();\n        }",
+            "message": null,
+            "line": 16
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "result",
+            "message": null,
+            "line": 29
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "result",
+            "message": null,
+            "line": 36
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "result",
+            "message": null,
+            "line": 43
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "result",
+            "message": null,
+            "line": 49
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "result",
+            "message": null,
+            "line": 56
+          }
+        ],
+        "bump_bc_errors": "ClassCastException",
+        "llm_detected_errors": null
+      },
+      "BBC178": {
+        "oracle_methods_used": [
+          "assertThrows"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertThrows",
+            "predicate": "IllegalStateException.class, () -> waiter.handleTimeout(10, false)",
+            "message": "TIMEOUT_ERROR_MESSAGE",
+            "line": 34
+          }
+        ],
+        "bump_bc_errors": "AssertionError",
+        "llm_detected_errors": null
+      },
+      "BBC187": {
+        "oracle_methods_used": [
+          "assertThrows"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertThrows",
+            "predicate": "IllegalStateException.class, () -> waiter.handleTimeout(10, false)",
+            "message": null,
+            "line": 35
+          }
+        ],
+        "bump_bc_errors": "AssertionError",
+        "llm_detected_errors": null
+      }
+    },
+    "Qwen3-coder": {
+      "BBC26": {
+        "oracle_methods_used": [
+          "assertDoesNotThrow",
+          "assertNotNull",
+          "assertTrue"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertTrue",
+            "predicate": "loggerValue instanceof org.slf4j.Logger",
+            "message": "\"LOGGER must be an instance of org.slf4j.Logger\"",
+            "line": 19
+          },
+          {
+            "method": "assertDoesNotThrow",
+            "predicate": "() -> {\n            // Attempt to load and link the Logger type to detect breaking changes\n            Class<?> loggerClass = Class.forName(\"org.slf4j.Logger\");\n            assertNotNull(loggerClass);\n\n            // Verify the info method exists with expected signature\n            assertNotNull(loggerClass.getMethod(\"info\", String.class));\n        }",
+            "message": "\"SLF4J 2.0.5 should be compatible with ServerMojo's usage of Logger.info()\"",
+            "line": 22
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "loggerClass",
+            "message": null,
+            "line": 25
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "loggerClass.getMethod(\"info\", String.class)",
+            "message": null,
+            "line": 28
+          }
+        ],
+        "bump_bc_errors": "AssertionError",
+        "llm_detected_errors": null
+      },
+      "BBC101": {
+        "oracle_methods_used": [
+          "assertEquals",
+          "assertFalse",
+          "assertNotNull",
+          "assertNull",
+          "assertSame",
+          "assertTrue",
+          "fail"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertFalse",
+            "predicate": "enumeration.hasMoreElements()",
+            "message": null,
+            "line": 23
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "firstCall, secondCall",
+            "message": null,
+            "line": 62
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "firstCall",
+            "message": null,
+            "line": 63
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "hasMore",
+            "message": null,
+            "line": 78
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected RuntimeException to be thrown\"",
+            "line": 15
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"Not implemented\", e.getMessage()",
+            "message": null,
+            "line": 17
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected ArchiverException to be thrown\"",
+            "line": 22
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected RuntimeException, not ArchiverException\"",
+            "line": 24
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"Not implemented\", e.getMessage()",
+            "message": null,
+            "line": 26
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "archiver1.getClass().getSuperclass().getDeclaredFields().length == 0",
+            "message": null,
+            "line": 29
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "initialSize + 1, updatedResourcesList.size()",
+            "message": null,
+            "line": 37
+          },
+          {
+            "method": "assertSame",
+            "predicate": "item, updatedResourcesList.get(initialSize)",
+            "message": null,
+            "line": 38
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "initialSize + 1, updatedResourcesList.size()",
+            "message": null,
+            "line": 54
+          },
+          {
+            "method": "assertNull",
+            "predicate": "updatedResourcesList.get(initialSize)",
+            "message": null,
+            "line": 55
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "initialSize + 3, updatedResourcesList.size()",
+            "message": null,
+            "line": 76
+          },
+          {
+            "method": "assertSame",
+            "predicate": "item1, updatedResourcesList.get(initialSize)",
+            "message": null,
+            "line": 77
+          },
+          {
+            "method": "assertSame",
+            "predicate": "item2, updatedResourcesList.get(initialSize + 1)",
+            "message": null,
+            "line": 78
+          },
+          {
+            "method": "assertSame",
+            "predicate": "item3, updatedResourcesList.get(initialSize + 2)",
+            "message": null,
+            "line": 79
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "testFile, unArchiver.getSourceFile()",
+            "message": null,
+            "line": 21
+          },
+          {
+            "method": "assertNull",
+            "predicate": "unArchiver.getSourceFile()",
+            "message": null,
+            "line": 33
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "nonExistentFile, unArchiver.getSourceFile()",
+            "message": null,
+            "line": 46
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": "\"Method should be callable without exceptions\"",
+            "line": 34
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "actualDestDir",
+            "message": "\"Destination directory should not be null\"",
+            "line": 21
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "expectedDestDir, actualDestDir",
+            "message": "\"Destination directory path should match\"",
+            "line": 22
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"/tmp/test-dest\", actualDestDir.getPath()",
+            "message": "\"Destination directory path string should match\"",
+            "line": 23
+          },
+          {
+            "method": "assertNull",
+            "predicate": "actualDestDir",
+            "message": "\"Destination directory should be null when not set\"",
+            "line": 35
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "actualDestDir",
+            "message": "\"Destination directory should not be null\"",
+            "line": 49
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "expectedDestDir, actualDestDir",
+            "message": "\"Destination directory path should match\"",
+            "line": 50
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"relative/path\", actualDestDir.getPath()",
+            "message": "\"Destination directory path string should match\"",
+            "line": 51
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "testEncoding, archiver.getEncoding()",
+            "message": "\"Encoding should be set correctly\"",
+            "line": 17
+          },
+          {
+            "method": "assertNull",
+            "predicate": "archiver.getEncoding()",
+            "message": "\"Encoding should be set to null\"",
+            "line": 28
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "emptyEncoding, archiver.getEncoding()",
+            "message": "\"Encoding should be set to empty string\"",
+            "line": 40
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "specialEncoding, archiver.getEncoding()",
+            "message": "\"Encoding should be set correctly with special characters\"",
+            "line": 52
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "result",
+            "message": "\"Default doUpdate value should be false\"",
+            "line": 23
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "result2",
+            "message": "\"doUpdate value should be true after setting via reflection\"",
+            "line": 34
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "result3",
+            "message": "\"doUpdate value should be false after setting via reflection\"",
+            "line": 43
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": "\"Method should execute without exception\"",
+            "line": 20
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": "\"Method should execute without exception with false value\"",
+            "line": 24
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": "\"Method should be callable multiple times\"",
+            "line": 30
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "result",
+            "message": "\"Default value should be false\"",
+            "line": 18
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "result",
+            "message": "\"Value should be true after setting\"",
+            "line": 31
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "result",
+            "message": "\"Value should be false after setting\"",
+            "line": 44
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "testComment, actualComment",
+            "message": "\"Comment should be set correctly\"",
+            "line": 33
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Failed to access comment field: \" + e.getMessage()",
+            "line": 35
+          },
+          {
+            "method": "assertNull",
+            "predicate": "actualComment",
+            "message": "\"Comment should be null when set to null\"",
+            "line": 62
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Failed to access comment field: \" + e.getMessage()",
+            "line": 64
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "emptyComment, actualComment",
+            "message": "\"Comment should be empty string when set to empty string\"",
+            "line": 93
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Failed to access comment field: \" + e.getMessage()",
+            "line": 95
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "specialComment, actualComment",
+            "message": "\"Comment should preserve special characters\"",
+            "line": 124
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Failed to access comment field: \" + e.getMessage()",
+            "line": 126
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "manifest",
+            "message": null,
+            "line": 16
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"1.0\", mainAttributes.getValue(\"Manifest-Version\")",
+            "message": null,
+            "line": 18
+          },
+          {
+            "method": "assertNull",
+            "predicate": "mainAttributes.getValue(\"Created-By\")",
+            "message": null,
+            "line": 19
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "manifest",
+            "message": null,
+            "line": 28
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"1.0\", mainAttributes.getValue(\"Manifest-Version\")",
+            "message": null,
+            "line": 30
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "createdBy",
+            "message": null,
+            "line": 32
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "createdBy.startsWith(\"Plexus Archiver\")",
+            "message": null,
+            "line": 33
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "minimalManifest",
+            "message": null,
+            "line": 43
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "fullManifest",
+            "message": null,
+            "line": 44
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"1.0\", minimalAttributes.getValue(\"Manifest-Version\")",
+            "message": null,
+            "line": 49
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"1.0\", fullAttributes.getValue(\"Manifest-Version\")",
+            "message": null,
+            "line": 50
+          },
+          {
+            "method": "assertNull",
+            "predicate": "minimalAttributes.getValue(\"Created-By\")",
+            "message": null,
+            "line": 52
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "fullAttributes.getValue(\"Created-By\")",
+            "message": null,
+            "line": 53
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "fullAttributes.getValue(\"Created-By\").startsWith(\"Plexus Archiver\")",
+            "message": null,
+            "line": 54
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "unArchiver",
+            "message": null,
+            "line": 14
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "unArchiver",
+            "message": null,
+            "line": 18
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "unArchiver",
+            "message": null,
+            "line": 22
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "unArchiver",
+            "message": null,
+            "line": 26
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "unArchiver",
+            "message": null,
+            "line": 30
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "unArchiver",
+            "message": null,
+            "line": 39
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "manifest",
+            "message": "\"Manifest should not be null\"",
+            "line": 15
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "manifest.getMainSection()",
+            "message": "\"Manifest main section should not be null\"",
+            "line": 18
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"1.0\", manifestVersion",
+            "message": "\"Manifest-Version should be 1.0\"",
+            "line": 22
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"getDefaultManifest should not throw exception in normal case: \" + e.getMessage()",
+            "line": 25
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "manifest",
+            "message": "\"Manifest should not be null\"",
+            "line": 36
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "manifest.getMainSection()",
+            "message": "\"Manifest main section should not be null\"",
+            "line": 37
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"1.0\", manifestVersion",
+            "message": "\"Manifest-Version should be 1.0\"",
+            "line": 41
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"getDefaultManifest(true) should not throw exception: \" + e.getMessage()",
+            "line": 44
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "manifest",
+            "message": "\"Manifest should not be null\"",
+            "line": 55
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "manifest.getMainSection()",
+            "message": "\"Manifest main section should not be null\"",
+            "line": 56
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"1.0\", manifestVersion",
+            "message": "\"Manifest-Version should be 1.0\"",
+            "line": 60
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"getDefaultManifest(false) should not throw exception: \" + e.getMessage()",
+            "line": 63
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "lastModifiedTime, archiver.getLastModifiedTime()",
+            "message": null,
+            "line": 26
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "Archiver.DEFAULT_FILE_MODE, archiver.getFileMode()",
+            "message": null,
+            "line": 29
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "Archiver.DEFAULT_DIR_MODE, archiver.getDirectoryMode()",
+            "message": null,
+            "line": 30
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0, archiver.getOverrideUid()",
+            "message": null,
+            "line": 33
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"root\", archiver.getOverrideUserName()",
+            "message": null,
+            "line": 34
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0, archiver.getOverrideGid()",
+            "message": null,
+            "line": 35
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"root\", archiver.getOverrideGroupName()",
+            "message": null,
+            "line": 36
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "filenameComparator",
+            "message": "\"Filename comparator should be set\"",
+            "line": 40
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0, filenameComparator.compare(\"a\", \"a\")",
+            "message": null,
+            "line": 41
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "filenameComparator.compare(\"a\", \"b\") < 0",
+            "message": null,
+            "line": 42
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "filenameComparator.compare(\"b\", \"a\") > 0",
+            "message": null,
+            "line": 43
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "e instanceof NullPointerException || e instanceof IllegalArgumentException",
+            "message": null,
+            "line": 56
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "epochTime, archiver.getLastModifiedTime()",
+            "message": null,
+            "line": 70
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "iterator",
+            "message": "\"ResourceIterator should not be null\"",
+            "line": 16
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "iterator.hasNext()",
+            "message": "\"Iterator should have no elements\"",
+            "line": 18
+          },
+          {
+            "method": "assertNull",
+            "predicate": "entry",
+            "message": "\"next() should return null when no elements\"",
+            "line": 22
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"next() should not throw exception when called properly\"",
+            "line": 24
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"remove() should throw UnsupportedOperationException\"",
+            "line": 29
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"remove\", e.getMessage()",
+            "message": null,
+            "line": 31
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0755, testMode",
+            "message": null,
+            "line": 21
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0, testMode",
+            "message": null,
+            "line": 34
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "07777, testMode",
+            "message": null,
+            "line": 47
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "-1, testMode",
+            "message": null,
+            "line": 60
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "extractedFile.exists()",
+            "message": "\"Extracted file should exist\"",
+            "line": 44
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"Hello World\", readFileToString(extractedFile)",
+            "message": "\"File content should match\"",
+            "line": 45
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": "\"Method should complete without exception\"",
+            "line": 14
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"NoOpArchiver.addSymlink should not throw ArchiverException in normal case\"",
+            "line": 16
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": "\"Method should complete without exception even with null symlink name\"",
+            "line": 26
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"NoOpArchiver.addSymlink should not throw ArchiverException with null symlink name\"",
+            "line": 28
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": "\"Method should complete without exception even with null destination\"",
+            "line": 38
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"NoOpArchiver.addSymlink should not throw ArchiverException with null destination\"",
+            "line": 40
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": "\"Method should complete without exception even with both parameters null\"",
+            "line": 50
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"NoOpArchiver.addSymlink should not throw ArchiverException with both parameters null\"",
+            "line": 52
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": "\"Method should complete without exception with empty strings\"",
+            "line": 62
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"NoOpArchiver.addSymlink should not throw ArchiverException with empty strings\"",
+            "line": 64
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "archiver",
+            "message": "\"Archiver should not be null after setting comparator\"",
+            "line": 24
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "archiver",
+            "message": "\"Archiver should not be null after setting null comparator\"",
+            "line": 36
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "archiver",
+            "message": "\"Archiver should not be null after setting custom comparator\"",
+            "line": 49
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": "\"Method should complete without exception\"",
+            "line": 15
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException: \" + e.getMessage()",
+            "line": 17
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected IOException: \" + e.getMessage()",
+            "line": 19
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": null,
+            "line": 29
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "archiver",
+            "message": null,
+            "line": 24
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "archiver",
+            "message": null,
+            "line": 18
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "destFile, archiver.getDestFile()",
+            "message": null,
+            "line": 19
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "destFile.getParentFile().exists()",
+            "message": null,
+            "line": 20
+          },
+          {
+            "method": "assertNull",
+            "predicate": "archiver.getDestFile()",
+            "message": null,
+            "line": 32
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "destFile, archiver.getDestFile()",
+            "message": null,
+            "line": 45
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "destFile.getParentFile().exists()",
+            "message": null,
+            "line": 46
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "destFile, archiver.getDestFile()",
+            "message": null,
+            "line": 61
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "parentDir.exists()",
+            "message": null,
+            "line": 62
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "value",
+            "message": "\"minimalDefaultManifest should be true\"",
+            "line": 18
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "value",
+            "message": "\"minimalDefaultManifest should be false\"",
+            "line": 23
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "value",
+            "message": "\"minimalDefaultManifest should remain true\"",
+            "line": 29
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "value",
+            "message": "\"minimalDefaultManifest should remain false\"",
+            "line": 34
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": "\"Method executed successfully without exceptions\"",
+            "line": 24
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"setIndex method should not throw exceptions but threw: \" + e.getClass().getName()",
+            "line": 26
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"NoOpArchiver should not throw ArchiverException for valid input\"",
+            "line": 17
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"NoOpArchiver should not throw ArchiverException for empty strings\"",
+            "line": 24
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "e instanceof ArchiverException",
+            "message": null,
+            "line": 32
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "e instanceof NullPointerException",
+            "message": null,
+            "line": 35
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException in nominal case: \" + e.getMessage()",
+            "line": 20
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected ArchiverException for null directory\"",
+            "line": 30
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "ArchiverException.class, e.getClass()",
+            "message": "\"Exception class mismatch\"",
+            "line": 32
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "ArchiverException.class, e.getClass()",
+            "message": "\"Exception class mismatch\"",
+            "line": 44
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "ArchiverException.class, e.getClass()",
+            "message": "\"Exception class mismatch\"",
+            "line": 54
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "ArchiverException.class, e.getClass()",
+            "message": "\"Exception class mismatch\"",
+            "line": 64
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "fileTime, archiver.getLastModifiedTime()",
+            "message": null,
+            "line": 20
+          },
+          {
+            "method": "assertNull",
+            "predicate": "archiver.getLastModifiedTime()",
+            "message": null,
+            "line": 32
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "fileTime, archiver.getLastModifiedTime()",
+            "message": null,
+            "line": 45
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "fileTime, archiver.getLastModifiedTime()",
+            "message": null,
+            "line": 58
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "fileTime, archiver.getLastModifiedTime()",
+            "message": null,
+            "line": 72
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": null,
+            "line": 18
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException in nominal case: \" + e.getMessage()",
+            "line": 20
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": null,
+            "line": 26
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException with null includes: \" + e.getMessage()",
+            "line": 28
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": null,
+            "line": 34
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException with null excludes: \" + e.getMessage()",
+            "line": 36
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": null,
+            "line": 42
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException with both null: \" + e.getMessage()",
+            "line": 44
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": null,
+            "line": 50
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException with empty arrays: \" + e.getMessage()",
+            "line": 52
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "expectedFileTime, archiver.getLastModifiedTime()",
+            "message": null,
+            "line": 21
+          },
+          {
+            "method": "assertNull",
+            "predicate": "archiver.getLastModifiedTime()",
+            "message": null,
+            "line": 34
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "expectedFileTime, archiver.getLastModifiedTime()",
+            "message": null,
+            "line": 48
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "indexJars",
+            "message": "\"indexJars should not be null after adding first jar\"",
+            "line": 28
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "1, indexJars.size()",
+            "message": "\"indexJars should contain exactly one element\"",
+            "line": 29
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "tempFile.getAbsolutePath(), indexJars.get(0)",
+            "message": "\"indexJars should contain the absolute path of the added file\"",
+            "line": 30
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "indexJars",
+            "message": "\"indexJars should not be null\"",
+            "line": 55
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "2, indexJars.size()",
+            "message": "\"indexJars should contain exactly two elements\"",
+            "line": 56
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "tempFile1.getAbsolutePath(), indexJars.get(0)",
+            "message": "\"First element should be the absolute path of the first file\"",
+            "line": 57
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "tempFile2.getAbsolutePath(), indexJars.get(1)",
+            "message": "\"Second element should be the absolute path of the second file\"",
+            "line": 59
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected NullPointerException when passing null to addConfiguredIndexJars\"",
+            "line": 71
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "e.getMessage() == null || e.getMessage().contains(\"null\")",
+            "message": "\"Exception message should indicate null pointer\"",
+            "line": 74
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": null,
+            "line": 29
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": "\"Method executed successfully\"",
+            "line": 22
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "ArchiverException.class, e.getClass()",
+            "message": "\"Exception type matches\"",
+            "line": 25
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": "\"Method executed successfully with null includes\"",
+            "line": 42
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "ArchiverException.class, e.getClass()",
+            "message": "\"Exception type matches\"",
+            "line": 45
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": "\"Method executed successfully with null excludes\"",
+            "line": 62
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "ArchiverException.class, e.getClass()",
+            "message": "\"Exception type matches\"",
+            "line": 65
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected ArchiverException to be thrown\"",
+            "line": 82
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "ArchiverException.class, e.getClass()",
+            "message": "\"Exception type matches\"",
+            "line": 85
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected ArchiverException to be thrown\"",
+            "line": 102
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "ArchiverException.class, e.getClass()",
+            "message": "\"Exception type matches\"",
+            "line": 105
+          }
+        ],
+        "bump_bc_errors": "ArchiverException",
+        "llm_detected_errors": null
+      },
+      "BBC135": {
+        "oracle_methods_used": [
+          "assertFalse",
+          "assertNotNull",
+          "assertTrue"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertNotNull",
+            "predicate": "result",
+            "message": null,
+            "line": 18
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "result instanceof String",
+            "message": null,
+            "line": 19
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "((String) result).isEmpty()",
+            "message": null,
+            "line": 20
+          }
+        ],
+        "bump_bc_errors": "AssertionError",
+        "llm_detected_errors": null
+      },
+      "BBC162": {
+        "oracle_methods_used": [
+          "assertArrayEquals",
+          "assertDoesNotThrow",
+          "assertEquals",
+          "assertNotNull",
+          "assertNull",
+          "assertTrue"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertTrue",
+            "predicate": "handler.logger instanceof Logger",
+            "message": null,
+            "line": 20
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "result",
+            "message": null,
+            "line": 22
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "expectedPath.toAbsolutePath(), result",
+            "message": null,
+            "line": 23
+          },
+          {
+            "method": "assertNull",
+            "predicate": "result",
+            "message": null,
+            "line": 35
+          },
+          {
+            "method": "assertNull",
+            "predicate": "result",
+            "message": null,
+            "line": 48
+          },
+          {
+            "method": "assertNull",
+            "predicate": "result",
+            "message": null,
+            "line": 61
+          },
+          {
+            "method": "assertNull",
+            "predicate": "result",
+            "message": null,
+            "line": 74
+          },
+          {
+            "method": "assertDoesNotThrow",
+            "predicate": "() -> {\n            handler.loginPerformed(\"test-token\");\n        }",
+            "message": null,
+            "line": 10
+          },
+          {
+            "method": "assertDoesNotThrow",
+            "predicate": "() -> handler.logoutPerformed()",
+            "message": null,
+            "line": 12
+          },
+          {
+            "method": "assertArrayEquals",
+            "predicate": "screenshotData, screenshot.getBinaryData()",
+            "message": null,
+            "line": 50
+          },
+          {
+            "method": "assertNull",
+            "predicate": "screenshot.getBinaryData()",
+            "message": null,
+            "line": 78
+          }
+        ],
+        "bump_bc_errors": "ClassCastException",
+        "llm_detected_errors": null
+      }
+    },
+    "GPTOSS": {
+      "BBC101": {
+        "oracle_methods_used": [
+          "assertEquals",
+          "assertNotNull",
+          "assertSame",
+          "assertTrue",
+          "fail"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertEquals",
+            "predicate": "value, stored",
+            "message": "\"gid should be set to the supplied value\"",
+            "line": 48
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException: \" + e.getMessage()",
+            "line": 26
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected NullPointerException for null arguments\"",
+            "line": 28
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "compressed",
+            "message": null,
+            "line": 28
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "compressed instanceof java.io.BufferedOutputStream",
+            "message": null,
+            "line": 29
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "inner instanceof GZIPOutputStream",
+            "message": null,
+            "line": 34
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "compressed",
+            "message": null,
+            "line": 42
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"org.apache.commons.compress.compressors.bzip2.BZip2CompressorOutputStream\", compressed.getClass().getName()",
+            "message": null,
+            "line": 43
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "compressed",
+            "message": null,
+            "line": 53
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"org.iq80.snappy.SnappyOutputStream\", compressed.getClass().getName()",
+            "message": null,
+            "line": 54
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "compressed",
+            "message": null,
+            "line": 64
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"org.apache.commons.compress.compressors.xz.XZCompressorOutputStream\", compressed.getClass().getName()",
+            "message": null,
+            "line": 65
+          },
+          {
+            "method": "assertSame",
+            "predicate": "original, result",
+            "message": "\"When compression method is null, original stream should be returned\"",
+            "line": 75
+          }
+        ],
+        "bump_bc_errors": "ArchiverException",
+        "llm_detected_errors": null
+      },
+      "BBC187": {
+        "oracle_methods_used": [
+          "assertNotNull",
+          "assertTrue"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertNotNull",
+            "predicate": "result",
+            "message": "\"The returned template should not be null\"",
+            "line": 18
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "result instanceof String",
+            "message": "\"The returned value should be a String\"",
+            "line": 21
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "template",
+            "message": null,
+            "line": 28
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "template.isEmpty() || template.length() > 0",
+            "message": "\"Template should be empty or contain content\"",
+            "line": 29
+          }
+        ],
+        "bump_bc_errors": "AssertionError",
+        "llm_detected_errors": null
+      }
+    }
+  },
+  "Class": {
+    "GPT4o": {
+      "BBC137": {
+        "oracle_methods_used": [
+          "assertEquals",
+          "assertNotNull",
+          "fail"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertNotNull",
+            "predicate": "server",
+            "message": "\"Server should not be null\"",
+            "line": 24
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "port, server.getPort()",
+            "message": "\"Port should match the one set in builder\"",
+            "line": 25
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "keyProvider.getClass(), server.getKeyPairProvider().getClass()",
+            "message": "\"KeyPairProvider should be of type SimpleGeneratorHostKeyProvider\"",
+            "line": 30
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "factories",
+            "message": "\"UserAuthFactories should not be null\"",
+            "line": 33
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "2, factories.size()",
+            "message": "\"There should be two UserAuthFactories\"",
+            "line": 34
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "pwdAuth",
+            "message": "\"PasswordAuthenticator should not be null\"",
+            "line": 37
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "pkeyAuth",
+            "message": "\"PublickeyAuthenticator should not be null\"",
+            "line": 40
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"IOException should not be thrown: \" + e.getMessage()",
+            "line": 43
+          }
+        ],
+        "bump_bc_errors": "IOException|JSchException|NoSuchMethodError|RuntimeSshException",
+        "llm_detected_errors": null
+      }
+    },
+    "Qwen3-coder": {
+      "BBC101": {
+        "oracle_methods_used": [
+          "assertArrayEquals",
+          "assertEquals",
+          "assertFalse",
+          "assertNotNull",
+          "assertNull",
+          "assertSame",
+          "assertTrue",
+          "fail"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertFalse",
+            "predicate": "result1",
+            "message": "\"Should not extract when file on disk is newer\"",
+            "line": 33
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "result2",
+            "message": "\"Should extract when file on disk is older and overwrite is true\"",
+            "line": 39
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "result3",
+            "message": "\"Should not extract when file on disk is older and overwrite is false\"",
+            "line": 44
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "resource",
+            "message": null,
+            "line": 16
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "resource.isFile()",
+            "message": null,
+            "line": 17
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "tempFile.getAbsolutePath(), resource.getName()",
+            "message": null,
+            "line": 18
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "resource",
+            "message": null,
+            "line": 28
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "resource.isDirectory()",
+            "message": null,
+            "line": 29
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "tempDir.getAbsolutePath(), resource.getName()",
+            "message": null,
+            "line": 30
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "resource",
+            "message": null,
+            "line": 39
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "resource.isSymbolicLink()",
+            "message": null,
+            "line": 40
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "resource",
+            "message": null,
+            "line": 62
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "entry.getResourceAttributes(), ((org.codehaus.plexus.components.io.functions.ResourceAttributeSupplier) resource).getAttributes()",
+            "message": null,
+            "line": 63
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"InputStream should be accessible\"",
+            "line": 74
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "unArchiver.isOverwrite()",
+            "message": "\"Default overwrite value should be true\"",
+            "line": 12
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "unArchiver.isOverwrite()",
+            "message": "\"Overwrite should be false after setting it to false\"",
+            "line": 16
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "unArchiver.isOverwrite()",
+            "message": "\"Overwrite should be true after setting it to true\"",
+            "line": 20
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected IllegalStateException to be thrown\"",
+            "line": 55
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "e.getMessage().contains(\"An invalid resource of type: java.lang.Object was added to archiver\")",
+            "message": null,
+            "line": 57
+          },
+          {
+            "method": "assertSame",
+            "predicate": "destFile, delegatingArchiver.getDestFile()",
+            "message": null,
+            "line": 22
+          },
+          {
+            "method": "assertSame",
+            "predicate": "destFile, tarArchiver.getDestFile()",
+            "message": null,
+            "line": 23
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "null, delegatingArchiver.getDestFile()",
+            "message": null,
+            "line": 33
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "null, tarArchiver.getDestFile()",
+            "message": null,
+            "line": 34
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "initialFile, tarArchiver.getDestFile()",
+            "message": null,
+            "line": 45
+          },
+          {
+            "method": "assertSame",
+            "predicate": "updatedFile, delegatingArchiver.getDestFile()",
+            "message": null,
+            "line": 48
+          },
+          {
+            "method": "assertSame",
+            "predicate": "updatedFile, tarArchiver.getDestFile()",
+            "message": null,
+            "line": 49
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver.isRecompressAddedZips()",
+            "message": "\"Default recompressAddedZips should be true\"",
+            "line": 10
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "archiver.isRecompressAddedZips()",
+            "message": "\"recompressAddedZips should be false after setting\"",
+            "line": 14
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver.isRecompressAddedZips()",
+            "message": "\"recompressAddedZips should be true after setting\"",
+            "line": 18
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver1.checkForced()",
+            "message": null,
+            "line": 19
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver2.checkForced()",
+            "message": null,
+            "line": 25
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "archiver3.checkForced()",
+            "message": null,
+            "line": 32
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver4.checkForced()",
+            "message": null,
+            "line": 39
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver.isCompress()",
+            "message": "\"Initial compress state should be true\"",
+            "line": 18
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "archiver.isCompress()",
+            "message": "\"Compress state should be false after setCompress(false)\"",
+            "line": 24
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver.isCompress()",
+            "message": "\"Compress state should be true after setCompress(true)\"",
+            "line": 30
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "result",
+            "message": "\"isUseJvmChmod should return true when set to true\"",
+            "line": 26
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "result2",
+            "message": "\"isUseJvmChmod should return false when set to false\"",
+            "line": 31
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "targetArchiver.isUseJvmChmod(), delegatingArchiver.isUseJvmChmod()",
+            "message": "\"DelegatingArchiver should return the same value as target\"",
+            "line": 34
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver.isRecompressAddedZips()",
+            "message": "\"Default value of recompressAddedZips should be true\"",
+            "line": 18
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "archiver.isRecompressAddedZips()",
+            "message": "\"recompressAddedZips should be false after calling setRecompressAddedZips(false)\"",
+            "line": 24
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver.isRecompressAddedZips()",
+            "message": "\"recompressAddedZips should be true after calling setRecompressAddedZips(true)\"",
+            "line": 30
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "unArchiver.isOverwrite()",
+            "message": "\"Default overwrite value should be true\"",
+            "line": 12
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "unArchiver.isOverwrite()",
+            "message": "\"Overwrite should be set to false\"",
+            "line": 16
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "unArchiver.isOverwrite()",
+            "message": "\"Overwrite should be set to true\"",
+            "line": 20
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException: \" + e.getMessage()",
+            "line": 17
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "1, archiver.added.size()",
+            "message": null,
+            "line": 20
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"testLink\", addition.resource",
+            "message": null,
+            "line": 22
+          },
+          {
+            "method": "assertNull",
+            "predicate": "addition.destination",
+            "message": null,
+            "line": 23
+          },
+          {
+            "method": "assertNull",
+            "predicate": "addition.includes",
+            "message": null,
+            "line": 24
+          },
+          {
+            "method": "assertNull",
+            "predicate": "addition.excludes",
+            "message": null,
+            "line": 25
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException: \" + e.getMessage()",
+            "line": 31
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "2, archiver.added.size()",
+            "message": null,
+            "line": 34
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"testLink2\", addition2.resource",
+            "message": null,
+            "line": 36
+          },
+          {
+            "method": "assertNull",
+            "predicate": "addition2.destination",
+            "message": null,
+            "line": 37
+          },
+          {
+            "method": "assertNull",
+            "predicate": "addition2.includes",
+            "message": null,
+            "line": 38
+          },
+          {
+            "method": "assertNull",
+            "predicate": "addition2.excludes",
+            "message": null,
+            "line": 39
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException: \" + e.getMessage()",
+            "line": 45
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "3, archiver.added.size()",
+            "message": null,
+            "line": 48
+          },
+          {
+            "method": "assertNull",
+            "predicate": "addition3.resource",
+            "message": null,
+            "line": 50
+          },
+          {
+            "method": "assertNull",
+            "predicate": "addition3.destination",
+            "message": null,
+            "line": 51
+          },
+          {
+            "method": "assertNull",
+            "predicate": "addition3.includes",
+            "message": null,
+            "line": 52
+          },
+          {
+            "method": "assertNull",
+            "predicate": "addition3.excludes",
+            "message": null,
+            "line": 53
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "1, archiver.getFiles().size()",
+            "message": null,
+            "line": 36
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver.getFiles().containsKey(destFileName)",
+            "message": null,
+            "line": 37
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "expectedMode, archiver.getFiles().get(destFileName).getMode()",
+            "message": null,
+            "line": 41
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "expectedMode2, archiver.getFiles().get(\"test2.txt\").getMode()",
+            "message": null,
+            "line": 49
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected ArchiverException for non-existent file\"",
+            "line": 55
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "e.getMessage().contains(\"isn't a file\")",
+            "message": null,
+            "line": 57
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected ArchiverException for directory\"",
+            "line": 65
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "e.getMessage().contains(\"isn't a file\")",
+            "message": null,
+            "line": 67
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver.isFilesonly()",
+            "message": null,
+            "line": 15
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "archiver.isFilesonly()",
+            "message": null,
+            "line": 21
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "tarFile",
+            "message": null,
+            "line": 16
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected exception not thrown for null file\"",
+            "line": 26
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected IOException for non-existent file\"",
+            "line": 36
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"UTF8\", result",
+            "message": null,
+            "line": 21
+          },
+          {
+            "method": "assertNull",
+            "predicate": "archiver.getEncoding()",
+            "message": null,
+            "line": 25
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"ISO-8859-1\", archiver.getEncoding()",
+            "message": null,
+            "line": 29
+          },
+          {
+            "method": "assertSame",
+            "predicate": "sourceFile, unArchiver.getSourceFile()",
+            "message": null,
+            "line": 16
+          },
+          {
+            "method": "assertNull",
+            "predicate": "unArchiver.getSourceFile()",
+            "message": null,
+            "line": 26
+          },
+          {
+            "method": "assertSame",
+            "predicate": "secondFile, unArchiver.getSourceFile()",
+            "message": null,
+            "line": 38
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "Archiver.DUPLICATES_SKIP, archiver.getDuplicateBehavior()",
+            "message": null,
+            "line": 30
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "Archiver.DUPLICATES_PRESERVE, archiver.getDuplicateBehavior()",
+            "message": null,
+            "line": 34
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "Archiver.DUPLICATES_FAIL, archiver.getDuplicateBehavior()",
+            "message": null,
+            "line": 37
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "Archiver.DUPLICATES_ADD, archiver.getDuplicateBehavior()",
+            "message": null,
+            "line": 40
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected IllegalArgumentException for invalid duplicate behavior\"",
+            "line": 45
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "e.getMessage()",
+            "message": null,
+            "line": 47
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "Archiver.DUPLICATES_SKIP, duplicateBehaviorField.get(archiver)",
+            "message": null,
+            "line": 55
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "getSourceFile().exists()",
+            "message": "\"Source file must exist\"",
+            "line": 23
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "getDestDirectory()",
+            "message": "\"Destination directory must be set\"",
+            "line": 24
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"This method should not be called in this test\"",
+            "line": 29
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"This method should not be called in this test\"",
+            "line": 100
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected ArchiverException was not thrown\"",
+            "line": 108
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"The source must not be a directory.\", e.getMessage()",
+            "message": null,
+            "line": 110
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"This method should not be called in this test\"",
+            "line": 134
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected ArchiverException was not thrown\"",
+            "line": 143
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"You must choose between a destination directory and a destination file.\", e.getMessage()",
+            "message": null,
+            "line": 145
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "files",
+            "message": null,
+            "line": 24
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "1, files.size()",
+            "message": null,
+            "line": 25
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "files.containsKey(\"test.txt\")",
+            "message": null,
+            "line": 26
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "files.get(\"test.txt\")",
+            "message": null,
+            "line": 27
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "files",
+            "message": null,
+            "line": 40
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "files.isEmpty()",
+            "message": null,
+            "line": 41
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "files",
+            "message": null,
+            "line": 60
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "2, files.size()",
+            "message": null,
+            "line": 61
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "files.containsKey(\"file1.txt\")",
+            "message": null,
+            "line": 62
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "files.containsKey(\"file2.txt\")",
+            "message": null,
+            "line": 63
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "files.get(\"file1.txt\")",
+            "message": null,
+            "line": 64
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "files.get(\"file2.txt\")",
+            "message": null,
+            "line": 65
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"UTF-8\", archiver1.getEncoding()",
+            "message": null,
+            "line": 13
+          },
+          {
+            "method": "assertNull",
+            "predicate": "archiver2.getEncoding()",
+            "message": null,
+            "line": 18
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"\", archiver3.getEncoding()",
+            "message": null,
+            "line": 23
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"ISO-8859-1\", archiver4.getEncoding()",
+            "message": null,
+            "line": 28
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "actualTime",
+            "message": "\"Last modified time should not be null\"",
+            "line": 23
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "expectedTime, actualTime",
+            "message": "\"Last modified time should match the configured value\"",
+            "line": 24
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "null, actualTime",
+            "message": "\"Last modified time should be null when configured with null\"",
+            "line": 38
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "Archiver.DEFAULT_DIR_MODE, archiver.getDirectoryMode()",
+            "message": null,
+            "line": 29
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "(customMode & 07777) | 040000, archiver.getDirectoryMode()",
+            "message": null,
+            "line": 34
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "Archiver.DEFAULT_DIR_MODE, archiver.getDirectoryMode()",
+            "message": null,
+            "line": 38
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "(defaultMode & 07777) | 040000, archiver.getDirectoryMode()",
+            "message": null,
+            "line": 43
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "(0750 & 07777) | 040000, archiver.getDirectoryMode()",
+            "message": null,
+            "line": 47
+          },
+          {
+            "method": "assertNull",
+            "predicate": "initialTime",
+            "message": "\"Initial last modified time should be null\"",
+            "line": 18
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "retrievedTime",
+            "message": "\"Retrieved time should not be null after setting\"",
+            "line": 26
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "testTime, retrievedTime",
+            "message": "\"Last modified time should match the set value\"",
+            "line": 27
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "epochTime, retrievedEpochTime",
+            "message": "\"Last modified time should be set to epoch\"",
+            "line": 33
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver.getIncludeEmptyDirs()",
+            "message": "\"Default value of includeEmptyDirs should be true\"",
+            "line": 26
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "archiver.getIncludeEmptyDirs()",
+            "message": "\"includeEmptyDirs should be false after setting it to false\"",
+            "line": 32
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver.getIncludeEmptyDirs()",
+            "message": "\"includeEmptyDirs should be true after setting it to true\"",
+            "line": 38
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "result || !result",
+            "message": null,
+            "line": 28
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "result || !result",
+            "message": null,
+            "line": 47
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "iterator.hasNext()",
+            "message": null,
+            "line": 59
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected exception during nominal addSymlink call: \" + e.getMessage()",
+            "line": 24
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected exception during addSymlink with permissions call: \" + e.getMessage()",
+            "line": 32
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "ae",
+            "message": null,
+            "line": 42
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "npe",
+            "message": null,
+            "line": 45
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "ae",
+            "message": null,
+            "line": 53
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "npe",
+            "message": null,
+            "line": 55
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "addSymlinkMethod",
+            "message": "\"Underlying archiver must have addSymlink method\"",
+            "line": 60
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "new File(\"target/test-output.zip\").exists()",
+            "message": "\"Archive should be created\"",
+            "line": 30
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "new File(\"target/test-output.zip\").length() > 0",
+            "message": "\"Archive should not be empty\"",
+            "line": 31
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "new File(\"target/empty-output.zip\").exists()",
+            "message": "\"Empty archive should be created\"",
+            "line": 41
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected ArchiverException for null directory\"",
+            "line": 46
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "e.getMessage()",
+            "message": "\"Exception message should not be null\"",
+            "line": 48
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected ArchiverException for non-existent directory\"",
+            "line": 54
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "e.getMessage()",
+            "message": "\"Exception message should not be null\"",
+            "line": 56
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "1, archiver.getResourcesCount()",
+            "message": null,
+            "line": 33
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver.getLastAddedResource() instanceof DefaultFileSet",
+            "message": null,
+            "line": 34
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "tempDir.toFile(), fileSet.getDirectory()",
+            "message": null,
+            "line": 37
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "fileSet.isIncludingEmptyDirectories()",
+            "message": null,
+            "line": 38
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"\", fileSet.getPrefix()",
+            "message": null,
+            "line": 39
+          },
+          {
+            "method": "assertNull",
+            "predicate": "fileSet.getIncludes()",
+            "message": null,
+            "line": 40
+          },
+          {
+            "method": "assertNull",
+            "predicate": "fileSet.getExcludes()",
+            "message": null,
+            "line": 41
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "1, archiver.getResourcesCount()",
+            "message": null,
+            "line": 47
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"prefix/\", fileSet.getPrefix()",
+            "message": null,
+            "line": 49
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "1, archiver.getResourcesCount()",
+            "message": null,
+            "line": 57
+          },
+          {
+            "method": "assertArrayEquals",
+            "predicate": "includes, fileSet.getIncludes()",
+            "message": null,
+            "line": 59
+          },
+          {
+            "method": "assertArrayEquals",
+            "predicate": "excludes, fileSet.getExcludes()",
+            "message": null,
+            "line": 60
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "1, archiver.getResourcesCount()",
+            "message": null,
+            "line": 66
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"prefix2/\", fileSet.getPrefix()",
+            "message": null,
+            "line": 68
+          },
+          {
+            "method": "assertArrayEquals",
+            "predicate": "includes, fileSet.getIncludes()",
+            "message": null,
+            "line": 69
+          },
+          {
+            "method": "assertArrayEquals",
+            "predicate": "excludes, fileSet.getExcludes()",
+            "message": null,
+            "line": 70
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected ArchiverException for null directory\"",
+            "line": 76
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "e.getMessage().contains(\"base directory is null\")",
+            "message": null,
+            "line": 78
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected ArchiverException for non-existent directory\"",
+            "line": 85
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "e.getMessage().contains(\"isn't a directory\")",
+            "message": null,
+            "line": 87
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "expectedUsername, actualUsername",
+            "message": "\"Username should match the set value\"",
+            "line": 17
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"\", actualUsername",
+            "message": "\"Default username should be empty string\"",
+            "line": 29
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"modifiedUser\", actualUsername",
+            "message": "\"Username should reflect the last set value\"",
+            "line": 43
+          },
+          {
+            "method": "assertNull",
+            "predicate": "actualUsername",
+            "message": "\"Username should be null when set to null\"",
+            "line": 56
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "true, result",
+            "message": "\"isSupportingForced should return true for TarArchiver\"",
+            "line": 21
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "method",
+            "message": "\"Method isSupportingForced should exist\"",
+            "line": 27
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "expectedGid, actualGid",
+            "message": "\"getOverrideGid should return the GID set on the target archiver\"",
+            "line": 22
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"getOverrideGid threw an unexpected exception: \" + e.getMessage()",
+            "line": 25
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0, actualGidZero",
+            "message": "\"getOverrideGid should return zero when set to zero\"",
+            "line": 32
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"getOverrideGid threw an unexpected exception for zero GID: \" + e.getMessage()",
+            "line": 35
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "maxTypicalGid, actualMaxGid",
+            "message": "\"getOverrideGid should return the maximum typical GID correctly\"",
+            "line": 43
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"getOverrideGid threw an unexpected exception for large GID: \" + e.getMessage()",
+            "line": 46
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "Archiver.DEFAULT_FILE_MODE, archiver.getFileMode()",
+            "message": null,
+            "line": 28
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "(testMode & 07777) | 0100000, archiver.getFileMode()",
+            "message": null,
+            "line": 33
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "Archiver.DEFAULT_FILE_MODE, archiver.getFileMode()",
+            "message": null,
+            "line": 37
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "(defaultMode & 07777) | 0100000, archiver.getFileMode()",
+            "message": null,
+            "line": 42
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0100755, archiver.getFileMode()",
+            "message": null,
+            "line": 46
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected no exception after close, but got IllegalStateException\"",
+            "line": 19
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": null,
+            "line": 32
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "tarFile.getEntries()",
+            "message": null,
+            "line": 45
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected exception when accessing entries after close: \" + e.getMessage()",
+            "line": 62
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "delegatingArchiver.getResources()",
+            "message": null,
+            "line": 32
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "delegatingArchiver.getResources()",
+            "message": null,
+            "line": 48
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "delegatingArchiver.getResources()",
+            "message": null,
+            "line": 69
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "delegatingArchiver.getResources()",
+            "message": null,
+            "line": 91
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "closeable1.isClosed()",
+            "message": "\"Initial state: closeable1 should not be closed\"",
+            "line": 42
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "closeable2.isClosed()",
+            "message": "\"Initial state: closeable2 should not be closed\"",
+            "line": 43
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "closeable1.isClosed()",
+            "message": "\"After closeIterators: closeable1 should be closed\"",
+            "line": 51
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "closeable2.isClosed()",
+            "message": "\"After closeIterators: closeable2 should be closed\"",
+            "line": 52
+          },
+          {
+            "method": "assertNull",
+            "predicate": "result1",
+            "message": "\"Filename comparator should be null by default\"",
+            "line": 29
+          },
+          {
+            "method": "assertSame",
+            "predicate": "customComparator, result2",
+            "message": "\"Should return the same comparator that was set\"",
+            "line": 39
+          },
+          {
+            "method": "assertNull",
+            "predicate": "result3",
+            "message": "\"Filename comparator should be null when explicitly set to null\"",
+            "line": 48
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "new File(tempDir.toFile(), \"output.tar\").exists()",
+            "message": null,
+            "line": 28
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "new File(emptyDir.toFile(), \"empty.tar\").exists()",
+            "message": null,
+            "line": 38
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "exception",
+            "message": null,
+            "line": 50
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "exception instanceof ArchiverException",
+            "message": null,
+            "line": 51
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "exception",
+            "message": null,
+            "line": 65
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "exception instanceof ArchiverException",
+            "message": null,
+            "line": 66
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "archiver.isInUpdateMode()",
+            "message": "\"Initial update mode should be false\"",
+            "line": 15
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver.isInUpdateMode()",
+            "message": "\"Update mode should be true after setting it to true\"",
+            "line": 21
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "archiver.isInUpdateMode()",
+            "message": "\"Update mode should be false after setting it to false\"",
+            "line": 27
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver.isInUpdateMode()",
+            "message": "\"Update mode should be true after setting it to true again\"",
+            "line": 33
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "manifest",
+            "message": "\"Manifest should not be null\"",
+            "line": 17
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "mainAttributes",
+            "message": "\"Main attributes should not be null\"",
+            "line": 20
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"1.0\", manifestVersion",
+            "message": "\"Manifest-Version should be 1.0\"",
+            "line": 23
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "createdBy",
+            "message": "\"Created-By attribute should exist\"",
+            "line": 26
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "createdBy.startsWith(\"Plexus Archiver\")",
+            "message": "\"Created-By should start with Plexus Archiver\"",
+            "line": 27
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "manifest",
+            "message": "\"Manifest should not be null\"",
+            "line": 36
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "mainAttributes",
+            "message": "\"Main attributes should not be null\"",
+            "line": 39
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"1.0\", manifestVersion",
+            "message": "\"Manifest-Version should be 1.0\"",
+            "line": 42
+          },
+          {
+            "method": "assertNull",
+            "predicate": "createdBy",
+            "message": "\"Created-By should not exist in minimal manifest\"",
+            "line": 45
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"setDotFileDirectory should handle null input gracefully, but threw: \" + e.getClass().getName()",
+            "line": 43
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"setDotFileDirectory should accept non-existent directories, but threw: \" + e.getClass().getName()",
+            "line": 59
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "iterator.hasNext()",
+            "message": null,
+            "line": 31
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected NoSuchElementException\"",
+            "line": 34
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "iterator.hasNext()",
+            "message": null,
+            "line": 47
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "entry",
+            "message": null,
+            "line": 49
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"test.txt\", entry.getName()",
+            "message": null,
+            "line": 50
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "iterator.hasNext()",
+            "message": null,
+            "line": 51
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected NoSuchElementException\"",
+            "line": 55
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected exception: \" + e.getMessage()",
+            "line": 60
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "org.codehaus.plexus.archiver.Archiver.DEFAULT_DIR_MODE, archiver1.getDefaultDirectoryMode()",
+            "message": null,
+            "line": 25
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "expectedMode, archiver2.getDefaultDirectoryMode()",
+            "message": null,
+            "line": 44
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "org.codehaus.plexus.archiver.Archiver.DEFAULT_DIR_MODE, archiver3.getDefaultDirectoryMode()",
+            "message": null,
+            "line": 62
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "testTime, archiver.getLastModifiedTime()",
+            "message": null,
+            "line": 42
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "archiver.getFilenameComparator()",
+            "message": null,
+            "line": 43
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0, comparator.compare(\"a\", \"a\")",
+            "message": null,
+            "line": 47
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "comparator.compare(\"a\", \"b\") < 0",
+            "message": null,
+            "line": 48
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "comparator.compare(\"b\", \"a\") > 0",
+            "message": null,
+            "line": 49
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "Archiver.DEFAULT_FILE_MODE, archiver.getFileMode()",
+            "message": null,
+            "line": 51
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "Archiver.DEFAULT_DIR_MODE, archiver.getDirectoryMode()",
+            "message": null,
+            "line": 52
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0, archiver.getOverrideUid()",
+            "message": null,
+            "line": 53
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"root\", archiver.getOverrideUserName()",
+            "message": null,
+            "line": 54
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0, archiver.getOverrideGid()",
+            "message": null,
+            "line": 55
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"root\", archiver.getOverrideGroupName()",
+            "message": null,
+            "line": 56
+          },
+          {
+            "method": "assertNull",
+            "predicate": "archiver.getLastModifiedTime()",
+            "message": null,
+            "line": 86
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "archiver.getFilenameComparator()",
+            "message": null,
+            "line": 87
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "Archiver.DEFAULT_FILE_MODE, archiver.getFileMode()",
+            "message": null,
+            "line": 88
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "Archiver.DEFAULT_DIR_MODE, archiver.getDirectoryMode()",
+            "message": null,
+            "line": 89
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0, archiver.getOverrideUid()",
+            "message": null,
+            "line": 90
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"root\", archiver.getOverrideUserName()",
+            "message": null,
+            "line": 91
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0, archiver.getOverrideGid()",
+            "message": null,
+            "line": 92
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"root\", archiver.getOverrideGroupName()",
+            "message": null,
+            "line": 93
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "testTime, result",
+            "message": null,
+            "line": 125
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "testDate.getTime(), archiver.getLastModifiedTime().toMillis()",
+            "message": null,
+            "line": 157
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "archiver.getFilenameComparator()",
+            "message": null,
+            "line": 158
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "Archiver.DEFAULT_FILE_MODE, archiver.getFileMode()",
+            "message": null,
+            "line": 159
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "Archiver.DEFAULT_DIR_MODE, archiver.getDirectoryMode()",
+            "message": null,
+            "line": 160
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0, archiver.getOverrideUid()",
+            "message": null,
+            "line": 161
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"root\", archiver.getOverrideUserName()",
+            "message": null,
+            "line": 162
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0, archiver.getOverrideGid()",
+            "message": null,
+            "line": 163
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"root\", archiver.getOverrideGroupName()",
+            "message": null,
+            "line": 164
+          },
+          {
+            "method": "assertNull",
+            "predicate": "unArchiver.getFileMappers()",
+            "message": null,
+            "line": 21
+          },
+          {
+            "method": "assertArrayEquals",
+            "predicate": "mappers, unArchiver.getFileMappers()",
+            "message": null,
+            "line": 40
+          },
+          {
+            "method": "assertNull",
+            "predicate": "unArchiver.getFileMappers()",
+            "message": null,
+            "line": 43
+          },
+          {
+            "method": "assertArrayEquals",
+            "predicate": "emptyMappers, unArchiver.getFileMappers()",
+            "message": null,
+            "line": 47
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"testgroup\", tarOptions.getGroup()",
+            "message": null,
+            "line": 15
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"\", tarOptions.getGroup()",
+            "message": null,
+            "line": 27
+          },
+          {
+            "method": "assertNull",
+            "predicate": "tarOptions.getGroup()",
+            "message": null,
+            "line": 39
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"group-with_special.chars123\", tarOptions.getGroup()",
+            "message": null,
+            "line": 51
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"gr\u00f6up\u00f1ame\u4e2d\u6587\", tarOptions.getGroup()",
+            "message": null,
+            "line": 63
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "userName, archiver.getOverrideUserName()",
+            "message": null,
+            "line": 16
+          },
+          {
+            "method": "assertNull",
+            "predicate": "archiver.getOverrideUserName()",
+            "message": null,
+            "line": 28
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"\", archiver.getOverrideUserName()",
+            "message": null,
+            "line": 40
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "userName, archiver.getOverrideUserName()",
+            "message": null,
+            "line": 53
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "-1, archiver.getOverrideFileMode()",
+            "message": null,
+            "line": 27
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0100644, archiver.getOverrideFileMode()",
+            "message": null,
+            "line": 31
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "-1, archiver.getOverrideFileMode()",
+            "message": null,
+            "line": 35
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0100000, archiver.getOverrideFileMode()",
+            "message": null,
+            "line": 39
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0100777, archiver.getOverrideFileMode()",
+            "message": null,
+            "line": 43
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"ISO-8859-1\", encodingField.get(unArchiver)",
+            "message": null,
+            "line": 16
+          },
+          {
+            "method": "assertNull",
+            "predicate": "encodingField.get(unArchiver)",
+            "message": null,
+            "line": 26
+          },
+          {
+            "method": "assertNull",
+            "predicate": "encodingField.get(unArchiver)",
+            "message": null,
+            "line": 36
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"\", encodingField.get(unArchiver)",
+            "message": null,
+            "line": 46
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"UTF8\", encodingField.get(unArchiver)",
+            "message": null,
+            "line": 55
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "ignorePermissionsField.getBoolean(archiver)",
+            "message": "\"Initial value should be false\"",
+            "line": 34
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "ignorePermissionsField.getBoolean(archiver)",
+            "message": "\"Value should be true after calling setIgnorePermissions(true)\"",
+            "line": 40
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver.isIgnorePermissions()",
+            "message": "\"Getter should return true\"",
+            "line": 42
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "ignorePermissionsField.getBoolean(archiver)",
+            "message": "\"Value should be false after calling setIgnorePermissions(false)\"",
+            "line": 46
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "archiver.isIgnorePermissions()",
+            "message": "\"Getter should return false\"",
+            "line": 48
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver.isForced()",
+            "message": "\"Initial forced state should be true\"",
+            "line": 28
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "archiver.isForced()",
+            "message": "\"Forced should be false after setForced(false)\"",
+            "line": 34
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver.isForced()",
+            "message": "\"Forced should be true after setForced(true)\"",
+            "line": 40
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "1000, archiver.getOverrideGid()",
+            "message": null,
+            "line": 17
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0, archiver.getOverrideGid()",
+            "message": null,
+            "line": 23
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "-1, archiver.getOverrideGid()",
+            "message": null,
+            "line": 29
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException: \" + e.getMessage()",
+            "line": 44
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected exception during method execution: \" + e.getClass().getName() + \": \" + e.getMessage()",
+            "line": 47
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected UnsupportedOperationException was not thrown\"",
+            "line": 53
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "-1, archiver.getOverrideDirectoryMode()",
+            "message": null,
+            "line": 29
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "040755, archiver.getOverrideDirectoryMode()",
+            "message": null,
+            "line": 33
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "040000, archiver.getOverrideDirectoryMode()",
+            "message": null,
+            "line": 37
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "-1, archiver.getOverrideDirectoryMode()",
+            "message": null,
+            "line": 41
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "047777, archiver.getOverrideDirectoryMode()",
+            "message": null,
+            "line": 45
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected exception: \" + e.getMessage()",
+            "line": 48
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "true",
+            "message": "\"postCreateArchive should complete without throwing an exception\"",
+            "line": 38
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "postCreateCalled[0]",
+            "message": "\"Custom postCreateArchive should be called\"",
+            "line": 74
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException: \" + e.getMessage()",
+            "line": 21
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException: \" + e.getMessage()",
+            "line": 27
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException thrown: \" + e.getMessage()",
+            "line": 19
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException thrown: \" + e.getMessage()",
+            "line": 25
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException thrown: \" + e.getMessage()",
+            "line": 31
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException thrown: \" + e.getMessage()",
+            "line": 37
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException: \" + e.getMessage()",
+            "line": 37
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException: \" + e.getMessage()",
+            "line": 14
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException: \" + e.getMessage()",
+            "line": 24
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException for null symlink name: \" + e.getMessage()",
+            "line": 34
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException for null destination: \" + e.getMessage()",
+            "line": 44
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException for both null parameters: \" + e.getMessage()",
+            "line": 54
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException for empty strings: \" + e.getMessage()",
+            "line": 64
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"createArchive should not throw exceptions but threw: \" + e.getClass().getName()",
+            "line": 17
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "groupName, archiver.getOverrideGroupName()",
+            "message": null,
+            "line": 30
+          },
+          {
+            "method": "assertNull",
+            "predicate": "archiver.getOverrideGroupName()",
+            "message": null,
+            "line": 57
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"\", archiver.getOverrideGroupName()",
+            "message": null,
+            "line": 84
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "groupName, archiver.getOverrideGroupName()",
+            "message": null,
+            "line": 111
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "logger",
+            "message": "\"Logger should not be null\"",
+            "line": 31
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "logger instanceof ConsoleLogger",
+            "message": "\"Logger should be an instance of ConsoleLogger when no parent logger is set\"",
+            "line": 32
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "Logger.LEVEL_INFO, logger.getThreshold()",
+            "message": "\"Logger level should be INFO\"",
+            "line": 34
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"console\", logger.getName()",
+            "message": "\"Logger name should be 'console'\"",
+            "line": 35
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "logger",
+            "message": "\"Logger should not be null\"",
+            "line": 64
+          },
+          {
+            "method": "assertSame",
+            "predicate": "parentLogger, logger",
+            "message": "\"Logger should be the same as the parent logger\"",
+            "line": 65
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "Logger.LEVEL_DEBUG, logger.getThreshold()",
+            "message": "\"Logger level should match parent\"",
+            "line": 66
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"parent\", logger.getName()",
+            "message": "\"Logger name should match parent\"",
+            "line": 67
+          },
+          {
+            "method": "assertSame",
+            "predicate": "firstLogger, secondLogger",
+            "message": "\"Logger should be cached and return the same instance\"",
+            "line": 93
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected IllegalArgumentException for zero value\"",
+            "line": 19
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"Invalid max output size specified: 0\", e.getMessage()",
+            "message": null,
+            "line": 21
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected IllegalArgumentException for negative value\"",
+            "line": 30
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"Invalid max output size specified: -500\", e.getMessage()",
+            "message": null,
+            "line": 32
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver.getIncludeEmptyDirs()",
+            "message": "\"Default value should be true\"",
+            "line": 14
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "archiver.getIncludeEmptyDirs()",
+            "message": "\"Value should be false after setting\"",
+            "line": 20
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver.getIncludeEmptyDirs()",
+            "message": "\"Value should be true after setting\"",
+            "line": 26
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException: \" + e.getMessage()",
+            "line": 31
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "1000, archiver1.getOverrideUid()",
+            "message": null,
+            "line": 25
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0, archiver2.getOverrideUid()",
+            "message": null,
+            "line": 44
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "-1, archiver3.getOverrideUid()",
+            "message": null,
+            "line": 63
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "-2, archiver4.getOverrideUid()",
+            "message": null,
+            "line": 82
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "-1, archiver.getOverrideGid()",
+            "message": null,
+            "line": 25
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "1000, archiver.getOverrideGid()",
+            "message": null,
+            "line": 31
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0, archiver.getOverrideGid()",
+            "message": null,
+            "line": 37
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "-500, archiver.getOverrideGid()",
+            "message": null,
+            "line": 43
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "subFile.createNewFile()",
+            "message": "\"Failed to create temporary file\"",
+            "line": 29
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException in nominal case: \" + e.getMessage()",
+            "line": 35
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException with null prefix: \" + e.getMessage()",
+            "line": 42
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected ArchiverException for non-existent directory\"",
+            "line": 49
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "ArchiverException.class, e.getClass()",
+            "message": "\"Underlying archiver should throw ArchiverException\"",
+            "line": 52
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "result",
+            "message": null,
+            "line": 29
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "result",
+            "message": null,
+            "line": 55
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "result",
+            "message": null,
+            "line": 80
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "-1, archiver1.getOverrideUid()",
+            "message": null,
+            "line": 19
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "1000, archiver1.getOverrideUid()",
+            "message": null,
+            "line": 23
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0, archiver1.getOverrideUid()",
+            "message": null,
+            "line": 27
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "-2, archiver1.getOverrideUid()",
+            "message": null,
+            "line": 31
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver.isUseJvmChmod()",
+            "message": "\"Default value of useJvmChmod should be true\"",
+            "line": 25
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "archiver.isUseJvmChmod()",
+            "message": "\"useJvmChmod should be false after setting it\"",
+            "line": 31
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver.isUseJvmChmod()",
+            "message": "\"useJvmChmod should be true after setting it\"",
+            "line": 37
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException: \" + e.getMessage()",
+            "line": 15
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException: \" + e.getMessage()",
+            "line": 25
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException: \" + e.getMessage()",
+            "line": 35
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException: \" + e.getMessage()",
+            "line": 45
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException: \" + e.getMessage()",
+            "line": 55
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException: \" + e.getMessage()",
+            "line": 65
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException in nominal case: \" + e.getMessage()",
+            "line": 17
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException with null includes: \" + e.getMessage()",
+            "line": 28
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException with empty includes: \" + e.getMessage()",
+            "line": 39
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException with excludes: \" + e.getMessage()",
+            "line": 57
+          },
+          {
+            "method": "assertNull",
+            "predicate": "archiver.getOverrideUserName()",
+            "message": null,
+            "line": 25
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "testUser, archiver.getOverrideUserName()",
+            "message": null,
+            "line": 30
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"\", archiver.getOverrideUserName()",
+            "message": null,
+            "line": 34
+          },
+          {
+            "method": "assertNull",
+            "predicate": "archiver.getOverrideUserName()",
+            "message": null,
+            "line": 38
+          },
+          {
+            "method": "assertNull",
+            "predicate": "archiver.getLastModifiedDate()",
+            "message": null,
+            "line": 27
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "testDate, archiver.getLastModifiedDate()",
+            "message": null,
+            "line": 34
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "1234567890L, archiver.getLastModifiedDate().getTime()",
+            "message": null,
+            "line": 35
+          },
+          {
+            "method": "assertNull",
+            "predicate": "archiver.getLastModifiedDate()",
+            "message": null,
+            "line": 39
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "Archiver.DUPLICATES_ADD, archiver.getDuplicateBehavior()",
+            "message": null,
+            "line": 16
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "Archiver.DUPLICATES_SKIP, archiver.getDuplicateBehavior()",
+            "message": null,
+            "line": 19
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "Archiver.DUPLICATES_PRESERVE, archiver.getDuplicateBehavior()",
+            "message": null,
+            "line": 22
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "Archiver.DUPLICATES_FAIL, archiver.getDuplicateBehavior()",
+            "message": null,
+            "line": 25
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected IllegalArgumentException for invalid duplicate behavior\"",
+            "line": 30
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"Invalid duplicate-file behavior: 'invalid_behavior'. Please specify one of: \"\n                + Archiver.DUPLICATES_VALID_BEHAVIORS, e.getMessage()",
+            "message": null,
+            "line": 32
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected IllegalArgumentException for null duplicate behavior\"",
+            "line": 39
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "time1, archiver.getLastModifiedTime()",
+            "message": "\"Should return the same FileTime that was set\"",
+            "line": 31
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "time2, archiver.getLastModifiedTime()",
+            "message": "\"Should return the updated FileTime\"",
+            "line": 35
+          },
+          {
+            "method": "assertNull",
+            "predicate": "archiver.getLastModifiedTime()",
+            "message": "\"Should return null when null is set\"",
+            "line": 39
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "time1, archiver.getLastModifiedTime()",
+            "message": "\"Should return the FileTime after being reset from null\"",
+            "line": 43
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "destJar.exists()",
+            "message": "\"JAR file should exist\"",
+            "line": 42
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "entry != null",
+            "message": "\"Entry should exist\"",
+            "line": 47
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "content.equals(\"Hello World\")",
+            "message": "\"Content should match\"",
+            "line": 54
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "destJar.exists()",
+            "message": "\"JAR file should exist\"",
+            "line": 81
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "manifestEntry != null",
+            "message": "\"Manifest should exist\"",
+            "line": 86
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected ArchiverException to be thrown\"",
+            "line": 108
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "e instanceof ArchiverException",
+            "message": "\"Should be an ArchiverException\"",
+            "line": 111
+          },
+          {
+            "method": "assertNull",
+            "predicate": "archiver.getLastModifiedTime()",
+            "message": null,
+            "line": 28
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "expectedTime, archiver.getLastModifiedTime()",
+            "message": null,
+            "line": 33
+          },
+          {
+            "method": "assertNull",
+            "predicate": "archiver.getLastModifiedTime()",
+            "message": null,
+            "line": 37
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "currentDate, archiver.getLastModifiedDate()",
+            "message": null,
+            "line": 42
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "archiver.getLastModifiedTime()",
+            "message": null,
+            "line": 43
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "currentDate.getTime(), archiver.getLastModifiedTime().toMillis()",
+            "message": null,
+            "line": 44
+          },
+          {
+            "method": "assertNull",
+            "predicate": "archiver.getLastModifiedDate()",
+            "message": null,
+            "line": 48
+          },
+          {
+            "method": "assertNull",
+            "predicate": "archiver.getLastModifiedTime()",
+            "message": null,
+            "line": 49
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "testDate, archiver.getLastModifiedDate()",
+            "message": "\"Last modified date should match the set value\"",
+            "line": 19
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "archiver.getLastModifiedTime()",
+            "message": "\"Last modified time should not be null after setting a date\"",
+            "line": 20
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "testDate.getTime(), archiver.getLastModifiedTime().toMillis()",
+            "message": "\"Last modified time should match the set date\"",
+            "line": 21
+          },
+          {
+            "method": "assertNull",
+            "predicate": "archiver.getLastModifiedDate()",
+            "message": "\"Last modified date should be null\"",
+            "line": 25
+          },
+          {
+            "method": "assertNull",
+            "predicate": "archiver.getLastModifiedTime()",
+            "message": "\"Last modified time should be null\"",
+            "line": 26
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0100644, archiver1.getOverrideFileMode()",
+            "message": "\"File mode should be set with proper flags\"",
+            "line": 16
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0100000, archiver2.getOverrideFileMode()",
+            "message": "\"Zero file mode should be set with proper flags\"",
+            "line": 22
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "-1, archiver3.getOverrideFileMode()",
+            "message": "\"Negative file mode should reset to -1\"",
+            "line": 28
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "0100644, archiver4.getDefaultFileMode()",
+            "message": "\"Default file mode should remain unchanged\"",
+            "line": 34
+          },
+          {
+            "method": "assertNull",
+            "predicate": "archiver.getOverrideGroupName()",
+            "message": "\"Initial overrideGroupName should be null\"",
+            "line": 25
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "testGroupName, archiver.getOverrideGroupName()",
+            "message": "\"Override group name should match the set value\"",
+            "line": 32
+          },
+          {
+            "method": "assertNull",
+            "predicate": "archiver.getOverrideGroupName()",
+            "message": "\"Override group name should be null after setting to null\"",
+            "line": 38
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "emptyGroupName, archiver.getOverrideGroupName()",
+            "message": "\"Override group name should be empty string\"",
+            "line": 45
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "archiver.isIgnorePermissions()",
+            "message": "\"By default, ignorePermissions should be false\"",
+            "line": 29
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver.isIgnorePermissions()",
+            "message": "\"After setting to true, ignorePermissions should be true\"",
+            "line": 35
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "archiver.isIgnorePermissions()",
+            "message": "\"After setting to false, ignorePermissions should be false\"",
+            "line": 41
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "040755, archiver1.getOverrideDirectoryMode()",
+            "message": null,
+            "line": 12
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "040000, archiver2.getOverrideDirectoryMode()",
+            "message": null,
+            "line": 17
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "-1, archiver3.getOverrideDirectoryMode()",
+            "message": null,
+            "line": 22
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "040755, archiver4.getDefaultDirectoryMode()",
+            "message": null,
+            "line": 26
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "testUserName, delegatingArchiver.getOverrideUserName()",
+            "message": null,
+            "line": 18
+          },
+          {
+            "method": "assertNull",
+            "predicate": "delegatingArchiver.getOverrideUserName()",
+            "message": null,
+            "line": 28
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "emptyUserName, delegatingArchiver.getOverrideUserName()",
+            "message": null,
+            "line": 39
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected addDirectory to not throw an exception, but it threw: \" + e.getClass().getName()",
+            "line": 19
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected addDirectory with prefix to not throw an exception, but it threw: \" + e.getClass().getName()",
+            "line": 26
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected addDirectory with includes/excludes to not throw an exception, but it threw: \" + e.getClass().getName()",
+            "line": 32
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected addDirectory with prefix/includes/excludes to not throw an exception, but it threw: \" + e.getClass().getName()",
+            "line": 38
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "destFile.exists()",
+            "message": "\"Destination archive file should exist\"",
+            "line": 37
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected ArchiverException in nominal case: \" + e.getMessage()",
+            "line": 39
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected NullPointerException or ArchiverException but none was thrown.\"",
+            "line": 57
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "e",
+            "message": null,
+            "line": 60
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "e",
+            "message": null,
+            "line": 63
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected ArchiverException for non-existent directory.\"",
+            "line": 78
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "e",
+            "message": null,
+            "line": 81
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "e",
+            "message": null,
+            "line": 84
+          }
+        ],
+        "bump_bc_errors": "ArchiverException",
+        "llm_detected_errors": null
+      },
+      "BBC115": {
+        "oracle_methods_used": [
+          "assertEquals",
+          "assertTrue",
+          "fail"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertEquals",
+            "predicate": "expected, builder.toString()",
+            "message": null,
+            "line": 23
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"\", builder.toString()",
+            "message": null,
+            "line": 41
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "expected, builder.toString()",
+            "message": null,
+            "line": 60
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"funcA\" + OsUtils.LINE_SEPARATOR + \"funcB\" + OsUtils.LINE_SEPARATOR, expectedOutput",
+            "message": null,
+            "line": 78
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"\", expectedOutput",
+            "message": null,
+            "line": 96
+          },
+          {
+            "method": "assertEquals",
+            "predicate": "\"onlyOne\" + OsUtils.LINE_SEPARATOR, expectedOutput",
+            "message": null,
+            "line": 114
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "jsonOutput.contains(\"\\\"layer1\\\":\\\"role1\\\"\")",
+            "message": "\"JSON should contain the key-value pair\"",
+            "line": 25
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "jsonOutput.contains(\"\\\"\\\":\\\"\\\"\")",
+            "message": "\"JSON should handle empty strings\"",
+            "line": 34
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "jsonOutput.contains(\"\\\"layer/with/slashes\\\":\\\"role_with_underscores\\\"\")",
+            "message": "\"JSON should handle special characters\"",
+            "line": 43
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected an exception due to network call without server\"",
+            "line": 23
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "e instanceof RuntimeException || e instanceof java.io.IOException",
+            "message": null,
+            "line": 25
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected NullPointerException or IllegalArgumentException\"",
+            "line": 34
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "e instanceof NullPointerException || e instanceof IllegalArgumentException",
+            "message": null,
+            "line": 36
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Expected JSONException for empty or invalid response\"",
+            "line": 45
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "e.getClass().getName().contains(\"JSONException\") ||\n                    e instanceof RuntimeException ||\n                    e instanceof java.io.IOException",
+            "message": null,
+            "line": 48
+          }
+        ],
+        "bump_bc_errors": "JSONException",
+        "llm_detected_errors": null
+      },
+      "BBC135": {
+        "oracle_methods_used": [
+          "assertEquals",
+          "assertNull",
+          "fail"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertEquals",
+            "predicate": "content, result",
+            "message": null,
+            "line": 34
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Reflection failed: \" + e.getMessage()",
+            "line": 36
+          },
+          {
+            "method": "assertNull",
+            "predicate": "result",
+            "message": null,
+            "line": 55
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Reflection failed: \" + e.getMessage()",
+            "line": 57
+          },
+          {
+            "method": "assertNull",
+            "predicate": "result",
+            "message": null,
+            "line": 77
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"Unexpected exception during test: \" + e.getMessage()",
+            "line": 80
+          }
+        ],
+        "bump_bc_errors": "AssertionError",
+        "llm_detected_errors": null
+      },
+      "BBC137": {
+        "oracle_methods_used": [
+          "assertNotNull",
+          "assertTrue"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertNotNull",
+            "predicate": "server",
+            "message": null,
+            "line": 15
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "server.getPort() == 2222",
+            "message": null,
+            "line": 16
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "server",
+            "message": null,
+            "line": 24
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "server.getPort() == 2223",
+            "message": null,
+            "line": 25
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "server",
+            "message": null,
+            "line": 33
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "server.getPort() == 2224",
+            "message": null,
+            "line": 34
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "server",
+            "message": null,
+            "line": 41
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "server.getPort() == -1",
+            "message": null,
+            "line": 42
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "server",
+            "message": null,
+            "line": 49
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "server.getPort() == 0",
+            "message": null,
+            "line": 50
+          },
+          {
+            "method": "assertNotNull",
+            "predicate": "server",
+            "message": null,
+            "line": 57
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "server.getPort() == Integer.MAX_VALUE",
+            "message": null,
+            "line": 58
+          }
+        ],
+        "bump_bc_errors": "IOException|JSchException|NoSuchMethodError|RuntimeSshException",
+        "llm_detected_errors": null
+      },
+      "BBC167": {
+        "oracle_methods_used": [
+          "assertDoesNotThrow"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertDoesNotThrow",
+            "predicate": "() -> handler.loginPerformed(\"dummy-token\")",
+            "message": null,
+            "line": 12
+          },
+          {
+            "method": "assertDoesNotThrow",
+            "predicate": "handler::logoutPerformed",
+            "message": null,
+            "line": 10
+          }
+        ],
+        "bump_bc_errors": "ClassCastException",
+        "llm_detected_errors": null
+      }
+    },
+    "GPTOSS": {
+      "BBC101": {
+        "oracle_methods_used": [
+          "assertFalse",
+          "assertNotNull",
+          "assertTrue",
+          "fail"
+        ],
+        "assert_calls": [
+          {
+            "method": "assertNotNull",
+            "predicate": "files",
+            "message": "\"getFiles() should not return null\"",
+            "line": 26
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "files.isEmpty()",
+            "message": "\"NoOpArchiver should not record any files after addDirectory\"",
+            "line": 27
+          },
+          {
+            "method": "assertFalse",
+            "predicate": "nonExisting.exists()",
+            "message": "\"Precondition: directory must not exist\"",
+            "line": 34
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver.getFiles().isEmpty()",
+            "message": "\"getFiles() should still be empty after adding non\u2011existing directory\"",
+            "line": 41
+          },
+          {
+            "method": "fail",
+            "predicate": null,
+            "message": "\"addDirectory(null) should not throw any exception, but threw: \" + e",
+            "line": 54
+          },
+          {
+            "method": "assertTrue",
+            "predicate": "archiver.getFiles().isEmpty()",
+            "message": "\"State must remain unchanged after null call\"",
+            "line": 56
+          }
+        ],
+        "bump_bc_errors": "ArchiverException",
+        "llm_detected_errors": null
+      }
+    }
+  }
+}

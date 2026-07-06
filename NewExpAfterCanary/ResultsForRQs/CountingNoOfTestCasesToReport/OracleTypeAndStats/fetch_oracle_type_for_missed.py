@@ -19,6 +19,9 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parents[4]))
 from config import PRIMARY_DRIVE
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from predicate_extractor import extract_predicate_and_message, resolve_call_text
+
 ASSERT_BASE = PRIMARY_DRIVE / "AssertAnalysisResults"
 
 # (model, context_variant) -> investigation CSV path, per investigate_undetected/*.csv
@@ -52,7 +55,7 @@ MODEL_DIRS = {
     "GPTOSS-120B": "GPT_OSS_120b",
 }
 
-OUTPUT_PATH = Path(__file__).resolve().parent / "output" / "oracle_types_missed_h2.json"
+OUTPUT_PATH = Path(__file__).resolve().parent / "output" / "missed_cases" / "oracle_types_missed_h2.json"
 
 # I used to call the case "API call sight class called/not called as hypothesis so named it H1 : Not loaded, H2: class loaded"
 def load_h2_rows(csv_path):
@@ -83,7 +86,7 @@ def load_file_index(context_variant, model):
     return index
 
 
-def build_test_method_entry(test_method):
+def build_test_method_entry(test_method, java_file_path):
     assert_calls = test_method["assert_calls"]
     if not assert_calls:
         return {
@@ -91,24 +94,30 @@ def build_test_method_entry(test_method):
             "note": "no explicit assertion in this test method",
         }
 
-    return {
-        "assert_calls": [
-            {
-                "method": call["method"],
-                "call_text": call["call_text"],
-                "line": call["line"],
-                "in_trycatch": call["in_trycatch"],
-                "framework": call.get("framework"),
-                "source": call.get("source"),
-            }
-            for call in assert_calls
-        ]
-    }
+    entries = []
+    for call in assert_calls:
+        call_text, truncated = resolve_call_text(call, java_file_path)
+        predicate, message = extract_predicate_and_message(call["method"], call.get("framework"), call_text)
+        entry = {
+            "method": call["method"],
+            "call_text": call_text,
+            "predicate": predicate,
+            "message": message,
+            "line": call["line"],
+            "in_trycatch": call["in_trycatch"],
+            "framework": call.get("framework"),
+            "source": call.get("source"),
+        }
+        if truncated:
+            entry["call_text_truncated"] = True
+        entries.append(entry)
+
+    return {"assert_calls": entries}
 
 
 def build_test_file_entry(file_record):
     return {
-        test_method["name"]: build_test_method_entry(test_method)
+        test_method["name"]: build_test_method_entry(test_method, file_record["path"])
         for test_method in file_record["test_methods"]
     }
 
