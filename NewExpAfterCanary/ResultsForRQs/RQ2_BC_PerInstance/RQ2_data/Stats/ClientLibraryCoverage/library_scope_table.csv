@@ -1,0 +1,10 @@
+library_category,examples,instances
+Logging API,"slf4j-api, log4j-core",27
+Serialization / Data binding,"jackson-databind, org.eclipse.persistence.moxy",26
+Application framework,"spring-tx, spring-webmvc",9
+Web server / Servlet,jetty-server,6
+Parser / Code generation,antlr4-runtime,6
+Data structures / Parsing,"json-smart, json",4
+Mocking library,mockito-core,4
+Maven utility / tooling,"plexus-io, versions-maven-plugin",3
+Other,"h2, dss-pades-pdfbox, sshd-common, httpclient",4

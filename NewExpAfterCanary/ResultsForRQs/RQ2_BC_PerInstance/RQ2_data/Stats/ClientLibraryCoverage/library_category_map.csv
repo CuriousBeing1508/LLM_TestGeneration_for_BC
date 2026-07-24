@@ -1,0 +1,25 @@
+dependencyArtifactID,library_category,evidence
+antlr4-runtime,Parser / Code generation,"GitHub desc: 'parser generator'; topics: parser-generator, parsing, grammar"
+dss-pades-pdfbox,Other,GitHub desc: 'Digital Signature Service' (PAdES/XAdES/CAdES); no dedicated category
+google-extensions,Logging API,GitHub desc: 'A Fluent Logging API for Java' (flogger); topic: logging
+h2,Database,"GitHub desc: 'embeddable RDBMS'; topics: database, jdbc, sql"
+httpclient,HTTP client,Apache HttpClient — HTTP client library
+jackson-core,Serialization / Data binding,"GitHub topics: jackson, json; desc: 'Streaming API'"
+jackson-databind,Serialization / Data binding,GitHub desc: 'General data-binding package for Jackson'
+jackson-dataformat-cbor,Serialization / Data binding,"GitHub topics: avro, cbor, protobuf, smile (binary serialization formats)"
+jetty-server,Web server / Servlet,"GitHub desc: 'Web Container & Clients'; topics: http-server, servlet"
+json,Data structures / Parsing,org.json reference JSON data-structure library (no repo topics)
+json-smart,Data structures / Parsing,Lightweight JSON parser (no repo topics; name/purpose only)
+jsoup,Data structures / Parsing,"GitHub desc: 'the Java HTML parser'; topics: parser, dom, html"
+log4j-api,Logging API,"GitHub desc: 'logging API and backend for Java'; topics: logging, logger"
+log4j-core,Logging API,"GitHub desc: 'logging API and backend for Java'; topics: logging, logger"
+mockito-core,Mocking library,GitHub desc: 'Most popular Mocking framework for unit tests'; topics: mocking-framework
+org.eclipse.persistence.moxy,Serialization / Data binding,Domain knowledge (MOXy = JAXB XML/JSON binding); repo-level topics not informative
+plexus-io,Maven utility / tooling,GitHub topic: maven; Plexus build-tooling utility
+plexus-utils,Maven utility / tooling,GitHub topic: maven; Plexus build-tooling utility
+slf4j-api,Logging API,GitHub desc: 'Simple Logging Facade for Java'
+spring-tx,Application framework,"GitHub topics: framework, spring, spring-framework"
+spring-webmvc,Application framework,"GitHub topics: framework, spring, spring-framework"
+sshd-common,SSH,GitHub desc: 'comprehensive Java library for client/server SSH'
+versions-maven-plugin,Maven utility / tooling,"GitHub desc: 'Versions Maven Plugin'; topics: maven, maven-plugin"
+xstream,Serialization / Data binding,GitHub desc: 'Serialize Java objects to XML and back again'

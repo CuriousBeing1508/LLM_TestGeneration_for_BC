@@ -1,0 +1,10 @@
+model,context_variant,detected_bcs,unique_clients,unique_libraries,unique_library_categories,library_categories
+GPT-4o,Class,27,11,7,5,HTTP client|Logging API|Maven utility / tooling|Parser / Code generation|Serialization / Data binding
+GPT-4o,Method,13,6,4,3,Logging API|Maven utility / tooling|Serialization / Data binding
+GPT-4o,Minimal,17,9,6,5,HTTP client|Logging API|Parser / Code generation|SSH|Serialization / Data binding
+GPTOSS-120b,Class,10,4,4,3,HTTP client|Logging API|Serialization / Data binding
+GPTOSS-120b,Method,8,2,2,1,Logging API
+GPTOSS-120b,Minimal,4,3,3,2,Logging API|Parser / Code generation
+Qwen-480B,Class,20,10,6,4,HTTP client|Logging API|Parser / Code generation|Serialization / Data binding
+Qwen-480B,Method,20,9,7,5,Data structures / Parsing|HTTP client|Logging API|Parser / Code generation|Serialization / Data binding
+Qwen-480B,Minimal,18,11,8,6,Application framework|HTTP client|Logging API|Maven utility / tooling|Parser / Code generation|Serialization / Data binding

@@ -1,0 +1,4 @@
+context_variant,detected_bcs,unique_clients,unique_libraries,unique_library_categories,library_categories
+Class,28,11,7,5,HTTP client|Logging API|Maven utility / tooling|Parser / Code generation|Serialization / Data binding
+Method,21,10,8,6,Data structures / Parsing|HTTP client|Logging API|Maven utility / tooling|Parser / Code generation|Serialization / Data binding
+Minimal,23,13,9,7,Application framework|HTTP client|Logging API|Maven utility / tooling|Parser / Code generation|SSH|Serialization / Data binding
