@@ -1,0 +1,8 @@
+# No third-party Python packages required - the pipeline only uses the
+# standard library (argparse, subprocess, pathlib, csv, json, threading, ...).
+#
+# External requirements (not installable via pip):
+#   - Python 3.9+
+#   - Docker Desktop / Docker Engine, with the daemon running and `docker`
+#     on PATH (images are pulled automatically from ghcr.io/chains-project
+#     the first time each is used)

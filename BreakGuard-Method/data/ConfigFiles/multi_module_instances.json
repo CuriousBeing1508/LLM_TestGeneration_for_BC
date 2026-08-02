@@ -1,0 +1,54 @@
+{
+  "BBC24": {
+    "last_module": "jadler-all",
+    "last_module_package": "net.jadler"
+  },
+  "BBC44": {
+    "last_module": "jadler-all",
+    "last_module_package": "net.jadler"
+  },
+  "BBC52": {
+    "last_module": "appstore",
+    "last_module_package": "de.fraunhofer.ids.messaging.appstore"
+  },
+  "BBC82": {
+    "last_module": "appstore",
+    "last_module_package": "de.fraunhofer.ids.messaging.appstore"
+  },
+  "BBC99": {
+    "last_module": "jadler-all",
+    "last_module_package": "net.jadler"
+  },
+  "BBC111": {
+    "last_module": "appstore",
+    "last_module_package": "de.fraunhofer.ids.messaging.appstore"
+  },
+  "BBC118": {
+    "last_module": "avans-setup",
+    "last_module_package": "me.geso.avans.setup"
+  },
+  "BBC119": {
+    "last_module": "appstore",
+    "last_module_package": "de.fraunhofer.ids.messaging.appstore"
+  },
+  "BBC124": {
+    "last_module": "appstore",
+    "last_module_package": "de.fraunhofer.ids.messaging.appstore"
+  },
+  "BBC153": {
+    "last_module": "avans-setup",
+    "last_module_package": "me.geso.avans.setup"
+  },
+  "BBC155": {
+    "last_module": "avans-setup",
+    "last_module_package": "me.geso.avans.setup"
+  },
+  "BBC179": {
+    "last_module": "appstore",
+    "last_module_package": "de.fraunhofer.ids.messaging.appstore"
+  },
+  "BBC182": {
+    "last_module": "appstore",
+    "last_module_package": "de.fraunhofer.ids.messaging.appstore"
+  }
+}
