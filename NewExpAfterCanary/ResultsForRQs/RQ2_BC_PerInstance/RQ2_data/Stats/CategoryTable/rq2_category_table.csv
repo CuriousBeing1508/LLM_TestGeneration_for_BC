@@ -1,0 +1,11 @@
+Library category,Instances,GPT-4o_Minimal,GPT-4o_Method,GPT-4o_Class,Qwen3-coder_Minimal,Qwen3-coder_Method,Qwen3-coder_Class,GPT-OSS_Minimal,GPT-OSS_Method,GPT-OSS_Class
+Logging API,27,9,8,16,11,13,11,3,8,8
+Serialization / Data binding,26,5,4,8,3,4,7,0,0,1
+Application framework,9,0,0,0,1,0,0,0,0,0
+Web server / Servlet,6,0,0,0,0,0,0,0,0,0
+Parser / Code generation,6,1,0,1,1,1,1,1,0,0
+Data structures / Parsing,4,0,0,0,0,1,0,0,0,0
+Mocking library,4,0,0,0,0,0,0,0,0,0
+Other,4,2,0,1,1,1,1,0,0,1
+Maven utility / tooling,3,0,1,1,1,0,0,0,0,0
+Total,89,17,13,27,18,20,20,4,8,10
