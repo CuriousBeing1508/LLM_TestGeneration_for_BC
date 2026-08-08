@@ -24,15 +24,8 @@ REQUEST_DELAY = 2.0  # Seconds to wait between requests (adjust as needed)
 HOURLY_WAIT_TIME = 3660  # Wait 61 minutes when hitting hourly limit (3600s + 60s buffer)
 
 # Weekly limit handling: Set to True to exit when hitting weekly limit
-# Set to False to wait for 7 days (not recommended)
 EXIT_ON_WEEKLY_LIMIT = True
 
-# Optional: Email notification settings (leave empty to disable)
-# You can use Gmail SMTP or any other email service
-NOTIFICATION_EMAIL = ""  # Your email to receive notifications
-EMAIL_PASSWORD = ""  # App password for Gmail (not your regular password)
-SMTP_SERVER = ""
-SMTP_PORT = 587
 
 CSV_PATH = SECONDARY_DRIVE / "updated_FinalBUMP_Instances_with_TestRunner.csv"
 
@@ -136,35 +129,6 @@ print(f"  Keys remaining: {len(API_KEYS) - current_key_index - 1}")
 print(f"{'='*80}\n")
 
 
-# === EMAIL NOTIFICATION ===
-def send_email_notification(subject, message):
-    """Send email notification if configured."""
-    if not NOTIFICATION_EMAIL or not EMAIL_PASSWORD:
-        return
-    
-    try:
-        import smtplib
-        from email.mime.text import MIMEText
-        from email.mime.multipart import MIMEMultipart
-        msg = MIMEMultipart()
-        msg['From'] = NOTIFICATION_EMAIL
-        msg['To'] = NOTIFICATION_EMAIL
-        msg['Subject'] = subject
-        
-        msg.attach(MIMEText(message, 'plain'))
-        
-        server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
-        server.starttls()
-        server.login(NOTIFICATION_EMAIL, EMAIL_PASSWORD)
-        text = msg.as_string()
-        server.sendmail(NOTIFICATION_EMAIL, NOTIFICATION_EMAIL, text)
-        server.quit()
-        
-        print(f"✉ Email notification sent to {NOTIFICATION_EMAIL}")
-    except Exception as e:
-        print(f"Failed to send email notification: {e}")
-
-
 # === RATE LIMIT TRACKING ===
 def save_rate_limit_info(limit_type, hit_time, estimated_reset_time):
     """Save rate limit information for future reference."""
@@ -242,7 +206,7 @@ def call_qwen_cloud(prompt: str, max_retries=3):
                 current_index = get_current_key_index()
                 
                 print(f"\n{'='*80}")
-                print(f"⚠️  WEEKLY RATE LIMIT HIT - API KEY {current_index + 1} of {len(API_KEYS)}")
+                print(f"WEEKLY RATE LIMIT HIT - API KEY {current_index + 1} of {len(API_KEYS)}")
                 print(f"Error: {e}")
                 print(f"Current time: {current_time.strftime('%Y-%m-%d %H:%M:%S')}")
                 print(f"{'='*80}\n")
@@ -251,9 +215,9 @@ def call_qwen_cloud(prompt: str, max_retries=3):
                 new_client, new_index, has_more_keys = get_next_api_key()
                 
                 if has_more_keys:
-                    print(f"✓ Switching to backup API key {new_index + 1} of {len(API_KEYS)}")
-                    print(f"✓ Keys remaining after this: {len(API_KEYS) - new_index - 1}")
-                    print(f"✓ Continuing processing with new key...\n")
+                    print(f"Switching to backup API key {new_index + 1} of {len(API_KEYS)}")
+                    print(f"Keys remaining after this: {len(API_KEYS) - new_index - 1}")
+                    print(f"Continuing processing with new key...\n")
                     
                     client = new_client  # Update global client
                     
@@ -270,24 +234,23 @@ Keys remaining: {len(API_KEYS) - new_index - 1}
 Check the log file for more details:
 {LOG_FILE}
 """
-                    send_email_notification(email_subject, email_body)
                     
                     # Retry immediately with new key
                     continue
                 
                 else:
                     # No more keys available
-                    print(f"❌ All {len(API_KEYS)} API keys have hit their weekly limits!")
+                    print(f"All {len(API_KEYS)} API keys have hit their weekly limits!")
                     
                     if EXIT_ON_WEEKLY_LIMIT:
                         estimated_reset = current_time + timedelta(days=7)
                         save_rate_limit_info("WEEKLY_ALL_KEYS", current_time, estimated_reset)
                         
-                        print(f"\n⚠️ All keys exhausted. Exiting gracefully.")
+                        print(f"\n All keys exhausted. Exiting gracefully.")
                         print(f"   Progress has been saved.")
                         print(f"   Estimated reset time: {estimated_reset.strftime('%Y-%m-%d %H:%M:%S')}")
                         print(f"   (Note: Actual reset time may be different)")
-                        print(f"\n📋 To resume:")
+                        print(f"\n To resume:")
                         print(f"   1. Wait for the weekly limits to reset")
                         print(f"   2. Delete {CURRENT_KEY_INDEX_FILE.name} to reset to first key")
                         print(f"   3. Run this script again - it will resume from where it stopped")
@@ -308,12 +271,11 @@ To resume:
 Check the log file for more details:
 {LOG_FILE}
 """
-                        send_email_notification(email_subject, email_body)
                         
                         return None, True  # Signal to exit
                     else:
                         # Wait for 7 days
-                        print(f"⏳ Waiting for 7 days before resuming...")
+                        print(f" Waiting for 7 days before resuming...")
                         estimated_reset = current_time + timedelta(days=7)
                         save_rate_limit_info("WEEKLY_ALL_KEYS", current_time, estimated_reset)
                         
@@ -340,7 +302,7 @@ Check the log file for more details:
                 current_index = get_current_key_index()
                 
                 print(f"\n{'='*80}")
-                print(f"⏱️ HOURLY RATE LIMIT HIT - API KEY {current_index + 1}")
+                print(f"HOURLY RATE LIMIT HIT - API KEY {current_index + 1}")
                 print(f"Error: {e}")
                 print(f"Current time: {current_time.strftime('%Y-%m-%d %H:%M:%S')}")
                 print(f"Waiting for {HOURLY_WAIT_TIME // 60} minutes before resuming...")
@@ -410,13 +372,12 @@ def process_prompts(prompt_dir, csv_bump_ids, start_idx=1, end_idx=None, skip_ex
     print(f"Request delay between calls: {REQUEST_DELAY} seconds")
     print(f"Hourly limit wait time: {HOURLY_WAIT_TIME // 60} minutes")
     print(f"Weekly limit action: {'EXIT (recommended)' if EXIT_ON_WEEKLY_LIMIT else 'WAIT 7 days'}")
-    print(f"Email notifications: {'Enabled' if NOTIFICATION_EMAIL else 'Disabled'}")
     print("Instances to process:", selected_ids, "\n")
 
     # Check for previous rate limit info
     rate_limit_info = load_rate_limit_info()
     if rate_limit_info:
-        print(f"ℹ️  Previous rate limit detected:")
+        print(f"   Previous rate limit detected:")
         print(f"   Type: {rate_limit_info['limit_type']}")
         print(f"   Hit at: {rate_limit_info['hit_time']}")
         print(f"   Estimated reset: {rate_limit_info['estimated_reset_time']}")
@@ -461,8 +422,8 @@ def process_prompts(prompt_dir, csv_bump_ids, start_idx=1, end_idx=None, skip_ex
             if should_skip:
                 if bump_id == progress['last_bump_id'] and txt_file.name == progress['last_file']:
                     should_skip = False
-                    print(f"✓ Found resume point: {bump_id}/{txt_file.name}")
-                    print(f"✓ Continuing from next file...\n")
+                    print(f" Found resume point: {bump_id}/{txt_file.name}")
+                    print(f" Continuing from next file...\n")
                 continue
 
             processed += 1
@@ -474,7 +435,7 @@ def process_prompts(prompt_dir, csv_bump_ids, start_idx=1, end_idx=None, skip_ex
             output_path = OUTPUT_ROOT / bump_id / prompt_filename
 
             if skip_existing and output_path.exists():
-                print(f"  → Skipping (already exists): {output_path}")
+                print(f" Skipping (already exists): {output_path}")
                 skipped += 1
                 continue
 
@@ -504,13 +465,13 @@ def process_prompts(prompt_dir, csv_bump_ids, start_idx=1, end_idx=None, skip_ex
                 with open(output_path, "w", encoding="utf-8") as out_file:
                     out_file.write(response)
 
-                print(f"✓ Saved: {output_path}")
+                print(f" Saved: {output_path}")
                 written += 1
                 
                 # Save progress after each successful write
                 save_progress(bump_id, txt_file.name)
             else:
-                print(f"✗ Failed: {response}")
+                print(f" Failed: {response}")
                 errors += 1
 
             # Add delay between requests to avoid hitting rate limits

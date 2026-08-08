@@ -1,18 +1,4 @@
 """Path resolution for the BreakGuard-Method execution pipeline.
-
-Two things differ between the BreakGuard-Minimal / -Method / -Class
-packages: LLM_OUTPUT_SUBDIR (which FilteredDataset subfolder holds the
-already-generated LLM test outputs for Method-context) and
-CONTEXT_BATCH_DIRNAME (the results folder name for this context).
-
-Results and logs are NOT written inside this package - per-instance logs
-alone run into the hundreds of MB per model/context. Instead they go under
-<results_root>/<results_namespace>/<ModelResults>/<ContextBatchResults>/...,
-mirroring the naming convention already used on the original experiment
-drive (GPTResults/Qwen480Results/GPTOSSResults, Exp3/6/7BatchResults,
-pre|bre, logs/). The results_namespace ("Replication2" by default) keeps
-a fresh replication run from ever colliding with or overwriting the
-original experiment's results on the same drive.
 """
 from pathlib import Path
 

@@ -8,18 +8,6 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from config import PRIMARY_DRIVE
 
-# === CONFIG ===
-# Use java 21 for this, Java 23 is not compatible with Byte-buddy: Dated May 23, 20225
-
-# POC Path
-# SCRIPT_DIR = Path(__file__).resolve().parent
-# csv_path = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/FinalBUMP_Instances.csv")
-# jar_path = SCRIPT_DIR / "Extract-library-usage-from-bytecode.jar"
-# library_root = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/downloaded_jars")
-# analysis_root = Path("/Users/rachnaraj/Documents/Research/Poc/Dataset/StaticAnalysisClient")
-# log_dir = Path("/Users/rachnaraj/Documents/Research/Poc/logs")
-# log_dir.mkdir(parents=True, exist_ok=True)
-
 # Experiment 1 Path
 SCRIPT_DIR = Path(__file__).resolve().parent
 csv_path = PRIMARY_DRIVE / "FinalBUMP_Instances.csv"

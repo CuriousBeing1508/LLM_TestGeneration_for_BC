@@ -133,7 +133,7 @@ def main():
 
     # Print comprehensive summary
     print(f"\n{'='*80}")
-    print(f"✓ FINAL RESULTS: PRE STAGE")
+    print(f" FINAL RESULTS: PRE STAGE")
     print(f"{'='*80}")
     print(f"")
     print(f"CLASS TEST FILES:")

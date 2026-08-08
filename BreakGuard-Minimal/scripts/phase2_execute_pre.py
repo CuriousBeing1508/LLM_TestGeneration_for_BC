@@ -4,8 +4,6 @@ Script: execute_phase_pre.py
 Description: Phase 2 - Execute ONLY pre-compiled test files on PRE stage
              Loads compilation results from Phase 1, executes only successful compilations.
              Features: Incremental saving, resume capability, full console output, auto container cleanup.
-             Skips PMD/CheckStyle checks.
-Author: Optimized version with resume capability, verbose output, and stale container cleanup
 """
 
 import os
@@ -49,13 +47,6 @@ COMPILE_INPUT = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre/compile_results
 EXECUTE_OUTPUT = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre/execute_results_pre.json"
 ABC_ROOT = PRIMARY_DRIVE / "FilteredDataset/Exp3LLMOutput/GPT4o"
 
-# CSV_PATH = PRIMARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-# SUMMARY_PATH = PRIMARY_DRIVE / "ConfigFiles/package_structure_summary.txt"
-# COMPILE_INPUT = PRIMARY_DRIVE / "GPTResults/Exp7BatchResultsOp2/pre/compile_results_pre.json"
-# EXECUTE_OUTPUT = PRIMARY_DRIVE / "GPTResults/Exp7BatchResultsOp2/pre/execute_results_pre.json"
-# ABC_ROOT = PRIMARY_DRIVE / "FilteredDataset/Exp7LLMOutput/GPT4o"
-# MODEL_NAME = ABC_ROOT.name
-
 _args, _paths = parse_common_args(
     "PRE Phase 2: execute pre-compiled tests against the PRE (pre-upgrade) codebase"
 )
@@ -68,14 +59,6 @@ ABC_ROOT = _paths["abc_root"]
 MODEL_NAME = _paths["model_name"]
 LOG_DIR_BATCH = _paths["log_dir_pre"]
 LOG_DIR_BATCH.mkdir(parents=True, exist_ok=True)
-
-# # === CONFIGURATION Qwen3 Exp6===
-# CSV_PATH = SECONDARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-# SUMMARY_PATH = SECONDARY_DRIVE / "ConfigFiles/package_structure_summary.txt"
-# COMPILE_INPUT = SECONDARY_DRIVE / "Qwen480Results/Exp6BatchResults/pre/compile_results_pre.json"
-# EXECUTE_OUTPUT = SECONDARY_DRIVE / "Qwen480Results/Exp6BatchResults/pre/execute_results_pre.json"
-# ABC_ROOT = SECONDARY_DRIVE / "FilteredDataset/Exp6LLMOutput/Qwen3_480b_cloud"
-# MODEL_NAME = ABC_ROOT.name
 
 # Parse package info
 pkg_info = parse_package_summary(SUMMARY_PATH)
@@ -252,13 +235,11 @@ def execute_compiled_test(image_tag: str, custom_id: str, test_root: str,
         
         # === STEP 7: Build compile + execute command ===
         # Skip PMD, CheckStyle, and Enforcer to avoid false failures
+        # uses `mvn test` (a normal Maven lifecycle phase) instead of a
+        # standalone `javac` call plus the `surefire:test` goal against a manually
         exec_cmd = (
             f"cd {project_root} && "
-            f"javac -cp \"target/classes:target/test-classes:"
-            f"$(mvn dependency:build-classpath -q -DincludeScope=test -Dmdep.outputFile=/dev/stdout 2>/dev/null)\" "
-            f"-d target/test-classes "
-            f"{test_root}/{pkg_path.as_posix()}/{java_file} 2>&1 && "
-            f"mvn surefire:test -Dtest={fqn} -DfailIfNoTests=false "
+            f"mvn test -Dtest={fqn} -DfailIfNoTests=false "
             f"-Dpmd.skip=true -Dcheckstyle.skip=true -Denforcer.skip=true"
         )
         
@@ -352,9 +333,9 @@ def execute_compiled_test(image_tag: str, custom_id: str, test_root: str,
                     failure_type = "parse_error"
             else:
                 if "BUILD SUCCESS" in stdout and proc.returncode == 0:
-                    success = True
-                    log_lines.append("[RESULT]  Test PASSED (BUILD SUCCESS)")
-                    safe_print("[RESULT]  Test PASSED (BUILD SUCCESS)")
+                    failure_type = "transplant_issue"
+                    log_lines.append("[RESULT] TRANSPLANT ISSUE - BUILD SUCCESS but test did not execute")
+                    safe_print("[RESULT] TRANSPLANT ISSUE - BUILD SUCCESS but test did not execute")
                 else:
                     failure_type = "execution_failure"
                     log_lines.append("[RESULT]  Test did not execute")
@@ -432,7 +413,6 @@ def main():
     safe_print(f"PHASE 2: EXECUTION ONLY (PRE Stage)")
     safe_print(f"Features: Incremental saving, resume capability, full output")
     safe_print(f"Features: Auto container cleanup (no more stale containers!)")
-    safe_print(f"Skips: PMD, CheckStyle, Enforcer (fast execution)")
     safe_print(f"ID Range: {START_ID} to {END_ID}")
     safe_print(f"Max Parallel Workers: {MAX_WORKERS}")
     safe_print(f"{'='*80}\n")
@@ -583,12 +563,12 @@ def main():
 
                             with results_lock:
                                 if success:
-                                    safe_print(f"  → {java_file}...  PASSED on PRE")
+                                    safe_print(f"   {java_file}...  PASSED on PRE")
                                     exec_success_count += 1
                                     passed_tests.append(java_file)
                                     carry_forward_tests[custom_id]["passed"].append(java_file)
                                 else:
-                                    safe_print(f"  → {java_file}...  FAILED ({failure_type})")
+                                    safe_print(f"   {java_file}...  FAILED ({failure_type})")
                                     exec_failure_count += 1
                                     failed_tests.append(java_file)
                                     carry_forward_tests[custom_id]["failed"].append(java_file)
@@ -606,7 +586,7 @@ def main():
 
                         except Exception as exc:
                             with results_lock:
-                                safe_print(f"  → {java_file}...  EXCEPTION: {exc}")
+                                safe_print(f"   {java_file}...  EXCEPTION: {exc}")
                                 exec_failure_count += 1
                                 failed_tests.append(java_file)
                                 carry_forward_tests[custom_id]["failed"].append(java_file)

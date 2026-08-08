@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """
 Script: execute_breaking_single_module.py
-Description: Breaking stage execution for SINGLE-MODULE projects only
+Description: Breaking stage execution.
              - Uses EXACT SAME transplant logic as PRE script
-             - Parallel test execution (4 tests per instance)
              - Detects compilation errors BEFORE execution
              - Auto container cleanup, resume capability
 Approach: javac + surefire:test
@@ -45,6 +44,38 @@ def safe_print(*args, **kwargs):
     """Thread-safe print function."""
     with print_lock:
         print(*args, **kwargs)
+
+
+def build_test_file_summary(success_count, failure_count, compilation_error_count,
+                             test_failure_count, build_failure_count, timeout_count,
+                             transplant_issue_count):
+    return {
+        "total_test_files_attempted": success_count + failure_count,
+        "total_pass": success_count,
+        "total_fail": failure_count,
+        "test_failures_breaking_change": test_failure_count,
+        "transplant_issues": transplant_issue_count,
+        "timeouts": timeout_count,
+        "build_failures": {
+            "total": compilation_error_count + build_failure_count,
+            "compilation_errors": compilation_error_count,
+            "other": build_failure_count
+        }
+    }
+
+
+def compute_instance_level_summary(results, total_instances_in_dataset, skipped_count, skip_reasons):
+    with_breaking_change = sum(
+        1 for data in results.values()
+        if data.get("summary", {}).get("test_failures_breaking_change", 0) > 0
+    )
+    return {
+        "total_instances_in_dataset": total_instances_in_dataset,
+        "instances_processed": len(results),
+        "instances_skipped": skipped_count,
+        "instances_skipped_breakdown": dict(skip_reasons),
+        "instances_with_breaking_change": with_breaking_change,
+    }
 
 # # === CONFIG GPT===
 # CSV_PATH = PRIMARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
@@ -215,13 +246,12 @@ def run_single_module_test(image_tag: str, custom_id: str, test_root: str,
         
         # === STEP 7: Build compile + execute command (EXACT SAME as PRE) ===
         # Skip PMD, CheckStyle, and Enforcer to avoid false failures
+        # NOTE: uses `mvn test` (a normal Maven lifecycle phase) instead of a
+        # standalone `javac` call plus the `surefire:test` goal against a manually
+        # assembled classpath - see phase2_execute_pre.py for why.
         exec_cmd = (
             f"cd {project_root} && "
-            f"javac -cp \"target/classes:target/test-classes:"
-            f"$(mvn dependency:build-classpath -q -DincludeScope=test -Dmdep.outputFile=/dev/stdout 2>/dev/null)\" "
-            f"-d target/test-classes "
-            f"{test_root}/{pkg_path.as_posix()}/{java_file} 2>&1 && "
-            f"mvn surefire:test -Dtest={fqn} -DfailIfNoTests=false "
+            f"mvn test -Dtest={fqn} -DfailIfNoTests=false "
             f"-Dpmd.skip=true -Dcheckstyle.skip=true -Denforcer.skip=true"
         )
         
@@ -277,7 +307,7 @@ def run_single_module_test(image_tag: str, custom_id: str, test_root: str,
                 success = False
                 result_type = "compilation_error"
                 failure_reason = "Test code failed to compile"
-                log_lines.append(f"[✗] COMPILATION ERROR - {failure_reason}")
+                log_lines.append(f" COMPILATION ERROR - {failure_reason}")
                 
             # STEP 2: Did test EXECUTE? (look for "Running XTest" line)
             elif f"Running {fqn}" in combined or f"Running {test_class}" in combined:
@@ -310,12 +340,12 @@ def run_single_module_test(image_tag: str, custom_id: str, test_root: str,
                         success = False
                         result_type = "test_failure_breaking_change"
                         failure_reason = "0 tests ran"
-                        log_lines.append("[?] WARNING - 0 tests ran")
+                        log_lines.append(" WARNING - 0 tests ran")
                 else:
                     success = False
                     result_type = "test_failure_breaking_change"
                     failure_reason = "Could not parse test results"
-                    log_lines.append("[?] Could not parse test results")
+                    log_lines.append(" Could not parse test results")
                     
             # STEP 3: Test did NOT execute - check BUILD status
             elif "BUILD SUCCESS" in stdout and proc.returncode == 0:
@@ -335,7 +365,7 @@ def run_single_module_test(image_tag: str, custom_id: str, test_root: str,
                 log_lines.append("[INFO] Build failed before test could run")
                     
         except subprocess.TimeoutExpired:
-            log_lines.append("[ERROR] ✗ Timeout (600s) - Force killing container")
+            log_lines.append("[ERROR]  Timeout (600s) - Force killing container")
             try:
                 subprocess.run(["docker", "kill", container_name], capture_output=True, timeout=10)
                 subprocess.run(["docker", "rm", "-f", container_name], capture_output=True, timeout=10)
@@ -415,6 +445,8 @@ def main():
     
     # Load PRE results (carry forward from execute_results_pre.json)
     pre_data = json.loads(Path(PRE_RESULTS_PATH).read_text(encoding="utf-8"))
+    dataset_instance_ids = set(pre_data.get("results", {}).keys())
+    total_instances_in_dataset = len(dataset_instance_ids)
     carry_forward_tests.update(pre_data.get("carry_forward_tests", {}))
     carry_forward_instances.update(pre_data.get("carry_forward_instances", []))
     safe_print(f"[INFO] Loaded {len(carry_forward_instances)} instances with passing tests")
@@ -460,13 +492,14 @@ def main():
     
     processed_count = 0
     skipped_count = 0
+    skip_reasons = Counter()
 
     try:
         with open(CSV_PATH) as f:
             reader = csv.DictReader(f)
             for row in reader:
                 custom_id = row["custom_id"].strip()
-                
+
                 match = re.search(r"(\d+)$", custom_id)
                 if not match:
                     continue
@@ -474,29 +507,40 @@ def main():
                 if cid_num < START_ID or cid_num > END_ID:
                     continue
 
+                if custom_id not in dataset_instance_ids:
+                    continue
+
                 commit = row["breakingCommit"].strip()
                 if not commit:
                     skipped_count += 1
+                    skip_reasons["no_breaking_commit"] += 1
                     continue
 
-                if custom_id not in carry_forward_instances or not _abc_has_any_file(custom_id):
+                if custom_id not in carry_forward_instances:
                     skipped_count += 1
+                    skip_reasons["no_passing_test_on_pre"] += 1
+                    continue
+
+                if not _abc_has_any_file(custom_id):
+                    skipped_count += 1
+                    skip_reasons["no_llm_output_files"] += 1
                     continue
 
                 passed_tests = carry_forward_tests[custom_id]["passed"]
                 if not passed_tests:
                     skipped_count += 1
+                    skip_reasons["no_passed_tests_recorded"] += 1
                     continue
 
                 if custom_id in results:
                     safe_print(f"[SKIP] {custom_id} - Already processed (resuming)")
-                    skipped_count += 1
                     continue
 
                 # SKIP MULTI-MODULE INSTANCES
                 if custom_id in multi_module_instances:
                     safe_print(f"[SKIP] {custom_id} - Multi-module (use multi-module script)")
                     skipped_count += 1
+                    skip_reasons["multi_module"] += 1
                     continue
 
                 # Get test_root and package from pkg_info (SAME as PRE)
@@ -504,6 +548,7 @@ def main():
                 if not test_root or not real_package:
                     safe_print(f"[SKIP] {custom_id} - No test_root/package")
                     skipped_count += 1
+                    skip_reasons["no_test_root_mapping"] += 1
                     continue
 
                 safe_print(f"\n{custom_id} [SINGLE-MODULE] | {commit[:8]}")
@@ -541,7 +586,7 @@ def main():
                             
                             with results_lock:
                                 if success:
-                                    safe_print(f"  → {java_file}... ✓ PASS")
+                                    safe_print(f"   {java_file}...  PASS")
                                     success_count += 1
                                     per_test_status["passed"].append(java_file)
                                 else:
@@ -557,19 +602,19 @@ def main():
                                         safe_print(f"   {java_file}...  COMPILATION ERROR")
                                         compilation_error_count += 1
                                     elif result_type == "test_failure_breaking_change":
-                                        safe_print(f"  → {java_file}...  BREAKING CHANGE")
+                                        safe_print(f"   {java_file}...  BREAKING CHANGE")
                                         test_failure_count += 1
                                     elif result_type == "transplant_issue":
-                                        safe_print(f"  → {java_file}... TRANSPLANT ISSUE")
+                                        safe_print(f"   {java_file}... TRANSPLANT ISSUE")
                                         transplant_issue_count += 1
                                     elif result_type == "build_failure_without_test_execution":
-                                        safe_print(f"  → {java_file}... ✗ BUILD FAILURE")
+                                        safe_print(f"   {java_file}...  BUILD FAILURE")
                                         build_failure_count += 1
                                     elif result_type == "timeout":
-                                        safe_print(f"  → {java_file}... ⏱ TIMEOUT")
+                                        safe_print(f"   {java_file}...  TIMEOUT")
                                         timeout_count += 1
                                     else:
-                                        safe_print(f"  → {java_file}... FAILED")
+                                        safe_print(f"   {java_file}... FAILED")
                                     
                                     failure_count += 1
                                     per_test_status["failed"].append(failure_entry)
@@ -577,7 +622,7 @@ def main():
                         except Exception as exc:
                             java_file = task[4]
                             with results_lock:
-                                safe_print(f"  → {java_file}...  EXCEPTION: {exc}")
+                                safe_print(f"   {java_file}...  EXCEPTION: {exc}")
                                 failure_count += 1
                                 build_failure_count += 1
                                 per_test_status["failed"].append({
@@ -614,17 +659,12 @@ def main():
                 BREAKING_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
                 output_data = {
                     "results": results,
-                    "summary": {
-                        "total_pass": success_count,
-                        "total_fail": failure_count,
-                        "compilation_errors": compilation_error_count,
-                        "test_failures_breaking_change": test_failure_count,
-                        "build_failures_without_test_execution": build_failure_count,
-                        "timeouts": timeout_count,
-                        "transplant_issues": transplant_issue_count,
-                        "processed": processed_count,
-                        "skipped": skipped_count
-                    }
+                    "test_file_summary": build_test_file_summary(
+                        success_count, failure_count, compilation_error_count,
+                        test_failure_count, build_failure_count, timeout_count,
+                        transplant_issue_count
+                    ),
+                    "instance_level_summary": compute_instance_level_summary(results, total_instances_in_dataset, skipped_count, skip_reasons)
                 }
                 BREAKING_OUTPUT.write_text(json.dumps(output_data, indent=2), encoding="utf-8")
                 safe_print(f"[SAVED] Results for {custom_id}")
@@ -634,17 +674,12 @@ def main():
         BREAKING_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
         output_data = {
             "results": results,
-            "summary": {
-                "total_pass": success_count,
-                "total_fail": failure_count,
-                "compilation_errors": compilation_error_count,
-                "test_failures_breaking_change": test_failure_count,
-                "build_failures_without_test_execution": build_failure_count,
-                "timeouts": timeout_count,
-                "transplant_issues": transplant_issue_count,
-                "processed": processed_count,
-                "skipped": skipped_count
-            }
+            "test_file_summary": build_test_file_summary(
+                success_count, failure_count, compilation_error_count,
+                test_failure_count, build_failure_count, timeout_count,
+                transplant_issue_count
+            ),
+            "instance_level_summary": compute_instance_level_summary(results, total_instances_in_dataset, skipped_count, skip_reasons)
         }
         BREAKING_OUTPUT.write_text(json.dumps(output_data, indent=2), encoding="utf-8")
         safe_print(f"[SAVED] Progress saved. Resume by running again.")
@@ -669,16 +704,34 @@ def main():
 
     safe_print(f"\n{'='*80}")
     safe_print(f" COMPLETE - SINGLE-MODULE")
-    safe_print(f"Processed: {processed_count}")
-    safe_print(f"Pass: {success_count}")
-    safe_print(f"Fail: {failure_count}")
-    safe_print(f"  - Compilation Errors: {compilation_error_count}")
-    safe_print(f"  - Test Failures (Breaking Change): {test_failure_count}")
-    safe_print(f"  - Build Failures: {build_failure_count}")
-    safe_print(f"  - Timeouts: {timeout_count}")
-    safe_print(f"  - Transplant Issues: {transplant_issue_count}")
     safe_print(f"")
-    safe_print(f"BREAKING CHANGES DETECTED: {test_failure_count}")
+    tf_summary = build_test_file_summary(
+        success_count, failure_count, compilation_error_count,
+        test_failure_count, build_failure_count, timeout_count,
+        transplant_issue_count
+    )
+    safe_print(f"TEST FILE SUMMARY:")
+    safe_print(f"  Test files attempted: {tf_summary['total_test_files_attempted']}")
+    safe_print(f"  Pass: {tf_summary['total_pass']}")
+    safe_print(f"  Fail: {tf_summary['total_fail']}")
+    safe_print(f"    - Test Failures (Breaking Change): {tf_summary['test_failures_breaking_change']}")
+    safe_print(f"    - Transplant Issues: {tf_summary['transplant_issues']}")
+    safe_print(f"    - Timeouts: {tf_summary['timeouts']}")
+    safe_print(f"    - Build Failures: {tf_summary['build_failures']['total']}")
+    safe_print(f"        - Compilation Errors: {tf_summary['build_failures']['compilation_errors']}")
+    safe_print(f"        - Other: {tf_summary['build_failures']['other']}")
+    safe_print(f"")
+    safe_print(f"BREAKING CHANGES DETECTED: {test_failure_count} file(s)")
+
+    inst_summary = compute_instance_level_summary(results, total_instances_in_dataset, skipped_count, skip_reasons)
+    safe_print(f"")
+    safe_print(f"INSTANCE-LEVEL SUMMARY:")
+    safe_print(f"  Total instances in dataset: {inst_summary['total_instances_in_dataset']}")
+    safe_print(f"  Instances processed: {inst_summary['instances_processed']}")
+    safe_print(f"  Instances skipped: {inst_summary['instances_skipped']}")
+    for reason, count in inst_summary['instances_skipped_breakdown'].items():
+        safe_print(f"    - {reason}: {count}")
+    safe_print(f"  Instances with a breaking change: {inst_summary['instances_with_breaking_change']}")
     safe_print(f"{'='*80}\n")
 
 

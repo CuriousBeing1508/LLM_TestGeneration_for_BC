@@ -6,11 +6,6 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from cli import parse_common_args
 
-# # === CONFIG GPT ===
-# COMPILE_INPUT = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre/compile_results_pre.json"
-# EXECUTE_INPUT = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre/execute_results_pre.json"
-# FINAL_OUTPUT = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre/transplant_results_final_pre.json"
-
 
 _args, _paths = parse_common_args(
     "PRE Phase 3: merge compilation + execution results into the carry-forward list for BREAKING"
@@ -140,7 +135,7 @@ def main():
 
     # Print comprehensive summary
     print(f"\n{'='*80}")
-    print(f"✓ FINAL RESULTS: PRE STAGE")
+    print(f"FINAL RESULTS: PRE STAGE")
     print(f"{'='*80}")
     print(f"")
     print(f"CLASS TEST FILES:")
@@ -159,7 +154,7 @@ def main():
     print(f"OVERALL METRICS:")
     print(f"  Compilation Success Rate: {(total_files_compiled / total_files_generated * 100) if total_files_generated > 0 else 0:.2f}%")
     print(f"  Execution Success Rate (of compiled): {(total_passed_on_pre / total_files_compiled * 100) if total_files_compiled > 0 else 0:.2f}%")
-    print(f"  Overall Success Rate (generated → passed): {(total_passed_on_pre / total_files_generated * 100) if total_files_generated > 0 else 0:.2f}%")
+    print(f"  Overall Success Rate (generated -> passed): {(total_passed_on_pre / total_files_generated * 100) if total_files_generated > 0 else 0:.2f}%")
     print(f"")
     print(f"INSTANCES:")
     print(f"  Instances with at least one passing test: {len(carry_forward_instances)}")

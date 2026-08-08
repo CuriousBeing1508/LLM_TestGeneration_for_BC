@@ -3,11 +3,8 @@
 Script: compile_phase_pre.py
 Description: Phase 1 - Compile all LLM-generated test files for PRE stage
              Uses Docker to compile tests, tracking which files compile successfully.
-             Features: Incremental saving, resume from where stopped, smart skipping.
+             Features: Incremental saving, resume from where stopped.
              Dynamic worker allocation based on instance size.
-             Full console output, skips PMD/CheckStyle checks.
-             Minimal container cleanup (only stuck containers).
-Author: Fixed version - correct success/failure logic, minimal cleanup
 """
 
 import os
@@ -123,13 +120,13 @@ def cleanup_stale_containers():
             for name in container_names:
                 try:
                     subprocess.run(["docker", "rm", "-f", name], capture_output=True, timeout=10)
-                    safe_print(f"[CLEANUP]   ✓ Removed: {name}")
+                    safe_print(f"[CLEANUP]    Removed: {name}")
                     removed_count += 1
                 except Exception as e:
-                    safe_print(f"[CLEANUP]   ✗ Failed to remove {name}: {e}")
+                    safe_print(f"[CLEANUP]    Failed to remove {name}: {e}")
             safe_print(f"[CLEANUP] Successfully removed {removed_count}/{len(container_names)} container(s)")
         else:
-            safe_print(f"[CLEANUP] No stuck containers found ✓")
+            safe_print(f"[CLEANUP] No stuck containers found ")
     except Exception as e:
         safe_print(f"[CLEANUP] Warning: Could not check for stuck containers: {e}")
 
@@ -238,7 +235,7 @@ def compile_test_in_docker(image_tag: str, custom_id: str, test_root: str,
     3. Fix package declaration and class name
     4. Create temp directory with LLMTest organizer folder
     5. Write Java file in correct package structure
-    6. Mount to Docker and compile (skip PMD/CheckStyle)
+    6. Mount to Docker and compile
     7. Show full Maven output in console
     8. Cleanup temp directory
     
@@ -301,12 +298,13 @@ def compile_test_in_docker(image_tag: str, custom_id: str, test_root: str,
         test_class = java_file.replace(".java", "")
         fqn = f"{package_decl}.{test_class}"
         
+        # NOTE: uses `mvn test-compile` (a normal Maven lifecycle phase) instead of a
+        # standalone `javac` call with a manually-assembled classpath. Manually
+        
         compile_cmd = (
             f"cd {project_root} && "
-            f"javac -cp \"target/classes:target/test-classes:"
-            f"$(mvn dependency:build-classpath -q -DincludeScope=test -Dmdep.outputFile=/dev/stdout 2>/dev/null)\" "
-            f"-d target/test-classes "
-            f"{test_root}/{pkg_path.as_posix()}/{java_file}"
+            f"mvn test-compile "
+            f"-Dpmd.skip=true -Dcheckstyle.skip=true -Denforcer.skip=true"
         )
         
         # === STEP 8: Run Docker ===
@@ -335,7 +333,7 @@ def compile_test_in_docker(image_tag: str, custom_id: str, test_root: str,
         
         log_lines = [
             "="*80,
-            f"PHASE 1: COMPILATION - {java_file} for {custom_id}",
+            f"PHASE 1: COMPILATION  {java_file} for {custom_id}",
             f"Container: {container_name}",
             "="*80,
             f"Image: {image_tag}",
@@ -381,28 +379,28 @@ def compile_test_in_docker(image_tag: str, custom_id: str, test_root: str,
             )
             
             if has_compilation_error:
-                log_lines.append("[RESULT] ✗ Compilation FAILED")
-                safe_print("[RESULT] ✗ Compilation FAILED")
+                log_lines.append("[RESULT]  Compilation FAILED")
+                safe_print("[RESULT]  Compilation FAILED")
                 success = False
             elif proc.returncode == 0:
-                log_lines.append("[RESULT] ✓ Compilation SUCCESS")
-                safe_print("[RESULT] ✓ Compilation SUCCESS")
+                log_lines.append("[RESULT]  Compilation SUCCESS")
+                safe_print("[RESULT]  Compilation SUCCESS")
                 success = True
             else:
-                log_lines.append(f"[RESULT] ✗ Compilation FAILED (return code: {proc.returncode})")
-                safe_print(f"[RESULT] ✗ Compilation FAILED (return code: {proc.returncode})")
+                log_lines.append(f"[RESULT]  Compilation FAILED (return code: {proc.returncode})")
+                safe_print(f"[RESULT]  Compilation FAILED (return code: {proc.returncode})")
                 success = False
                 
         except subprocess.TimeoutExpired:
             # Kill stuck container on timeout
-            log_lines.append(f"[ERROR] ✗ Timeout after {COMPILE_TIMEOUT}s - Force killing container")
-            safe_print(f"[ERROR] ✗ Timeout after {COMPILE_TIMEOUT}s - Force killing container")
+            log_lines.append(f"[ERROR]  Timeout after {COMPILE_TIMEOUT}s - Force killing container")
+            safe_print(f"[ERROR]  Timeout after {COMPILE_TIMEOUT}s - Force killing container")
             try:
                 subprocess.run(["docker", "kill", container_name], capture_output=True, timeout=10)
                 subprocess.run(["docker", "rm", "-f", container_name], capture_output=True, timeout=10)
-                log_lines.append(f"[CLEANUP] ✓ Killed and removed stuck container: {container_name}")
+                log_lines.append(f"[CLEANUP]  Killed and removed stuck container: {container_name}")
             except Exception as cleanup_err:
-                log_lines.append(f"[CLEANUP] ✗ Failed to kill container: {cleanup_err}")
+                log_lines.append(f"[CLEANUP]  Failed to kill container: {cleanup_err}")
             err_info = {"category": "timeout", "reason": f"Compilation timeout ({COMPILE_TIMEOUT}s)"}
             success = False
         except Exception as e:
@@ -599,7 +597,7 @@ def main():
                             with results_lock:
                                 # FIXED: Correct logic
                                 if not success:
-                                    safe_print(f"  → {java_file}... ✗ FAILED")
+                                    safe_print(f"   {java_file}...  FAILED")
                                     compile_failure_count += 1
                                     failed_files[java_file] = {
                                         "error_category": err_info.get("category", "") if err_info else "",
@@ -608,7 +606,7 @@ def main():
                                         "log_path": log_path
                                     }
                                 else:
-                                    safe_print(f"  → {java_file}... ✓ COMPILED")
+                                    safe_print(f"   {java_file}...  COMPILED")
                                     compile_success_count += 1
                                     compiled_files.append(java_file)
                                     file_counts[custom_id]["files_compiled"] += 1
@@ -616,7 +614,7 @@ def main():
 
                         except Exception as exc:
                             with results_lock:
-                                safe_print(f"  → {java_file}... ✗ EXCEPTION: {exc}")
+                                safe_print(f"   {java_file}...  EXCEPTION: {exc}")
                                 compile_failure_count += 1
                                 failed_files[java_file] = {
                                     "error_category": "exception",

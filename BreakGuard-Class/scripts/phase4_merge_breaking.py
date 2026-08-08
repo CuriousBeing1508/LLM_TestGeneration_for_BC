@@ -1,12 +1,6 @@
 #!/usr/bin/env python3
 """BREAKING merge: combine the single-module and multi-module BREAKING-stage
 results into one final transplant_results_breaking.json per model.
-
-execute_breaking_single_module.py and execute_breaking_multi_module.py each
-process a disjoint set of instances (split by project type) and save their
-own incrementally-resumable output file. This script does not re-run
-anything - it just merges those two files into one combined result, the
-same way phase3_merge_pre.py merges compile+execute into one PRE result.
 """
 import json
 import sys
@@ -23,23 +17,40 @@ SINGLE_INPUT = _paths["breaking_single_output"]
 MULTI_INPUT = _paths["breaking_multi_output"]
 FINAL_OUTPUT = _paths["breaking_output"]
 
-SUMMARY_KEYS = [
-    "total_pass",
-    "total_fail",
-    "compilation_errors",
-    "test_failures_breaking_change",
-    "build_failures_without_test_execution",
-    "transplant_issues",
-    "processed",
-    "skipped",
-]
-
 
 def _load(path):
     if not path.exists():
         print(f"[WARN] Not found, treating as empty: {path}")
-        return {"results": {}, "summary": {}}
+        return {"results": {}}
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _test_file_counts(summary):
+    """Normalize either schema (single-module's nested test_file_summary, or
+    multi-module's old flat summary) into one flat dict of file-level counts."""
+    if "build_failures" in summary and isinstance(summary["build_failures"], dict):
+        bf = summary["build_failures"]
+        compilation_errors = bf.get("compilation_errors", 0)
+        build_failures_other = bf.get("other", 0)
+    else:
+        compilation_errors = summary.get("compilation_errors", 0)
+        build_failures_other = summary.get("build_failures_without_test_execution", 0)
+    return {
+        "total_pass": summary.get("total_pass", 0),
+        "total_fail": summary.get("total_fail", 0),
+        "test_failures_breaking_change": summary.get("test_failures_breaking_change", 0),
+        "transplant_issues": summary.get("transplant_issues", 0),
+        "timeouts": summary.get("timeouts", 0),
+        "compilation_errors": compilation_errors,
+        "build_failures_other": build_failures_other,
+    }
+
+
+def _instances_with_breaking_change(results):
+    return sum(
+        1 for data in results.values()
+        if data.get("summary", {}).get("test_failures_breaking_change", 0) > 0
+    )
 
 
 def main():
@@ -62,23 +73,53 @@ def main():
 
     combined_results = {**single_results, **multi_results}
 
-    s_summary = single.get("summary", {})
-    m_summary = multi.get("summary", {})
-    combined_summary = {k: s_summary.get(k, 0) + m_summary.get(k, 0) for k in SUMMARY_KEYS}
-    combined_summary["single_module"] = s_summary
-    combined_summary["multi_module"] = m_summary
+    s_tf = _test_file_counts(single.get("test_file_summary", single.get("summary", {})))
+    m_tf = _test_file_counts(multi.get("summary", {}))
+
+    test_file_summary = {
+        "total_test_files_attempted": s_tf["total_pass"] + s_tf["total_fail"] + m_tf["total_pass"] + m_tf["total_fail"],
+        "total_pass": s_tf["total_pass"] + m_tf["total_pass"],
+        "total_fail": s_tf["total_fail"] + m_tf["total_fail"],
+        "test_failures_breaking_change": s_tf["test_failures_breaking_change"] + m_tf["test_failures_breaking_change"],
+        "transplant_issues": s_tf["transplant_issues"] + m_tf["transplant_issues"],
+        "timeouts": s_tf["timeouts"] + m_tf["timeouts"],
+        "build_failures": {
+            "total": s_tf["compilation_errors"] + s_tf["build_failures_other"] + m_tf["compilation_errors"] + m_tf["build_failures_other"],
+            "compilation_errors": s_tf["compilation_errors"] + m_tf["compilation_errors"],
+            "other": s_tf["build_failures_other"] + m_tf["build_failures_other"],
+        },
+    }
+
+    s_inst = single.get("instance_level_summary", {})
+    total_instances_in_dataset = s_inst.get("total_instances_in_dataset", 0)
+    s_processed = s_inst.get("instances_processed", len(single_results))
+    m_processed = multi.get("summary", {}).get("processed", len(multi_results))
+    instances_processed = s_processed + m_processed
+
+    instance_level_summary = {
+        "total_instances_in_dataset": total_instances_in_dataset,
+        "instances_processed": instances_processed,
+        "instances_skipped": max(total_instances_in_dataset - instances_processed, 0),
+        "instances_with_breaking_change": _instances_with_breaking_change(single_results) + _instances_with_breaking_change(multi_results),
+        "single_module": s_inst,
+        "multi_module": multi.get("summary", {}),
+    }
 
     FINAL_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     FINAL_OUTPUT.write_text(
-        json.dumps({"results": combined_results, "summary": combined_summary}, indent=2),
+        json.dumps({
+            "results": combined_results,
+            "test_file_summary": test_file_summary,
+            "instance_level_summary": instance_level_summary,
+        }, indent=2),
         encoding="utf-8",
     )
 
     print(f"[INFO] Single-module instances: {len(single_results)}")
     print(f"[INFO] Multi-module instances:  {len(multi_results)}")
     print(f"[INFO] Combined instances:      {len(combined_results)}")
-    print(f"\nOVERALL: pass={combined_summary['total_pass']}  fail={combined_summary['total_fail']}")
-    print(f"  breaking changes detected (test_failures_breaking_change): {combined_summary['test_failures_breaking_change']}")
+    print(f"\nOVERALL: pass={test_file_summary['total_pass']}  fail={test_file_summary['total_fail']}")
+    print(f"  breaking changes detected (test_failures_breaking_change): {test_file_summary['test_failures_breaking_change']}")
     print(f"\nOUTPUT: {FINAL_OUTPUT}")
 
 

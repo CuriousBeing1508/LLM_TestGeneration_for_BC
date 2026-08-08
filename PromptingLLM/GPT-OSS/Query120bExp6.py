@@ -28,12 +28,6 @@ HOURLY_WAIT_TIME = 3660  # Wait 61 minutes when hitting hourly limit (3600s + 60
 # Set to False to wait for 7 days (not recommended)
 EXIT_ON_WEEKLY_LIMIT = True
 
-# Optional: Email notification settings (leave empty to disable)
-NOTIFICATION_EMAIL = ""  # Your email to receive notifications
-EMAIL_PASSWORD = ""  # App password for Gmail (not your regular password)
-SMTP_SERVER = ""
-SMTP_PORT = 587
-
 CSV_PATH = SECONDARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
 
 # === LOAD ENV ===
@@ -137,35 +131,6 @@ print(f"  Keys remaining in cycle: {len(API_KEYS) - current_key_index - 1}")
 print(f"{'='*80}\n")
 
 
-# === EMAIL NOTIFICATION ===
-def send_email_notification(subject, message):
-    """Send email notification if configured."""
-    if not NOTIFICATION_EMAIL or not EMAIL_PASSWORD:
-        return
-    
-    try:
-        import smtplib
-        from email.mime.text import MIMEText
-        from email.mime.multipart import MIMEMultipart
-        msg = MIMEMultipart()
-        msg['From'] = NOTIFICATION_EMAIL
-        msg['To'] = NOTIFICATION_EMAIL
-        msg['Subject'] = subject
-        
-        msg.attach(MIMEText(message, 'plain'))
-        
-        server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
-        server.starttls()
-        server.login(NOTIFICATION_EMAIL, EMAIL_PASSWORD)
-        text = msg.as_string()
-        server.sendmail(NOTIFICATION_EMAIL, NOTIFICATION_EMAIL, text)
-        server.quit()
-        
-        print(f"✉ Email notification sent to {NOTIFICATION_EMAIL}")
-    except Exception as e:
-        print(f"Failed to send email notification: {e}")
-
-
 # === RATE LIMIT TRACKING ===
 def save_rate_limit_info(limit_type, hit_time, estimated_reset_time):
     """Save rate limit information for future reference."""
@@ -255,7 +220,7 @@ def call_qwen_cloud(prompt: str, max_retries=3):
                 if is_weekly:
                     # WEEKLY RATE LIMIT
                     print(f"\n{'='*80}")
-                    print(f"⚠ WEEKLY RATE LIMIT HIT - API KEY {current_index + 1} of {len(API_KEYS)}")
+                    print(f"WEEKLY RATE LIMIT HIT - API KEY {current_index + 1} of {len(API_KEYS)}")
                     print(f"Error: {e}")
                     print(f"Current time: {current_time.strftime('%Y-%m-%d %H:%M:%S')}")
                     print(f"{'='*80}\n")
@@ -264,8 +229,8 @@ def call_qwen_cloud(prompt: str, max_retries=3):
                     new_client, new_index, has_more_keys = get_next_api_key()
                     
                     if has_more_keys:
-                        print(f"✓ Switching to API key {new_index + 1} of {len(API_KEYS)}")
-                        print(f"✓ Continuing processing with new key...\n")
+                        print(f"Switching to API key {new_index + 1} of {len(API_KEYS)}")
+                        print(f"Continuing processing with new key...\n")
                         
                         client = new_client
                         
@@ -278,9 +243,7 @@ The script is continuing automatically with the new key.
 
 Check the log file for more details:
 {LOG_FILE}
-"""
-                        send_email_notification(email_subject, email_body)
-                        
+"""          
                         # Retry immediately with new key
                         continue
                     
@@ -300,11 +263,6 @@ Check the log file for more details:
                             print(f"   2. Delete {CURRENT_KEY_INDEX_FILE.name} to reset to first key")
                             print(f"   3. Run this script again - it will resume from where it stopped")
                             print(f"{'='*80}\n")
-                            
-                            send_email_notification(
-                                "Ollama Cloud - ALL API Keys Weekly Limit Hit",
-                                f"All {len(API_KEYS)} API keys exhausted.\nEstimated reset: {estimated_reset}"
-                            )
                             
                             return None, True
                         else:
@@ -329,7 +287,7 @@ Check the log file for more details:
                     current_index = get_current_key_index()
                     
                     print(f"\n{'='*80}")
-                    print(f"⚠ HOURLY RATE LIMIT HIT - API KEY {current_index + 1}")
+                    print(f"HOURLY RATE LIMIT HIT - API KEY {current_index + 1}")
                     print(f"Error: {e}")
                     print(f"Current time: {current_time.strftime('%Y-%m-%d %H:%M:%S')}")
                     print(f" Waiting for {HOURLY_WAIT_TIME // 60} minutes before resuming...")
@@ -349,8 +307,8 @@ Check the log file for more details:
             elif "503" in error_code or "timeout" in error_msg or "connection" in error_msg:
                 if attempt < max_retries - 1:
                     wait_time = (2 ** attempt) * 5
-                    print(f"⚠ Transient error: {e}")
-                    print(f"⏳ Retrying in {wait_time}s... (Attempt {attempt + 1}/{max_retries})")
+                    print(f"Transient error: {e}")
+                    print(f" Retrying in {wait_time}s... (Attempt {attempt + 1}/{max_retries})")
                     time.sleep(wait_time)
                     continue
                 else:
@@ -437,8 +395,8 @@ def process_prompts(prompt_dir, csv_bump_ids, start_idx=1, end_idx=None, skip_ex
             # FIX: Skip logic - skip until we're PAST the resume point
             if resume_from:
                 if bump_id == resume_from[0] and txt_file.name == resume_from[1]:
-                    print(f"✓ Found resume point: {bump_id}/{txt_file.name}")
-                    print(f"✓ Skipping this file (already processed)")
+                    print(f" Found resume point: {bump_id}/{txt_file.name}")
+                    print(f" Skipping this file (already processed)")
                     resume_from = None  # Clear resume flag
                     continue
                 elif bump_id == resume_from[0]:
@@ -513,7 +471,7 @@ if __name__ == "__main__":
         process_prompts(PROMPT_DIR, csv_bump_ids, start_idx=START_IDX, end_idx=END_IDX)
     except KeyboardInterrupt:
         print(f"\n\n{'='*80}")
-        print("⚠ Script interrupted by user")
+        print("Script interrupted by user")
         print("Progress saved. Run again to resume.")
         print(f"Current key: {get_current_key_index() + 1}/{len(API_KEYS)}")
         print(f"{'='*80}\n")

@@ -4,8 +4,6 @@ Script: execute_phase_pre.py
 Description: Phase 2 - Execute ONLY pre-compiled test files on PRE stage
              Loads compilation results from Phase 1, executes only successful compilations.
              Features: Incremental saving, resume capability, full console output, auto container cleanup.
-             Skips PMD/CheckStyle checks.
-Author: Optimized version with resume capability, verbose output, and stale container cleanup
 """
 
 import os
@@ -237,13 +235,16 @@ def execute_compiled_test(image_tag: str, custom_id: str, test_root: str,
         
         # === STEP 7: Build compile + execute command ===
         # Skip PMD, CheckStyle, and Enforcer to avoid false failures
+        # NOTE: uses `mvn test` (a normal Maven lifecycle phase) instead of a
+        # standalone `javac` call plus the `surefire:test` goal against a manually
+        # assembled classpath. That manual classpath (via a separate
+        # `mvn dependency:build-classpath` call) was fragile - a silent failure there
+        # left javac with an empty -cp and misleading "package X does not exist"
+        # errors. `mvn test` reuses Maven's own dependency resolution and test-compile
+        # phase, so there is no separate classpath-building step to fail.
         exec_cmd = (
             f"cd {project_root} && "
-            f"javac -cp \"target/classes:target/test-classes:"
-            f"$(mvn dependency:build-classpath -q -DincludeScope=test -Dmdep.outputFile=/dev/stdout 2>/dev/null)\" "
-            f"-d target/test-classes "
-            f"{test_root}/{pkg_path.as_posix()}/{java_file} 2>&1 && "
-            f"mvn surefire:test -Dtest={fqn} -DfailIfNoTests=false "
+            f"mvn test -Dtest={fqn} -DfailIfNoTests=false "
             f"-Dpmd.skip=true -Dcheckstyle.skip=true -Denforcer.skip=true"
         )
         
@@ -337,9 +338,9 @@ def execute_compiled_test(image_tag: str, custom_id: str, test_root: str,
                     failure_type = "parse_error"
             else:
                 if "BUILD SUCCESS" in stdout and proc.returncode == 0:
-                    success = True
-                    log_lines.append("[RESULT] ✓ Test PASSED (BUILD SUCCESS)")
-                    safe_print("[RESULT] ✓ Test PASSED (BUILD SUCCESS)")
+                    failure_type = "transplant_issue"
+                    log_lines.append("[RESULT] ⚠ TRANSPLANT ISSUE - BUILD SUCCESS but test did not execute")
+                    safe_print("[RESULT] ⚠ TRANSPLANT ISSUE - BUILD SUCCESS but test did not execute")
                 else:
                     failure_type = "execution_failure"
                     log_lines.append("[RESULT] ✗ Test did not execute")

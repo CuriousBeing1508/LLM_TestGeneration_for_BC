@@ -24,8 +24,7 @@ def get_last_lines(log_content, num_lines=50):
 
 
 def classify_compilation_error(log_content):
-    """Best-effort classification of a failing docker/maven log.
-
+    """
     Heuristic and intentionally not exhaustive - unmatched cases fall back
     to "unknown" with the last few log lines attached for manual triage.
     """
@@ -131,15 +130,7 @@ def to_java_filename(txt_name: str) -> tuple:
 
 def extract_llm_java_block(text: str) -> str:
     """Extract the Java code from a raw LLM response.
-
     Most responses wrap the test in a ```java ... ``` (or bare ``` ... ```)
-    fence. GPT-OSS-120b, however, returns completely unfenced raw Java in
-    the large majority of its outputs (~85-90% of files in this dataset) -
-    the original extractor only understood the fenced case, so it silently
-    treated every unfenced GPT-OSS response as "no code found" and dropped
-    it before it ever reached compilation. When no fence is found (or a
-    fence is found but empty), fall back to the raw response if it looks
-    like Java, instead of discarding it.
     """
     lines = text.splitlines()
     in_block = False

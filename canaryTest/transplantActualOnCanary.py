@@ -114,13 +114,11 @@ def docker_run_with_transplant(image_tag, custom_id, phase, test_root, package_p
       - copy tests to {test_root}/{package_path.replace('.', '/')}/{custom_id}/
       - compile with mvn test-compile
       - run surefire:test for only the selected classes
-      - always attempt to copy surefire reports out
+      - copy surefire reports out
     Returns dict with:
       - "compiled": True/False
       - "surefire_dir": Path or None
       - "log_path": str
-      - "per_class": stats dict
-      - "totals": totals dict
     """
     container_name = f"{custom_id.lower()}_{phase}_container"
     mount_target = "/llm_tests"

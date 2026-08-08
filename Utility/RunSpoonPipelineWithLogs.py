@@ -7,15 +7,6 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from config import PRIMARY_DRIVE, SECONDARY_DRIVE
 
-# === CONFIG ===
-# SCRIPT_DIR = Path(__file__).resolve().parent
-# csv_path = SCRIPT_DIR / "Dataset" / "detailed_missing_reportVer2.csv"
-# jar_path = SCRIPT_DIR / "my_spoon_wrapper-1.0-shaded.jar"
-# clients_base_folder = PRIMARY_DRIVE / "Clients"
-# analysis_root = PRIMARY_DRIVE / "StaticAnalysis"
-# log_dir = PRIMARY_DRIVE / "MissingReports/logs"
-# log_dir.mkdir(parents=True, exist_ok=True)
-
 SCRIPT_DIR = Path(__file__).resolve().parent
 csv_path = SECONDARY_DRIVE / "ConfigFiles/BUMP_with_NoLibraryGitHubURL.csv"
 jar_path =  SCRIPT_DIR /"my_spoon_wrapper-1.0-shaded.jar"

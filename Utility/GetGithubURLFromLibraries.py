@@ -38,7 +38,7 @@ def fetch_github_url(group_id, artifact_id):
         return "Artifact Not Found"
     
     else:
-        print(f"🔥 API Error {response.status_code} for {group_id}:{artifact_id}")
+        print(f"API Error {response.status_code} for {group_id}:{artifact_id}")
         return f"API Error: {response.status_code}"
 
 

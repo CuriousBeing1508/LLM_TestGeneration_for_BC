@@ -27,12 +27,6 @@ HOURLY_WAIT_TIME = 3660  # Wait 61 minutes when hitting hourly limit (3600s + 60
 # Set to False to wait for 7 days (not recommended)
 EXIT_ON_WEEKLY_LIMIT = True
 
-# Optional: Email notification settings (leave empty to disable)
-# You can use Gmail SMTP or any other email service
-NOTIFICATION_EMAIL = ""  # Your email to receive notifications
-EMAIL_PASSWORD = ""  # App password for Gmail (not your regular password)
-SMTP_SERVER = ""
-SMTP_PORT = 587
 
 CSV_PATH = SECONDARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
 
@@ -412,13 +406,12 @@ def process_prompts(prompt_dir, csv_bump_ids, start_idx=1, end_idx=None, skip_ex
     print(f"Request delay between calls: {REQUEST_DELAY} seconds")
     print(f"Hourly limit wait time: {HOURLY_WAIT_TIME // 60} minutes")
     print(f"Weekly limit action: {'EXIT (recommended)' if EXIT_ON_WEEKLY_LIMIT else 'WAIT 7 days'}")
-    print(f"Email notifications: {'Enabled' if NOTIFICATION_EMAIL else 'Disabled'}")
     print("Instances to process:", selected_ids, "\n")
 
     # Check for previous rate limit info
     rate_limit_info = load_rate_limit_info()
     if rate_limit_info:
-        print(f"ℹ️  Previous rate limit detected:")
+        print(f" Previous rate limit detected:")
         print(f"   Type: {rate_limit_info['limit_type']}")
         print(f"   Hit at: {rate_limit_info['hit_time']}")
         print(f"   Estimated reset: {rate_limit_info['estimated_reset_time']}")
@@ -463,8 +456,8 @@ def process_prompts(prompt_dir, csv_bump_ids, start_idx=1, end_idx=None, skip_ex
             if should_skip:
                 if bump_id == progress['last_bump_id'] and txt_file.name == progress['last_file']:
                     should_skip = False
-                    print(f"✓ Found resume point: {bump_id}/{txt_file.name}")
-                    print(f"✓ Continuing from next file...\n")
+                    print(f"Found resume point: {bump_id}/{txt_file.name}")
+                    print(f"Continuing from next file...\n")
                 continue
 
             processed += 1
@@ -476,7 +469,7 @@ def process_prompts(prompt_dir, csv_bump_ids, start_idx=1, end_idx=None, skip_ex
             output_path = OUTPUT_ROOT / bump_id / prompt_filename
 
             if skip_existing and output_path.exists():
-                print(f"  → Skipping (already exists): {output_path}")
+                print(f" Skipping (already exists): {output_path}")
                 skipped += 1
                 continue
 
@@ -506,13 +499,13 @@ def process_prompts(prompt_dir, csv_bump_ids, start_idx=1, end_idx=None, skip_ex
                 with open(output_path, "w", encoding="utf-8") as out_file:
                     out_file.write(response)
 
-                print(f"✓ Saved: {output_path}")
+                print(f"Saved: {output_path}")
                 written += 1
                 
                 # Save progress after each successful write
                 save_progress(bump_id, txt_file.name)
             else:
-                print(f"✗ Failed: {response}")
+                print(f"Failed: {response}")
                 errors += 1
 
             # Add delay between requests to avoid hitting rate limits

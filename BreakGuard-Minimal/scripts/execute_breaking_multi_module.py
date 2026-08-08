@@ -2,8 +2,6 @@
 """
 Script: execute_breaking_multi_module.py
 Description: Breaking stage execution for MULTI-MODULE projects only
-             - Uses EXACT SAME transplant logic as single-module script
-             - Parallel test execution (4 tests per instance)
              - Detects compilation errors BEFORE execution
              - Auto container cleanup, resume capability
 Approach: Maven reactor with failure ignore
