@@ -59,12 +59,6 @@ def get_optimal_workers(num_tests, max_workers=8):
     else:
         return max_workers  # 5+ tests: use max workers (8)
 
-# # === CONFIGURATION GPT4o===
-# CSV_PATH = PRIMARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-# SUMMARY_PATH = PRIMARY_DRIVE / "ConfigFiles/package_structure_summary.txt"
-# COMPILE_OUTPUT = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre/compile_results_pre.json"
-# ABC_ROOT = PRIMARY_DRIVE / "FilteredDataset/Exp3LLMOutput/GPT4o"
-# MODEL_NAME = ABC_ROOT.name
 
 
 _args, _paths = parse_common_args(

@@ -77,22 +77,6 @@ def compute_instance_level_summary(results, total_instances_in_dataset, skipped_
         "instances_with_breaking_change": with_breaking_change,
     }
 
-# # === CONFIG GPT===
-# CSV_PATH = PRIMARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-# SUMMARY_PATH = PRIMARY_DRIVE / "ConfigFiles/package_structure_summary.txt"
-# PRE_RESULTS_PATH = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre/transplant_results_final_pre.json"
-# BREAKING_OUTPUT = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/bre/transplant_results_breaking_single_module.json"
-# MULTI_MODULE_LIST = PRIMARY_DRIVE / "ConfigFiles/multi_module_instances.json"
-# ABC_ROOT = PRIMARY_DRIVE / "FilteredDataset/Exp3LLMOutput/GPT4o"
-
-
-# # === CONFIG Qwen===
-# CSV_PATH = SECONDARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-# SUMMARY_PATH = SECONDARY_DRIVE / "ConfigFiles/package_structure_summary.txt"
-# PRE_RESULTS_PATH = SECONDARY_DRIVE / "Qwen480Results/Exp3BatchResults/pre/transplant_results_final_pre.json"
-# BREAKING_OUTPUT = SECONDARY_DRIVE / "Qwen480Results/Exp3BatchResults/bre/transplant_results_breaking_single_module.json"
-# MULTI_MODULE_LIST = SECONDARY_DRIVE / "ConfigFiles/multi_module_instances.json"
-# ABC_ROOT = SECONDARY_DRIVE / "FilteredDataset/Exp3LLMOutput/Qwen_480b_cloud"
 
 
 

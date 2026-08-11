@@ -39,14 +39,6 @@ def safe_print(*args, **kwargs):
     with print_lock:
         print(*args, **kwargs)
 
-# # === CONFIGURATION GPT===
-
-CSV_PATH = PRIMARY_DRIVE / "ConfigFiles/updated_FinalBUMP_Instances_with_TestRunner.csv"
-SUMMARY_PATH = PRIMARY_DRIVE / "ConfigFiles/package_structure_summary.txt"
-COMPILE_INPUT = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre/compile_results_pre.json"
-EXECUTE_OUTPUT = PRIMARY_DRIVE / "GPTResults/Exp3BatchResults/pre/execute_results_pre.json"
-ABC_ROOT = PRIMARY_DRIVE / "FilteredDataset/Exp3LLMOutput/GPT4o"
-
 _args, _paths = parse_common_args(
     "PRE Phase 2: execute pre-compiled tests against the PRE (pre-upgrade) codebase"
 )
