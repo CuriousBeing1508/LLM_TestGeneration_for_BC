@@ -1,0 +1,6 @@
+assertion_kind,test_cases,pct
+Should not throw (e.g. assertDoesNotThrow),136,77.3
+Value oracle (e.g. assertTrue on output),25,14.2
+Existence probe (assertNotNull/fail),7,4.0
+No explicit assertion,8,4.5
+Total,176,100.0

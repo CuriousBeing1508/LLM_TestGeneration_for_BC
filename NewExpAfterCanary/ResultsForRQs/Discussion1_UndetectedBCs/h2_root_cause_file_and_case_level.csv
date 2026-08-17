@@ -1,0 +1,6 @@
+root_cause,test_files,test_cases
+Transitive Dependency,24,37
+Wrong Target,16,32
+Weak Oracle,3,11
+Not yet manually coded,189,375
+Total H2,232,455

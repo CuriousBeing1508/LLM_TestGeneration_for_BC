@@ -50,12 +50,7 @@ KIND_DESCRIPTIONS = {
     "no_code":                    "LLM output had no parseable Java code — never reached the compiler",
 }
 
-# Denominator for every percentage below is ALL failed tests per model
-# (including no_code), not just the ones that produced a compile log —
-# see error_category in compile_results_pre.json. Conditioning on "reached
-# the compiler" would silently compare very different-sized, non-equivalent
-# subsets across models (e.g. GPTOSS-120B's failures are 86% no_code, so
-# its "reached compiler" set is a small, unrepresentative slice of near-misses).
+
 ALL_KINDS = [
     "no_code",
     "cant.resolve", "cant.apply.symbol", "strict", "doesnt.exist",

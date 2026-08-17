@@ -1,0 +1,11 @@
+model,context,crash_tests,assert_tests,pct_crash,test_files
+GPT-4o,Minimal,169,2,98.8,168
+GPT-4o,Method,384,0,100.0,292
+GPT-4o,Class,422,15,96.6,320
+Qwen3-coder,Minimal,611,81,88.3,653
+Qwen3-coder,Method,729,52,93.3,654
+Qwen3-coder,Class,867,9,99.0,706
+GPT-OSS,Minimal,9,0,100.0,7
+GPT-OSS,Method,107,10,91.5,77
+GPT-OSS,Class,92,7,92.9,67
+Total,,3390,176,95.1,2944
